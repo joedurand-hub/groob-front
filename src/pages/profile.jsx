@@ -12,12 +12,9 @@ const Profile = () => {
   };
 
   return (
-    <ThemeProvider theme={theme == "light" ? lightTheme : darkTheme}>
       <Layout>
         <ProfileUser />
-        <button onClick={toggleTheme}>Switch Theme</button>
       </Layout>
-    </ThemeProvider>
   );
 };
 
