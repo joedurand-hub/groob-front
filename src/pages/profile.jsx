@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { lightTheme, darkTheme } from "../styles/global";
-import { ThemeProvider } from "styled-components";
 import Layout from "../components/Layout/Layout";
-import ProfileUser from "../components/Profile/ProfileUser";
+import User from "../components/Profile/User";
 
 const Profile = () => {
   const [theme, setTheme] = useState("light");
@@ -13,7 +11,7 @@ const Profile = () => {
 
   return (
       <Layout>
-        <ProfileUser />
+        <User />
       </Layout>
   );
 };
