@@ -11,33 +11,10 @@ const SignIn = () => {
   const { data, pending, error, sendData } = usePost();
   
   const handleLogin = (e) => {
-    e.preventDefault();
-    sendData({
-      endpoint: url, 
-      postData: {
-        email,
-        password,
-      } 
-    });
-    console.log("data", data);
+     e.preventDefault();
+     sendData({ endpoint: url, postData: { email, password }})
     token = window.localStorage.setItem("token", JSON.stringify(data));
     return token;
-  };
-
-  const handleInputEmailChange = (e) => {
-    setEmail({
-      ...email,
-      [e.target.name]: e.target.value,
-    });
-    console.log(e.target.value)
-  };
-
-  const handleInputPasswordChange = (e) => {
-    setPassword({
-      ...password,
-      [e.target.name]: e.target.value,
-    });
-    console.log(e.target.value)
   };
 
   return (
@@ -57,13 +34,15 @@ const SignIn = () => {
           placeeholder="email"
           type="email"
           name="email"
-          onChange={(e) => handleInputEmailChange(e)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           placeeholder="password"
           name="password"
           type="password"
-          onChange={(e) => handleInputPasswordChange(e)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button
           type="submit"
