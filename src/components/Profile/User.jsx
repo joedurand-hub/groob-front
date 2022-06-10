@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import useRequest from "../../hooks/useRequest";
 
 let url = "http://localhost:8080/profile";
@@ -47,4 +48,4 @@ const User = () => {
   }
 };
 
-export default User;
+export default memo(User);

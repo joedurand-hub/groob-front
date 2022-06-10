@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const initialState = {
     data: undefined,
     loading: true,
-    error: undefined
+    error: undefined,
 }
 
 const useRequest = (url, token) => {
@@ -18,12 +18,12 @@ const useRequest = (url, token) => {
         .then(response => setRequestData({
             data: response.data,
             loading: false,
-            error: undefined
+            error: undefined,
         }))
         .catch(error => setRequestData({
             data: undefined,
             loading: false,
-            error: error.message
+            error: error.message,
         }))
     }, [])
     return requestData;

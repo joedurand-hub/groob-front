@@ -31,5 +31,5 @@ Layout.defaultProps = {
   name: "ninguno",
   href: "ninguno",
   description:
-    "Groob es una nueva red social multi feed que permite adaptar la interfaz según los gustos de cada usuario.",
+    "Groob es una nueva red social multi feed que permite adaptar la interfaz visual según los gustos de cada usuario.",
 };
