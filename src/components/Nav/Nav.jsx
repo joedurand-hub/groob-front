@@ -4,7 +4,7 @@ import styles from './nav.module.css'
 import { ThemeContext } from '../../contexts/ThemeContext'
 
 
-const NavBar = ({children, variant="nav"}) => {
+const Nav = ({children, variant="nav"}) => {
   const { theme } = useContext(ThemeContext)
 
   return (
@@ -15,4 +15,4 @@ const NavBar = ({children, variant="nav"}) => {
   )
 }
 
-export default NavBar
+export default Nav;

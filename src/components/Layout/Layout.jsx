@@ -1,28 +1,27 @@
 import React, { useContext } from 'react'
 import Head from "next/head";
-import NavBar from "../Nav/Nav";
-import { FaUserAlt } from "react-icons/fa";
-import { Div } from "./styles.js";
+import Nav from "../Nav/Nav";
 import Anchor from "../Anchor/Anchor";
-import navStyles from "../Nav/nav.module.css";
+import { FaUserAlt } from "react-icons/fa";
 import { ThemeContext } from '../../contexts/ThemeContext'
+import styles from './layout.module.css'
 
 const Layout = ({ title, description, children }) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-        <div>
+        <div className={`${theme ? styles.layout_light_mode : styles.layout_dark_mode}`}>
           <Head>
             <title>{title}</title>
             <meta name="description" content={description} />
           </Head>
-          <NavBar variant={`${theme ? navStyles.dark_mode : navStyles.light_mode}`}>
+          <Nav>
             <Anchor name="Home" path="/" />
             <i>
               <FaUserAlt />
             </i>
             <Anchor name="Profile" path="/profile" />
-          </NavBar>
+          </Nav>
           <main>{children}</main>
           <footer></footer>
         </div>

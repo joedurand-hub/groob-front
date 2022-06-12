@@ -1,0 +1,23 @@
+.layout_light_mode {
+    transition: all 0.50s linear;
+    background: #e6e6e6;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.layout_dark_mode {
+    transition: all 0.50s linear;
+    background: #000;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
