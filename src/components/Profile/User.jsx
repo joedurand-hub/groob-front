@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import useRequest from "../../hooks/useRequest";
+import Switch from '../Switch/Switch';
 
 let url = "http://localhost:8080/profile";
 
@@ -43,6 +44,8 @@ const User = () => {
             {/* <Image src="/foto1.jpg" alt="" width={500} height={500} /> */}
           </div>
         )}
+        <br />
+        <Switch/>
       </div>
     );
   }

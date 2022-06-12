@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { lightTheme, darkTheme, GlobalStyles } from "../styles/global";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from '../contexts/ThemeContext'
 
 function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("light");
@@ -10,10 +9,8 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <ThemeProvider theme={theme == "light" ? lightTheme : darkTheme}>
-      <GlobalStyles />
+    <ThemeProvider>
       <Component {...pageProps} />
-      <button onClick={toggleTheme}>Switch Theme</button>
     </ThemeProvider>
   );
 }

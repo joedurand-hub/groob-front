@@ -1,11 +1,17 @@
-import React from 'react'
-import { Nav } from './styles'
-const NavBar = ({children}) => {
+import React, { useContext } from 'react'
+import { variantToStyles } from '../../helpers/variant'
+import styles from './nav.module.css'
+import { ThemeContext } from '../../contexts/ThemeContext'
+
+
+const NavBar = ({children, variant="nav"}) => {
+  const { theme } = useContext(ThemeContext)
 
   return (
-    <Nav>
+    <nav className={`${theme ? styles.nav_light_mode : styles.nav_dark_mode}`}
+ >
         {children}
-    </Nav>
+    </nav>
   )
 }
 
