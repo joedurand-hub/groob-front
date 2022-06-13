@@ -54,6 +54,18 @@ input[type="checkbox"] {
   box-sizing: border-box;
 }
 
+.dark_mode {
+  transition: all 0.50s linear;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.light_mode {
+  transition: all 0.50s linear;
+  background: #fff;
+  color: #1a1a1a;
+}
+
 @media (min-width: 1200px) {
   html {
     font-size: 1.2em;

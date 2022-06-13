@@ -1,0 +1,11 @@
+.switch-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0.5em;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+    background: #1a1a1a;
+    transition: all 0.2s ease-in-out;
+  }

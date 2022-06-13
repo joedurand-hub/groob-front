@@ -11,16 +11,8 @@ const User = () => {
 
     return (
       <div>
-        {loading && (
-          <div>
-            <p>Loading...</p>
-          </div>
-        )}
-        {error && (
-          <div>
-            <p>Error: no se pudo traer la info...</p>
-          </div>
-        )}
+        { loading && <p>Loading...</p> }
+        { error && <p>Error: no se pudo traer la info...</p> }
         {!loading && data && (
           <div>
             <span>{data?.username}</span>

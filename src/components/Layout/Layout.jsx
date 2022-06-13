@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Head from "next/head";
 import Nav from "../Nav/Nav";
 import Anchor from "../Anchor/Anchor";
+import Footer from "../Footer/Footer";
 import { FaUserAlt } from "react-icons/fa";
 import { ThemeContext } from '../../contexts/ThemeContext'
 import styles from './layout.module.css'
@@ -23,7 +24,7 @@ const Layout = ({ title, description, children }) => {
             <Anchor name="Profile" path="/profile" />
           </Nav>
           <main>{children}</main>
-          <footer></footer>
+          <Footer/>
         </div>
   );
 };

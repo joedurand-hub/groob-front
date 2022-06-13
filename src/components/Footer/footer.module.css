@@ -1,0 +1,26 @@
+.content {
+    background: rgb(255, 255, 255);
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    bottom: 0;
+  }
+  
+  .content_contact_icons {
+    width: 35px;
+    line-height: 35px;
+    height: 35px;
+    color: #8228b6;
+  }
+  
+  .content_contact_icons:hover {
+    width: 35px;
+    height: 35px;
+    color: #2836b6;
+    transition: .3s;
+  
+  }
