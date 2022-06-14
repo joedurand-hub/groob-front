@@ -3,9 +3,9 @@ import Head from "next/head";
 import Nav from "../Nav/Nav";
 import Anchor from "../Anchor/Anchor";
 import Footer from "../Footer/Footer";
-import { FaUserAlt } from "react-icons/fa";
 import { ThemeContext } from '../../contexts/ThemeContext'
 import styles from './layout.module.css'
+import Image from "next/image"
 
 const Layout = ({ title, description, children }) => {
   const { theme } = useContext(ThemeContext)
@@ -14,17 +14,19 @@ const Layout = ({ title, description, children }) => {
         <div className={`${theme ? styles.layout_light_mode : styles.layout_dark_mode}`}>
           <Head>
             <title>{title}</title>
+            <link rel="icon" href={theme? `${"logo.ico"}` : `${"logoDarkMode.ico"}`} />
             <meta name="description" content={description} />
           </Head>
           <Nav>
+            <Image src="/Logo.png" alt="logo" width={200} height={200}/>
             <Anchor name="Home" path="/" />
-            <i>
-              <FaUserAlt />
-            </i>
             <Anchor name="Profile" path="/profile" />
           </Nav>
           <main>{children}</main>
-          <Footer/>
+          <Nav>
+            <Anchor name="Home" path="/" />
+            <Anchor name="Profile" path="/profile" />
+          </Nav>
         </div>
   );
 };

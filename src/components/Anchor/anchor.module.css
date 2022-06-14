@@ -1,0 +1,10 @@
+.link {
+    font-size: 1rem;
+}
+.link_light_mode {
+    color: rgb(20, 67, 175);
+}
+
+.link_dark_mode {
+    color: rgb(107 28 211)
+}
