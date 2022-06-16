@@ -9,13 +9,14 @@ const usePost = () => {
   });
 
   const sendData = async ({endpoint, postData}) => {  
+    
     setPostData({
       data: undefined,
       pending: true,
       error: undefined,
     });
     return axios.post(`${endpoint}`, {...postData} )
-      .then((response) => {
+    .then((response) => {
         setPostData({ pending: false, data: response.data, error: undefined });
       })
       .catch((error) => {

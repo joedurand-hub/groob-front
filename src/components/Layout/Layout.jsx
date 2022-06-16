@@ -18,7 +18,7 @@ const Layout = ({ title, description, children }) => {
             <meta name="description" content={description} />
           </Head>
           <Nav>
-            <Image src="/Logo.png" alt="logo" width={200} height={200}/>
+            {/* <Image src="/Logo.png" alt="logo" width={200} height={200}/> */}
             <Anchor name="Home" path="/" />
             <Anchor name="Profile" path="/profile" />
           </Nav>

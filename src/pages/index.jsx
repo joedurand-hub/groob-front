@@ -1,19 +1,17 @@
 import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 import SignUp from "../components/SignUp/SignUp";
 import Head from "next/head";
 import Switch from "../components/Switch/Switch";
 import Footer from "../components/Footer/Footer";
 import styles from "../styles/index.module.css";
-import { ThemeContext } from "../contexts/ThemeContext";
 import Link from "next/link";
 import Anchor from "../components/Anchor/Anchor";
+
 const Home = () => {
   const { theme } = useContext(ThemeContext);
 
-  const handleNewPassword = () => {
-    //method POST to /reset-password
-    console.log("new password");
-  };
+
   return (
     <div
       className={
@@ -23,12 +21,6 @@ const Home = () => {
       }
     >
         <SignUp />
-     <br/>
-          <Anchor
-            name="¿Olvidaste tu contraseña?"
-            path="/"
-            onClick={handleNewPassword}
-          />
     </div>
   );
 };

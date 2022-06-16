@@ -27,7 +27,7 @@ const User = () => {
 
             <div>
               <span>
-                {data && data.followers?.length === 0
+                {data && data.followers?.length === 0 || data.followers === null
                   ? 0
                   : data.followers?.length}
               </span>
