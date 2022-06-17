@@ -3,13 +3,12 @@ import axios from "axios";
 
 const usePost = () => {
   const [postData, setPostData] = useState({
-      data: undefined,
+    data: undefined,
     pending: false,
     error: undefined,
   });
 
   const sendData = async ({endpoint, postData}) => {  
-    
     setPostData({
       data: undefined,
       pending: true,

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -12,12 +12,15 @@ import Image from "next/image";
 const url = "http://localhost:8080/login";
 
 export const SignUp = () => {
+  const [token, setToken] = useState("");
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-  if (typeof window !== "undefined") {
-    let token = window.localStorage.setItem("token", JSON.stringify(data));
-    console.log(token);
-  }
+
+  useEffect(() => {
+    setToken(data)
+    window.localStorage.setItem("token", JSON.stringify(data));
+  }, [data])
+
   const {
     register,
     handleSubmit,
@@ -26,7 +29,6 @@ export const SignUp = () => {
 
   const router = useRouter();
   const onSubmit = async (data) => {
-    console.log(data)
     sendData({
       endpoint: url,
       postData: {
@@ -38,7 +40,6 @@ export const SignUp = () => {
 
 const handleNewPassword = () => {
   //method POST to /reset-password
-  console.log("new password");
 }
   
   return (

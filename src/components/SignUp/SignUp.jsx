@@ -1,22 +1,24 @@
+import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import usePost from "../../hooks/usePost";
 import Button from "../Button/Button";
 import Anchor from "../Anchor/Anchor";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
 import styles from "./signup.module.css";
 import inputField from "../input.module.css";
 import Image from "next/image";
 
 const url = "http://localhost:8080/signup";
 export const SignUp = () => {
+  const [token, setToken] = useState("");
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-  if (typeof window !== "undefined") {
-    let token = window.localStorage.setItem("token", JSON.stringify(data));
-    return token
-  }
+  useEffect(() => {
+    setToken(data)
+    window.localStorage.setItem("token", JSON.stringify(token));
+  }, [data])
+  
   const {
     register,
     handleSubmit,
