@@ -1,4 +1,4 @@
-import { variantToStyles } from '../../helpers/variant';
+import { variantToStyles } from '../../helpers/variants';
 import styles from './button.module.css'
 const Button = ({ name, onSubmit, onClick, type, variant, disabled }) => {
   return (

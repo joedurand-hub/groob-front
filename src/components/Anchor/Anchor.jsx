@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from './anchor.module.css'
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";
-import { variantToStyles } from "../../helpers/variant";
+import { variantToStyles } from "../../helpers/variants";
 
 const Anchor = React.forwardRef(
   ({ onClick, path, name, disabled, variant }, ref) => {
