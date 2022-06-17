@@ -204,9 +204,9 @@ export const SignUp = () => {
         </section>
         <div>
           <Button
-            // onClick={() => {
-            //   router.push("/Feed/Feed");
-            // }}
+            onClick={() => {
+              router.push("/Feed/Feed");
+            }}
             type="submit"
             name="Registrarme"
             variant="primary"
