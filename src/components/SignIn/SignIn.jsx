@@ -12,12 +12,10 @@ import Image from "next/image";
 const url = "http://localhost:8080/login";
 
 export const SignUp = () => {
-  const [token, setToken] = useState("");
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
 
   useEffect(() => {
-    setToken(data)
     window.localStorage.setItem("token", JSON.stringify(data));
   }, [data])
 
