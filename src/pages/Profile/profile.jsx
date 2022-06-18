@@ -6,12 +6,13 @@ import User from "../../components/Profile/User";
 
 const Profile = () => {
   const [token, setToken] = useState("");
+  
   useEffect(() => {
     let myToken = JSON.parse(window.localStorage.getItem("token"));
     setToken(myToken);
   }, [token]);
-  const { data, loading, error } = useRequest("http://localhost:8080/profile", token);
 
+  const { data, loading, error } = useRequest("http://localhost:8080/profile", token);
 
   return (
       <Layout>
@@ -21,4 +22,5 @@ const Profile = () => {
 };
 
 
-    export default Profile;
+export default Profile;
+

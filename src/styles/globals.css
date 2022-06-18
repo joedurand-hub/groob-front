@@ -6,6 +6,9 @@ body {
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 100%;
   background: #ececece5;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 h1 {

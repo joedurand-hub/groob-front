@@ -3,6 +3,7 @@ import Switch from "../Switch/Switch";
 import Image from "next/image";
 import styles from './user.module.css'
 import Button from "../Button/Button";
+
 const User = ({ data, loading, error }) => {
   return (
     <>
@@ -73,6 +74,9 @@ const User = ({ data, loading, error }) => {
       <Switch />
       </section>
       )}
+      <div>
+        <article>Publicaciones</article>
+      </div>
 </>
   );
 };

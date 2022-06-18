@@ -10,26 +10,22 @@ const Layout = ({ title, description, children }) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-        <div className={`${theme ? styles.layout_light_mode : styles.layout_dark_mode}`}>
+        <>
           <Head>
             <title>{title}</title>
-            <link rel="icon" href={theme? `${"logo.ico"}` : `${"logoDarkMode.ico"}`} />
+            <link rel="icon" href={theme? `${"/logo.ico"}` : `${"/logoDarkMode.ico"}`} />
             <meta name="description" content={description} />
           </Head>
           <header>
 
           <Nav>
-            {/* <Image src="/Logo.png" alt="logo" width={200} height={200}/> */}
+            <Image src={`${theme ? "/Logo.png" : "/LogoDarkMode.png"}`} alt="logo" width={80} height={50}/>
             <Anchor name="Home" path="/Feed/feed" />
             <Anchor name="Mensajes" path="/messages" />
           </Nav>
           </header>
-          <main>{children}</main>
-          <Nav>
-            <Anchor name="Home" path="/" />
-            <Anchor name="Profile" path="/Profile/profile" />
-          </Nav>
-        </div>
+          <main className={`${theme ? styles.layout_light_mode : styles.layout_dark_mode}`}>{children}</main>
+        </>
   );
 };
 
