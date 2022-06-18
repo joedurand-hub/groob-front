@@ -10,7 +10,7 @@ const Switch = () => {
 
   return (
     <div>
-      <button type="text" name={theme} value={theme} onClick={handleClick}>Dark mode</button>
+      <button type="text" value={theme} onClick={handleClick}>Dark mode</button>
     </div>
   )
 }
