@@ -2,13 +2,14 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 100%;
   background: #ececece5;
 }
 
 h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto-Medium", sans-serif;
   font-size: 2em;
   margin: 0;
 }
@@ -37,13 +38,22 @@ h4 {
 }
 
 p {
+  font-family: "Roboto-Bold", sans-serif;
   word-wrap: break-word;
   font-size: 1em;
   font-weight: 400;
 }
 
 li {
+  font-family: "Roboto", sans-serif;
   list-style: none;
+}
+
+span {
+  font-family: "Roboto-Bold", sans-serif;
+  word-wrap: break-word;
+  font-size: 1em;
+  font-weight: 400;
 }
 
 input[type="checkbox"] {

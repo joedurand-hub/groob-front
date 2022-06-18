@@ -16,7 +16,9 @@ export const SignUp = () => {
   const { data, pending, error, sendData } = usePost();
 
   useEffect(() => {
-    window.localStorage.setItem("token", JSON.stringify(data));
+    if(data) {
+      window.localStorage.setItem("token", JSON.stringify(data));
+    }
   }, [data])
 
   const {

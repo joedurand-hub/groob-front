@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import Head from "next/head";
 import Nav from "../Nav/Nav";
 import Anchor from "../Anchor/Anchor";
-import Footer from "../Footer/Footer";
 import { ThemeContext } from '../../contexts/ThemeContext'
 import styles from './layout.module.css'
 import Image from "next/image"
@@ -17,15 +16,18 @@ const Layout = ({ title, description, children }) => {
             <link rel="icon" href={theme? `${"logo.ico"}` : `${"logoDarkMode.ico"}`} />
             <meta name="description" content={description} />
           </Head>
+          <header>
+
           <Nav>
             {/* <Image src="/Logo.png" alt="logo" width={200} height={200}/> */}
-            <Anchor name="Home" path="/" />
-            <Anchor name="Profile" path="/profile" />
+            <Anchor name="Home" path="/Feed/feed" />
+            <Anchor name="Mensajes" path="/messages" />
           </Nav>
+          </header>
           <main>{children}</main>
           <Nav>
             <Anchor name="Home" path="/" />
-            <Anchor name="Profile" path="/profile" />
+            <Anchor name="Profile" path="/Profile/profile" />
           </Nav>
         </div>
   );

@@ -1,13 +1,15 @@
 .small {
+      font-family: "Roboto-Bold", sans-serif;
     font-size: 0.9rem;
 }
 
 .intermediate {
-
+    font-family: "Roboto-Bold", sans-serif;
     font-size: 1rem;
 }
 
 .large {
+    font-family: "Roboto-Bold", sans-serif;
     font-size: 1.2rem;
 }
 
