@@ -19,3 +19,11 @@
     flex-direction: column;
     align-items: center;
 }
+
+
+.layout_container_links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
