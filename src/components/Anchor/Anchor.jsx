@@ -3,10 +3,10 @@ import Link from "next/link";
 import styles from './anchor.module.css'
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";
-import { variantToStyles } from "../../helpers/variant";
+import { variantToStyles } from "../../helpers/variants";
 
 const Anchor = React.forwardRef(
-  ({ onClick, path, name, disabled, variant }, ref) => {
+  ({ onClick, path, name, disabled, variant, children }, ref) => {
     const { theme } = useContext(ThemeContext);
 
     return (
@@ -18,8 +18,10 @@ const Anchor = React.forwardRef(
         styles[variant],)}
           rel="noreferrer noopener"
           onClick={onClick}
+            disabled={disabled}
           ref={ref}>
           {name}
+          {children}
         </a>
       </Link>
     );

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useDebugValue } from "react";
 import { useRouter } from "next/router";
 import usePost from "../../hooks/usePost";
 import Button from "../Button/Button";
@@ -13,9 +13,11 @@ const url = "http://localhost:8080/signup";
 export const SignUp = () => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-
+  
   useEffect(() => {
-    window.localStorage.setItem("token", JSON.stringify(data));
+    if(data) {
+      window.localStorage.setItem("token", JSON.stringify(data));
+    }
   }, [data])
 
   const {
