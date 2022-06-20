@@ -1,1 +1,0 @@
-// usar memo al exportar el componente para evitar múltiples renderizados

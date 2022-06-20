@@ -8,11 +8,12 @@ const initialState = {
 }
 
 const useRequest = (url, token) => {
+    console.log(url, token)
     const [requestData, setRequestData] = useState(initialState)
     useEffect(() => {
         axios.get(`${url}`, {
             headers: {
-                "auth-token": `${token && JSON.parse(token)}`
+                "auth-token": token
             }
         })
         .then(response => setRequestData({
@@ -20,11 +21,14 @@ const useRequest = (url, token) => {
             loading: false,
             error: undefined,
         }))
-        .catch(error => setRequestData({
-            data: undefined,
-            loading: false,
-            error: error.message,
-        }))
+        .catch(error => {
+            console.log(error)
+            setRequestData({
+                data: undefined,
+                loading: false,
+                error: error.message,
+            })
+        })
     }, [])
     return requestData;
 } 

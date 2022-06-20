@@ -2,59 +2,81 @@
     border: none;
     text-decoration: none;
     word-wrap: break-word;
-    min-width: 120px;
-    width: 25%;
-    height: 45px;
-    line-height: 45px;
+    height: 35px;
+    line-height: 35px;
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 0, 0);
     text-align: center;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-right: 3px;
     margin-left: 3px;
   }
-  
+    
   .primary {
     color: #ffff;
-    background: hsl(218, 100%, 50%);
+    background: hsla(218, 100%, 50%, 0.795);
   }
   
   .primary:hover {
     cursor: pointer;
-    background: hsla(218, 100%, 50%, 0.795);
+    background: hsl(211, 60%, 53%);
   }
   
   .primary:focus {
-    border: 1px solid #0000;
+    border: 1px solid rgb(255, 255, 255);
+  }
+  .primary:active {
+    border: 1px solid rgb(255, 255, 255);
   }
   
   .secondary {
+    border: 1px solid white;
     color: #ffff;
-    background: #e05d11;
+    background: #000000;
   }
   
   .secondary:hover {
+    border: 1px solid white;
     cursor: pointer;
-    background: #e6671e;
+    background: #0c0c0c;
   }
   
   .secondary:focus {
-    border: 1px solid #0000;
+    border: 1px solid #FFD700;
+    background: #0c0c0c;
+  }
+  .secondary:active {
+    border: 1px solid #FFD700;
+    background: #0c0c0c;
   }
   
-  .search {
-    margin-left: 5px;
+  .special {
+    border: 1px solid white;
     color: #ffff;
-    background: #8228b6;
-  
+    background: #000000;
   }
   
-  .search:hover {
-    background: #8c2bc4;
+  .special:hover {
+    background: #0c0c0c;
     cursor: pointer; 
   }
   
+  .special:focus {
+    border: 1px solid #06c80d;
+    background: #0c0c0c;
+  }
+  .special:active {
+    border: 1px solid #06c80d;
+    background: #0c0c0c;
+  }
+  
+  .success {
+    color: #ffff;
+    background: #00b300;
+  }
+
+
   .search:focus {
     border: 1px solid rgba(158, 158, 158, 0);
   }
@@ -65,6 +87,7 @@
   }
   
   .cancel:hover {
+    cursor: pointer;
     background: #ee0f0fd2;
   }
   

@@ -1,0 +1,42 @@
+.small {
+      font-family: "Roboto-Bold", sans-serif;
+    font-size: 0.9rem;
+}
+
+.intermediate {
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 1rem;
+}
+
+.large {
+    font-family: "Roboto-Bold", sans-serif;
+    font-size: 1.2rem;
+}
+
+.link_light_mode {
+    outline: none;
+    text-decoration: none;
+    color: rgb(20, 67, 175);
+}
+
+.link_light_mode:hover {
+    text-decoration: underline;
+}
+
+.link_light_mode:active {
+    text-decoration: underline;
+}
+
+.link_dark_mode {
+    outline: none;
+    text-decoration: none;
+    color: rgb(20, 67, 175);
+} 
+
+.link_dark_mode:hover {
+    text-decoration: underline;
+}
+
+.link_dark_mode:active {
+    text-decoration: underline;
+}

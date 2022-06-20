@@ -1,71 +1,150 @@
-import React from "react";
+import { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
 import usePost from "../../hooks/usePost";
-import { useState } from "react";
+import Button from "../Button/Button";
+import Anchor from "../Anchor/Anchor";
+import styles from "./signin.module.css";
+import inputField from "../input.module.css";
+import Image from "next/image";
 
-let url = "http://localhost:8080/login";
-let token;
+const url = "http://localhost:8080/login";
 
-const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export const SignUp = () => {
+  const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-  
-  const handleLogin = (e) => {
-     e.preventDefault();
-     sendData({ endpoint: url, postData: { email, password }})
-    token = window.localStorage.setItem("token", JSON.stringify(data));
-    return token;
+
+  useEffect(() => {
+    if(data) {
+      window.localStorage.setItem("token", JSON.stringify(data));
+    }
+  }, [data])
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const router = useRouter();
+  const onSubmit = async (data) => {
+    sendData({
+      endpoint: url,
+      postData: {
+        email: data.email,
+        password: data.password,
+      },
+    });
   };
 
+const handleNewPassword = () => {
+  //method POST to /reset-password
+}
+  
   return (
-    <div>
-      {pending && (
-        <div>
-          <p>pending...</p>
-        </div>
-      )}
-      {error && (
-        <div>
-          <p>Error: {error.message}</p>
-        </div>
-      )}
-      <form onSubmit={handleLogin}>
-        <input
-          placeeholder="email"
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          placeeholder="password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button
-          type="submit"
-          value={pending ? "Loading" : "Login"}
-          disabled={pending}
-        >
-          Login
-        </button>
-      </form>
-      {/* <Button name="Dale amigoo" variant="primary" />
-      <h1>h1: Lorem ipsum dolor sit amet.</h1>
-      <h2>h2: Lorem ipsum dolor sit amet.</h2>
-      <h3>h3: Lorem ipsum dolor sit amet.</h3>
-      <h4>h4: Lorem ipsum dolor sit amet.</h4>
-      <h5>h5: Lorem ipsum dolor sit amet.</h5>
-      <h6>h6: Lorem ipsum dolor sit amet.</h6>
-      <p>p: Lorem ipsum dolor sit amet.</p>
-      <a href="">a: Lorem ipsum dolor sit amet.</a>
+    <div className={
+      theme
+        ? `${styles.container_form} ${styles.light_mode}`
+        : `${styles.container_form} ${styles.dark_mode}`
+    }>
+      <div className={styles.container_logo}>
 
-      <div></div>
-      <button>Active DarkMode</button> */}
+<Image src={theme ? "/logo.png" : "/logoDarkMode.png"}  width={100} height={75} />
+</div>
+    
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={
+        theme
+          ? `${styles.form} ${styles.light_mode}`
+          : `${styles.form} ${styles.dark_mode}`
+      }
+    >
+      <p>
+        {" "}
+        ¿No posees cuenta? <Anchor variant="intermediate" name="Registrate" path="/" />
+      </p>
+
+
+      <div
+        className={
+          theme
+            ? `${inputField.field} ${styles.light_mode}`
+            : `${inputField.field} ${styles.dark_mode}`
+        }
+      >
+        <input
+          autoComplete="off"
+          className={
+            theme
+              ? `${inputField.form_input} ${inputField.form_input_light}`
+              : `${inputField.form_input} ${inputField.form_input_dark}`
+          }
+          type="email"
+          placeholder="Email"
+          {...register("email", {
+            required: true,
+            pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+          })}
+        />
+          {errors.email?.type === "required" && (
+            <p className={styles.form_text_input_error}>
+              {" "}
+              El email no puede estar vacío.{" "}
+            </p>
+          )}
+          {errors.email?.type === "pattern" && (
+            <p className={styles.form_text_input_error}>
+              {" "}
+              El email debe contener @ y .{" "}
+            </p>
+          )}
+      </div>
+
+      <div
+        className={
+          theme
+            ? `${inputField.field} ${styles.light_mode}`
+            : `${inputField.field} ${styles.dark_mode}`
+        }
+      >
+        <input
+          className={
+            theme
+              ? `${inputField.form_input} ${inputField.form_input_light}`
+              : `${inputField.form_input} ${inputField.form_input_dark}`
+          }
+          type="password"
+          placeholder="Password"
+          {...register("password", {
+            required: true,
+            pattern: /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9 \S]{8,32}$/,
+          })}
+        />
+      </div>
+
+      <div>
+        <Button
+          onClick={() => {
+            router.push("/Feed/Feed");
+          }}
+          type="submit"
+          name="Iniciar sesión"
+          variant="primary"
+        />
+      </div>
+      <br/>
+          <Anchor
+            name="¿Olvidaste tu contraseña?"
+            path="/"
+            onClick={handleNewPassword}
+          />
+      {pending && <p>Cargando...</p>}
+      {error && <p>{error}</p>}
+    </form>
     </div>
   );
 };
 
-export default SignIn;
+export default SignUp;

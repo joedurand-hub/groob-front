@@ -3,7 +3,7 @@ import axios from "axios";
 
 const usePost = () => {
   const [postData, setPostData] = useState({
-      data: undefined,
+    data: undefined,
     pending: false,
     error: undefined,
   });
@@ -15,7 +15,7 @@ const usePost = () => {
       error: undefined,
     });
     return axios.post(`${endpoint}`, {...postData} )
-      .then((response) => {
+    .then((response) => {
         setPostData({ pending: false, data: response.data, error: undefined });
       })
       .catch((error) => {

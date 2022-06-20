@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@testing-library/react": "^13.3.0",
     "axios": "0.27.2",
+    "jest": "^28.1.1",
     "lodash": "4.17.21",
     "next": "12.1.6",
     "prop-types": "15.8.1",
