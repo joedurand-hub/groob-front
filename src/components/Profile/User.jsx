@@ -1,38 +1,43 @@
-import { memo } from "react";
+import { useContext, memo } from "react";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
 import styles from './user.module.css'
 import Button from "../Button/Button";
 
 const User = ({ data, loading, error }) => {
+  const {theme} = useContext(ThemeContext)
+
   return (
     <>
       {loading && <p>Loading...</p>}
       {error && <p>Error: no se pudo traer la info...</p>}
       {!loading && data && (
-        <section className={styles.container}>
+        <section className={theme ? `${styles.container} light_mode` : `${styles.container} dark_mode`}>
           <header className={styles.user_header}>
+            <div className={styles.container_profile_picture}>
               <Image className={styles.user_profile_picture} src={data?.profile_picture} width={200} height={200} />
+            </div>
            <div className={styles.container_user_data}>
            <div >
               <h3>{data?.username}</h3>
             </div>
 
             <div className={styles.user_data}>
-             <div className={styles.data}>
-             <span>
+             <div className={styles.data_followers}>
+             <span className={styles.data}>
                 <strong>
                   {(data && data.followers?.length === 0) ||
                   data.followers === null
                     ? 0
                     : data.followers?.length}
                 </strong>
-              </span>
-              <span>Followers</span>
+              </span >
+              <span className={styles.data}>Followers</span>
              </div>
 
-             <div className={styles.data}>
-           <span>
+             <div className={styles.data_posts}>
+           <span className={styles.data}>
                 <strong>
                 {(data && data.publications?.length === 0) ||
                 data.publications === null
@@ -40,13 +45,13 @@ const User = ({ data, loading, error }) => {
                   : data.publications?.length}
                 </strong>
               </span>
-              <span>
+              <span className={styles.data}>
                 Publications
               </span>
            </div>
 
-           <div className={styles.data}>
-              <span>
+           <div className={styles.data_followings}>
+              <span className={styles.data}>
                 <strong>
                   {(data && data.followings?.length === 0) ||
                   data.followings === null
@@ -54,7 +59,7 @@ const User = ({ data, loading, error }) => {
                     : data.followings?.length}
                 </strong>
               </span>
-              <span>Followings</span>
+              <span className={styles.data}>Followings</span>
               </div>
             </div>
            </div>
