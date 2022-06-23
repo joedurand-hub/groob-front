@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import useRequest from "../../hooks/useRequest";
 import Layout from "../../components/Layout/Layout";
 import User from "../../components/Profile/User";
+import Posts from "../../components/Posts/Posts";
 
 const Profile = () => {
   const [token, setToken] = useState("");
@@ -15,10 +16,11 @@ const Profile = () => {
     "http://localhost:8080/profile",
     token
   );
-  
+
   return (
     <Layout>
       <User data={data} loading={loading} error={error} />
+      <Posts/>
     </Layout>
   );
 };

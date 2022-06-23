@@ -4,6 +4,7 @@ import Switch from "../Switch/Switch";
 import Image from "next/image";
 import styles from './user.module.css'
 import Button from "../Button/Button";
+import Posts from "../Posts/Posts";
 
 const User = ({ data, loading, error }) => {
   const {theme} = useContext(ThemeContext)
@@ -80,7 +81,9 @@ const User = ({ data, loading, error }) => {
       </section>
       )}
       <div>
-        <article>Publicaciones</article>
+        <Posts/>
+          
+        
       </div>
 </>
   );
