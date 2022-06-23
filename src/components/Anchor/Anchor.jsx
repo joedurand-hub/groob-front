@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from "react";
 import Link from "next/link";
 import styles from './anchor.module.css'
