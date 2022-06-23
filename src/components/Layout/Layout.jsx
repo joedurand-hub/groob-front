@@ -1,5 +1,9 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import logoFavicon from '../../../public/logo.ico'
+import logoFaviconDarkMode from '../../../public/logoDarkMode.ico'
+import logo from "../../../public/Logo.png" 
+import logoDarkMode from "../../../public/Logo.png" 
 import Head from "next/head";
 import Nav from "../Nav/Nav";
 import Anchor from "../Anchor/Anchor";
@@ -19,7 +23,7 @@ const Layout = ({ title, description, children }) => {
         <title>{title}</title>
         <link
           rel="icon"
-          href={theme ? "logo.ico" : "logoDarkMode.ico"}
+          href={theme ? logoFavicon : logoFaviconDarkMode}
         />
         <meta name="description" content={description} />
       </Head>
@@ -27,7 +31,7 @@ const Layout = ({ title, description, children }) => {
         <Nav>
             <Anchor path="/Feed/feed">
               <Image
-                src={theme ? "/Logo.png" : "/LogoDarkMode.png"}
+                src={theme ? logo : logoDarkMode}
                 alt="Groob logo"
                 width={70}
                 height={45}
