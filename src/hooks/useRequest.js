@@ -8,7 +8,6 @@ const initialState = {
 }
 
 const useRequest = (url, token) => {
-    console.log(url, token)
     const [requestData, setRequestData] = useState(initialState)
     useEffect(() => {
         axios.get(`${url}`, {
