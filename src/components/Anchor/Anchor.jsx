@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from "react";
 import Link from "next/link";
 import styles from './anchor.module.css'
@@ -19,8 +20,9 @@ const Anchor = React.forwardRef(
           rel="noreferrer noopener"
           onClick={onClick}
             disabled={disabled}
-          ref={ref}>
-          {name}
+          ref={ref}
+          name={name}
+          >
           {children}
         </a>
       </Link>
