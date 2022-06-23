@@ -19,7 +19,7 @@ const Layout = ({ title, description, children }) => {
         <title>{title}</title>
         <link
           rel="icon"
-          href={theme ? `/logo.ico` : `/logoDarkMode.ico`}
+          href={theme ? "logo.ico" : "logoDarkMode.ico"}
         />
         <meta name="description" content={description} />
       </Head>
@@ -27,7 +27,7 @@ const Layout = ({ title, description, children }) => {
         <Nav>
             <Anchor path="/Feed/feed">
               <Image
-                src={`${theme ? "/Logo.png" : "/LogoDarkMode.png"}`}
+                src={theme ? "/Logo.png" : "/LogoDarkMode.png"}
                 alt="Groob logo"
                 width={70}
                 height={45}
