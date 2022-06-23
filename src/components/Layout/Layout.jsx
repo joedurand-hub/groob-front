@@ -19,7 +19,7 @@ const Layout = ({ title, description, children }) => {
         <title>{title}</title>
         <link
           rel="icon"
-          href={theme ? `${"/logo.ico"}` : `${"/logoDarkMode.ico"}`}
+          href={theme ? `/logo.ico` : `/logoDarkMode.ico`}
         />
         <meta name="description" content={description} />
       </Head>
