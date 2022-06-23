@@ -22,8 +22,9 @@ const Layout = ({ title, description, children }) => {
       <Head>
         <title>{title}</title>
         <link
-          rel="icon"
-          href={theme ? logoFavicon : logoFaviconDarkMode}
+          rel="shortcut icon"
+          type="image/png"
+          href={`${theme ? logoFavicon : logoFaviconDarkMode}`}
         />
         <meta name="description" content={description} />
       </Head>
