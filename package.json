@@ -24,7 +24,8 @@
     "react-infinite-scroll-component": "6.1.0",
     "react-query": "3.39.0",
     "sass": "1.52.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "vercel": "^25.1.0"
   },
   "devDependencies": {
     "eslint": "8.17.0",
