@@ -3,7 +3,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import logoFavicon from '../../../public/logo.ico'
 import logoFaviconDarkMode from '../../../public/logoDarkMode.ico'
 import logo from "../../../public/Logo.png" 
-import logoDarkMode from "../../../public/Logo.png" 
+import logoDarkMode from "../../../public/LogoDarkMode.png" 
 import Head from "next/head";
 import Nav from "../Nav/Nav";
 import Anchor from "../Anchor/Anchor";

@@ -7,6 +7,8 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { useForm } from "react-hook-form";
 import styles from "./signup.module.css";
 import inputField from "../input.module.css";
+import logo from "../../../public/logo.png" 
+import logoDarkMode from "../../../public/LogoDarkMode.png" 
 import Image from "next/image";
 
 const url = "http://localhost:8080/signup";
@@ -48,7 +50,7 @@ export const SignUp = () => {
     >
       <div className={styles.container_logo}>
         <Image
-          src={theme ? "/logo.png" : "/logoDarkMode.png"}
+          src={theme ? logo : logoDarkMode}
           width={100}
           height={75}
           alt="Image"
