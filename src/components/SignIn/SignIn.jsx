@@ -133,7 +133,7 @@ export const SignUp = () => {
           />
         </div>
 
-        <div>
+        <div className={styles.container_submit}>
           <Button
             onClick={() => {
               router.push("/Feed/Feed");
