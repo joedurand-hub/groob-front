@@ -1,8 +1,6 @@
 import React from "react";
-import Link from "next/link";
 
 const PostById = ({ data }) => {
-  console.log("data en postById:", data);
   return (
     <article>
       <h3>

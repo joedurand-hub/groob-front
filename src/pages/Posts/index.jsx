@@ -2,13 +2,11 @@ import {memo} from 'react'
 import Link from "next/link"
 
 const Posts = ({ data }) => {
-  console.log("data allPosts:", data);
-  
   return (
     <article>
       {data.map(({ id, title, body }) => (
             <div key={id}>
-              <Link href={`/Posts/${id}`}>
+              <Link href={`/Posts/${id}`} passHref>
                 <a>
                   {id} - {title}
                 </a>
