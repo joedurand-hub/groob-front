@@ -21,8 +21,8 @@ const Anchor = React.forwardRef(
           onClick={onClick}
             disabled={disabled}
           ref={ref}
-          name={name}
           >
+            {name}
           {children}
         </a>
       </Link>

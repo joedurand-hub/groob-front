@@ -1,7 +1,6 @@
 import {memo} from 'react'
 
 const Posts = ({data}) => {
-  console.log(data)
   return (
     <article>
         {data && data.map(({id, title, body}) => {
