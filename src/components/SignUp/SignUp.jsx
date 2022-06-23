@@ -51,6 +51,7 @@ export const SignUp = () => {
           src={theme ? "/logo.png" : "/logoDarkMode.png"}
           width={100}
           height={75}
+          alt="Image"
         />
       </div>
       <form

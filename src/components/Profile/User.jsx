@@ -17,7 +17,7 @@ const User = ({ data, loading, error }) => {
         <section className={theme ? `${styles.container} light_mode` : `${styles.container} dark_mode`}>
           <header className={styles.user_header}>
             <div className={styles.container_profile_picture}>
-              <Image className={styles.user_profile_picture} src={data?.profile_picture} width={200} height={200} />
+              <Image className={styles.user_profile_picture} src={data?.profile_picture} width={200} height={200} alt="Image"/>
             </div>
            <div className={styles.container_user_data}>
            <div >
