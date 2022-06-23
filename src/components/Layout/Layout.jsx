@@ -1,5 +1,8 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import { BiMessageRounded } from "react-icons/bi";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { GiHamburgerMenu } from 'react-icons/gi'
 import logoFavicon from '../../../public/logo.ico'
 import logoFaviconDarkMode from '../../../public/logoDarkMode.ico'
 import logo from "../../../public/Logo.png" 
@@ -9,9 +12,6 @@ import Nav from "../Nav/Nav";
 import Anchor from "../Anchor/Anchor";
 import Image from "next/image";
 import Icon from "../Icon/Icon";
-import { BiMessageRounded } from "react-icons/bi";
-import { IoNotificationsOutline } from "react-icons/io5";
-import { GiHamburgerMenu } from 'react-icons/gi'
 import styles from "./layout.module.css";
 
 const Layout = ({ title, description, children }) => {

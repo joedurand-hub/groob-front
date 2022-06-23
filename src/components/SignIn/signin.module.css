@@ -50,3 +50,16 @@
     margin-top: 20px;
     padding: 0;
 }
+
+.container_submit {
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width: 320px) {
+    .form_terms_link {
+        margin: 10px 0;
+        text-align: center;
+        width: 90%;
+    }
+}
