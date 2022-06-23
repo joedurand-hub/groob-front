@@ -19,8 +19,9 @@ const Anchor = React.forwardRef(
           rel="noreferrer noopener"
           onClick={onClick}
             disabled={disabled}
-          ref={ref}>
-          {name}
+          ref={ref}
+          name={name}
+          >
           {children}
         </a>
       </Link>
