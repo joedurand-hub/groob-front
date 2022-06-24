@@ -98,14 +98,12 @@ export const SignUp = () => {
           />
           {errors.email?.type === "required" && (
             <p className={styles.form_text_input_error}>
-              {" "}
-              El email no puede estar vacío.{" "}
+              El email no puede estar vacío.
             </p>
           )}
           {errors.email?.type === "pattern" && (
             <p className={styles.form_text_input_error}>
-              {" "}
-              El email debe contener @ y .{" "}
+              El email debe contener @ y .
             </p>
           )}
         </div>
@@ -131,12 +129,24 @@ export const SignUp = () => {
                 /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9 \S]{8,32}$/,
             })}
           />
+          {errors.password?.type === "required" && (
+            <p className={styles.form_text_input_error}>
+              {" "}
+              La contaseña no puede estar vacía.
+            </p>
+          )}
+          {errors.password?.type === "pattern" && (
+            <p className={styles.form_text_input_error}>
+              {" "}
+              Email o contraseña incorrectos.
+            </p>
+          )}
         </div>
 
         <div className={styles.container_submit}>
           <Button
             onClick={() => {
-              router.push("/Feed/Feed");
+              router.push("/Profile/profile");
             }}
             type="submit"
             name="Iniciar sesión"

@@ -1,4 +1,4 @@
-import { useContext, memo } from "react";
+import { useState, useEffect, memo } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
@@ -7,7 +7,14 @@ import Button from "../Button/Button";
 import Posts from "../Posts/Posts";
 
 const User = ({ data, loading, error }) => {
-  const {theme} = useContext(ThemeContext)
+  const [theme, setTheme] = useState("");
+
+  useEffect(() => {
+    let myTheme = window.localStorage.getItem("theme");
+    console.log(!myTheme)
+    setTheme(!myTheme);
+  }, [theme]);
+
 
   return (
     <>
