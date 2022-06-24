@@ -11,7 +11,6 @@ const User = ({ data, loading, error }) => {
 
   useEffect(() => {
     let myTheme = window.localStorage.getItem("theme");
-    console.log(!myTheme)
     setTheme(!myTheme);
   }, [theme]);
 

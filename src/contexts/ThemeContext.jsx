@@ -2,18 +2,21 @@ import { createContext, useEffect, useState } from "react";
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  let [theme, setTheme] = useState(true);
+  let initialState;
+  let [theme, setTheme] = useState(initialState);
+  
   const toggleTheme = () => {
     setTheme(!theme)
   };
-
+  
   useEffect(() => {
       window.localStorage.setItem("theme", theme);
-      window.localStorage.getItem("theme");
-  }, [theme]);
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      initialState = window.localStorage.getItem("theme");
+    }, [theme]);
+      
+  
+      return (
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
