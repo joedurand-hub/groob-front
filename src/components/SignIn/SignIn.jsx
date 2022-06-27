@@ -10,6 +10,7 @@ import Anchor from "../Anchor/Anchor";
 import styles from "./signin.module.css";
 import inputField from "../input.module.css";
 import Image from "next/image";
+import Switch from "../Switch/Switch"
 
 const url = "http://localhost:8080/login";
 
@@ -162,6 +163,7 @@ export const SignUp = () => {
         {pending && <p>Cargando...</p>}
         {error && <p>{error}</p>}
       </form>
+      <Switch />
     </div>
   );
 };
