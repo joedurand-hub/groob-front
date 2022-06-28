@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  let initialState = true;
+  let initialState = false;
   let [theme, setTheme] = useState(initialState);
 
   const toggleTheme = () => {
