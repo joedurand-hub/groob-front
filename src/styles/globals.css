@@ -66,7 +66,7 @@ input[type="checkbox"] {
 
 .dark_mode {
   transition: all 0.50s linear;
-  background: #000;
+  background: rgb(10, 10, 10);
   color: #fff;
 }
 

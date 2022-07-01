@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { ThemeContext } from '../../contexts/ThemeContext'
 import styles from "./switch.module.css"
+
 
 const Switch = () => {
   const { theme, toggleTheme } = useContext(ThemeContext)

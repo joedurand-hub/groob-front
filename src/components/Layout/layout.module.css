@@ -1,5 +1,4 @@
 .layout_light_mode {
-    width: 100vw;
     transition: all 0.50s linear;
     min-height: 100vh;
     margin: 0;
@@ -11,9 +10,8 @@
 }
 
 .layout_dark_mode {
-    width: 100vw;
     transition: all 0.50s linear;
-    background: #000;
+    background: rgb(10, 10, 10);
     min-height: 100vh;
     margin: 0;
     padding: 0;
