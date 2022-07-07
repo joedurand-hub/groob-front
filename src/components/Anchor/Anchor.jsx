@@ -9,7 +9,6 @@ import { variantToStyles } from "../../helpers/variants";
 const Anchor = React.forwardRef(
   ({ onClick, path, name, disabled, variant, children }, ref) => {
     const { theme } = useContext(ThemeContext);
-
     return (
       <Link href={path} passHref>
         <a  className={theme ? variantToStyles(
@@ -20,10 +19,8 @@ const Anchor = React.forwardRef(
           rel="noreferrer noopener"
           onClick={onClick}
           disabled={disabled}
-          ref={ref}
-          >
-            {name}
-          {children}
+          ref={ref}>
+           {name} {children}
         </a>
       </Link>
     );

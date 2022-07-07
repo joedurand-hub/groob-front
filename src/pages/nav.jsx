@@ -1,4 +1,4 @@
-import Menu from "../components/Menu/Menu";
+import Menu from "../components/Dropdown/Menu";
 import NavItem from "../components/NavItem/NavItem";
 import { BiMessageRounded } from "react-icons/bi";
 import { IoNotificationsOutline } from "react-icons/io5";

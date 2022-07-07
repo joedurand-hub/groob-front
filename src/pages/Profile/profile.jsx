@@ -17,6 +17,7 @@ const Profile = () => {
     token
   );
 
+  
   return (
     <Layout>
       <User data={data} loading={loading} error={error} />
