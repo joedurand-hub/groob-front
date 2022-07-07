@@ -9,7 +9,6 @@ import { variantToStyles } from "../../helpers/variants";
 const Anchor = React.forwardRef(
   ({ onClick, path, name, disabled, variant, children }, ref) => {
     const { theme } = useContext(ThemeContext);
-
     return (
       <Link href={path} passHref>
         <a  className={theme ? variantToStyles(
@@ -19,14 +18,14 @@ const Anchor = React.forwardRef(
         styles[variant],)}
           rel="noreferrer noopener"
           onClick={onClick}
-            disabled={disabled}
-          ref={ref}
-          >
-            {name}
-          {children}
+          disabled={disabled}
+          ref={ref}>
+           {name} {children}
         </a>
       </Link>
     );
   }
 );
 export default Anchor;
+
+// This Link component is to be used OUTSIDE the navigation bar.

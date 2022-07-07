@@ -1,13 +1,12 @@
-import { useContext, memo } from "react";
+import { useState, useContext, useEffect, memo } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
 import styles from './user.module.css'
 import Button from "../Button/Button";
-import Posts from "../Posts/Posts";
 
 const User = ({ data, loading, error }) => {
-  const {theme} = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
 
   return (
     <>
@@ -17,7 +16,7 @@ const User = ({ data, loading, error }) => {
         <section className={theme ? `${styles.container} light_mode` : `${styles.container} dark_mode`}>
           <header className={styles.user_header}>
             <div className={styles.container_profile_picture}>
-              {/* <Image className={styles.user_profile_picture} src={data?.profile_picture} width={200} height={200} alt="Image"/> */}
+              <Image className={styles.user_profile_picture} src={data?.profile_picture} width={200} height={200} alt="Image"/>
             </div>
            <div className={styles.container_user_data}>
            <div >
@@ -81,7 +80,6 @@ const User = ({ data, loading, error }) => {
       </section>
       )}
       <div>
-        <Posts/>
           
         
       </div>
