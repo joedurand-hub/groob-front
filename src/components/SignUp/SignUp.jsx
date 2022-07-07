@@ -210,7 +210,7 @@ export const SignUp = () => {
         <div>
           <Button
             onClick={() => {
-              router.push("/Profile/profile");
+              router.push("/Profile");
             }}
             type="submit"
             name="Registrarme"

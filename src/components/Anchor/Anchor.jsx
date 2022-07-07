@@ -19,7 +19,7 @@ const Anchor = React.forwardRef(
         styles[variant],)}
           rel="noreferrer noopener"
           onClick={onClick}
-            disabled={disabled}
+          disabled={disabled}
           ref={ref}
           >
             {name}
@@ -30,3 +30,5 @@ const Anchor = React.forwardRef(
   }
 );
 export default Anchor;
+
+// This Link component is to be used OUTSIDE the navigation bar.

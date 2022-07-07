@@ -8,6 +8,7 @@ body {
   background: #fff;
 }
 
+
 h1 {
   font-family: "Roboto-Medium", sans-serif;
   font-size: 2em;
@@ -65,7 +66,7 @@ input[type="checkbox"] {
 
 .dark_mode {
   transition: all 0.50s linear;
-  background: #000;
+  background: rgb(10, 10, 10);
   color: #fff;
 }
 
