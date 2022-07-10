@@ -1,6 +1,6 @@
+import Card from '../../components/Card/Card'
 import { useContext } from 'react'
 import { CardContext } from '../../contexts/ActiveCardContext'
-import Card from '../../components/Card/Card'
 
 const Followers = () => {
   const { activeCard, handleCardActivation } = useContext(CardContext)

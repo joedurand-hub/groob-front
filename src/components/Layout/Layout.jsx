@@ -1,20 +1,23 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { BiMessageRounded } from "react-icons/bi";
-import { IoNotificationsOutline } from "react-icons/io5";
-import { GiHamburgerMenu } from 'react-icons/gi'
-import logoFavicon from '../../../public/logo.ico'
-import logoFaviconDarkMode from '../../../public/logoDarkMode.ico'
-import logo from "../../../public/Logo.png" 
-import logoDarkMode from "../../../public/LogoDarkMode.png" 
+import logoFavicon from "../../../public/logo.ico";
+import logoFaviconDarkMode from "../../../public/logoDarkMode.ico";
+import logo from "../../../public/Logo.png";
+import logoDarkMode from "../../../public/LogoDarkMode.png";
 import Head from "next/head";
+import MenuNav from "../MenuNav/MenuNav";
 import Nav from "../Nav/Nav";
+import NavItem from "../NavItem/NavItem";
 import Anchor from "../Anchor/Anchor";
 import Image from "next/image";
-import Icon from "../Icon/Icon";
 import styles from "./layout.module.css";
+import { FiHome } from "react-icons/fi";
+import { BiSearchAlt } from "react-icons/bi";
+import { MdOutlineLiveTv } from "react-icons/md";
+import { FaUserSecret } from "react-icons/fa";
+import { RiUserHeartFill } from "react-icons/ri";
 
-const Layout = ({ title, description, children }) => {
+const Layout = ({ title, description, menuItem, children }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -29,7 +32,8 @@ const Layout = ({ title, description, children }) => {
         <meta name="description" content={description} />
       </Head>
       <header>
-        <Nav>
+        <MenuNav>
+          <li>
             <Anchor path="/Feed/feed">
               <Image
                 src={theme ? logo : logoDarkMode}
@@ -38,24 +42,11 @@ const Layout = ({ title, description, children }) => {
                 height={45}
               />
             </Anchor>
+          </li>
           <div className={styles.layout_container_links}>
-          <Anchor path="/notifications">
-              <Icon>
-                <IoNotificationsOutline />
-              </Icon>
-            </Anchor>
-            <Anchor path="/messages">
-              <Icon>
-                <BiMessageRounded />
-              </Icon>
-            </Anchor>
-            <Anchor path="/menu">
-              <Icon>
-                <GiHamburgerMenu />
-              </Icon>
-            </Anchor>
-          </div>
-        </Nav>
+            {menuItem}
+            </div>
+        </MenuNav>
       </header>
       <main
         className={`${
@@ -64,6 +55,25 @@ const Layout = ({ title, description, children }) => {
       >
         {children}
       </main>
+      <footer>
+        <Nav>
+          <NavItem path="/Feed/feed">
+            <FiHome />
+          </NavItem>
+          <NavItem path="/Search">
+            <BiSearchAlt />
+          </NavItem>
+          <NavItem path="/Streams">
+            <MdOutlineLiveTv />
+          </NavItem>
+          <NavItem path="/Secrets">
+            <FaUserSecret />
+          </NavItem>
+          <NavItem path="/Profile/profile">
+            <RiUserHeartFill />
+          </NavItem>
+        </Nav>
+      </footer>
     </>
   );
 };

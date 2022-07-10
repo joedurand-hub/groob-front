@@ -1,10 +1,11 @@
-.nav_item_list {
+.menu_item {
+    max-width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.nav_icon_link {
+.menu_icon_link {
     size: 1.5rem;
     width: 2rem;
     height: 2rem;
@@ -18,11 +19,11 @@
     transition: filter 300ms;
 }
 
-.nav_icon_link:hover {
+.menu_icon_link:hover {
     filter: brightness(1.2);
 }
 
-.nav_icon_link svg {
+.menu_icon_link svg {
     fill: #acacac;
     width: 20px;
     height: 20px;
