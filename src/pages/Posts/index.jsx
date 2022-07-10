@@ -1,5 +1,8 @@
-import {memo} from 'react'
 import Link from "next/link"
+import Menu from '../../components/DropdownMenu/Menu'
+import MenuItem from '../../components/DropdownItem/MenuItem'
+import Nav from '../../components/Nav/Nav'
+import NavItem from '../../components/NavItem/NavItem'
 
 const Posts = ({ data }) => {
   return (
@@ -18,7 +21,7 @@ const Posts = ({ data }) => {
   );
 };
 
-export default memo(Posts);
+export default Posts;
 
 export async function getStaticProps() {
   try {

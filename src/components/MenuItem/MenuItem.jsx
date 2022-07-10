@@ -1,12 +1,12 @@
-import styles from "./navItem.module.css"
+import styles from "./menuItem.module.css"
 import Link from "next/link"
 import Icon from "../Icon/Icon"
 
-const NavItem = ({ path, children }) => {
+const MenuItem = ({ path, children }) => {
 
 
   return (
-    <li className={styles.nav_item_list}>
+    <li >
         <Link href={path} passHref> 
             <a >
                 <Icon>
@@ -18,4 +18,4 @@ const NavItem = ({ path, children }) => {
   )
 }
 
-export default NavItem
+export default MenuItem

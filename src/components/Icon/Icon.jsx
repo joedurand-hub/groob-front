@@ -1,9 +1,8 @@
 import { useContext } from 'react'
 import { ThemeContext } from '../../contexts/ThemeContext'
-import { variantToStyles } from '../../helpers/variants'
 import styles from './icon.module.css'
 
-const Icon = ({children, variant}) => {
+const Icon = ({ children }) => {
     const { theme } = useContext(ThemeContext)
 
     return (
