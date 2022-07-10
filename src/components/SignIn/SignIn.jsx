@@ -8,7 +8,7 @@ import usePost from "../../hooks/usePost";
 import Button from "../Button/Button";
 import Anchor from "../Anchor/Anchor";
 import styles from "./signin.module.css";
-import inputField from "../input.module.css";
+import inputField from "../Input/input.module.css";
 import Image from "next/image";
 import Switch from "../Switch/Switch"
 

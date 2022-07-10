@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from './user.module.css'
 import Button from "../Button/Button";
 
-const User = ({ data, loading, error }) => {
+const Profile = ({ data, loading, error }) => {
   const { theme } = useContext(ThemeContext)
 
   return (
@@ -87,4 +87,4 @@ const User = ({ data, loading, error }) => {
   );
 };
 
-export default memo(User);
+export default memo(Profile);

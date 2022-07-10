@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import useRequest from "../../hooks/useRequest";
 import Layout from "../../components/Layout/Layout";
-import User from "../../components/Profile/User";
+import Profile from "../../components/Profile/Profile";
 import NavItem from "../../components/NavItem/NavItem";
-import { BiMessageRounded } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 // import Posts from "../../components/Posts/Posts";
 
-const Profile = () => {
+const Users = () => {
   const [token, setToken] = useState("");
 
   useEffect(() => {
@@ -29,10 +28,10 @@ const Profile = () => {
       </NavItem>
       </>
     }>
-      <User data={data} loading={loading} error={error} />
+      <Profile data={data} loading={loading} error={error} />
       {/* <Posts/> */}
     </Layout>
   );
 };
 
-export default Profile;
+export default Users;
