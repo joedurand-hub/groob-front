@@ -2,7 +2,7 @@ import { useState, useContext, useEffect, memo } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
-import styles from './user.module.css'
+import styles from './profile.module.css'
 import Button from "../Button/Button";
 
 const Profile = ({ data, loading, error }) => {
