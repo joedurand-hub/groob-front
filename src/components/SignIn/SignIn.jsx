@@ -17,12 +17,13 @@ const url = "http://localhost:8080/login";
 export const SignUp = () => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-
-  useEffect(() => {
-    if (data) {
-      window.localStorage.setItem("token", JSON.stringify(data));
-    }
-  }, [data]);
+  console.log("data:", data)
+  console.log("error:", error)
+  // useEffect(() => {
+  //   if (data) {
+  //     window.localStorage.setItem("token", JSON.stringify(data));
+  //   }
+  // }, [data]);
 
   const {
     register,
@@ -146,9 +147,9 @@ export const SignUp = () => {
 
         <div className={styles.container_submit}>
           <Button
-            onClick={() => {
-              router.push("/Profile/profile");
-            }}
+            // onClick={() => {
+            //   router.push("/Profile/profile");
+            // }}
             type="submit"
             name="Iniciar sesión"
             variant="primary"
