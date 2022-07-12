@@ -15,7 +15,7 @@ const useRequest = (url, token) => {
             headers: {
                 "auth-token": token
             }
-        })
+        }, {withCredentials: true})
         .then(response => setRequestData({
             data: response.data,
             loading: false,

@@ -15,10 +15,7 @@ const Users = () => {
     setToken(myToken);
   }, [token]);
 
-  const { data, loading, error } = useRequest(
-    "http://localhost:8080/profile",
-    token
-  );
+  const { data, loading, error } = useRequest("http://localhost:8080/profile", token)
 
   return (
     <Layout menuItem={

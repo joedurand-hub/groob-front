@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-// axios.defaults.withCredentials = true
 
 const usePost = () => {
   const [postData, setPostData] = useState({
@@ -15,7 +14,7 @@ const usePost = () => {
       pending: true,
       error: undefined,
     });
-    return axios.post(`${endpoint}`, {...postData} )
+    return axios.post(`${endpoint}`, {...postData}, {withCredentials: true} )
     .then((response) => {
         setPostData({ pending: false, data: response.data, error: undefined });
       })
