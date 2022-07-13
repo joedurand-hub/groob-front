@@ -1,22 +1,10 @@
-import { useState, useEffect } from "react";
-import useRequest from "../../hooks/useRequest";
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
 import NavItem from "../../components/NavItem/NavItem";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { getCookie } from 'cookies-next';
 
-// import Posts from "../../components/Posts/Posts";
-
-const Users = () => {
-  const [token, setToken] = useState("");
-
-  useEffect(() => {
-    let myToken = JSON.parse(window.localStorage.getItem("token"));
-    setToken(myToken);
-  }, [token]);
-
-  const { data, loading, error } = useRequest("http://localhost:8080/profile", token)
-
+const Users = ({data}) => {
   return (
     <Layout menuItem={
       <>
@@ -25,10 +13,18 @@ const Users = () => {
       </NavItem>
       </>
     }>
-      <Profile data={data} loading={loading} error={error} />
+      <Profile data={data}  />
       {/* <Posts/> */}
     </Layout>
   );
 };
 
 export default Users;
+
+
+export async function getServerSideProps({req, res}) {
+    const token = getCookie('authToken', {req, res})
+    const response = await fetch('http://localhost:8080/profile',{ headers: { "authToken": token }})
+    const data = await response.json()
+    return { props: { data } } 
+}

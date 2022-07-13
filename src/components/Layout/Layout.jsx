@@ -57,7 +57,7 @@ const Layout = ({ title, description, menuItem, children }) => {
       </main>
       <footer>
         <Nav>
-          <NavItem path="/Feed/feed">
+          <NavItem path="/Feed">
             <FiHome />
           </NavItem>
           <NavItem path="/Search">

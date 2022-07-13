@@ -13,7 +13,7 @@ const useRequest = (url, token) => {
     useEffect(() => {
         axios.get(`${url}`, {
             headers: {
-                "auth-token": token
+                "authToken": token
             }
         }, {withCredentials: true})
         .then(response => setRequestData({

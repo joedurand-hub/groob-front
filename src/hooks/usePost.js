@@ -16,10 +16,16 @@ const usePost = () => {
     });
     return axios.post(`${endpoint}`, {...postData}, {withCredentials: true} )
     .then((response) => {
-        setPostData({ pending: false, data: response.data, error: undefined });
+        setPostData({ 
+          data: response.data, 
+          pending: false, 
+          error: undefined });
       })
       .catch((error) => {
-        setPostData({ pending: false, data: undefined, error: error.message });
+        setPostData({ 
+          data: undefined, 
+          pending: false, 
+          error: error.message });
       });
   };
 

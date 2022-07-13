@@ -50,8 +50,8 @@ export const SignUp = () => {
     <div
       className={
         theme
-          ? `${styles.container_form} light_mode`
-          : `${styles.container_form} dark_mode`
+          ? `${styles.container_form}  ${styles.light_mode}`
+          : `${styles.container_form}  ${styles.dark_mode}`
       }
     >
       <div className={styles.container_logo}>
@@ -67,8 +67,8 @@ export const SignUp = () => {
         onSubmit={handleSubmit(onSubmit)}
         className={
           theme
-            ? `${styles.form} light_mode`
-            : `${styles.form} dark_mode`
+          ? `${styles.form}  ${styles.light_mode}`
+          : `${styles.form}  ${styles.dark_mode}`
         }
       >
         <p>

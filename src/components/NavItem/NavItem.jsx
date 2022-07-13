@@ -3,12 +3,10 @@ import Link from "next/link"
 import Icon from "../Icon/Icon"
 
 const NavItem = ({ path, children }) => {
-
-
   return (
     <li className={styles.nav_item_list}>
         <Link href={path} passHref> 
-            <a >
+            <a rel="noreferrer noopener">
                 <Icon>
                   {children}
                 </Icon>
