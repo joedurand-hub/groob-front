@@ -6,7 +6,7 @@ import Anchor from "../Anchor/Anchor";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useForm } from "react-hook-form";
 import styles from "./signup.module.css";
-import inputField from "../input.module.css";
+import inputField from "../Input/input.module.css";
 import logo from "../../../public/Logo.png" 
 import logoDarkMode from "../../../public/LogoDarkMode.png" 
 import Image from "next/image";

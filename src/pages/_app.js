@@ -7,13 +7,13 @@ const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <ActiveCardProvider>
-          <Component {...pageProps} />
-        </ActiveCardProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider>
+          <ActiveCardProvider>
+            <Component {...pageProps} />
+          </ActiveCardProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
   );
 }
 export default MyApp;

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from "react";
+// axios.defaults.withCredentials = true
 
 const initialState = {
     data: undefined,
@@ -12,9 +13,9 @@ const useRequest = (url, token) => {
     useEffect(() => {
         axios.get(`${url}`, {
             headers: {
-                "auth-token": token
+                "authToken": token
             }
-        })
+        }, {withCredentials: true})
         .then(response => setRequestData({
             data: response.data,
             loading: false,

@@ -17,7 +17,7 @@ export default memo(Posts);
 
 export async function getStaticProps() {
   try {
-    const res = await axios('https://jsonplaceholder.typicode.com/posts')
+    const res = await axios('')
     const data = await res.data.json()
     return {
       props: data
