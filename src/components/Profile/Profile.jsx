@@ -5,14 +5,11 @@ import Image from "next/image";
 import styles from './profile.module.css'
 import Button from "../Button/Button";
 
-const Profile = ({ data, loading, error }) => {
+const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext)
-
+  
   return (
     <>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: no se pudo traer la info...</p>}
-      {!loading && data && (
         <section className={theme ? `${styles.container} light_mode` : `${styles.container} dark_mode`}>
           <header className={styles.user_header}>
             <div className={styles.container_profile_picture}>
@@ -78,7 +75,6 @@ const Profile = ({ data, loading, error }) => {
       <hr/>
       <Switch />
       </section>
-      )}
       <div>
           
         
