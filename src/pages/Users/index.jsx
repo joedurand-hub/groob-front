@@ -3,13 +3,10 @@ import Profile from "../../components/Profile/Profile";
 import NavItem from "../../components/NavItem/NavItem";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { getCookie } from "cookies-next";
-import useRequest from "../../hooks/useRequest";
 import { API, GET_PROFILE } from "../../helpers/constants";
 
-const Users = ({data, loading, error}) => {
-console.log(data, loading, error)
-
-  return (
+const Users = ({data}) => {
+    return (
     <Layout
       menuItem={
         <>
@@ -19,12 +16,7 @@ console.log(data, loading, error)
         </>
       }
     >
-      {/* {isLoading && <p>Loading...</p>}
-      {isError && <p>Error: no se pudo traer la info...</p>}
-      {isSuccess && (
-        )} */}
-        <Profile data={data} />
-      {/* <Posts/> */}
+      <Profile data={data} />
     </Layout>
   );
 };
@@ -33,12 +25,12 @@ export default Users;
 
 export async function getServerSideProps({req, res}) {
   const token = getCookie("authToken", {req, res});
-
-  const {data, loading, error} = useRequest(`${API}/${GET_PROFILE}`, token)
-
+  const response = await fetch(`${API}${GET_PROFILE}`, {
+    headers: { "authToken": token }}, {withCredentials: true})
+  const data = await response.json()
   return {
     props: {
-      data, loading, error
+      data
     },
   };
 }

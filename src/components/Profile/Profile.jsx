@@ -24,10 +24,9 @@ const Profile = ({ data }) => {
              <div className={styles.data_followers}>
              <span className={styles.data}>
                 <strong>
-                  {(data && data.followers?.length === 0) ||
-                  data.followers === null
-                    ? 0
-                    : data.followers?.length}
+                  {data.followers === null || 
+                   data.followers === undefined ? 0 
+                   : data.followers.length }
                 </strong>
               </span >
               <span className={styles.data}>Followers</span>
