@@ -1,28 +1,21 @@
-import {memo} from 'react'
+import Link from "next/link"
 
-const Posts = ({data}) => {
+const Posts = ({ data }) => {
   return (
-    <article>
-        {data && data.map(({id, title, body}) => {
-          <div key={id}>
-            <h3>{id} - {title}</h3>
-            <p>{body}</p>
-          </div>
-        })}
-      </article>
-  )
-}
+    <div>
+      {data && data.map(({ content, createdAt, user, _id }) => (
+            <article key={_id}>
+              <h4>El post es del usuario {user}</h4>
+              <Link href={`http://localhost:3000/feed/${_id}`} passHref>
+                <a>
+                  Creado en la fecha: {createdAt}
+                </a>
+              </Link>
+              <p>{content}</p>
+            </article>
+        ))}
+    </div>
+  );
+};
 
-export default memo(Posts);
-
-export async function getStaticProps() {
-  try {
-    const res = await axios('')
-    const data = await res.data.json()
-    return {
-      props: data
-    } 
-  } catch(error) {
-    console.log(error)
-  }
-}
+export default Posts;

@@ -6,8 +6,9 @@ import { getCookie } from "cookies-next";
 import { API, GET_PROFILE } from "../../helpers/constants";
 
 const Users = ({data}) => {
-    return (
-    <Layout
+  if(data) {
+   return (
+      <Layout
       menuItem={
         <>
           <NavItem path="/menu">
@@ -15,22 +16,31 @@ const Users = ({data}) => {
           </NavItem>
         </>
       }
-    >
+      >
       <Profile data={data} />
     </Layout>
   );
+}
 };
 
 export default Users;
 
 export async function getServerSideProps({req, res}) {
-  const token = getCookie("authToken", {req, res});
-  const response = await fetch(`${API}${GET_PROFILE}`, {
-    headers: { "authToken": token }}, {withCredentials: true})
-  const data = await response.json()
-  return {
-    props: {
-      data
-    },
-  };
+  try {
+    const token = getCookie("authToken", {req, res});
+    const response = await fetch(`${API}${GET_PROFILE}`, {
+      headers: { 
+        "authToken": token 
+      }}, {
+        withCredentials: true
+      })
+    const data = await response.json()
+    return {
+      props: {
+        data
+      },
+    };
+  } catch(error) {
+    console.table(error)
+  }
 }
