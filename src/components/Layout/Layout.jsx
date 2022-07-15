@@ -69,7 +69,7 @@ const Layout = ({ title, description, menuItem, children }) => {
           <NavItem path="/secrets">
             <FaUserSecret />
           </NavItem>
-          <NavItem path="/users">
+          <NavItem path="/user">
             <RiUserHeartFill />
           </NavItem>
         </Nav>

@@ -5,8 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { getCookie } from "cookies-next";
 import { API, GET_PROFILE } from "../../helpers/constants";
 
-const Users = ({data}) => {
-  if(data) {
+const User = ({data}) => {
    return (
       <Layout
       menuItem={
@@ -20,10 +19,9 @@ const Users = ({data}) => {
       <Profile data={data} />
     </Layout>
   );
-}
 };
 
-export default Users;
+export default User;
 
 export async function getServerSideProps({req, res}) {
   try {

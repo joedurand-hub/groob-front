@@ -1,14 +1,35 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link"
+import Layout from "../../components/Layout/Layout";
 
 const PostById = ({data}) => {
-  console.log(data)
+  const [articulos, setArticulos] = useState([])
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/profile/${data.user[0]}`)
+      .then((response) => {
+        return response.json()
+      })
+      .then((articulos) => {
+        setArticulos(articulos)
+      })
+  }, [])
   return (
+    <Layout>
     <article>
+        <h1>
+            <Link href={`http://localhost:3000/user/${data.user[0]}`}>
+            <a>
+                {articulos.username}
+            </a>
+            </Link>
+        </h1>
       <h3>
-        {data._id} - {data.content}
+       ID del post: {data._id} <br/>
       </h3>
-      <p>{data.body}</p>
+       <p> {data.content}</p>
     </article>
+    </Layout>
   );
 };
 
