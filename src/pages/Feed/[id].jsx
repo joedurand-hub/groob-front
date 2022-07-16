@@ -13,7 +13,7 @@ const PostById = ({data}) => {
         setArticulos(articulos)
       })
   }, [])
-  
+
   return (
     <Layout>
     <article>
@@ -43,7 +43,7 @@ export async function getStaticPaths() {
 
     return {
       paths,
-      fallback: true,
+      fallback: blocking,
     }
   } catch (error) {
     console.log(error);
