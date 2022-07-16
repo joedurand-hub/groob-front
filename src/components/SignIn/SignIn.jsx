@@ -142,7 +142,7 @@ export const SignUp = () => {
         <div className={styles.container_submit}>
           <Button
             onClick={() => {
-              token && router.push("/feed");
+              token && router.push("/Feed");
             }}
             type="submit"
             name="Iniciar sesión"

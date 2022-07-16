@@ -8,7 +8,7 @@ const Posts = ({ data }) => {
       {data && data.map(({ content, image, price, createdAt, user, _id }) => (
             <article key={_id}>
               <h4>El post es del usuario {user}</h4>
-              <Link href={`${URL}/feed/${_id}`} passHref>
+              <Link href={`${URL}/Feed/${_id}`} passHref>
                 <a>
                   Creado en la fecha: {createdAt}
                 </a>

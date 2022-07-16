@@ -18,7 +18,7 @@ const PostById = ({data}) => {
     <Layout>
     <article>
         <h1>
-            <Link href={`${URL}/user/${data?.user[0]}`}>
+            <Link href={`${URL}/User/${data?.user[0]}`}>
             <a>
                 {articulos.username}
             </a>
@@ -39,11 +39,10 @@ export async function getStaticPaths() {
   try {
     const response = await fetch('http://localhost:8080/posts') 
     const data = await response.json()
-    const paths = data.map(obj => ({ params: { id: `${obj._id}` } }));
 
     return {
-      paths,
-      fallback: blocking,
+      paths: data.map(obj => ({ params: { id: `${obj._id}` } })),
+      fallback: false,
     }
   } catch (error) {
     console.log(error);
