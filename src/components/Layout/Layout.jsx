@@ -34,7 +34,7 @@ const Layout = ({ title, description, menuItem, children }) => {
       <header>
         <MenuNav>
           <li>
-            <Anchor path="/Feed/feed">
+            <Anchor path="/feed">
               <Image
                 src={theme ? logo : logoDarkMode}
                 alt="Groob logo"
