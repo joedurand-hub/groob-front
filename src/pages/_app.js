@@ -8,7 +8,6 @@ import { useState, useEffect, useContext } from "react"
 function Loading() {
   const { theme } = useContext(ThemeContext)
   const router = useRouter();
-
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
