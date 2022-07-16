@@ -53,7 +53,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   try {
     const response = await fetch(
-      `http://localhost:8080/posts/${params.id}`);
+      `http://localhost:8080/post/${params.id}`);
     const data = await response.json();
     return {
       props: {

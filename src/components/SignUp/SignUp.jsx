@@ -15,12 +15,6 @@ const url = "http://localhost:8080/signup";
 export const SignUp = () => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-  
-  useEffect(() => {
-    if(data) {
-      window.localStorage.setItem("token", JSON.stringify(data));
-    }
-  }, [data])
 
   const {
     register,
@@ -210,7 +204,7 @@ export const SignUp = () => {
         <div>
           <Button
             onClick={() => {
-              router.push("/Profile");
+              data && router.push("/user");
             }}
             type="submit"
             name="Registrarme"
