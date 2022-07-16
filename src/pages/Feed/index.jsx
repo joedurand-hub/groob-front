@@ -1,14 +1,26 @@
-import Layout from "../../components/Layout/Layout";
-import Image from "next/image";
-// import PostById from "../Posts/[id]";
+import Layout from "../../components/Layout/Layout"
+import Post from "../../components/Post/Post"
 
-const Feed = () => {
- 
+const Feed = ({ data }) => {
   return (
     <Layout>
-      <Image src={"https://static.pintzap.com/img/pics/t/600/1655624477_creare-mi-propia-red-social-con-juegos-de-azar-y-mujerzuelas.png"} width={400} height={400} alt="Image"/>
+      <Post data={data}/>
     </Layout>
   );
 };
 
 export default Feed;
+
+export async function getServerSideProps() {
+  try {
+    const response = await fetch('http://localhost:8080/posts') // get all posts
+    const data = await response.json()
+    return {
+      props: {
+        data
+      }
+    } 
+  } catch(error) {
+    console.table(error)
+  }
+}

@@ -1,36 +1,28 @@
 import axios from 'axios'
 import { useState, useEffect } from "react";
-// axios.defaults.withCredentials = true
-
-const initialState = {
-    data: undefined,
-    loading: true,
-    error: undefined,
-}
 
 const useRequest = (url, token) => {
-    const [requestData, setRequestData] = useState(initialState)
+    const [data, setData] = useState(undefined)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(undefined)
     useEffect(() => {
-        axios.get(`${url}`, {
-            headers: {
-                "authToken": token
-            }
+        setLoading(true)
+        axios.get(`${url}`, { headers: { "authToken": token }
         }, {withCredentials: true})
-        .then(response => setRequestData({
-            data: response.data,
-            loading: false,
-            error: undefined,
-        }))
+        .then(response => {
+            setData(response.data)
+            setLoading(false)
+        })
         .catch(error => {
+            setError(true)
+            setData(false)
+            setLoading(false)
             console.log(error)
-            setRequestData({
-                data: undefined,
-                loading: false,
-                error: error.message,
-            })
+        })
+        .finally(() => {
+            setLoading(false)
         })
     }, [])
-    return requestData;
+    return {data, loading, error};
 } 
-
 export default useRequest;

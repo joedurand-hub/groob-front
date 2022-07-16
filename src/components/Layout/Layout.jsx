@@ -34,7 +34,7 @@ const Layout = ({ title, description, menuItem, children }) => {
       <header>
         <MenuNav>
           <li>
-            <Anchor path="/Feed/feed">
+            <Anchor path="/feed">
               <Image
                 src={theme ? logo : logoDarkMode}
                 alt="Groob logo"
@@ -57,19 +57,19 @@ const Layout = ({ title, description, menuItem, children }) => {
       </main>
       <footer>
         <Nav>
-          <NavItem path="/Feed">
+          <NavItem path="/feed">
             <FiHome />
           </NavItem>
-          <NavItem path="/Search">
+          <NavItem path="/search">
             <BiSearchAlt />
           </NavItem>
-          <NavItem path="/Streams">
+          <NavItem path="/streams">
             <MdOutlineLiveTv />
           </NavItem>
-          <NavItem path="/Secrets">
+          <NavItem path="/secrets">
             <FaUserSecret />
           </NavItem>
-          <NavItem path="/Profile/profile">
+          <NavItem path="/user">
             <RiUserHeartFill />
           </NavItem>
         </Nav>
