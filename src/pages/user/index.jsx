@@ -14,8 +14,7 @@ const User = ({data}) => {
             <GiHamburgerMenu />
           </NavItem>
         </>
-      }
-      >
+      }>
       <Profile data={data} />
     </Layout>
   );

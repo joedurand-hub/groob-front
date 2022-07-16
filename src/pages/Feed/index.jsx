@@ -2,6 +2,7 @@ import Layout from "../../components/Layout/Layout"
 import Post from "../../components/Post/Post"
 
 const Feed = ({ data }) => {
+  
   return (
     <Layout>
       <Post data={data}/>

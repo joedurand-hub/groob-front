@@ -12,8 +12,7 @@ const ProfileById = ({data}) => {
             <GiHamburgerMenu />
           </NavItem>
         </>
-      }
-      >
+      }>
       <Profile data={data} />
     </Layout>
   );

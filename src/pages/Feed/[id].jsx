@@ -13,6 +13,7 @@ const PostById = ({data}) => {
         setArticulos(articulos)
       })
   }, [])
+  
   return (
     <Layout>
     <article>
