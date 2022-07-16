@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link"
 import Layout from "../../components/Layout/Layout";
-
+import { URL, ENDPOINT, GET_PROFILE } from "../../helpers/constants";
 const PostById = ({data}) => {
   const [articulos, setArticulos] = useState([])
-
   useEffect(() => {
-    fetch(`http://localhost:8080/profile/${data.user[0]}`)
+    fetch(`${ENDPOINT}${GET_PROFILE}/${data.user[0]}`)
       .then((response) => {
         return response.json()
       })
@@ -18,16 +17,16 @@ const PostById = ({data}) => {
     <Layout>
     <article>
         <h1>
-            <Link href={`http://localhost:3000/user/${data.user[0]}`}>
+            <Link href={`${URL}/user/${data?.user[0]}`}>
             <a>
                 {articulos.username}
             </a>
             </Link>
         </h1>
       <h3>
-       ID del post: {data._id} <br/>
+       ID del post: {data?._id} <br/>
       </h3>
-       <p> {data.content}</p>
+       <p> {data?.content}</p>
     </article>
     </Layout>
   );

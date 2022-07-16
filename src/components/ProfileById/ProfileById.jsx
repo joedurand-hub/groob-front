@@ -2,7 +2,7 @@ import { useContext, memo } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
-import styles from './profile.module.css'
+import styles from './profileById.module.css'
 import Button from "../Button/Button";
 
 const Profiles = ({ data }) => {
@@ -22,11 +22,9 @@ const Profiles = ({ data }) => {
               <div className={styles.user_data}>
                <div className={styles.data_followers}>
                <span className={styles.data}>
-                  <strong>
-                    {data.followers === null || 
-                     data.followers === undefined ? 0 
-                     : data.followers.length }
-                  </strong>
+               <strong>
+                  {data && data.followers.length > 0 ? data.followers.length : 0}
+                </strong>
                 </span >
                 <span className={styles.data}>Followers</span>
                </div>
@@ -34,10 +32,7 @@ const Profiles = ({ data }) => {
                <div className={styles.data_posts}>
              <span className={styles.data}>
                   <strong>
-                  {(data && data.publications?.length === 0) ||
-                  data.publications === null
-                    ? 0
-                    : data.publications?.length}
+                  {data && data.publications.length > 0 ? data.publications.length : 0}
                   </strong>
                 </span>
                 <span className={styles.data}>
@@ -48,10 +43,7 @@ const Profiles = ({ data }) => {
              <div className={styles.data_followings}>
                 <span className={styles.data}>
                   <strong>
-                    {(data && data.followings?.length === 0) ||
-                    data.followings === null
-                      ? 0
-                      : data.followings?.length}
+                  {data && data.followings.length > 0 ? data.followings.length : 0}
                   </strong>
                 </span>
                 <span className={styles.data}>Followings</span>

@@ -3,7 +3,7 @@ import Profile from "../../components/Profile/Profile";
 import NavItem from "../../components/NavItem/NavItem";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { getCookie } from "cookies-next";
-import { API, GET_PROFILE } from "../../helpers/constants";
+import { ENDPOINT, GET_PROFILE } from "../../helpers/constants";
 
 const User = ({data}) => {
    return (
@@ -26,7 +26,7 @@ export default User;
 export async function getServerSideProps({req, res}) {
   try {
     const token = getCookie("authToken", {req, res});
-    const response = await fetch(`${API}${GET_PROFILE}`, {
+    const response = await fetch(`http://localhost:8080/profile`, {
       headers: { 
         "authToken": token 
       }}, {

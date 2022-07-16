@@ -7,7 +7,6 @@ import Button from "../Button/Button";
 
 const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext)
-  console.log(data)
   return (
     <>
         <section className={theme ? `${styles.container} light_mode` : `${styles.container} dark_mode`}>

@@ -11,12 +11,13 @@ import styles from "./signin.module.css";
 import inputField from "../Input/input.module.css";
 import Image from "next/image";
 import Switch from "../Switch/Switch"
-
-const url = "http://localhost:8080/login";
-
+import { ENDPOINT } from "../../helpers/constants";
+const url = `${ENDPOINT}/login`;
+import { getCookie } from "cookies-next";
 export const SignUp = () => {
+  const token = getCookie('authToken')
   const { theme } = useContext(ThemeContext);
-  const { data, pending, error, sendData } = usePost();
+  const { pending, error, sendData } = usePost();
 
   const {
     register,
@@ -141,7 +142,7 @@ export const SignUp = () => {
         <div className={styles.container_submit}>
           <Button
             onClick={() => {
-              data && router.push("/user");
+              token && router.push("/feed");
             }}
             type="submit"
             name="Iniciar sesión"
