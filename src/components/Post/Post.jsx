@@ -1,26 +1,51 @@
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
 import { URL } from "../../helpers/constants";
+import styles from "./post.module.css";
+
 const Posts = ({ data }) => {
-  if(data) {
-    return (
-      <div>
-      {data && data.map(({ content, image, price, createdAt, user, _id }) => (
-            <article key={_id}>
-              <h4>El post es del usuario {user}</h4>
-              <Link href={`${URL}/Feed/${_id}`} passHref>
-                <a>
-                  Creado en la fecha: {createdAt}
-                </a>
-              </Link>
-              <h3><strong>{price}</strong></h3>
-              <p>{content}</p>
-              <Image src={"https://static.pintzap.com/img/pics/t/600/1643629366_senyor-ajudam-no-vull-morir-aqui.jpg"} width={300} height={300} alt="Image"/>
-            </article>
+  console.log(data);
+  return (
+    <>
+      {data &&
+        data.map(({ content, price, createdAt, user, _id }) => (
+          <article key={_id} className={styles.container_post}>
+            <Link href={`${URL}/User/${user}`} passHref>
+              <div className={styles.user}>
+                <div className={styles.user_container_picture_and_foto}>
+                  <Image className={styles.user_picture}
+                    src={"https://picsum.photos/id/237/200/300"}
+                    width={50}
+                    height={50}
+                    alt={`Foto de perfil de `}
+                  />
+                </div>
+                <div>
+
+                <a className={styles.user_name}>Dujo tech</a>
+                <p className={styles.user_crate_date}>{createdAt}</p>
+                </div>
+              </div>
+            </Link>
+
+            <div className={styles.post}>
+              <h3 className={styles.post_price}>
+                <strong>{price}</strong>
+              </h3>
+              <p className={styles.post_content}>{content}</p>
+                <Image className={styles.image}
+                  src={
+                    "https://static.pintzap.com/img/pics/t/600/1643629366_senyor-ajudam-no-vull-morir-aqui.jpg"
+                  }
+                  width={482}
+                  height={482}
+                  alt="Image"
+                />
+            </div>
+          </article>
         ))}
-    </div>
+    </>
   );
-}
 };
 
 export default Posts;
