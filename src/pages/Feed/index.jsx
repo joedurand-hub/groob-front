@@ -1,10 +1,19 @@
 import Layout from "../../components/Layout/Layout"
 import Post from "../../components/Post/Post"
+import NavItem from "../../components/NavItem/NavItem"
+import { BsFillChatDotsFill } from "react-icons/bs"
 
 const Feed = ({ data }) => {
   
   return (
-    <Layout>
+    <Layout 
+    menuItem={
+      <>
+        <NavItem path="/messages">
+          <BsFillChatDotsFill/>
+        </NavItem>
+      </>
+    }>
       <Post data={data}/>
     </Layout>
   );

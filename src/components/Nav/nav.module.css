@@ -1,5 +1,6 @@
 .nav {
     transition: all 0.50s linear;
+    position: fixed;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -9,7 +10,8 @@
     border-bottom: none;
     bottom: 0;
     z-index: 999;
-    border-top: 1px solid #e6e6e6;
+    border-top: 1px solid #bbbbbb;
+    background: white;
     padding-top: 5px;
 }
 
@@ -20,4 +22,16 @@
     justify-content: space-around;
     margin: 0;
     padding: 0;
+}
+
+.light_mode {
+    background: rgb(255, 255, 255);
+    color: rgba(0, 0, 0);
+    border-top: 1px solid #5a5959;
+}
+
+.dark_mode {
+    border-top: 1px solid #5a5959;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
 }

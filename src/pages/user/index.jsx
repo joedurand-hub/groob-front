@@ -1,9 +1,8 @@
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
 import NavItem from "../../components/NavItem/NavItem";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { HiMenuAlt4 } from "react-icons/hi";
 import { getCookie } from "cookies-next";
-import { ENDPOINT, GET_PROFILE } from "../../helpers/constants";
 
 const User = ({data}) => {
    return (
@@ -11,7 +10,7 @@ const User = ({data}) => {
       menuItem={
         <>
           <NavItem path="/menu">
-            <GiHamburgerMenu />
+            <HiMenuAlt4 />
           </NavItem>
         </>
       }>

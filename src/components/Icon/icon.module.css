@@ -3,21 +3,22 @@
     border-radius: 50%;
     transition: all 0.25s linear;
 }
-.icon:hover {
-    color: rgb(44, 33, 200);
-}
-
-
-.icon:focus {
-    color: rgb(44, 33, 200);
-}
-
-.icon:active {
-    color: rgb(44, 33, 200);
-}
 
 .light_mode {
     color: #000;
+}
+
+.light_mode:hover  {
+    cursor: pointer;
+    color: rgb(63, 11, 124);
+}
+
+.light_mode:focus  {
+    color: rgb(63, 11, 124);
+
+}
+.light_mode:active  {
+    color: rgb(63, 11, 124);
 }
 
 .dark_mode  {
@@ -25,11 +26,12 @@
 }
 
 .dark_mode:hover  {
-    color: rgb(52, 88, 207);
+    cursor: pointer;
+    color: rgb(63, 11, 124);
 }
 .dark_mode:focus  {
-    color: rgb(52, 88, 207);
+    color: rgb(63, 11, 124);
 }
 .dark_mode:active  {
-    color: rgb(52, 88, 207);
+    color: rgb(63, 11, 124);
 }

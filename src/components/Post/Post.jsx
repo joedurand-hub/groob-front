@@ -1,15 +1,18 @@
+import { useContext, memo } from "react";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import Link from "next/link";
 import Image from "next/image";
 import { URL } from "../../helpers/constants";
 import styles from "./post.module.css";
 
 const Posts = ({ data }) => {
-  console.log(data);
+  const { theme } = useContext(ThemeContext)
+
   return (
     <>
       {data &&
         data.map(({ content, price, createdAt, user, _id }) => (
-          <article key={_id} className={styles.container_post}>
+          <article key={_id} className={theme ? `${styles.container_post} ${styles.light_mode}` : `${styles.container_post} ${styles.dark_mode}`}>
             <Link href={`${URL}/User/${user}`} passHref>
               <div className={styles.user}>
                 <div className={styles.user_container_picture_and_foto}>

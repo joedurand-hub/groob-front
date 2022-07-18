@@ -6,8 +6,8 @@ const MenuNav = ({ children }) => {
     const { theme } = useContext(ThemeContext)
   
     return (
-      <nav className={theme ? `${styles.menu_nav} light_mode` 
-                            : `${styles.menu_nav} dark_mode`}
+      <nav className={theme ? `${styles.menu_nav} ${styles.light_mode}` 
+                            : `${styles.menu_nav} ${styles.dark_mode}`}
    >
         <ul className={styles.menu_list_ul}>
             {children}

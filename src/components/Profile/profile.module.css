@@ -4,6 +4,18 @@
   .container {
     padding: 25px 10px;
   }
+  .light_mode {
+    background: white;
+  }
+
+  .dark_mode {
+    background: black;
+    color: rgb(220, 220, 220)
+  }
+
+  .dark_mode .data {
+    color: rgb(195, 195, 195);
+  }
   
   .user_header {
     width: 100%;
@@ -69,10 +81,10 @@
   }
   
   .container_user_description {
-    margin: 10px 0;
+    margin-bottom: 10px;
     display: flex;
   }
-  
+
   .container_buttons {
     display: flex;
     align-items: center;

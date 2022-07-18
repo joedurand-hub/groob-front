@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import logoFavicon from "../../../public/logo.ico";
 import logoFaviconDarkMode from "../../../public/logoDarkMode.ico";
@@ -11,15 +11,16 @@ import NavItem from "../NavItem/NavItem";
 import Anchor from "../Anchor/Anchor";
 import Image from "next/image";
 import styles from "./layout.module.css";
-import { FiHome } from "react-icons/fi";
+import { TiHome } from "react-icons/ti";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdOutlineLiveTv } from "react-icons/md";
 import { FaUserSecret } from "react-icons/fa";
 import { RiUserHeartFill } from "react-icons/ri";
+import { IoMdNotifications } from "react-icons/io"
 
 const Layout = ({ title, description, menuItem, children }) => {
   const { theme } = useContext(ThemeContext);
-
+  const [premium, setPremium] = useState(null)
   return (
     <>
       <Head>
@@ -58,20 +59,24 @@ const Layout = ({ title, description, menuItem, children }) => {
       <footer>
         <Nav>
           <NavItem path="/Feed">
-            <FiHome />
+            <TiHome onClick={console.log("click")}/>
           </NavItem>
           <NavItem path="/search">
             <BiSearchAlt />
           </NavItem>
-          <NavItem path="/streams">
+          <NavItem path="/streamings">
             <MdOutlineLiveTv />
           </NavItem>
-          <NavItem path="/secrets">
-            <FaUserSecret />
+          <NavItem path="/notifications">
+            <IoMdNotifications />
           </NavItem>
-          <NavItem path="/User">
-            <RiUserHeartFill />
-          </NavItem>
+          {premium ? <NavItem path="/User">
+          <FaUserSecret />
+        </NavItem> :
+        <NavItem path="/User">
+        <RiUserHeartFill />
+      </NavItem>
+          }
         </Nav>
       </footer>
     </>

@@ -7,14 +7,21 @@
         margin: 14px 0;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
+    }
+    
+    .light_mode {
         background: #ffff;
+    }
+    .dark_mode {
+        background: rgb(29, 29, 29);
+        color: white
     }
 
     .user {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        justify-content: start;
+        justify-content: flex-start;
         margin: 0;
         padding: 0;
         padding: 15px 15px 0 15px;
@@ -72,4 +79,5 @@
         width: 100%;
         height: 100%;
     }
+
 }

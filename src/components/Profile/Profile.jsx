@@ -9,7 +9,7 @@ const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext)
   return (
     <>
-        <section className={theme ? `${styles.container} light_mode` : `${styles.container} dark_mode`}>
+        <section className={theme ? `${styles.container} ${styles.light_mode}` : `${styles.container} ${styles.dark_mode}`}>
           <header className={styles.user_header}>
             <div className={styles.container_profile_picture}>
               <Image className={styles.user_profile_picture} src={data?.profile_picture} width={200} height={200} alt="Image"/>
