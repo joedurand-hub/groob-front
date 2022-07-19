@@ -35,7 +35,7 @@ const Layout = ({ title, description, menuItem, children }) => {
       <header>
         <MenuNav>
           <li>
-            <Anchor path="/Feed">
+            <Anchor path="/feed">
               <Image
                 src={theme ? logo : logoDarkMode}
                 alt="Groob logo"
@@ -58,7 +58,7 @@ const Layout = ({ title, description, menuItem, children }) => {
       </main>
       <footer>
         <Nav>
-          <NavItem path="/Feed">
+          <NavItem path="/feed">
             <TiHome onClick={console.log("click")}/>
           </NavItem>
           <NavItem path="/search">
@@ -70,10 +70,10 @@ const Layout = ({ title, description, menuItem, children }) => {
           <NavItem path="/notifications">
             <IoMdNotifications />
           </NavItem>
-          {premium ? <NavItem path="/User">
+          {premium ? <NavItem path="/user">
           <FaUserSecret />
         </NavItem> :
-        <NavItem path="/User">
+        <NavItem path="/user">
         <RiUserHeartFill />
       </NavItem>
           }

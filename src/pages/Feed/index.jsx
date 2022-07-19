@@ -14,6 +14,7 @@ const Feed = ({ data }) => {
         </NavItem>
       </>
     }>
+      <div></div>
       <Post data={data}/>
     </Layout>
   );

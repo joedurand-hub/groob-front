@@ -142,7 +142,7 @@ export const SignUp = () => {
           <Button
             onClick={() => {
               data && data.message === "Success" ?
-              router.push("/Feed") : null
+              router.push("/feed") : null
             }}
             type="submit"
             name="Iniciar sesión"

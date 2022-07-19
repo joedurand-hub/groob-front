@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 const CardContext = createContext()
 
 const ActiveCardProvider = ({ children }) => {
-    const [activeCard, setActiveCard] = useState(false)
+    const [activeCard, setActiveCard] = useState(true)
     const handleCardActivation = () => {
         setActiveCard(!activeCard)
     }

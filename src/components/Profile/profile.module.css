@@ -31,6 +31,7 @@
   
   .user_profile_picture {
     border-radius: 50%;
+    z-index: 3;
   }
   
   .container_header_data {

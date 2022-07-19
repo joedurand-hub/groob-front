@@ -1,3 +1,7 @@
+.container_switch {
+  z-index: 1;
+}
+
 .switch {
   --button-width: 3.2em;
   --button-height: 1.7em;

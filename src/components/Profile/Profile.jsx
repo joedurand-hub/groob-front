@@ -2,82 +2,98 @@ import { useContext, memo } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
-import styles from './profile.module.css'
+import styles from "./profile.module.css";
 import Button from "../Button/Button";
+import Link from "next/link";
+import { CardContext } from "../../contexts/ActiveCardContext";
+
 
 const Profile = ({ data }) => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
+  const { handleCardActivation } = useContext(CardContext)
+  const handleClick = () => {
+    handleCardActivation()
+  }
   return (
     <>
-        <section className={theme ? `${styles.container} ${styles.light_mode}` : `${styles.container} ${styles.dark_mode}`}>
-          <header className={styles.user_header}>
-            <div className={styles.container_profile_picture}>
-              <Image className={styles.user_profile_picture} src={data?.profile_picture} width={200} height={200} alt="Image"/>
-            </div>
-           <div className={styles.container_user_data}>
-           <div >
+      <section
+        className={
+          theme
+            ? `${styles.container} ${styles.light_mode}`
+            : `${styles.container} ${styles.dark_mode}`
+        }
+      >
+        <header className={styles.user_header}>
+          <div className={styles.container_profile_picture}>
+            <Image
+              className={styles.user_profile_picture}
+              src={data?.profile_picture}
+              width={125}
+              height={125}
+              alt="Image"
+            />
+          </div>
+          <div className={styles.container_user_data}>
+            <div>
               <h3>{data?.username}</h3>
             </div>
 
             <div className={styles.user_data}>
-             <div className={styles.data_followers}>
-             <span className={styles.data}>
-                <strong>
-                  {data.followers === null || 
-                   data.followers === undefined ? 0 
-                   : data.followers.length }
-                </strong>
-              </span >
-              <span className={styles.data}>Followers</span>
-             </div>
-
-             <div className={styles.data_posts}>
-           <span className={styles.data}>
-                <strong>
-                {(data && data.publications?.length === 0) ||
-                data.publications === null
-                  ? 0
-                  : data.publications?.length}
-                </strong>
-              </span>
-              <span className={styles.data}>
-                Publications
-              </span>
-           </div>
-
-           <div className={styles.data_followings}>
-              <span className={styles.data}>
-                <strong>
-                  {(data && data.followings?.length === 0) ||
-                  data.followings === null
-                    ? 0
-                    : data.followings?.length}
-                </strong>
-              </span>
-              <span className={styles.data}>Followings</span>
+            <Link href="/user/followings" passHref>
+              <div className={styles.data_followings}>
+                  <span className={styles.data}>
+                    <strong>
+                      {(data && data.followings?.length === 0) ||
+                      data.followings === null
+                        ? 0
+                        : data.followings?.length}
+                    </strong>
+                  </span>
+                  <span className={styles.data}>Followings</span>
+                </div>
+              </Link>
+              <div className={styles.data_posts}>
+                <span className={styles.data}>
+                  <strong>
+                    {(data && data.publications?.length === 0) ||
+                    data.publications === null
+                      ? 0
+                      : data.publications?.length}
+                  </strong>
+                </span>
+                <span className={styles.data}>Publications</span>
               </div>
+              <Link href="/user/followers" passHref>
+               <div className={styles.data_followers}>
+               <span className={styles.data}>
+                    <strong>
+                      {(data && data.followers?.length === 0) ||
+                      data.followers === null
+                        ? 0
+                        : data.followers?.length}
+                    </strong>
+                  </span>
+                  <span className={styles.data}>Followers</span>
+                </div> 
+              </Link>
             </div>
-           </div>
-            <br />
-          </header>
- 
+          </div>
+          <br />
+        </header>
 
-      <div className={styles.container_user_description}>
-        <span>{data?.description}</span>
-      </div>
-      <div className={styles.container_buttons}>
-        <Button name="Editar perfil" variant="primary"/> 
-        <Button name="Premium" variant="secondary"/>
-        <Button name="Billetera $" variant="special"/>
-      </div>
-      <hr/>
-      <Switch />
+        <div className={styles.container_user_description}>
+          <span>{data?.description}</span>
+        </div>
+        <div className={styles.container_buttons}>
+          <Button name="Editar perfil" variant="primary" />
+          <Button name="Premium" variant="secondary" />
+          <Button onClick={handleClick} name="Billetera $" variant="special" />
+        <Switch />
+        </div>
+        <hr />
       </section>
-      <div>
-          
-        
-      </div>
-</>
+      <div></div>
+    </>
   );
 };
 

@@ -1,10 +1,12 @@
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
 import NavItem from "../../components/NavItem/NavItem";
+import Wallet from "../../components/Wallet/Wallet";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { getCookie } from "cookies-next";
 
 const User = ({data}) => {
+
    return (
       <Layout
       menuItem={
@@ -14,6 +16,7 @@ const User = ({data}) => {
           </NavItem>
         </>
       }>
+        <Wallet/>
       <Profile data={data} />
     </Layout>
   );
