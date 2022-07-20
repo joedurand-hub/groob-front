@@ -2,21 +2,26 @@ import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
 import NavItem from "../../components/NavItem/NavItem";
 import Wallet from "../../components/Wallet/Wallet";
-import { HiMenuAlt4 } from "react-icons/hi";
+// import Modal from "../../components/Modal/Modal"
+// import { HiMenuAlt4 } from "react-icons/hi";
+// import { useModal } from "../hooks/useModal";
 import { getCookie } from "cookies-next";
 
 const User = ({data}) => {
+  // const [isOpenModal, openModal, closeModalMenu] = useModal(false);
 
    return (
       <Layout
       menuItem={
         <>
           <NavItem path="/menu">
-            <HiMenuAlt4 />
+            {/* <HiMenuAlt4 onClick={openModal}/> */}
           </NavItem>
         </>
       }>
-        <Wallet/>
+        {/* <Modal isOpen={isOpenModal} closeModal={closeModalMenu}> */}
+          {/* <h1>Holis</h1> */}
+        {/* </Modal> */}
       <Profile data={data} />
     </Layout>
   );

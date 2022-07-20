@@ -136,7 +136,7 @@ export const SignUp = () => {
           {errors.email?.type === "pattern" && (
             <p className={styles.form_text_input_error}>
               {" "}
-              El email debe contener @ y .{" "}
+              El email debe contener @ y punto.{" "}
             </p>
           )}
         </div>
@@ -149,6 +149,7 @@ export const SignUp = () => {
           }
         >
           <input
+            autoComplete="off"
             className={
               theme
                 ? `${inputField.form_input} ${inputField.form_input_light}`

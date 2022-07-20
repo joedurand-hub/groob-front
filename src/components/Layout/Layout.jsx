@@ -59,7 +59,7 @@ const Layout = ({ title, description, menuItem, children }) => {
       <footer>
         <Nav>
           <NavItem path="/feed">
-            <TiHome onClick={console.log("click")}/>
+            <TiHome/>
           </NavItem>
           <NavItem path="/search">
             <BiSearchAlt />

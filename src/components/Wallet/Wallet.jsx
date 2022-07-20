@@ -2,13 +2,10 @@ import { CardContext } from "../../contexts/ActiveCardContext"
 import {useContext} from "react"
 import Card from "../Card/Card"
 
-const Wallet = () => {
-    const { activeCard, handleCardActivation } = useContext(CardContext)
-    const handleClick = () => {
-      handleCardActivation()
-    }
+const Wallet = ({openCard, closeCard}) => {
+
   return (
-    <Card>
+    <Card >
         <div>
         {/* Agregar copy to clipboard */}
         <br/>
@@ -16,7 +13,7 @@ const Wallet = () => {
         <strong>Entidad:</strong> Mercado Pago <br/>
         <strong>CVU:</strong> 0000003100027978940501 <br/>
         <strong>ALIAS:</strong> joe.ars.mp <br/>
-            <button onClick={handleClick}> Close </button>
+            <button onClick={closeCard}> Close </button>
         </div>
     </Card>
   )

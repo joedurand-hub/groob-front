@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useLayoutEffect, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import logo from "../../../public/Logo.png";
 import logoDarkMode from "../../../public/LogoDarkMode.png";
@@ -12,19 +11,20 @@ import inputField from "../Input/input.module.css";
 import Image from "next/image";
 import Switch from "../Switch/Switch"
 import { ENDPOINT } from "../../helpers/constants";
+import { useRouter } from "next/router"
+
 const url = `${ENDPOINT}/login`;
 
-export const SignUp = () => {
+export const SignUp = ({token}) => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-
+  const router = useRouter()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const router = useRouter();
   const onSubmit = async (data) => {
     sendData({
       endpoint: url,
@@ -111,6 +111,7 @@ export const SignUp = () => {
           }
         >
           <input
+            autoComplete="off"
             className={
               theme
                 ? `${inputField.form_input} ${inputField.form_input_light}`
@@ -142,7 +143,7 @@ export const SignUp = () => {
           <Button
             onClick={() => {
               data && data.message === "Success" ?
-              router.push("/feed") : null
+              router.push("/feed") || token && router.push("/feed") : null
             }}
             type="submit"
             name="Iniciar sesión"

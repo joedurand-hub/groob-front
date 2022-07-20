@@ -1,32 +1,26 @@
-import React, { useState, useContext, memo } from "react";
-import { CardContext } from "../../contexts/ActiveCardContext";
+import React, { useContext, memo } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./card.module.css";
 
-const Card = ({ children }) => {
+const Card = ({ isOpen, closeCard, children  }) => {
+  const cardHandleClick = (e) => e.stopPropagation();
   const { theme } = useContext(ThemeContext);
-  const { activeCard } = useContext(CardContext);
 
-
-  const handleLightStyles = activeCard
-    ? `${styles.card_light_mode} ${styles.card_action} `
-    : `${styles.card_light_mode}`
-    
-    const handleDarkStyles = !activeCard
-    ? `${styles.card_dark_mode} ${styles.card_action} `
-    : `${styles.card_dark_mode}`
-
-    
   return (
-    <div className={styles.card_container}>
-      <div
-        className={
-          theme
-            ? `${handleLightStyles} `
-            : `${handleDarkStyles}`
-        }
-      >
-        {children}
+    <div className={styles.card_container} >
+      <div className={ theme && isOpen === true 
+                      ? `${styles.card_light_mode} ${styles.card_action}` 
+                      : theme && isOpen 
+                      ? `${styles.card_light_mode}` 
+                      : `${styles.card_light_mode}` &&
+                      theme === false && isOpen === true 
+                      ? `${styles.card_dark_mode} ${styles.card_action}` 
+                      : theme === false && isOpen 
+                      ? `${styles.card_dark_mode}` 
+                      : `${styles.card_dark_mode}`} 
+                      onClick={cardHandleClick}>
+          {children}
+        <button onClick={closeCard}>Close desde Card comp</button>
       </div>
     </div>
   );
