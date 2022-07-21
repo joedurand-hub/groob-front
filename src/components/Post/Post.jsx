@@ -13,7 +13,7 @@ const Posts = ({ data }) => {
       {data &&
         data.map(({ content, price, createdAt, user, _id }) => (
           <article key={_id} className={theme ? `${styles.container_post} ${styles.light_mode}` : `${styles.container_post} ${styles.dark_mode}`}>
-            <Link href={`${URL}/User/${user}`} passHref>
+            <Link href={`${URL}/user/${user}`} passHref>
               <div className={styles.user}>
                 <div className={styles.user_container_picture_and_foto}>
                   <Image className={styles.user_picture}

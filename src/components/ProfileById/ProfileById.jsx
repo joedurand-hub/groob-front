@@ -58,6 +58,7 @@ const Profiles = ({ data }) => {
           <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
+        <Button name="Seguir" variant="primary"/> 
           <Button name="Enviar mensaje" variant="primary"/> 
         </div>
         <hr/>
