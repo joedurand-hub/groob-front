@@ -1,4 +1,4 @@
-import React, { useContext, memo } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./card.module.css";
 
@@ -26,4 +26,4 @@ const Card = ({ isOpen, closeCard, children  }) => {
   );
 };
 
-export default memo(Card);
+export default Card;

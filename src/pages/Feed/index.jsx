@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout/Layout"
+import CreatePost from "../../components/CreatePost/CreatePost"
 import Post from "../../components/Post/Post"
 import NavItem from "../../components/NavItem/NavItem"
 import { BsFillChatDotsFill } from "react-icons/bs"
@@ -6,17 +7,19 @@ import { BsFillChatDotsFill } from "react-icons/bs"
 const Feed = ({ data }) => {
   
   return (
-    <Layout 
-    menuItem={
-      <>
-        <NavItem path="/messages">
-          <BsFillChatDotsFill/>
-        </NavItem>
-      </>
-    }>
-      <div></div>
+    // <Layout 
+    // menuItem={
+    //   <>
+    //     <NavItem path="/messages">
+    //       <BsFillChatDotsFill/>
+    //     </NavItem>
+    //   </>
+    // }>
+      <div>
+        <CreatePost/>
       <Post data={data}/>
-    </Layout>
+      </div>
+    // </Layout>
   );
 };
 

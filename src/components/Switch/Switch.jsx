@@ -1,4 +1,4 @@
-import React, { useContext, memo } from 'react'
+import React, { useContext } from 'react'
 import { ThemeContext } from '../../contexts/ThemeContext'
 import styles from "./switch.module.css"
 
@@ -19,4 +19,4 @@ const Switch = () => {
   )
 }
 
-export default memo(Switch);
+export default Switch;
