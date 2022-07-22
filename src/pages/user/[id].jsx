@@ -2,8 +2,10 @@ import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/ProfileById/ProfileById";
 import NavItem from "../../components/NavItem/NavItem";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { getCookie } from "cookies-next";
 
 const ProfileById = ({data}) => {
+  const token = getCookie("authToken");
    return (
       <Layout
       menuItem={
@@ -13,7 +15,7 @@ const ProfileById = ({data}) => {
           </NavItem>
         </>
       }>
-      <Profile data={data} />
+      <Profile data={data} token={token} />
     </Layout>
   );
 };

@@ -4,9 +4,12 @@ import Switch from "../Switch/Switch";
 import Image from "next/image";
 import styles from './profileById.module.css'
 import Button from "../Button/Button";
+import Follow from "../Follow/Follow";
+import Unfollow from "../Unfollow/Unfollow";
 
-const Profiles = ({ data }) => {
+const Profiles = ({ data, token }) => {
     const { theme } = useContext(ThemeContext)
+    console.log(data)
     return (
       <>
           <section className={theme ? `${styles.container} light_mode` : `${styles.container} dark_mode`}>
@@ -58,14 +61,14 @@ const Profiles = ({ data }) => {
           <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-        <Button name="Seguir" variant="primary"/> 
-          <Button name="Enviar mensaje" variant="primary"/> 
+          <Follow token={token} id={data?._id}/>
+          <Unfollow token={token} id={data?._id}/>
+          <Button name="Mensaje" variant="primary"/> 
         </div>
         <hr/>
         <Switch />
         </section>
         <div>
-            
           
         </div>
   </>

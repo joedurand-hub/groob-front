@@ -6,7 +6,7 @@ import styles from "./profile.module.css";
 import Button from "../Button/Button";
 import Link from "next/link";
 import { CardContext } from "../../contexts/ActiveCardContext";
-
+import { GoVerified } from "react-icons/go"
 
 const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext);
@@ -34,8 +34,8 @@ const Profile = ({ data }) => {
             />
           </div>
           <div className={styles.container_user_data}>
-            <div>
-              <h3>{data?.username}</h3>
+            <div className={styles.container_username}>
+              <h2>{data?.username} </h2> <GoVerified/>
             </div>
 
             <div className={styles.user_data}>
