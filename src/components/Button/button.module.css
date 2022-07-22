@@ -8,19 +8,19 @@
     font-weight: 600;
     color: rgb(0, 0, 0);
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-right: 3px;
     margin-left: 3px;
   }
     
   .primary {
     color: #ffff;
-    background: hsla(218, 100%, 50%, 0.795);
+    background: rgb(159, 29, 240)
   }
   
   .primary:hover {
     cursor: pointer;
-    background: hsl(211, 60%, 53%);
+    background: rgb(147, 22, 225)
   }
   
   .primary:focus {

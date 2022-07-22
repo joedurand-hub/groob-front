@@ -1,22 +1,21 @@
-
-
 @media only screen and (min-width: 260px) and (max-width: 768px) {
   .container {
     padding: 25px 10px;
   }
+
   .light_mode {
     background: white;
   }
 
   .dark_mode {
     background: black;
-    color: rgb(220, 220, 220)
+    color: rgb(231, 231, 231)
   }
 
   .dark_mode .data {
-    color: rgb(195, 195, 195);
+    color: rgb(231, 231, 231)
   }
-  
+
   .user_header {
     width: 100%;
     display: flex;
@@ -24,27 +23,34 @@
     align-items: center;
     padding: 0;
   }
-  
+
   .container_profile_picture {
     max-width: 150px;
   }
-  
+
   .user_profile_picture {
     border-radius: 50%;
     z-index: 3;
   }
-  
+
   .container_header_data {
     display: flex;
     flex-direction: column;
   }
-  
+
   .container_user_data {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
+  .container_username {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
   .user_data {
     display: flex;
     flex-direction: row;
@@ -52,35 +58,35 @@
     justify-content: center;
     padding: 0;
   }
-  
+
   .data_followers {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 4px;
   }
-  
+
   .data_posts {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 4px;
   }
-  
+
   .data_followings {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 4px;
   }
-  
+
   .data {
     font-size: 0.9em;
   }
-  
+
   .container_user_description {
     margin-bottom: 10px;
     display: flex;
@@ -93,5 +99,5 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
-	
+
 }

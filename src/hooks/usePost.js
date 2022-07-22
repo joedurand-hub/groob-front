@@ -8,13 +8,16 @@ const usePost = () => {
     error: undefined,
   });
 
-  const sendData = async ({endpoint, postData}) => {  
+  const sendData = async ({endpoint, postData, token}) => {  
     setPostData({
       data: undefined,
       pending: true,
       error: undefined,
     });
-    return axios.post(`${endpoint}`, {...postData}, {withCredentials: true} )
+    return axios.post(`${endpoint}`, {...postData}, {
+      headers: { 
+        "authToken": token 
+      }}, {withCredentials: true} )
     .then((response) => {
         setPostData({ 
           data: response.data, 

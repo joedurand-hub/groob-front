@@ -3,7 +3,10 @@ export const ENDPOINT = "http://localhost:8080"
 export const GET_PROFILE = "/profile" 
 export const GET_PROFILE_BY_ID = "/profile/:id" 
 export const UPDATE_PROFILE = "/profile/:id" 
-
+export const FOLLOW = "/follow"
+export const UNFOLLOW = "/unfollow"
+export const GET_FOLLOWERS = "/followers"
+export const GET_FOLLOWINGS = "/followings"
 
 // ENDPOINTS IN THE FRONTEND ROUTES
 export const URL = "http://localhost:3000" || "https://groob.vercel.app"
