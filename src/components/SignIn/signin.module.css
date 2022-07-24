@@ -27,7 +27,7 @@
     transition: all 0.50s linear;
 }
 
-.form_text_input_error {
+.field_text_input_error {
     transition: all 0.5s linear;
     text-align: left;
     word-wrap: break-word;
@@ -57,7 +57,7 @@
 
 
 @media screen and (max-width: 320px) {
-    .form_terms_link {
+    .field_terms_link {
         margin: 10px 0;
         text-align: center;
         width: 90%;

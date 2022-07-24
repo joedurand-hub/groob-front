@@ -9,20 +9,21 @@ import Anchor from "../Anchor/Anchor";
 import styles from "./signin.module.css";
 import inputField from "../Input/input.module.css";
 import Image from "next/image";
-import Switch from "../Switch/Switch"
 import { ENDPOINT } from "../../helpers/constants";
 import { useRouter } from "next/router"
 
 const url = `${ENDPOINT}/login`;
 
-export const SignUp = ({token}) => {
+export const SignIn = () => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
+  console.log("data", data)
+
   const router = useRouter()
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors },  
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -81,8 +82,8 @@ export const SignUp = ({token}) => {
             autoComplete="off"
             className={
               theme
-                ? `${inputField.form_input} ${inputField.form_input_light}`
-                : `${inputField.form_input} ${inputField.form_input_dark}`
+                ? `${inputField.field_input} ${inputField.field_input_light}`
+                : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="email"
             placeholder="Email"
@@ -92,12 +93,12 @@ export const SignUp = ({token}) => {
             })}
           />
           {errors.email?.type === "required" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               El email no puede estar vacío.
             </p>
           )}
           {errors.email?.type === "pattern" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               El email debe contener @ y .
             </p>
           )}
@@ -114,8 +115,8 @@ export const SignUp = ({token}) => {
             autoComplete="off"
             className={
               theme
-                ? `${inputField.form_input} ${inputField.form_input_light}`
-                : `${inputField.form_input} ${inputField.form_input_dark}`
+                ? `${inputField.field_input} ${inputField.field_input_light}`
+                : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="password"
             placeholder="Password"
@@ -126,13 +127,13 @@ export const SignUp = ({token}) => {
             })}
           />
           {errors.password?.type === "required" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               La contaseña no puede estar vacía.
             </p>
           )}
           {errors.password?.type === "pattern" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               Email o contraseña incorrectos.
             </p>
@@ -141,10 +142,10 @@ export const SignUp = ({token}) => {
 
         <div className={styles.container_submit}>
           <Button
-            onClick={() => {
-              data && data.message === "Success" ?
-              router.push("/feed") || token && router.push("/feed") : null
-            }}
+            // onClick={() => {
+            //   data && data.message === "Success" ?
+            //   router.push("/feed") : null
+            // }}
             type="submit"
             name="Iniciar sesión"
             variant="primary"
@@ -159,9 +160,8 @@ export const SignUp = ({token}) => {
         {pending && <p>Cargando...</p>}
         {error && <p>{error}</p>}
       </form>
-      <Switch />
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;

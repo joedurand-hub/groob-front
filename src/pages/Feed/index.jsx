@@ -7,19 +7,19 @@ import { BsFillChatDotsFill } from "react-icons/bs"
 const Feed = ({ data }) => {
   
   return (
-    // <Layout 
-    // menuItem={
-    //   <>
-    //     <NavItem path="/messages">
-    //       <BsFillChatDotsFill/>
-    //     </NavItem>
-    //   </>
-    // }>
+    <Layout 
+    menuItem={
+      <>
+        <NavItem path="/messages">
+          <BsFillChatDotsFill/>
+        </NavItem>
+      </>
+    }>
       <div>
         <CreatePost/>
       <Post data={data}/>
       </div>
-    // </Layout>
+    </Layout>
   );
 };
 

@@ -28,8 +28,8 @@ const Profile = ({ data }) => {
             <Image
               className={styles.user_profile_picture}
               src={data?.profile_picture}
-              width={125}
-              height={125}
+              width={482}
+              height={482}
               alt="Image"
             />
           </div>
