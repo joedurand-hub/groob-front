@@ -1,19 +1,15 @@
-import { useContext, memo } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
 import styles from "./profile.module.css";
 import Button from "../Button/Button";
 import Link from "next/link";
-import { CardContext } from "../../contexts/ActiveCardContext";
 import { GoVerified } from "react-icons/go"
 
 const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext);
-  const { handleCardActivation } = useContext(CardContext)
-  const handleClick = () => {
-    handleCardActivation()
-  }
+
   return (
     <>
       <section
@@ -87,7 +83,7 @@ const Profile = ({ data }) => {
         <div className={styles.container_buttons}>
           <Button name="Editar perfil" variant="primary" />
           <Button name="Premium" variant="secondary" />
-          <Button onClick={handleClick} name="Billetera $" variant="special" />
+          <Button name="Billetera $" variant="special" />
         <Switch />
         </div>
         <hr />
@@ -97,4 +93,4 @@ const Profile = ({ data }) => {
   );
 };
 
-export default memo(Profile);
+export default Profile;

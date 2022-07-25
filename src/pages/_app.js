@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import { ThemeProvider } from "../contexts/ThemeContext";
-import { ActiveCardProvider } from "../contexts/ActiveCardContext"
 
 // import { useRouter } from "next/router"
 // import { useState, useEffect, useContext } from "react"
@@ -35,12 +34,10 @@ import { ActiveCardProvider } from "../contexts/ActiveCardContext"
 
 function MyApp({ Component, pageProps }) {
   return (
-        <ActiveCardProvider> 
     <ThemeProvider>
           {/* <Loading/> */}
           <Component {...pageProps} />
        </ThemeProvider>
-         </ActiveCardProvider>
   );
 }
 export default MyApp;

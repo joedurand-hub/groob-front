@@ -1,4 +1,4 @@
-import { useContext, memo } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import Unfollow from "../Unfollow/Unfollow";
 
 const Profiles = ({ data, token }) => {
     const { theme } = useContext(ThemeContext)
+    console.log(data)
     return (
       <>
           <section className={theme ? `${styles.container} light_mode` : `${styles.container} dark_mode`}>
