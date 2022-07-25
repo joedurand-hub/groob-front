@@ -14,14 +14,16 @@ import { useRouter } from "next/router"
 
 const url = `${ENDPOINT}/login`;
 
-export const SignIn = ({token}) => {
+export const SignIn = () => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
+  console.log("data", data)
+
   const router = useRouter()
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors },  
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -80,8 +82,8 @@ export const SignIn = ({token}) => {
             autoComplete="off"
             className={
               theme
-                ? `${inputField.form_input} ${inputField.form_input_light}`
-                : `${inputField.form_input} ${inputField.form_input_dark}`
+                ? `${inputField.field_input} ${inputField.field_input_light}`
+                : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="email"
             placeholder="Email"
@@ -91,12 +93,12 @@ export const SignIn = ({token}) => {
             })}
           />
           {errors.email?.type === "required" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               El email no puede estar vacío.
             </p>
           )}
           {errors.email?.type === "pattern" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               El email debe contener @ y .
             </p>
           )}
@@ -113,8 +115,8 @@ export const SignIn = ({token}) => {
             autoComplete="off"
             className={
               theme
-                ? `${inputField.form_input} ${inputField.form_input_light}`
-                : `${inputField.form_input} ${inputField.form_input_dark}`
+                ? `${inputField.field_input} ${inputField.field_input_light}`
+                : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="password"
             placeholder="Password"
@@ -125,13 +127,13 @@ export const SignIn = ({token}) => {
             })}
           />
           {errors.password?.type === "required" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               La contaseña no puede estar vacía.
             </p>
           )}
           {errors.password?.type === "pattern" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               Email o contraseña incorrectos.
             </p>

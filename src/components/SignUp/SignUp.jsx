@@ -76,8 +76,8 @@ export const SignUp = () => {
             autoComplete="off"
             className={
               theme
-                ? `${inputField.form_input} ${inputField.form_input_light}`
-                : `${inputField.form_input} ${inputField.form_input_dark}`
+                ? `${inputField.field_input} ${inputField.field_input_light}`
+                : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="username"
             {...register("username", {
@@ -87,20 +87,20 @@ export const SignUp = () => {
               // pattern: /^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/,
             })}
           />
-          {/* {errors.username?.type === "pattern" && <p className={styles.form_text_input_error}> Sólo se permiten los caracteres . y _ ejemplo: john_smith </p>} */}
+          {/* {errors.username?.type === "pattern" && <p className={styles.field_text_input_error}> Sólo se permiten los caracteres . y _ ejemplo: john_smith </p>} */}
           {errors.username?.type === "required" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               El nombre de usuario no debe estar vacío.{" "}
             </p>
           )}
           {errors.username?.type === "minLength" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               El nombre debe ser mayor a 3 letras.{" "}
             </p>
           )}
           {errors.username?.type === "maxLength" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               El nombre debe ser menor a 16 letras.{" "}
             </p>
           )}
@@ -117,8 +117,8 @@ export const SignUp = () => {
             autoComplete="off"
             className={
               theme
-                ? `${inputField.form_input} ${inputField.form_input_light}`
-                : `${inputField.form_input} ${inputField.form_input_dark}`
+                ? `${inputField.field_input} ${inputField.field_input_light}`
+                : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="email"
             placeholder="Email"
@@ -128,13 +128,13 @@ export const SignUp = () => {
             })}
           />
           {errors.email?.type === "required" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               El email no puede estar vacío.{" "}
             </p>
           )}
           {errors.email?.type === "pattern" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               El email debe contener @ y punto.{" "}
             </p>
@@ -152,8 +152,8 @@ export const SignUp = () => {
             autoComplete="off"
             className={
               theme
-                ? `${inputField.form_input} ${inputField.form_input_light}`
-                : `${inputField.form_input} ${inputField.form_input_dark}`
+                ? `${inputField.field_input} ${inputField.field_input_light}`
+                : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="password"
             placeholder="Password"
@@ -166,25 +166,25 @@ export const SignUp = () => {
             })}
           />
           {errors.password?.type === "required" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               La contraseña no puede estar vacía.{" "}
             </p>
           )}
           {errors.password?.type === "minLength" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               La contraseña debe tener más de 8 caracteres.{" "}
             </p>
           )}
           {errors.password?.type === "maxLength" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               La contraseña debe ser menor a 32 <br /> caracteres.{" "}
             </p>
           )}
           {errors.passowrd?.type === "pattern" && (
-            <p className={styles.form_text_input_error}>
+            <p className={styles.field_text_input_error}>
               {" "}
               La contraseña debe contener entre 8 y 32 caracteres y al menos 1
               caracter alfanumérico.{" "}
@@ -192,7 +192,7 @@ export const SignUp = () => {
           )}
         </div>
 
-        <section className={styles.form_terms_link}>
+        <section className={styles.field_terms_link}>
           <p>
             Al registrarte aceptas nuestros{" "}
             <Anchor

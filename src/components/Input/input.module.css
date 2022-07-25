@@ -1,78 +1,75 @@
 .field {
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 280px;
-    max-height: 40vh;
-  }
-  
-  .form_label {
-    padding-left: 5px;
-    padding-top: 2px;
-    margin-top: 5px;
-    color:rgba(71, 71, 71, 0.555);
-  }
-  
-  .form_input {
-    width: 255px;
-    max-width: 350px;
-    padding-right: 15px;
-    height: 37px;
-    line-height: 37px;
-    border: 2px solid transparent;
-    transition: .3s ease all;
-    border-bottom-left-radius: none;
-    border-bottom-right-radius: none;
-    border-radius: 5px;
-  }
-  
-  .form_input:focus {
-    width: 255px;
-    border: 2px solid #0077ffd0;
-    outline: none;
-    box-shadow: 3px 0 30px rgba(130, 130, 130, 0.2);
-    transition: .1s ease all;
-  }
-  
-  .form_input::placeholder {
-    color:rgba(255, 255, 255, 0.2);
-  }
-  
-  .success {
-    width: 255px;
-    outline: none;
-    border: 2px solid #0ec727 !important;
-    border-radius: 5px;
-  }
-  
-  .error {
-    width: 255px;
-    outline: none;
-    border: 2px solid #e71616 !important;
-    border-radius: 5px;
-  }
-  
-  .form_input:focus:not(:focus-visible) {
-    width: 255px;
-    background: transparent;
-    border-radius: 5px;
-  }
-  
-  .form_text {
-    display: none;
-  }
-  
-  .form_input_light {
-    background: rgb(233, 232, 232);
-    color: #000000;
-  }
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 280px;
+  max-height: 40vh;
+}
 
-  .form_input_dark {
-    background: #343434;
-    color: white;
-  }
+.field_label {
+  padding-left: 5px;
+  padding-top: 2px;
+  margin-top: 5px;
+  color:rgba(71, 71, 71, 0.555);
+  border-radius: 5px;
+}
+ 
+.field_input {
+  width: 255px;
+  max-width: 350px;
+  padding-right: 15px;
+  height: 37px;
+  line-height: 37px;
+  border: 2px solid transparent;
+  transition: .3s ease all;
+  border-radius: 5px;
+}
 
-  .form_input_light::placeholder {
-    color:rgba(0, 0, 0, 0.601);
-  }
+.field_input:focus {
+  width: 255px;
+  border: 2px solid #0077ffd0;
+  outline: none;
+  box-shadow: 3px 0 30px rgba(130, 130, 130, 0.2);
+  transition: .1s ease all;
+  border-radius: 5px;
+}
+
+.field_input::placeholder {
+  color:rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+
+.field_input_error {
+  transition: all 0.5s linear;
+  text-align: left;
+  word-wrap: break-word;
+  padding-right: 5px;
+  max-width: 250px;
+  width: 100%;
+  font-size: 13px;
+  margin: 5px 0 0 3px;
+  color: #e92121e1;
+  display: block;
+}
+
+.field_input:focus:not(:focus-visible) {
+  width: 255px;
+  background: transparent;
+  border-radius: 5px;
+}
+
+.field_input_light {
+  background: rgb(233, 232, 232);
+  color: #000000;
+}
+
+.field_input_dark {
+  background: #343434;
+  color: white;
+}
+
+.field_input_light::placeholder {
+  color:rgba(0, 0, 0, 0.601);
+}
