@@ -9,13 +9,12 @@ import Anchor from "../Anchor/Anchor";
 import styles from "./signin.module.css";
 import inputField from "../Input/input.module.css";
 import Image from "next/image";
-import Switch from "../Switch/Switch"
 import { ENDPOINT } from "../../helpers/constants";
 import { useRouter } from "next/router"
 
 const url = `${ENDPOINT}/login`;
 
-export const SignUp = ({token}) => {
+export const SignIn = ({token}) => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
   const router = useRouter()
@@ -159,9 +158,8 @@ export const SignUp = ({token}) => {
         {pending && <p>Cargando...</p>}
         {error && <p>{error}</p>}
       </form>
-      <Switch />
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;

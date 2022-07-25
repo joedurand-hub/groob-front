@@ -3,7 +3,7 @@ import Profile from "../../components/Profile/Profile";
 import NavItem from "../../components/NavItem/NavItem";
 import Wallet from "../../components/Wallet/Wallet";
 // import Modal from "../../components/Modal/Modal"
-// import { HiMenuAlt4 } from "react-icons/hi";
+import { IoMenu } from "react-icons/io5";
 // import { useModal } from "../hooks/useModal";
 import { getCookie } from "cookies-next";
 
@@ -15,7 +15,7 @@ const User = ({data}) => {
       menuItem={
         <>
           <NavItem path="/menu">
-            {/* <HiMenuAlt4 onClick={openModal}/> */}
+            <IoMenu />
           </NavItem>
         </>
       }>

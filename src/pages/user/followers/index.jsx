@@ -2,7 +2,6 @@ import Layout from "../../../components/Layout/Layout";
 
 const Followers = ({data}) => {
 
-  console.log(data);
   return (
     <Layout>
       {data &&

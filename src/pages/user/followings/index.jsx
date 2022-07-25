@@ -2,7 +2,6 @@ import Layout from "../../../components/Layout/Layout";
 import { getCookie } from "cookies-next";
 
 const Followings = ({data}) => {
-    console.log(data)
   return (
     <Layout>
       {data && data.followings.map(userId => (

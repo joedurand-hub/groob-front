@@ -1,104 +1,103 @@
 .button {
-    border: none;
-    text-decoration: none;
-    word-wrap: break-word;
-    height: 35px;
-    line-height: 35px;
-    font-size: 16px;
-    font-weight: 600;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    border-radius: 5px;
-    margin-right: 3px;
-    margin-left: 3px;
-  }
-    
-  .primary {
-    color: #ffff;
-    background: hsla(218, 100%, 50%, 0.795);
-  }
+  border: none;
+  text-decoration: none;
+  word-wrap: break-word;
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  border-radius: 10px;
+  margin-right: 3px;
+  margin-left: 3px;
+}
   
-  .primary:hover {
-    cursor: pointer;
-    background: hsl(211, 60%, 53%);
-  }
-  
-  .primary:focus {
-    border: 1px solid rgb(255, 255, 255);
-  }
-  .primary:active {
-    border: 1px solid rgb(255, 255, 255);
-  }
-  
-  .secondary {
-    border: 1px solid white;
-    color: #ffff;
-    background: #000000;
-  }
-  
-  .secondary:hover {
-    border: 1px solid white;
-    cursor: pointer;
-    background: #0c0c0c;
-  }
-  
-  .secondary:focus {
-    border: 1px solid #FFD700;
-    background: #0c0c0c;
-  }
-  .secondary:active {
-    border: 1px solid #FFD700;
-    background: #0c0c0c;
-  }
-  
-  .special {
-    border: 1px solid white;
-    color: #ffff;
-    background: #000000;
-  }
-  
-  .special:hover {
-    background: #0c0c0c;
-    cursor: pointer; 
-  }
-  
-  .special:focus {
-    border: 1px solid #06c80d;
-    background: #0c0c0c;
-  }
-  .special:active {
-    border: 1px solid #06c80d;
-    background: #0c0c0c;
-  }
-  
-  .success {
-    color: #ffff;
-    background: #00b300;
-  }
+.primary {
+  color: #ffff;
+  background: rgb(159, 29, 240)
+}
+
+.primary:hover {
+  cursor: pointer;
+  background: rgb(147, 22, 225)
+}
+
+.primary:focus {
+  border: 1px solid rgb(255, 255, 255);
+}
+.primary:active {
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.secondary {
+  border: 1px solid white;
+  color: #ffff;
+  background: #000000;
+}
+
+.secondary:hover {
+  border: 1px solid white;
+  cursor: pointer;
+  background: #0c0c0c;
+}
+
+.secondary:focus {
+  border: 1px solid #FFD700;
+  background: #0c0c0c;
+}
+.secondary:active {
+  border: 1px solid #FFD700;
+  background: #0c0c0c;
+}
+
+.special {
+  border: 1px solid white;
+  color: #ffff;
+  background: #000000;
+}
+
+.special:hover {
+  background: #0c0c0c;
+  cursor: pointer; 
+}
+
+.special:focus {
+  border: 1px solid #06c80d;
+  background: #0c0c0c;
+}
+.special:active {
+  border: 1px solid #06c80d;
+  background: #0c0c0c;
+}
+
+.success {
+  color: #ffff;
+  background: #00b300;
+}
 
 
-  .search:focus {
-    border: 1px solid rgba(158, 158, 158, 0);
-  }
-  
-  .cancel {
-    background: #ee0f0f;
-    color: rgb(243, 243, 243);
-  }
-  
-  .cancel:hover {
-    cursor: pointer;
-    background: #ee0f0fd2;
-  }
-  
-  .disabled {
-    pointer-events: none;
-    box-shadow: none;
-    background: #ccc;
-  }
-  
-  .disabled:hover {
-    cursor: not-allowed !important;
-    background: #ccc;
-  }
-  
+.search:focus {
+  border: 1px solid rgba(158, 158, 158, 0);
+}
+
+.cancel {
+  background: #ee0f0f;
+  color: rgb(243, 243, 243);
+}
+
+.cancel:hover {
+  cursor: pointer;
+  background: #ee0f0fd2;
+}
+
+.disabled {
+  pointer-events: none;
+  box-shadow: none;
+  background: #ccc;
+}
+
+.disabled:hover {
+  cursor: not-allowed !important;
+  background: #ccc;
+}
