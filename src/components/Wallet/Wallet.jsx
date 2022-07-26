@@ -1,9 +1,9 @@
 import Card from "../Card/Card"
-
-const Wallet = () => {
+import { useCard } from "../../hooks/useCard"
+const Wallet = ({isOpenCard, closeCard}) => {
 
   return (
-    <Card >
+    <Card isOpen={isOpenCard} closeCard={closeCard}>
         <div>
         {/* Agregar copy to clipboard */}
         <br/>
@@ -11,7 +11,6 @@ const Wallet = () => {
         <strong>Entidad:</strong> Mercado Pago <br/>
         <strong>CVU:</strong> 0000003100027978940501 <br/>
         <strong>ALIAS:</strong> joe.ars.mp <br/>
-            <button > Close </button>
         </div>
     </Card>
   )

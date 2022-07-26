@@ -14,8 +14,7 @@ import styles from "./layout.module.css";
 import { TiHome } from "react-icons/ti";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdOutlineLiveTv } from "react-icons/md";
-import { FaUserSecret } from "react-icons/fa";
-import { RiUserHeartFill } from "react-icons/ri";
+import { FaUserCircle, FaUserSecret } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io"
 
 const Layout = ({ title, description, menuItem, children }) => {
@@ -74,7 +73,7 @@ const Layout = ({ title, description, menuItem, children }) => {
           <FaUserSecret />
         </NavItem> :
         <NavItem path="/user">
-        <RiUserHeartFill />
+        <FaUserCircle />
       </NavItem>
           }
         </Nav>

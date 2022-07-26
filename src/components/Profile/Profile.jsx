@@ -6,11 +6,15 @@ import Image from "next/image";
 import styles from "./profile.module.css";
 import Button from "../Button/Button";
 import Link from "next/link";
-import { GoVerified } from "react-icons/go"
-
+import Card from "../Card/Card";
+import { GoVerified } from "react-icons/go";
+import { useCard } from "../../hooks/useCard";
+import Followings from "../Followings/Followings";
+import Followers from "../Followers/Followers";
 const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext);
-  const router = useRouter()
+  const [isOpenCard, openCard, closeCard] = useCard(false);
+  const router = useRouter();
   return (
     <>
       <section
@@ -29,50 +33,30 @@ const Profile = ({ data }) => {
               height={400}
               alt="Image"
             />
+            <div className={styles.container_username}>
+              <h2>{data?.username} </h2>{" "}
+              <GoVerified className={styles.verify} />
+            </div>
           </div>
           <div className={styles.container_user_data}>
-            <div className={styles.container_username}>
-              <h2>{data?.username} </h2> <GoVerified/>
-            </div>
-
             <div className={styles.user_data}>
-            <Link href="/user/followings" passHref>
-              <div className={styles.data_followings}>
-                  <span className={styles.data}>
-                    <strong>
-                      {(data && data.followings?.length === 0) ||
-                      data.followings === null
-                        ? 0
-                        : data.followings?.length}
-                    </strong>
-                  </span>
-                  <span className={styles.data}>Followings</span>
-                </div>
-              </Link>
+                <Followings />
               <div className={styles.data_posts}>
                 <span className={styles.data}>
-                  <strong>
+                  <strong className={styles.data_number}>
                     {(data && data.publications?.length === 0) ||
                     data.publications === null
                       ? 0
                       : data.publications?.length}
                   </strong>
                 </span>
-                <span className={styles.data}>Publications</span>
+                {data && data.publications?.length === 1 ? (
+                  <span className={styles.data}>Publicaci...</span>
+                ) : (
+                  <span className={styles.data}>Publicaci...</span>
+                )}
               </div>
-              <Link href="/user/followers" passHref>
-               <div className={styles.data_followers}>
-               <span className={styles.data}>
-                    <strong>
-                      {(data && data.followers?.length === 0) ||
-                      data.followers === null
-                        ? 0
-                        : data.followers?.length}
-                    </strong>
-                  </span>
-                  <span className={styles.data}>Followers</span>
-                </div> 
-              </Link>
+                  <Followers />
             </div>
           </div>
           <br />
@@ -82,12 +66,31 @@ const Profile = ({ data }) => {
           <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-          <Button name="Editar perfil" variant="primary" onClick={() => {
-            router.push('/user/update')
-          }} />
+          <Button
+            name="Editar perfil"
+            variant="primary"
+            onClick={() => {
+              router.push("/user/update");
+            }}
+          />
           <Button name="Premium" variant="secondary" />
-          <Button name="Billetera $" variant="special" />
-        <Switch />
+
+          <Button
+            name="Billetera $"
+            variant="special"
+            onClick={openCard}
+          />
+          <Card isOpen={isOpenCard} closeCard={closeCard}>
+            <div>
+              {/* Agregar copy to clipboard */}
+              <br />
+              <h5>Cuentas bancarias y billeteras</h5> <br />
+              <strong>Entidad:</strong> Mercado Pago <br />
+              <strong>CVU:</strong> 0000003100027978940501 <br />
+              <strong>ALIAS:</strong> joe.ars.mp <br />
+            </div>
+          </Card>
+          <Switch />
         </div>
         <hr />
       </section>

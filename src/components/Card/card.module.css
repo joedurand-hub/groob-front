@@ -3,16 +3,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 2;
+    z-index: 5;
+    position: absolute
 }
 
 .card_light_mode {
     background: rgb(244, 244, 244);
     color: black;
     position: fixed;
-    width: 98vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    width: 99%;
+    max-width: 400px;
     height: 75vh;
     bottom: -75vh;
     padding: 15px;
@@ -26,9 +26,8 @@
     background: #3e3e3e;
     color: white;
     position: fixed;
-    width: 98vw;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    width: 99%;
+    max-width: 400px;
     height: 75vh;
     bottom: -75vh;
     padding: 15px;

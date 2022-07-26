@@ -2,7 +2,7 @@ import Layout from "../../components/Layout/Layout";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import Post from "../../components/Post/Post";
 import NavItem from "../../components/NavItem/NavItem";
-import { BsFillChatDotsFill } from "react-icons/bs";
+import { BsChatFill } from "react-icons/bs";
 
 const Feed = ({ data }) => {
   return (
@@ -10,7 +10,7 @@ const Feed = ({ data }) => {
       menuItem={
         <>
           <NavItem path="/messages">
-            <BsFillChatDotsFill />
+            <BsChatFill />
           </NavItem>
         </>
       }

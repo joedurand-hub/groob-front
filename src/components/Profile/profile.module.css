@@ -27,6 +27,9 @@
     margin: 0;
     padding: 0;
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .user_profile_picture {
@@ -49,6 +52,20 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    z-index: 4;
+    padding-left: 10px;
+    margin-top: -15%;
+    margin-bottom: 5%;
+    color: white;
+  }
+
+  .verify {
+    margin-top: -12px;
+    font-size: 20px;
+    color: rgb(46, 135, 244);
+    background: white;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.144);
   }
 
   .user_data {
@@ -56,16 +73,24 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    padding: 0;
+    padding: 0;  
+    margin-top: 5px;
   }
 
-  .data_followers {
+  .data_number {
+    height: 35px;
+    background: rgba(207, 207, 207, 0.148);
+    border-radius: 50%;
+    width: 35px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4px;
+    text-align: center;
+    align-content: center;
+    padding: 0;
+    margin: 0;
   }
+
 
   .data_posts {
     display: flex;
@@ -73,18 +98,6 @@
     justify-content: center;
     align-items: center;
     padding: 4px;
-  }
-
-  .data_followings {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
-  }
-
-  .data {
-    font-size: 0.9em;
   }
 
   .container_user_description {
