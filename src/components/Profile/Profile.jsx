@@ -1,19 +1,24 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useRouter } from "next/router";
+import { BsCashCoin } from "react-icons/bs";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
 import styles from "./profile.module.css";
 import Button from "../Button/Button";
-import Link from "next/link";
+import Icon from "../Icon/Icon";
 import Card from "../Card/Card";
+import Wallet from "../Wallet/Wallet";
+import CryptoWallet from "../WalletCrypto/WalletCrypto";
 import { GoVerified } from "react-icons/go";
 import { useCard } from "../../hooks/useCard";
 import Followings from "../Followings/Followings";
 import Followers from "../Followers/Followers";
+
 const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext);
-  const [isOpenCard, openCard, closeCard] = useCard(false);
+  const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
+  const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
   const router = useRouter();
   return (
     <>
@@ -40,7 +45,7 @@ const Profile = ({ data }) => {
           </div>
           <div className={styles.container_user_data}>
             <div className={styles.user_data}>
-                <Followings />
+              <Followings />
               <div className={styles.data_posts}>
                 <span className={styles.data}>
                   <strong className={styles.data_number}>
@@ -56,7 +61,7 @@ const Profile = ({ data }) => {
                   <span className={styles.data}>Publicaci...</span>
                 )}
               </div>
-                  <Followers />
+              <Followers />
             </div>
           </div>
           <br />
@@ -74,21 +79,27 @@ const Profile = ({ data }) => {
             }}
           />
           <Button name="Premium" variant="secondary" />
-
           <Button
-            name="Billetera $"
-            variant="special"
-            onClick={openCard}
+            onClick={openCardFiat}
+            name={
+              <Icon>
+                <BsCashCoin />
+              </Icon>
+            }
           />
-          <Card isOpen={isOpenCard} closeCard={closeCard}>
-            <div>
-              {/* Agregar copy to clipboard */}
-              <br />
-              <h5>Cuentas bancarias y billeteras</h5> <br />
-              <strong>Entidad:</strong> Mercado Pago <br />
-              <strong>CVU:</strong> 0000003100027978940501 <br />
-              <strong>ALIAS:</strong> joe.ars.mp <br />
-            </div>
+          <Button
+            onClick={openCardCrypto}
+            name={
+              <Icon>
+                <GiTwoCoins />
+              </Icon>
+            }
+          />
+          <Card isOpen={isOpenCardFiat} closeCard={closeCardFiat}>
+            <Wallet />
+          </Card>
+          <Card isOpen={isOpenCardCrypto} closeCard={closeCardCrypto}>
+            <CryptoWallet />
           </Card>
           <Switch />
         </div>

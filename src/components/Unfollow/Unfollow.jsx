@@ -1,11 +1,6 @@
 import Button from "../Button/Button"
 import useAuthPost from "../../hooks/useAuthPost"
-import Icon from "../Icon/Icon"
 import { ENDPOINT, UNFOLLOW } from "../../helpers/constants";
-
-import { RiChatSmile3Line } from "react-icons/ri"
-import { GiPayMoney, GiReceiveMoney, GiTakeMyMoney, GiMoneyStack, GiTwoCoins } from "react-icons/gi"
-import { BsCashCoin, BsHeartFill } from "react-icons/bs"
 
 const url = `${ENDPOINT}${UNFOLLOW}`;
 
@@ -24,30 +19,6 @@ const Unfollow = ({token, id}) => {
   return (
     <div>
       <Button type="submit" onClick={handleSubmit} name="Dejar de seguir"/>
-      {/* <Button       name={ 
-      <Icon>
-      <GiPayMoney/>
-      </Icon>}/>
-      <Button       name={ 
-      <Icon>
-      <GiReceiveMoney/>
-      </Icon>}/>
-      <Button       name={ 
-      <Icon>
-      <GiMoneyStack/>
-      </Icon>}/>
-      <Button       name={ 
-      <Icon>
-      <GiTwoCoins/>
-      </Icon>}/>
-      <Button       name={ 
-      <Icon>
-      <BsCashCoin/>
-      </Icon>}/>
-      <Button       name={ 
-      <Icon>
-      <BsHeartFill/>
-      </Icon>}/> */}
     </div>
   )
 }

@@ -1,27 +1,19 @@
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
 import NavItem from "../../components/NavItem/NavItem";
-import Wallet from "../../components/Wallet/Wallet";
-// import Modal from "../../components/Modal/Modal"
 import { IoMenu } from "react-icons/io5";
-// import { useModal } from "../hooks/useModal";
 import { getCookie } from "cookies-next";
 
 const User = ({data}) => {
-  // const [isOpenModal, openModal, closeModalMenu] = useModal(false);
-
    return (
       <Layout
       menuItem={
         <>
-          <NavItem path="/menu">
+          <NavItem>
             <IoMenu />
           </NavItem>
         </>
       }>
-        {/* <Modal isOpen={isOpenModal} closeModal={closeModalMenu}> */}
-          {/* <h1>Holis</h1> */}
-        {/* </Modal> */}
       <Profile data={data} />
     </Layout>
   );
