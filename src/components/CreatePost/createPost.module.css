@@ -1,0 +1,16 @@
+.publication {
+    margin-top: 30px;
+    max-width: 482px;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+.publication_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.publication_form_input {
+    width: 480px;
+}

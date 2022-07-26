@@ -1,4 +1,5 @@
 import styles from "./input.module.css";
+import { useContext } from 'react'
 import { ThemeContext } from "../../contexts/ThemeContext";
 const Input = ({
   label,
@@ -25,8 +26,8 @@ const Input = ({
       <input
         className={
           theme
-            ? `${inputField.field_input} ${inputField.field_input_light}`
-            : `${inputField.field_input} ${inputField.field_input_dark}`
+            ? `${styles.field_input} ${styles.field_input_light}`
+            : `${styles.field_input} ${styles.field_input_dark}`
         }
         type={type}
         name={name}

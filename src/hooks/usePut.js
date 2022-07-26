@@ -1,31 +1,31 @@
 import { useState } from "react";
 import axios from "axios";
 
-const useAuthPost = () => {
-  const [postData, setPostData] = useState({
+const usePut = () => {
+  const [putData, setPutData] = useState({
     data: undefined,
     pending: false,
     error: undefined,
   });
 
-  const sendData = async ({endpoint, postData, token}) => {  
-    setPostData({ 
+  const sendData = async ({endpoint, putData, token}) => {  
+    setPutData({
       data: undefined,
       pending: true,
       error: undefined,
     });
-    return axios.post(`${endpoint}`, {...postData}, {
+    return axios.put(`${endpoint}`, {...putData}, {
       headers: { 
         "authToken": token 
       }}, {withCredentials: true} )
     .then((response) => {
-        setPostData({ 
+        setPutData({ 
           data: response.data, 
           pending: false, 
           error: undefined });
       })
       .catch((error) => {
-        setPostData({ 
+        setPutData({ 
           data: undefined, 
           pending: false, 
           error: error.message });
@@ -34,10 +34,10 @@ const useAuthPost = () => {
 
   return {
     sendData,
-    data: postData.data,
-    pending: postData.pending,
-    error: postData.error,
+    data: putData.data,
+    pending: putData.pending,
+    error: putData.error,
   };
 };
 
-export default useAuthPost;
+export default usePut;

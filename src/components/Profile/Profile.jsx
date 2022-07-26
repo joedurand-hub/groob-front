@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import { useRouter } from "next/router";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
 import styles from "./profile.module.css";
@@ -9,7 +10,7 @@ import { GoVerified } from "react-icons/go"
 
 const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext);
-
+  const router = useRouter()
   return (
     <>
       <section
@@ -24,8 +25,8 @@ const Profile = ({ data }) => {
             <Image
               className={styles.user_profile_picture}
               src={data?.profile_picture}
-              width={125}
-              height={125}
+              width={400}
+              height={400}
               alt="Image"
             />
           </div>
@@ -81,7 +82,9 @@ const Profile = ({ data }) => {
           <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-          <Button name="Editar perfil" variant="primary" />
+          <Button name="Editar perfil" variant="primary" onClick={() => {
+            router.push('/user/update')
+          }} />
           <Button name="Premium" variant="secondary" />
           <Button name="Billetera $" variant="special" />
         <Switch />

@@ -10,7 +10,6 @@ import { BsCashCoin, BsHeartFill } from "react-icons/bs"
 const url = `${ENDPOINT}${UNFOLLOW}`;
 
 const Unfollow = ({token, id}) => {
-  console.log(token, id)
   const { sendData } = useAuthPost();
 
   const handleSubmit = async () => {

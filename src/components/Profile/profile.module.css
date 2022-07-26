@@ -1,6 +1,5 @@
 @media only screen and (min-width: 260px) and (max-width: 768px) {
   .container {
-    padding: 25px 10px;
   }
 
   .light_mode {
@@ -25,11 +24,12 @@
   }
 
   .container_profile_picture {
-    max-width: 150px;
+    margin: 0;
+    padding: 0;
+    max-width: 400px;
   }
 
   .user_profile_picture {
-    border-radius: 50%;
     z-index: 3;
   }
 
@@ -90,6 +90,7 @@
   .container_user_description {
     margin-bottom: 10px;
     display: flex;
+    padding-left: 10px;
   }
 
   .container_buttons {
