@@ -62,3 +62,8 @@
         color: white;
     }
 }
+
+.input_upload {
+    display: none;
+    visibility: none;
+}

@@ -79,22 +79,12 @@ const Profile = ({ data }) => {
               router.push("/user/update");
             }}
           />
-          <Button
-            onClick={openCardFiat}
-            name={
-              <Icon>
-                <BsCashCoin />
-              </Icon>
-            }
-          />
-          <Button
-            onClick={openCardCrypto}
-            name={
-              <Icon>
-                <GiTwoCoins />
-              </Icon>
-            }
-          />
+          <Icon>
+            <BsCashCoin onClick={openCardFiat} />
+          </Icon>
+          <Icon>
+            <GiTwoCoins onClick={openCardCrypto} />
+          </Icon>
           <Card isOpen={isOpenCardFiat} closeCard={closeCardFiat}>
             <Wallet />
           </Card>

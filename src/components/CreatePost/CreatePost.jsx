@@ -23,6 +23,14 @@ const CreatePost = () => {
     setValues({ ...values, [eTargetName]: value });
   };
 
+  const handleImageLoad = function (e) {
+    // const eTargetName = e.target.name;
+    const value = e.target;
+    console.log(value)
+    // setLengthValue(value.length);
+    // setValues({ ...values, [eTargetName]: value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     sendData({
@@ -54,9 +62,12 @@ const CreatePost = () => {
           maxLength={500}
         />
         <div className={styles.container_form_buttons}>
+          <label htmlFor="upload">
           <Icon>
             <BsFillImageFill />
           </Icon>
+          </label>
+          <input type="file" id="upload" className={styles.input_upload} onChange={(e) => console.log(e.target.files)}/>
           <div className={styles.container_send_post}>
             <p className={styles.character_counter}>{lengthValue}/500</p>
             <Button
