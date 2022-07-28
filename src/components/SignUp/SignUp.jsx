@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { useRouter } from "next/router";
 import usePost from "../../hooks/usePost";
 import Button from "../Button/Button";
@@ -209,7 +209,7 @@ export const SignUp = () => {
             }}
             type="submit"
             name="Registrarme"
-            variant="primary"
+            variant="login"
           />
         </div>
         {pending && <p>Cargando...</p>}

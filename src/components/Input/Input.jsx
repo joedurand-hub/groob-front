@@ -1,6 +1,8 @@
 import styles from "./input.module.css";
-import { useContext } from 'react'
+import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import { variantToStyles } from "../../helpers/variants";
+
 const Input = ({
   label,
   name,
@@ -18,16 +20,21 @@ const Input = ({
   onBlur,
   validate,
   error,
+  variant = "field_input",
 }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={styles.field}>
-      {label && <label className={styles.field_label} htmlFor={name}>{label}</label>}
+      {label && (
+        <label className={styles.field_label} htmlFor={name}>
+          {label}
+        </label>
+      )}
       <input
         className={
           theme
-            ? `${styles.field_input} ${styles.field_input_light}`
-            : `${styles.field_input} ${styles.field_input_dark}`
+            ? variantToStyles(styles.field_input_light, styles[variant])
+            : variantToStyles(styles.field_input_dark, styles[variant])
         }
         type={type}
         name={name}
@@ -45,8 +52,6 @@ const Input = ({
         placeholder={placeholder}
       />
       {error && <p className={styles.field_input_error}>{error}</p>}
-      {/* {error.minLength?.type === 'minLength' && <p>{errorMessage}</p> } */}
-      {/* {error.maxLength?.type === 'maxLength' && <p>{errorMessage}</p> } */}
     </div>
   );
 };

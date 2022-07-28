@@ -5,6 +5,7 @@
   justify-content: center;
   max-width: 280px;
   max-height: 40vh;
+  border-radius: 5px;
 }
 
 .field_label {
@@ -39,7 +40,6 @@
   color:rgba(255, 255, 255, 0.2);
   border-radius: 5px;
 }
-
 
 .field_input_error {
   transition: all 0.5s linear;

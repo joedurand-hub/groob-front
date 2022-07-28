@@ -15,10 +15,8 @@ const Feed = ({ data }) => {
         </>
       }
     >
-      <div>
         <CreatePost />
         <Post data={data} />
-      </div>
     </Layout>
   );
 };

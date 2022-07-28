@@ -37,6 +37,7 @@
         margin: 0;
         padding: 0;
         border-radius: 50%;
+        max-width: 482px;
     }
 
     .user_name {
@@ -59,25 +60,30 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        max-width: 482px;
     }
 
     .post_price {
         font-size: 18px;
         font-weight: 500;
+        max-width: 482px;
     }
 
     .post_content {
         margin: 0;
         padding: 15px;
+        max-width: 482px;
     }
 
     .post_image {
         margin: 0;
         padding: 0;
+        max-width: 482px;
     }
     .image {
         width: 100%;
         height: 100%;
+        max-width: 482px;
     }
 
 }

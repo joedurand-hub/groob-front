@@ -148,7 +148,7 @@ export const SignIn = () => {
             }}
             type="submit"
             name="Iniciar sesión"
-            variant="primary"
+            variant="login"
           />
         </div>
         <br />

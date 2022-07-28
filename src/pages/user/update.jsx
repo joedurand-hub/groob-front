@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { ENDPOINT, UPDATE_PROFILE } from "../../helpers/constants";
 import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
@@ -12,7 +12,7 @@ const UpdateProfile = ({ data }) => {
   console.log(data);
   const url = `${ENDPOINT}${UPDATE_PROFILE}/${data?.id}`;
   const { pending, error, sendData } = usePut();
-  const router = useRouter();
+  // const router = useRouter();
 
   const initialState = {
     //   firstName: data.firstName,

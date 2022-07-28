@@ -1,19 +1,20 @@
+import styles from "./profile.module.css";
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useRouter } from "next/router";
-import { BsCashCoin } from "react-icons/bs";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
-import styles from "./profile.module.css";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import Card from "../Card/Card";
 import Wallet from "../Wallet/Wallet";
 import CryptoWallet from "../WalletCrypto/WalletCrypto";
+import { BsCashCoin } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
+import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
-import Followings from "../Followings/Followings";
-import Followers from "../Followers/Followers";
+import Followings from "./Followings/Followings";
+import Followers from "./Followers/Followers";
 
 const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext);
@@ -78,7 +79,6 @@ const Profile = ({ data }) => {
               router.push("/user/update");
             }}
           />
-          <Button name="Premium" variant="secondary" />
           <Button
             onClick={openCardFiat}
             name={

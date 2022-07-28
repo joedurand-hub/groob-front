@@ -2,18 +2,26 @@
   border: none;
   text-decoration: none;
   word-wrap: break-word;
-  height: 35px;
-  line-height: 35px;
+  height: 37px;
+  line-height: 37px;
   font-size: 16px;
   font-weight: 600;
   color: rgb(0, 0, 0);
   text-align: center;
   border-radius: 10px;
-  margin-right: 3px;
-  margin-left: 3px;
+  padding-right: 13px;
+  padding-left: 13px;
+  max-width: 400px;
 }
-  
+
 .primary {
+  color: #ffff;
+  background: rgb(159, 29, 240)
+}
+
+.login {
+  width: 255px;
+  min-width: 200px;
   color: #ffff;
   background: rgb(159, 29, 240)
 }
@@ -31,13 +39,11 @@
 }
 
 .secondary {
-  border: 1px solid white;
   color: #ffff;
-  background: #000000;
+  background: #1f1e1e;
 }
 
 .secondary:hover {
-  border: 1px solid white;
   cursor: pointer;
   background: #0c0c0c;
 }
@@ -51,34 +57,9 @@
   background: #0c0c0c;
 }
 
-.special {
-  border: 1px solid white;
-  color: #ffff;
-  background: #000000;
-}
-
-.special:hover {
-  background: #0c0c0c;
-  cursor: pointer; 
-}
-
-.special:focus {
-  border: 1px solid #06c80d;
-  background: #0c0c0c;
-}
-.special:active {
-  border: 1px solid #06c80d;
-  background: #0c0c0c;
-}
-
 .success {
   color: #ffff;
   background: #00b300;
-}
-
-
-.search:focus {
-  border: 1px solid rgba(158, 158, 158, 0);
 }
 
 .cancel {
@@ -95,6 +76,7 @@
   pointer-events: none;
   box-shadow: none;
   background: #ccc;
+  cursor: not-allowed !important;
 }
 
 .disabled:hover {

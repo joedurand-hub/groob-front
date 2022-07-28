@@ -23,11 +23,9 @@ function Terms() {
           única y solo puede leerlas un servidor web en el dominio que le emitió
           la cookie. Podemos usar cookies para recopilar, almacenar y rastrear
           información con fines estadísticos o de marketing para operar nuestro
-          sitio web. Tiene la capacidad de aceptar o rechazar cookies
-          opcionales. Hay algunas cookies requeridas que son necesarias para el
+          sitio web. Hay algunas cookies requeridas que son necesarias para el
           funcionamiento de nuestro sitio web. Estas cookies no requieren su
-          consentimiento ya que siempre funcionan. Tenga en cuenta que al
-          aceptar las Cookies requeridas, también acepta las Cookies de
+          consentimiento ya que siempre funcionan. También acepta las Cookies de
           terceros, que pueden usarse a través de servicios proporcionados por
           terceros si utiliza dichos servicios en nuestro sitio web, por
           ejemplo, una ventana de visualización de video proporcionada por
@@ -36,10 +34,7 @@ function Terms() {
           de propiedad intelectual de todo el material de Groob. Todos los
           derechos de propiedad intelectual están reservados. Puede acceder a
           esto desde Groob para su uso personal sujeto a las restricciones
-          establecidas en estos términos y condiciones. No debes: Copiar o
-          volver a publicar material de Groob Vender, alquilar o sublicenciar
-          material de Groob Reproducir, duplicar o copiar material de Groob
-          Redistribuir contenido de Groob Este Acuerdo comenzará en la fecha del
+          establecidas en estos términos y condiciones. Este Acuerdo comenzará en la fecha del
           mismo. Partes de este sitio web ofrecen a los usuarios la oportunidad
           de publicar e intercambiar opiniones e información en ciertas áreas
           del sitio web. Groob no filtra, edita, publica ni revisa los
@@ -67,7 +62,7 @@ function Terms() {
           reproducir, editar y autorizar a otros a usar, reproducir y editar
           cualquiera de sus Comentarios en cualquiera y todas las formas,
           formatos o medios. Hipervínculos a nuestro contenido: Las siguientes
-          organizaciones pueden vincular a nuestro sitio web sin aprobación
+          organizaciones se pueden vincular a nuestro sitio web sin aprobación
           previa por escrito: Agencias gubernamentales; Los motores de búsqueda;
           Organizaciones de noticias; Los distribuidores de directorios en línea
           pueden vincularse a nuestro sitio web de la misma manera que vinculan
@@ -88,7 +83,7 @@ function Terms() {
           portales de internet; empresas de contabilidad, derecho y consultoría;
           y instituciones educativas y asociaciones comerciales. Aprobaremos las
           solicitudes de enlace de estas organizaciones si decidimos que: (a) el
-          enlace no nos haría mirar desfavorablemente a nosotros mismos oa
+          enlace no nos haría mirar desfavorablemente a nosotros mismos o a
           nuestros negocios acreditados; (b) la organización no tiene registros
           negativos con nosotros; (c) el beneficio para nosotros de la
           visibilidad del hipervínculo compensa la ausencia de Groob; y (d) el
@@ -97,14 +92,7 @@ function Terms() {
           el enlace: (a) no sea engañoso de ninguna manera; (b) no implica
           falsamente patrocinio, respaldo o aprobación de la parte vinculada y
           sus productos o servicios; y (c) encaja dentro del contexto del sitio
-          de la parte vinculada. Si usted es una de las organizaciones
-          enumeradas en el párrafo 2 anterior y está interesado en vincularse a
-          nuestro sitio web, debe informarnos enviando un correo electrónico a
-          Groob. Incluya su nombre, el nombre de su organización, la información
-          de contacto, así como la URL de su sitio, una lista de las URL desde
-          las que pretende vincular a nuestro sitio web y una lista de las URL
-          de nuestro sitio a las que le gustaría Enlace. Espere 2-3 semanas para
-          una respuesta. Las organizaciones aprobadas pueden tener hipervínculos
+          de la parte vinculada. Las organizaciones aprobadas pueden tener hipervínculos
           a nuestro sitio web de la siguiente manera: Mediante el uso de nuestro
           nombre corporativo; o Mediante el uso del localizador uniforme de
           recursos al que se vincula; o Usar cualquier otra descripción de
@@ -157,7 +145,7 @@ function Terms() {
 
       <footer>
         <Button
-          name="Accept"
+          name="Aceptar"
           onClick={() => {
             router.push("/");
           }}

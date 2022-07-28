@@ -9,7 +9,7 @@ const User = ({data}) => {
       <Layout
       menuItem={
         <>
-          <NavItem>
+          <NavItem path="/user">
             <IoMenu />
           </NavItem>
         </>
