@@ -46,6 +46,7 @@
     padding: 5px;
     border-radius: 10px;
     background: rgb(29, 29, 29);
+    color: white;
   }
 
 .textarea_dark_mode:hover {

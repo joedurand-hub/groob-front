@@ -1,7 +1,0 @@
-.radios {
-  display: flex;
-  flex-direction: column;
-}
-.errors {
-  color: var(--letter2);
-}
