@@ -1,70 +1,45 @@
-.textarea_light_mode {
-    width: 100%;
-    max-width: 482px;
-    font-size: 1em;
-    font-weight: 600;
-    min-height: 80px;
-    margin: 0;
-    border: none;
-    resize: none;
-    overflow-y: hidden;    
-    padding: 5px;
-    border-radius: 10px;
-    background: rgb(255, 255, 255);
-  }
+@media only screen and (min-width: 260px) and (max-width: 768px) {
+    .textarea {
+        width: 100%;
+        max-width: 482px;
+        font-size: 1em;
+        font-weight: 600;
+        min-height: 80px;
+        margin: 0;
+        border: none;
+        resize: none;
+        overflow-y: hidden;
+        padding: 5px;
+        border-radius: 10px;
+    }
 
-.textarea_light_mode:hover {
-       background: rgba(255, 255, 255, 0.888);
-}
+    .textarea:focus {
+        border: 2px solid rgb(159, 29, 240);
+        outline: 0 none;
+        border-bottom: none;
+    }
 
-.textarea_light_mode:focus {
-    border: 2px solid rgb(159, 29, 240);
-    outline: 0 none;
-    border-bottom: none;
-}
+    .textarea:active {
+        border: 2px solid rgb(159, 29, 240);
+        outline: 0 none;
+        border-bottom: none;
+    }
 
-.textarea_light_mode:active {
-    border: 2px solid rgb(159, 29, 240);
-    outline: 0 none;
-    border-bottom: none;
-} 
+    .light_mode {
+        background: rgb(255, 255, 255);
+        color: black;
+    }
 
-.textarea_light_mode::placeholder {
-    color: rgb(222, 222, 222);
-}
+    .light_mode::placeholder {
+        color: rgb(222, 222, 222);
+    }
 
-.textarea_dark_mode {
-    width: 100%;
-    max-width: 482px;
-    font-size: 1em;
-    font-weight: 600;
-    min-height: 80px;
-    margin: 0;
-    border: none;
-    resize: none;
-    overflow-y: hidden;    
-    padding: 5px;
-    border-radius: 10px;
-    background: rgb(29, 29, 29);
-    color: white;
-  }
+    .dark_mode {
+        background: rgb(29, 29, 29);
+        color: white;
+    }
 
-.textarea_dark_mode:hover {
-       background: rgba(29, 29, 29, 0.888);
-}
-
-.textarea_dark_mode:focus {
-    border: 2px solid rgb(159, 29, 240);
-    outline: 0 none;
-    border-bottom: none;
-}
-
-.textarea_dark_mode:active {
-    border: 2px solid rgb(159, 29, 240);
-    outline: 0 none;
-    border-bottom: none;
-} 
-
-.textarea_dark_mode::placeholder {
-    color: rgb(152, 152, 152);
+    .dark_mode::placeholder {
+        color: rgb(152, 152, 152);
+    }
 }

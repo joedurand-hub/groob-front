@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { variantToStyles } from "../../helpers/variants";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
-const Textarea = ({variant="textarea", onChange, placeholder, maxLength}) => {
+const Textarea = ({variant, onChange, placeholder, maxLength}) => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -13,8 +13,8 @@ const Textarea = ({variant="textarea", onChange, placeholder, maxLength}) => {
       maxLength={maxLength}
         className={
           theme
-            ? `${styles.textarea_light_mode}`
-            : `${styles.textarea_dark_mode}`
+          ? variantToStyles(styles.textarea, styles.light_mode, styles[variant])
+          : variantToStyles(styles.textarea, styles.dark_mode, styles[variant])
         }
       />
     </>

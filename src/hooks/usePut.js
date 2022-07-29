@@ -3,14 +3,15 @@ import axios from "axios";
 
 const usePut = () => {
   const [putData, setPutData] = useState({
-    data: undefined,
+    info: undefined,
     pending: false,
     error: undefined,
   });
 
-  const sendData = async ({endpoint, putData, token}) => {  
+  const sendUpdatedData = async ({endpoint, putData, token}) => {  
+    console.log(endpoint, putData, token)
     setPutData({
-      data: undefined,
+      info: undefined,
       pending: true,
       error: undefined,
     });
@@ -20,21 +21,21 @@ const usePut = () => {
       }}, {withCredentials: true} )
     .then((response) => {
         setPutData({ 
-          data: response.data, 
+          info: response.data, 
           pending: false, 
           error: undefined });
       })
       .catch((error) => {
         setPutData({ 
-          data: undefined, 
+          info: undefined, 
           pending: false, 
           error: error.message });
       });
   };
 
   return {
-    sendData,
-    data: putData.data,
+    sendUpdatedData,
+    info: putData.info,
     pending: putData.pending,
     error: putData.error,
   };

@@ -12,17 +12,22 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 const CreatePost = () => {
   const { theme } = useContext(ThemeContext);
   const token = getCookie("authToken");
+
+  const url = `${ENDPOINT}${POST_PUBLICATION}`
+  
   const [values, setValues] = useState("");
   const [lengthValue, setLengthValue] = useState(0);
   const { data, pending, error, sendData } = useAuthPost();
-
+  
+  console.log(data)
+  
+  
   const handleInputChange = function (e) {
-    const eTargetName = e.target.name;
     const value = e.target.value;
     setLengthValue(value.length);
-    setValues({ ...values, [eTargetName]: value });
+    setValues(value);
   };
-
+  
   const handleImageLoad = function (e) {
     // const eTargetName = e.target.name;
     const value = e.target;
@@ -34,9 +39,9 @@ const CreatePost = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sendData({
-      endpoint: `${ENDPOINT}${POST_PUBLICATION}`,
+      endpoint: url,
       postData: {
-        content: values.content,
+        content: values,
       },
       token: token,
     });
@@ -82,7 +87,7 @@ const CreatePost = () => {
       </form>
       {pending && <p>Loading...</p>}
       {error && <p>Error...</p>}
-      <p>{data && data}</p>
+      {data && <p>Publicación exitosa</p>}
     </>
   );
 };

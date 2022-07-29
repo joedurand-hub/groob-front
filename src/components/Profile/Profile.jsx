@@ -34,13 +34,13 @@ const Profile = ({ data }) => {
           <div className={styles.container_profile_picture}>
             <Image
               className={styles.user_profile_picture}
-              src={data?.profile_picture}
+              src={data?.profilePicture}
               width={400}
               height={400}
-              alt="Image"
+              alt={`Foto de perfil de ${data?.userName}`}
             />
             <div className={styles.container_username}>
-              <h2>{data?.username} </h2>{" "}
+              <h2>{data?.userName} </h2>{" "}
               <GoVerified className={styles.verify} />
             </div>
           </div>

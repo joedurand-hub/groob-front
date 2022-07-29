@@ -1,0 +1,53 @@
+.container {
+    max-width: 550px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+}
+
+.light_mode {
+    background: white;
+    color: black
+}
+
+.dark_mode {
+    background: rgb(17, 17, 17);
+    color: white;
+}
+
+
+.profile_picture {
+    border-radius: 50%; 
+}
+
+.container_upload_image {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.input_upload {
+    display: none;
+    visibility: none;
+}
+
+.upload {
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    margin-top: -45px;
+    height: 37px;
+    width: 37px;
+}
+
+.container_button {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
