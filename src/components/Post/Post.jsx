@@ -1,4 +1,5 @@
 import styles from "./post.module.css";
+import { useRouter } from 'next/router'
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { URL } from "../../helpers/constants";
@@ -9,21 +10,23 @@ import Icon from "../Icon/Icon";
 import Button from "../Button/Button"
 
 const Posts = ({ data }) => {
+  const router = useRouter()
+  const { id } = router.query
   const { theme } = useContext(ThemeContext);
-
   return (
     <>
       {data &&
         data.map(({ content, price, createdAt, user, _id }) => (
           <article
-            key={_id}
-            className={
-              theme
-                ? `${styles.container_post} ${styles.light_mode}`
-                : `${styles.container_post} ${styles.dark_mode}`
-            }
+          key={_id}
+          className={
+            theme
+            ? `${styles.container_post} ${styles.light_mode}`
+            : `${styles.container_post} ${styles.dark_mode}`
+          }
           >
             <Link href={`${URL}/user/${user}`} passHref>
+
               <div className={styles.user}>
                 <div className={styles.user_container_picture_and_foto}>
                   <Image

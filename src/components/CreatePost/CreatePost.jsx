@@ -19,8 +19,6 @@ const CreatePost = () => {
   const [lengthValue, setLengthValue] = useState(0);
   const { data, pending, error, sendData } = useAuthPost();
   
-  console.log(data)
-  
   
   const handleInputChange = function (e) {
     const value = e.target.value;

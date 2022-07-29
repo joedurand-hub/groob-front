@@ -79,6 +79,7 @@ export const SignIn = () => {
           }
         >
           <input
+            placeholder="Email"
             autoComplete="off"
             className={
               theme
@@ -86,7 +87,6 @@ export const SignIn = () => {
                 : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="email"
-            placeholder="Email"
             {...register("email", {
               required: true,
               pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,

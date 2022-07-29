@@ -31,6 +31,20 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .data_number {
+    height: 35px;
+    background: rgba(207, 207, 207, 0.148);
+    border-radius: 50%;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    padding: 0;
+    margin: 0;
+  }
   
   .user_data {
     display: flex;

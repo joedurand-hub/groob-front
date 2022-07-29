@@ -1,24 +1,27 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-// import Image from "next/image";
+import Image from "next/image";
+import Avatar from "../../../public/avatar.png";
 import styles from "./profileById.module.css";
 import Button from "../Button/Button";
 import Follow from "../Follow/Follow";
 import Unfollow from "../Unfollow/Unfollow";
 import Icon from "../Icon/Icon";
 import { BsCashCoin } from "react-icons/bs";
-import { GoVerified } from "react-icons/go";
+// import { GoVerified } from "react-icons/go";
 import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
 import Card from "../Card/Card";
 import Wallet from "../Wallet/Wallet";
 import CryptoWallet from "../WalletCrypto/WalletCrypto";
+import Followers from "./Followers/Followers";
+import Followings from "./Followings/Followings";
 
 const Profiles = ({ data, token }) => {
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
   const { theme } = useContext(ThemeContext);
-  console.log(data);
+  console.log(data)
   return (
     <>
       <section
@@ -30,7 +33,13 @@ const Profiles = ({ data, token }) => {
       >
         <header className={styles.user_header}>
           <div className={styles.container_profile_picture}>
-            {/* <Image className={styles.user_profile_picture} src={data ? data?.profile_picture : null} width={200} height={200} alt="Image"/> */}
+            <Image
+              className={styles.user_profile_picture}
+              src={data ? data?.profilePicture : Avatar}
+              width={200}
+              height={200}
+              alt="Image"
+            />
           </div>
           <div className={styles.container_user_data}>
             <div>
@@ -38,20 +47,11 @@ const Profiles = ({ data, token }) => {
             </div>
 
             <div className={styles.user_data}>
-              <div className={styles.data_followers}>
-                <span className={styles.data}>
-                  <strong>
-                    {data && data.followers.length > 0
-                      ? data.followers.length
-                      : 0}
-                  </strong>
-                </span>
-                <span className={styles.data}>Followers</span>
-              </div>
+              <Followers followers={data?.followers} />
 
               <div className={styles.data_posts}>
                 <span className={styles.data}>
-                  <strong>
+                  <strong className={styles.data_number}>
                     {data && data.publications.length > 0
                       ? data.publications.length
                       : 0}
@@ -60,16 +60,7 @@ const Profiles = ({ data, token }) => {
                 <span className={styles.data}>Publications</span>
               </div>
 
-              <div className={styles.data_followings}>
-                <span className={styles.data}>
-                  <strong>
-                    {data && data.followings.length > 0
-                      ? data.followings.length
-                      : 0}
-                  </strong>
-                </span>
-                <span className={styles.data}>Followings</span>
-              </div>
+              <Followings followings={data?.followings} />
             </div>
           </div>
           <br />

@@ -28,7 +28,7 @@ export const SignUp = () => {
     sendData({
       endpoint: url,
       postData: {
-        username: data.username,
+        userName: data.userName,
         email: data.email,
         password: data.password,
       },
@@ -79,8 +79,8 @@ export const SignUp = () => {
                 ? `${inputField.field_input} ${inputField.field_input_light}`
                 : `${inputField.field_input} ${inputField.field_input_dark}`
             }
-            type="username"
-            {...register("username", {
+            type="userName"
+            {...register("userName", {
               required: true,
               minLength: 3,
               maxLength: 16,
@@ -88,18 +88,18 @@ export const SignUp = () => {
             })}
           />
           {/* {errors.username?.type === "pattern" && <p className={styles.field_text_input_error}> Sólo se permiten los caracteres . y _ ejemplo: john_smith </p>} */}
-          {errors.username?.type === "required" && (
+          {errors.userName?.type === "required" && (
             <p className={styles.field_text_input_error}>
               {" "}
               El nombre de usuario no debe estar vacío.{" "}
             </p>
           )}
-          {errors.username?.type === "minLength" && (
+          {errors.userName?.type === "minLength" && (
             <p className={styles.field_text_input_error}>
               El nombre debe ser mayor a 3 letras.{" "}
             </p>
           )}
-          {errors.username?.type === "maxLength" && (
+          {errors.userName?.type === "maxLength" && (
             <p className={styles.field_text_input_error}>
               El nombre debe ser menor a 16 letras.{" "}
             </p>

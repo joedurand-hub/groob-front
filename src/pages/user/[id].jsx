@@ -4,17 +4,19 @@ import NavItem from "../../components/NavItem/NavItem";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { getCookie } from "cookies-next";
 
-const ProfileById = ({data}) => {
+const ProfileById = ({ data }) => {
   const token = getCookie("authToken");
-   return (
-      <Layout
+  console.log(data)
+  return (
+    <Layout
       menuItem={
         <>
           <NavItem path="/menu">
             <GiHamburgerMenu />
           </NavItem>
         </>
-      }>
+      }
+    >
       <Profile data={data} token={token} />
     </Layout>
   );
@@ -22,26 +24,25 @@ const ProfileById = ({data}) => {
 
 export default ProfileById;
 
-export async function getStaticPaths() {
+export async function getServerSideProps({ req, res, query }) {
   try {
-    const response = await fetch('http://localhost:8080/profiles') 
-    const data = await response.json()
-    const paths = data.map(obj => ({ params: { id: `${obj._id}` } }));
-
-    return {
-      paths,
-      fallback: true,
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-export async function getStaticProps({ params }) {
-  try {
+    const token = getCookie("authToken", { req, res });
+    const {id} = query;
+    console.log("id ", id)
     const response = await fetch(
-      `http://localhost:8080/profile/${params.id}`);
+      `http://localhost:8080/profileById/${id}`,
+      {
+        headers: {
+          authToken: token,
+        },
+      },
+      {
+        withCredentials: true,
+      }
+    );
     const data = await response.json();
+    // const user = data.find(obj => obj.user == id);
+    console.log(data);
     return {
       props: {
         data,

@@ -35,11 +35,6 @@
   border-radius: 5px;
 }
 
-.field_input::placeholder {
-  color:rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-}
-
 .field_input_error {
   transition: all 0.5s linear;
   text-align: left;
@@ -64,9 +59,19 @@
   color: #000000;
 }
 
+.field_input_light::placeholder {
+  color: #737373;
+  font-weight: 600;
+}
+
 .field_input_dark {
   background: #343434;
   color: white;
+}
+
+.field_input_dark::placeholder {
+  color: #737373;
+  font-weight: 600;
 }
 
 .field_update_input {

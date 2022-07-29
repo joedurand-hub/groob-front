@@ -1,4 +1,5 @@
 import styles from "./profile.module.css";
+import avatar from "../../../public/avatar.png"
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useRouter } from "next/router";
@@ -34,7 +35,7 @@ const Profile = ({ data }) => {
           <div className={styles.container_profile_picture}>
             <Image
               className={styles.user_profile_picture}
-              src={data?.profilePicture}
+              src={avatar}
               width={400}
               height={400}
               alt={`Foto de perfil de ${data?.userName}`}
