@@ -26,6 +26,20 @@
   background: rgb(159, 29, 240)
 }
 
+.login:hover {
+  cursor: pointer;
+  background: rgb(147, 22, 225)
+}
+
+.login:focus {
+  border: 1px solid rgb(255, 255, 255);
+  background: rgb(147, 22, 225)
+}
+.login:active {
+  border: 1px solid rgb(255, 255, 255);
+  background: rgb(147, 22, 225)
+}
+
 .primary:hover {
   cursor: pointer;
   background: rgb(147, 22, 225)
@@ -33,9 +47,11 @@
 
 .primary:focus {
   border: 1px solid rgb(255, 255, 255);
+  background: rgb(147, 22, 225)
 }
 .primary:active {
   border: 1px solid rgb(255, 255, 255);
+  background: rgb(147, 22, 225)
 }
 
 .secondary {

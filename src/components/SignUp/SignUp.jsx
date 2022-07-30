@@ -15,7 +15,9 @@ const url = "http://localhost:8080/signup";
 export const SignUp = () => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-
+  console.log(data)
+  console.log(pending)
+  console.log(error)
   const {
     register,
     handleSubmit,
@@ -136,7 +138,7 @@ export const SignUp = () => {
           {errors.email?.type === "pattern" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              El email debe contener @ y punto.{" "}
+              El email debe contener arroba y punto.{" "}
             </p>
           )}
         </div>
@@ -156,7 +158,7 @@ export const SignUp = () => {
                 : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             {...register("password", {
               minLength: 8,
               maxLength: 32,

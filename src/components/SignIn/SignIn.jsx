@@ -17,7 +17,6 @@ const url = `${ENDPOINT}/login`;
 export const SignIn = () => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-  console.log("data", data)
 
   const router = useRouter()
   const {
