@@ -207,7 +207,8 @@ export const SignUp = () => {
         <div>
           <Button
             onClick={() => {
-              data && router.push("/user");
+              data && data.message === "Success" ?
+              router.push("/feed") : null
             }}
             type="submit"
             name="Registrarme"
