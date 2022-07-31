@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useForm } from "react-hook-form";
 import logo from "../../../public/Logo.png";
@@ -12,13 +12,13 @@ import Image from "next/image";
 import { ENDPOINT } from "../../helpers/constants";
 import { useRouter } from "next/router"
 
-const url = `${ENDPOINT}/login`;
 
 export const SignIn = () => {
+  const url = `${ENDPOINT}/login`;
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-
   const router = useRouter()
+
   const {
     register,
     handleSubmit,
@@ -34,11 +34,14 @@ export const SignIn = () => {
       },
     });
   };
-
+  
   const handleNewPassword = () => {
     //method POST to /reset-password
   };
-
+  
+  useEffect(() => {
+    data && data.message === "Success" && router.push("/feed")
+  }, [data])
   return (
     <div
       className={
@@ -141,10 +144,6 @@ export const SignIn = () => {
 
         <div className={styles.container_submit}>
           <Button
-            onClick={() => {
-              data && data.message === "Success" ?
-              router.push("/feed") : null
-            }}
             type="submit"
             name="Iniciar sesión"
             variant="login"

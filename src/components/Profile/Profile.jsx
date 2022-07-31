@@ -35,7 +35,7 @@ const Profile = ({ data }) => {
           <div className={styles.container_profile_picture}>
             <Image
               className={styles.user_profile_picture}
-              src={avatar}
+              src={data && data?.profilePicture ? data.profilePicture : avatar}
               width={400}
               height={400}
               alt={`Foto de perfil de ${data?.userName}`}
@@ -51,13 +51,14 @@ const Profile = ({ data }) => {
               <div className={styles.data_posts}>
                 <span className={styles.data}>
                   <strong className={styles.data_number}>
-                    {(data && data.publications?.length === 0) ||
-                    data.publications === null
+                    {(data && data?.publications.length === 0) ||
+                    data?.publications === null ||
+                    data?.publications === undefined
                       ? 0
                       : data.publications?.length}
                   </strong>
                 </span>
-                {data && data.publications?.length === 1 ? (
+                {data && data?.publications.length === 1 ? (
                   <span className={styles.data}>Publicaci...</span>
                 ) : (
                   <span className={styles.data}>Publicaci...</span>

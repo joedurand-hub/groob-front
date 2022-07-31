@@ -12,7 +12,9 @@ const Followers = () => {
     <div className={styles.data_followers}>
       <span className={styles.data}>
         <strong className={styles.data_number}>
-          {data?.followers.length === 0
+        {data?.followers.length === 0 ||                     
+            data?.followers === null ||
+            data?.followers === undefined
             ? 0
             : data?.followers.length || (error && 0)}
         </strong>

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import usePost from "../../hooks/usePost";
 import Button from "../Button/Button";
@@ -11,13 +11,11 @@ import logo from "../../../public/Logo.png"
 import logoDarkMode from "../../../public/LogoDarkMode.png" 
 import Image from "next/image";
 
-const url = "http://localhost:8080/signup";
 export const SignUp = () => {
+  const url = "http://localhost:8080/signup";
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-  console.log(data)
-  console.log(pending)
-  console.log(error)
+
   const {
     register,
     handleSubmit,
@@ -36,6 +34,10 @@ export const SignUp = () => {
       },
     });
   };
+
+  useEffect(() => {
+    data && data.message === "Success" && router.push("/feed")
+  }, [data])
   return (
     <div
       className={
@@ -206,10 +208,6 @@ export const SignUp = () => {
         </section>
         <div>
           <Button
-            onClick={() => {
-              data && data.message === "Success" ?
-              router.push("/feed") : null
-            }}
             type="submit"
             name="Registrarme"
             variant="login"

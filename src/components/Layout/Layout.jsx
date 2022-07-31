@@ -3,7 +3,6 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import logoFavicon from "../../../public/logo.ico";
 import logoFaviconDarkMode from "../../../public/logoDarkMode.ico";
 import logo from "../../../public/Logo.png";
-import logoDarkMode from "../../../public/LogoDarkMode.png";
 import Head from "next/head";
 import MenuNav from "../MenuNav/MenuNav";
 import Nav from "../Nav/Nav";
@@ -16,6 +15,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { MdOutlineLiveTv } from "react-icons/md";
 import { FaUserCircle, FaUserSecret } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io"
+import { logRoles } from "@testing-library/react";
 
 const Layout = ({ title, description, menuItem, children }) => {
   const { theme } = useContext(ThemeContext);
@@ -27,7 +27,7 @@ const Layout = ({ title, description, menuItem, children }) => {
         <link
           rel="shortcut icon"
           type="image/png"
-          href={`${theme ? logoFavicon : logoFaviconDarkMode}`}
+          href={logoFavicon}
         />
         <meta name="description" content={description} />
       </Head>
@@ -36,7 +36,7 @@ const Layout = ({ title, description, menuItem, children }) => {
           <li>
             <Anchor path="/feed">
               <Image
-                src={theme ? logo : logoDarkMode}
+                src={logo}
                 alt="Groob logo"
                 width={70}
                 height={45}

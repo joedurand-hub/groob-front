@@ -15,6 +15,7 @@ const User = ({data}) => {
         </>
       }>
       <Profile data={data} />
+      <br/>
     </Layout>
   );
 };
