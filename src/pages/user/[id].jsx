@@ -5,7 +5,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { getCookie } from "cookies-next";
 
 const ProfileById = ({ data }) => {
-  const token = getCookie("authToken");
   return (
     <Layout
       menuItem={
@@ -16,7 +15,7 @@ const ProfileById = ({ data }) => {
         </>
       }
     >
-      <Profile data={data} token={token} />
+      <Profile data={data}/>
     </Layout>
   );
 };
