@@ -1,5 +1,4 @@
 import styles from "./post.module.css";
-import { useRouter } from 'next/router'
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { URL } from "../../helpers/constants";
@@ -10,8 +9,6 @@ import Icon from "../Icon/Icon";
 import Button from "../Button/Button"
 
 const Posts = ({ data }) => {
-  const router = useRouter()
-  const { id } = router.query
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -34,7 +31,7 @@ const Posts = ({ data }) => {
                     src={"https://picsum.photos/id/237/200/300"}
                     width={50}
                     height={50}
-                    alt={`Foto de perfil de `}
+                    alt={`Post`}
                   />
                 </div>
                 <div>

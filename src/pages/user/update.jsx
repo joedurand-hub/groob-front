@@ -6,11 +6,10 @@ import usePut from "../../hooks/usePut";
 import Profile from "../../components/PutProfile/PutProfile";
 
 const UpdateProfile = ({ data }) => {
-  console.log(data);
   const token = getCookie("authToken");
   const url = `${ENDPOINT}${UPDATE_PROFILE}/${data?._id}`;
-  const { pending, error, sendUpdatedData } = usePut();
-
+  const { info, pending, error, sendUpdatedData } = usePut();
+  console.log(info)
   const initialState = {
     profilePicture: data.profilePicture,
     description: data.description,
@@ -60,11 +59,11 @@ const UpdateProfile = ({ data }) => {
     <Layout>
       <Profile
         state={state}
+        pending={pending}
+        error={error}
         onChange={handleInputAction}
         onSubmit={handleSubmit}
       />
-      {pending && <p>Loading</p>}
-      {error && <p>Algo falló</p>}
     </Layout>
   );
   //  Cambiar el input number de edad, por un formato Date

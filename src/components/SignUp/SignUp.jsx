@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import styles from "./signup.module.css";
 import inputField from "../Input/input.module.css";
 import logo from "../../../public/Logo.png" 
-import logoDarkMode from "../../../public/LogoDarkMode.png" 
 import Image from "next/image";
 
 export const SignUp = () => {
@@ -48,7 +47,7 @@ export const SignUp = () => {
     >
       <div className={styles.container_logo}>
         <Image
-          src={theme ? logo : logoDarkMode}
+          src={logo}
           width={100}
           height={75}
           alt="Image"

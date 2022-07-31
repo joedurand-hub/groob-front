@@ -7,8 +7,9 @@ import Input from "../Input/Input";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import avatar from "../../../public/avatar.png"
+import Loader from "../Loader/Loader"
 
-const PutProfile = ({ state, onChange, onSubmit }) => {
+const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
   return (
@@ -97,7 +98,7 @@ const PutProfile = ({ state, onChange, onSubmit }) => {
         />
         <div className={styles.container_button}>
           <Button name={"Cancelar"} variant="cancel" onClick={() => router.push('/user')}/>
-          <Button name={"Actualizar"} onSubmit={onSubmit}/>
+          <Button name={pending ? <Loader/> : "Actualizar"} onSubmit={onSubmit}/>
         </div>
       </form>
     </div>

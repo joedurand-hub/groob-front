@@ -9,7 +9,6 @@ const usePut = () => {
   });
 
   const sendUpdatedData = async ({endpoint, putData, token}) => {  
-    console.log(endpoint, putData, token)
     setPutData({
       info: undefined,
       pending: true,

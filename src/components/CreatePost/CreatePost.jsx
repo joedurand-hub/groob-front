@@ -8,6 +8,7 @@ import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import { BsFillImageFill } from "react-icons/bs";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import Loader from "../Loader/Loader"
 
 const CreatePost = () => {
   const { theme } = useContext(ThemeContext);
@@ -19,7 +20,6 @@ const CreatePost = () => {
   const [lengthValue, setLengthValue] = useState(0);
   const { data, pending, error, sendData } = useAuthPost();
   
-  
   const handleInputChange = function (e) {
     const value = e.target.value;
     setLengthValue(value.length);
@@ -29,7 +29,6 @@ const CreatePost = () => {
   const handleImageLoad = function (e) {
     // const eTargetName = e.target.name;
     const value = e.target;
-    console.log(value)
     // setLengthValue(value.length);
     // setValues({ ...values, [eTargetName]: value });
   };
@@ -44,6 +43,7 @@ const CreatePost = () => {
       token: token,
     });
     e.target.reset();
+    setLengthValue(0);
   };
 
   return (
@@ -83,9 +83,10 @@ const CreatePost = () => {
           </div>
         </div>
       </form>
-      {pending && <p>Loading...</p>}
-      {error && <p>Error...</p>}
-      {data && <p>Publicación exitosa</p>}
+      <br/>
+      {pending && <Loader/>}
+      {error && <p>Ups... ¡Hubo un error!</p>}
+      {data && <p>Publicación exitosa!</p>}
     </>
   );
 };

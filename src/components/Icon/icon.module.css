@@ -1,18 +1,15 @@
 .icon {
     font-size: 30px;
     border-radius: 50%;
-    transition: all 0.25s linear;
 }
 
 .light_mode {
     color: #000;
 }
-
 .light_mode:hover  {
     cursor: pointer;
     color: rgb(63, 11, 124);
 }
-
 .light_mode:focus  {
     color: rgb(63, 11, 124);
 
@@ -24,7 +21,6 @@
 .dark_mode  {
     color: #fff;
 }
-
 .dark_mode:hover  {
     cursor: pointer;
     color: rgb(63, 11, 124);

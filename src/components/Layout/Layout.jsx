@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import logoFavicon from "../../../public/logo.ico";
-import logoFaviconDarkMode from "../../../public/logoDarkMode.ico";
 import logo from "../../../public/Logo.png";
 import Head from "next/head";
 import MenuNav from "../MenuNav/MenuNav";

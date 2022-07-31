@@ -2,7 +2,6 @@ import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useForm } from "react-hook-form";
 import logo from "../../../public/Logo.png";
-import logoDarkMode from "../../../public/LogoDarkMode.png";
 import usePost from "../../hooks/usePost";
 import Button from "../Button/Button";
 import Anchor from "../Anchor/Anchor";
@@ -52,7 +51,7 @@ export const SignIn = () => {
     >
       <div className={styles.container_logo}>
         <Image
-          src={theme ? logo : logoDarkMode}
+          src={logo}
           width={100}
           height={75}
           alt="Image"

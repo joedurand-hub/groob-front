@@ -47,7 +47,7 @@ const Profile = ({ data }) => {
           </div>
           <div className={styles.container_user_data}>
             <div className={styles.user_data}>
-              <Followings />
+              <Followings follows={data?.followings}/>
               <div className={styles.data_posts}>
                 <span className={styles.data}>
                   <strong className={styles.data_number}>
@@ -64,7 +64,7 @@ const Profile = ({ data }) => {
                   <span className={styles.data}>Publicaci...</span>
                 )}
               </div>
-              <Followers />
+              <Followers follows={data?.followers}/>
             </div>
           </div>
           <br />

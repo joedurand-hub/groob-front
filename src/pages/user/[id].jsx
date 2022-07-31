@@ -6,7 +6,6 @@ import { getCookie } from "cookies-next";
 
 const ProfileById = ({ data }) => {
   const token = getCookie("authToken");
-  console.log(data)
   return (
     <Layout
       menuItem={
@@ -28,7 +27,6 @@ export async function getServerSideProps({ req, res, query }) {
   try {
     const token = getCookie("authToken", { req, res });
     const {id} = query;
-    console.log("id ", id)
     const response = await fetch(
       `http://localhost:8080/profileById/${id}`,
       {
@@ -41,8 +39,6 @@ export async function getServerSideProps({ req, res, query }) {
       }
     );
     const data = await response.json();
-    // const user = data.find(obj => obj.user == id);
-    console.log(data);
     return {
       props: {
         data,

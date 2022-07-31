@@ -21,7 +21,6 @@ const Profiles = ({ data, token }) => {
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
   const { theme } = useContext(ThemeContext);
-  console.log(data)
   return (
     <>
       <section
@@ -52,9 +51,11 @@ const Profiles = ({ data, token }) => {
               <div className={styles.data_posts}>
                 <span className={styles.data}>
                   <strong className={styles.data_number}>
-                    {data && data.publications.length > 0
-                      ? data.publications.length
-                      : 0}
+                    {(data && data?.publications.length === 0) ||
+                    data?.publications === null ||
+                    data?.publications === undefined
+                      ? 0
+                      : data.publications?.length}
                   </strong>
                 </span>
                 <span className={styles.data}>Publications</span>
