@@ -1,0 +1,19 @@
+.container_publications_light {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background: #e6e6e6;
+}
+
+.container_publications_dark {
+    padding-top: 10px;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background: black;
+}
