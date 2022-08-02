@@ -2,11 +2,10 @@ import styles from "./post.module.css";
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { URL } from "../../helpers/constants";
-import { BsHeartFill } from "react-icons/bs";
 import Link from "next/link";
 import Image from "next/image";
-import Icon from "../Icon/Icon";
-import Button from "../Button/Button"
+import FooterPost from "./FooterPost/FooterPost";
+import MoreOptions from "./MoreOptions/MoreOptions"
 
 const Posts = ({ data }) => {
   const { theme } = useContext(ThemeContext);
@@ -22,8 +21,8 @@ const Posts = ({ data }) => {
             : `${styles.container_post} ${styles.dark_mode}`
           }
           >
+            <div className={styles.container_user_post}>
             <Link href={`${URL}/user/${user}`} passHref>
-
               <div className={styles.user}>
                 <div className={styles.user_container_picture_and_foto}>
                   <Image
@@ -40,11 +39,12 @@ const Posts = ({ data }) => {
                 </div>
               </div>
             </Link>
-
+              <div>
+                <MoreOptions/>
+              </div>
+            </div>
             <div className={styles.post}>
-              <h3 className={styles.post_price}>
-                <strong>{price}</strong>
-              </h3>
+
               <p className={styles.post_content}>{content}</p>
               <Image
                 className={styles.image}
@@ -56,13 +56,9 @@ const Posts = ({ data }) => {
                 alt="Image"
               />
             </div>
-            <Button
-              name={
-                <Icon>
-                  <BsHeartFill />
-                </Icon>
-              }
-            />
+            <>
+                <FooterPost price={price}/>
+            </>
           </article>
         ))}
     </>
