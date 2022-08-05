@@ -30,4 +30,7 @@
         align-items: center;
         justify-content: center;
     }
+    .icon_clicked {
+        background-color: blue;
+    }
 }

@@ -43,7 +43,7 @@ const Profile = ({ data }) => {
             />
             <div className={styles.container_username}>
               <h2>{data?.userName} </h2>{" "}
-              {data?.premium ? <GoVerified className={styles.verify} /> : null}
+              {data && data?.premium ? <GoVerified className={styles.verify} /> : null}
             </div>
           </div>
           <div className={styles.container_user_data}>

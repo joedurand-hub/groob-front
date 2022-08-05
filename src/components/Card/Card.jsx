@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import Button from "../Button/Button";
 import styles from "./card.module.css";
 
 const Card = ({ isOpen, closeCard, children  }) => {
