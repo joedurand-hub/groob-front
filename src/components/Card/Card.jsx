@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import Button from "../Button/Button";
 import styles from "./card.module.css";
 
 const Card = ({ isOpen, closeCard, children  }) => {
@@ -20,7 +21,7 @@ const Card = ({ isOpen, closeCard, children  }) => {
                       : `${styles.card_dark_mode}`} 
                       onClick={cardHandleClick}>
           {children}
-        <button onClick={closeCard}>Close desde Card comp</button>
+        <Button variant="rounded" onClick={closeCard} name="Close"/>
       </div>
     </div>
   );

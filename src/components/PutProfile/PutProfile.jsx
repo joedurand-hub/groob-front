@@ -6,7 +6,6 @@ import Button from "../Button/Button";
 import Input from "../Input/Input";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import avatar from "../../../public/avatar.png"
 import Loader from "../Loader/Loader"
 
 const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
@@ -26,7 +25,7 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
         event.target.reset()
       }}>
         <Image
-          src={avatar}
+          src={state?.profilePicture.secure_url}
           width="250"
           height="250"
           alt={`Foto de perfil de ${state?.userName}`}

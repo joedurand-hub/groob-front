@@ -1,5 +1,6 @@
 @media only screen and (min-width: 260px) and (max-width: 768px) {
   .container {
+    height: 100vh;
   }
 
   .light_mode {
@@ -27,6 +28,7 @@
     margin: 0;
     padding: 0;
     max-width: 400px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -34,6 +36,8 @@
 
   .user_profile_picture {
     z-index: 3;
+    max-height: 350px;
+    height: 100%;
   }
 
   .container_header_data {
@@ -56,7 +60,7 @@
     padding-left: 10px;
     margin-top: -15%;
     margin-bottom: 5%;
-    color: white;
+    color: black;
   }
 
   .verify {

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Image from "next/image";
-import avatar from "../../../public/avatar.png";
 import styles from "./profileById.module.css";
 import Button from "../Button/Button";
 import Follow from "../Follow/Follow";
@@ -34,7 +33,7 @@ const Profiles = ({ data, token }) => {
           <div className={styles.container_profile_picture}>
             <Image
               className={styles.user_profile_picture}
-              src={data && data?.profilePicture ? data.profilePicture : avatar}
+              src={data && data?.profilePicture.secure_url}
               width={200}
               height={200}
               alt="Image"

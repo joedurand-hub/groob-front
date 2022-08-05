@@ -35,7 +35,7 @@ export const SignUp = () => {
   };
 
   useEffect(() => {
-    data && data.message === "Success" && router.push("/feed")
+    data && data.message === "Success" && router.push("/user")
   }, [data])
   return (
     <div

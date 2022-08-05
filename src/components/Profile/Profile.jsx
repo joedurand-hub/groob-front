@@ -1,5 +1,4 @@
 import styles from "./profile.module.css";
-import avatar from "../../../public/avatar.png"
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useRouter } from "next/router";
@@ -19,6 +18,7 @@ import Followers from "./Followers/Followers";
 import Publications from "./Publications/Publications";
 
 const Profile = ({ data }) => {
+  console.log(data)
   const { theme } = useContext(ThemeContext);
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
@@ -36,14 +36,14 @@ const Profile = ({ data }) => {
           <div className={styles.container_profile_picture}>
             <Image
               className={styles.user_profile_picture}
-              src={data && data?.profilePicture ? data.profilePicture : avatar}
+              src={data && data?.profilePicture.secure_url}
               width={400}
-              height={400}
+              height={350}
               alt={`Foto de perfil de ${data?.userName}`}
             />
             <div className={styles.container_username}>
               <h2>{data?.userName} </h2>{" "}
-              <GoVerified className={styles.verify} />
+              {data?.premium ? <GoVerified className={styles.verify} /> : null}
             </div>
           </div>
           <div className={styles.container_user_data}>
@@ -96,7 +96,7 @@ const Profile = ({ data }) => {
           </Card>
           <Switch />
         </div>
-     <Publications/>
+     { data && data.publications.length === 0 || data.publications === undefined || data.publications === null ? null :  <Publications/>}
       </section>
     </>
   );
