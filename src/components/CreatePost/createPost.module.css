@@ -1,8 +1,8 @@
 @media only screen and (min-width: 260px) and (max-width: 768px) {
     .container_create_post {
         margin-top: 30px;
-        max-width: 482px;
-        width: 100%;
+        max-width: 480px;
+        width: 99vw;
         height: 100%;
         border-radius: 15px;
         background: rgb(29, 29, 29);
@@ -12,7 +12,8 @@
     .create_post_form {
         display: flex;
         flex-direction: column;
-        max-width: 482px;
+        max-width: 480px;
+        width: 99vw;
     }
 
     .create_post_textarea {

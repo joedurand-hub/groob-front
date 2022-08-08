@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./card.module.css";
+import Button from "../Button/Button";
 
-const Card = ({ isOpen, closeCard, children  }) => {
+ const Card = ({ isOpen, closeCard, children  }) => {
   const cardHandleClick = (e) => e.stopPropagation();
   const { theme } = useContext(ThemeContext);
 
