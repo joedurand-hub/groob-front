@@ -66,7 +66,7 @@ const Posts = ({ data }) => {
                 )}
               </div>
               <>
-                <FooterPost price={price} />
+                <FooterPost price={price && price} />
               </>
             </article>
           )

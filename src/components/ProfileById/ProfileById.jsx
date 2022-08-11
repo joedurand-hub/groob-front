@@ -16,7 +16,10 @@ import CryptoWallet from "../WalletCrypto/WalletCrypto";
 import Followers from "./Followers/Followers";
 import Followings from "./Followings/Followings";
 
-const Profiles = ({ data, token }) => {
+const Profiles = ({ data, id }) => {
+  console.log("data:",data)
+  console.log("token:",id)
+
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
   const { theme } = useContext(ThemeContext);
@@ -57,7 +60,7 @@ const Profiles = ({ data, token }) => {
                       : data.publications?.length}
                   </strong>
                 </span>
-                <span className={styles.data}>Publications</span>
+                <span className={styles.data}>Publicaciones</span>
               </div>
 
               <Followings followings={data?.followings} />
@@ -70,8 +73,7 @@ const Profiles = ({ data, token }) => {
           <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-          <Follow token={token} id={data?._id} />
-          <Unfollow token={token} id={data?._id} />
+          {id ? (<Unfollow id={data?._id} />) : (<Follow id={data?._id} />)}
           <Button name="Mensaje" variant="primary" />
           <Icon>
             <BsCashCoin onClick={openCardFiat} />

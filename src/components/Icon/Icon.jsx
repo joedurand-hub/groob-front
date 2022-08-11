@@ -1,13 +1,17 @@
 import { useContext } from 'react'
+import { variantToStyles } from '../../helpers/variants'
 import { ThemeContext } from '../../contexts/ThemeContext'
 import styles from './icon.module.css'
 
-const Icon = ({ children }) => {
+const Icon = ({ children, variant }) => {
     const { theme } = useContext(ThemeContext)
     return (
     <>
-      <i className={theme ? `${styles.icon} ${styles.light_mode}`
-                          : `${styles.icon} ${styles.dark_mode}`}>
+      <i className={
+          theme
+            ? variantToStyles(styles.icon_light_mode, styles[variant])
+            : variantToStyles(styles.icon_dark_mode, styles[variant])
+        }>
           {children}
       </i>
     </>
@@ -15,3 +19,18 @@ const Icon = ({ children }) => {
 }
 
 export default Icon
+
+export const IconMoney = ({ children, variant }) => {
+  const { theme } = useContext(ThemeContext)
+  return (
+  <>
+    <i className={
+        theme
+          ? variantToStyles(styles.icon_money_light, styles[variant])
+          : variantToStyles(styles.icon_money_dark, styles[variant])
+      }>
+        {children}
+    </i>
+  </>
+)
+}

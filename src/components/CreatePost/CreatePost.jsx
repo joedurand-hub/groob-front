@@ -19,7 +19,7 @@ const CreatePost = () => {
   const [values, setValues] = useState("");
   const [lengthValue, setLengthValue] = useState(0);
   const [price, setPrice] = useState(0);
-  const [files, setFiles] = useState({})
+  const [files, setFiles] = useState(0)
   const [uploadData, setUploadData] = useState({})
   const { data, pending, error, sendPublication } = usePostPublication();
   
@@ -84,21 +84,23 @@ const CreatePost = () => {
         />
         <input placeholder="Precio" type="number" onChange={handleInputPriceChange} min={1}/>
         <div className={styles.container_form_buttons}>
+          <div className={styles.upload_files}>
           <label htmlFor="upload">
           <Icon>
             <BsFillImageFill />
           </Icon>
           {/* <Image src={imageSrc && imageSrc} width={40} height={40} alt="Icon by upload images"/> */}
           </label>
+          <p className={styles.files_length}>{files.length}/ 7</p>
+          </div>
           <input type="file" id="upload" accept="image/*" multiple className={styles.input_upload} onChange={(e) => handleFilesLoad(e.target.files)}/>
-        
           <div className={styles.container_send_post}>
             <p className={styles.character_counter}>{lengthValue}/500</p>
             <Button
               type="submit"
               name="Publicar"
               variant={
-                lengthValue > 500 || lengthValue === 0 ? "disabled" : "primary"
+                lengthValue > 0 || price || files.length > 0 ? "primary" : "disabled"
               }
             />
           </div>

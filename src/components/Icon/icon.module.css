@@ -1,33 +1,86 @@
-.icon {
+
+.icon_light_mode {
     font-size: 30px;
     border-radius: 50%;
-}
-
-.light_mode {
     color: #000;
 }
-.light_mode:hover  {
+.icon_light_mode:hover  {
     cursor: pointer;
     color: rgb(63, 11, 124);
 }
-.light_mode:focus  {
+.icon_light_mode:focus  {
     color: rgb(63, 11, 124);
 
 }
-.light_mode:active  {
+.icon_light_mode:active  {
     color: rgb(63, 11, 124);
 }
 
-.dark_mode  {
+.icon_dark_mode  {
+    font-size: 30px;
+    border-radius: 50%;
     color: #fff;
 }
-.dark_mode:hover  {
+.icon_dark_mode:hover  {
     cursor: pointer;
     color: rgb(63, 11, 124);
 }
-.dark_mode:focus  {
+.icon_dark_mode:focus  {
     color: rgb(63, 11, 124);
 }
-.dark_mode:active  {
+.icon_dark_mode:active  {
     color: rgb(63, 11, 124);
+}
+
+
+.icon_money_light {
+    display: flex;
+    font-size: 30px;
+    color: #cacaca;
+    cursor: pointer;
+}
+
+.icon_money_light:hover  {
+    cursor: pointer;
+    color: #858585;
+}
+.icon_money_light:focus  {
+    color: rgb(63, 11, 124);
+}
+.icon_money_light:active  {
+    color: rgb(63, 11, 124);
+}
+
+
+.icon_money_dark {
+    display: flex;
+    font-size: 30px;
+    color: #1f1e1e;
+    cursor: pointer;
+}
+
+.icon_money_dark:hover  {
+    cursor: pointer;
+    color: #404040;
+}
+.icon_money_dark:focus  {
+    color: rgb(63, 11, 124);
+}
+.icon_money_dark:active  {
+    color: rgb(63, 11, 124);
+}
+
+.secondary {
+    display: flex;
+}
+
+.secondary:hover  {
+    cursor: pointer;
+    color: black;
+}
+.secondary:focus  {
+    color: black;
+}
+.secondary:active  {
+    color: black;
 }

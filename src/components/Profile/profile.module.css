@@ -27,11 +27,13 @@
   .container_profile_picture {
     margin: 0;
     padding: 0;
-    max-width: 400px;
+    max-width: 375px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+
   }
 
   .user_profile_picture {
@@ -51,16 +53,20 @@
     align-items: center;
   }
 
+
   .container_username {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    z-index: 4;
+    justify-content: flex-start;
+    z-index: 5;
     padding-left: 10px;
-    margin-top: -15%;
-    margin-bottom: 5%;
-    color: black;
+    margin-top: -39px;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    box-shadow: inset 0px -20px 20px 0px #00000038;
+
   }
 
   .verify {
@@ -69,7 +75,6 @@
     color: rgb(46, 135, 244);
     background: white;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.144);
   }
 
   .user_data {
@@ -104,6 +109,10 @@
     padding: 4px;
   }
 
+  .empty_user_description {
+    display: none;
+  }
+
   .container_user_description {
     margin-bottom: 10px;
     display: flex;
@@ -111,14 +120,37 @@
   }
 
   .container_buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .premium {
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 7px;
+  }
+
+  .buttons {
+    gap: 5px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
     flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+  }
+ 
+  .container_publications {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
   }
 
 }

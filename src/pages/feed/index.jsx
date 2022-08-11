@@ -18,14 +18,14 @@ const Feed = ({data}) => {
       }
     >
       <CreatePost />
-      {/* {data ? (
+      {data ? (
         <Post data={data} />
       ) : (
         <h6>
           Aún no hay publicaciones, descubre usuarios en la sección de la lupa o
           invita a tus amigos!
         </h6>
-      )} */}
+      )}
     </Layout>
   );
 };

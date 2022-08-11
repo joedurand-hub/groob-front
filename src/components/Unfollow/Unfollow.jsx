@@ -1,17 +1,18 @@
 import Button from "../Button/Button"
 import useAuthPost from "../../hooks/useAuthPost"
 import { ENDPOINT, UNFOLLOW } from "../../helpers/constants";
-
+import { getCookie } from "cookies-next";
 const url = `${ENDPOINT}${UNFOLLOW}`;
 
-const Unfollow = ({token, id}) => {
+const Unfollow = ({id}) => {
+  const token = getCookie("authToken")
   const { sendData } = useAuthPost();
 
   const handleSubmit = async () => {
     sendData({
       endpoint: url,
       postData: {
-        id_del_usuario_a_dejar_de_seguir: id,
+        idOfTheUserToUnfollow: id,
       },
       token: token,
     });

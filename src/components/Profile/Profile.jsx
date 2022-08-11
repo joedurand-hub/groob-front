@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Switch from "../Switch/Switch";
 import Image from "next/image";
 import Button from "../Button/Button";
-import Icon from "../Icon/Icon";
+import { IconMoney } from "../Icon/Icon";
 import Card from "../Card/Card";
 import Wallet from "../Wallet/Wallet";
 import CryptoWallet from "../WalletCrypto/WalletCrypto";
@@ -18,7 +18,7 @@ import Followers from "./Followers/Followers";
 import Publications from "./Publications/Publications";
 
 const Profile = ({ data }) => {
-  console.log(data)
+  console.log(data);
   const { theme } = useContext(ThemeContext);
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
@@ -41,14 +41,17 @@ const Profile = ({ data }) => {
               height={350}
               alt={`Foto de perfil de ${data?.userName}`}
             />
+
             <div className={styles.container_username}>
               <h2>{data?.userName} </h2>{" "}
-              {data && data?.premium ? <GoVerified className={styles.verify} /> : null}
+              {data && data?.premium ? (
+                <GoVerified className={styles.verify} />
+              ) : null}
             </div>
           </div>
           <div className={styles.container_user_data}>
             <div className={styles.user_data}>
-              <Followings follows={data?.followings}/>
+              <Followings follows={data?.followings} />
               <div className={styles.data_posts}>
                 <span className={styles.data}>
                   <strong className={styles.data_number}>
@@ -65,38 +68,63 @@ const Profile = ({ data }) => {
                   <span className={styles.data}>Publicaci...</span>
                 )}
               </div>
-              <Followers follows={data?.followers}/>
+              <Followers follows={data?.followers} />
             </div>
           </div>
           <br />
         </header>
 
-        <div className={styles.container_user_description}>
+        <div
+          className={
+            data?.description
+              ? styles.container_user_description
+              : styles.empty_user_description
+          }
+        >
           <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-          <Button
-            name="Editar perfil"
-            variant="primary"
-            onClick={() => {
-              router.push("/user/update");
-            }}
-          />
-          <Icon>
-            <BsCashCoin onClick={openCardFiat} />
-          </Icon>
-          <Icon>
-            <GiTwoCoins onClick={openCardCrypto} />
-          </Icon>
+          <div className={styles.premium}>
+            <Button
+              name="Activar Premium"
+              variant="login"
+              onClick={() => {
+                console.log("click");
+              }}
+            />
+          </div>
+          <div className={styles.buttons}>
+            <Button
+              name="Editar perfil"
+              variant={theme ? `secondary_light` : `secondary_dark`}
+              onClick={() => {
+                router.push("/user/update");
+              }}
+            />
+            <IconMoney>
+              <BsCashCoin onClick={openCardFiat} />
+            </IconMoney>
+            <IconMoney Profile>
+              <GiTwoCoins onClick={openCardCrypto} />
+            </IconMoney>
+          </div>
           <Card isOpen={isOpenCardFiat} closeCard={closeCardFiat}>
             <Wallet />
           </Card>
           <Card isOpen={isOpenCardCrypto} closeCard={closeCardCrypto}>
             <CryptoWallet />
           </Card>
-          <Switch />
         </div>
-     { data && data.publications.length === 0 || data.publications === undefined || data.publications === null ? null :  <Publications/>}
+        <Switch />
+        <div className={styles.container_publications}>
+          {(data && data.publications.length === 0) ||
+          data.publications === undefined ||
+          data.publications === null ? (
+            <h6>Aún no hay publicaciones</h6>
+          ) : (
+            <Publications />
+          )}
+        </div>
       </section>
     </>
   );

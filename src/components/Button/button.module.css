@@ -59,28 +59,44 @@
   background: rgb(147, 22, 225)
 }
 
-.secondary {
+.secondary_light {
+  color: rgb(52, 52, 52);
+  background: #cacaca;
+}
+
+.secondary_light:hover {
+  cursor: pointer;
+  color: rgb(54, 54, 54);
+  background: #d4d4d4;
+}
+
+.secondary_light:focus {
+  border: 1px solid #807f79;
+  background: #d4d4d4;
+}
+.secondary_light:active {
+  border: 1px solid #807f79;
+  background: #d4d4d4;
+}
+
+
+.secondary_dark {
   color: #ffff;
   background: #1f1e1e;
 }
 
-.secondary:hover {
+.secondary_dark:hover {
   cursor: pointer;
-  background: #0c0c0c;
+  background: #343434;
 }
 
-.secondary:focus {
-  border: 1px solid #FFD700;
-  background: #0c0c0c;
+.secondary_dark:focus {
+  border: 1px solid #d0d0d0;
+  background: #343434;
 }
-.secondary:active {
-  border: 1px solid #FFD700;
-  background: #0c0c0c;
-}
-
-.success {
-  color: #ffff;
-  background: #00b300;
+.secondary_dark:active {
+  border: 1px solid #d0d0d0;
+  background: #343434;
 }
 
 .cancel {

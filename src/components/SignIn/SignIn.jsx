@@ -75,8 +75,8 @@ export const SignIn = () => {
         <div
           className={
             theme
-              ? `${inputField.field} light_mode`
-              : `${inputField.field} dark_mode`
+              ? `${inputField.field} ${styles.light_mode}`
+              : `${inputField.field} ${styles.dark_mode}`
           }
         >
           <input
@@ -94,13 +94,13 @@ export const SignIn = () => {
             })}
           />
           {errors.email?.type === "required" && (
-            <p className={styles.field_text_input_error}>
-              El email no puede estar vacío.
+            <p className={styles.form_text_input_error}>
+              El email no puede estar vacío
             </p>
           )}
           {errors.email?.type === "pattern" && (
-            <p className={styles.field_text_input_error}>
-              El email debe contener @ y .
+            <p className={styles.form_text_input_error}>
+              Email debe contener arroba y punto
             </p>
           )}
         </div>
@@ -108,8 +108,8 @@ export const SignIn = () => {
         <div
           className={
             theme
-              ? `${inputField.field} light_mode`
-              : `${inputField.field} dark_mode`
+              ? `${inputField.field} ${styles.light_mode}`
+              : `${inputField.field} ${styles.dark_mode}`
           }
         >
           <input
@@ -128,15 +128,15 @@ export const SignIn = () => {
             })}
           />
           {errors.password?.type === "required" && (
-            <p className={styles.field_text_input_error}>
+            <p className={styles.form_text_input_error}>
               {" "}
-              La contaseña no puede estar vacía.
+              La contaseña no puede estar vacía
             </p>
           )}
           {errors.password?.type === "pattern" && (
-            <p className={styles.field_text_input_error}>
+            <p className={styles.form_text_input_error}>
               {" "}
-              Email o contraseña incorrectos.
+              Email o contraseña incorrectos
             </p>
           )}
         </div>

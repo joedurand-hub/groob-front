@@ -10,12 +10,12 @@
         background: #e6e6e6;
         margin-top: 35px;
         padding-bottom: 50px;
-        width: 100vw;
+        width: 100%;
     }
 
     .layout_dark_mode {
         transition: all 0.50s linear;
-        background: rgb(10, 10, 10);
+        background: black;
         min-height: 86vh;
         margin: 0;
         padding: 0;
@@ -24,7 +24,7 @@
         align-items: center;
         margin-top: 35px;
         padding-bottom: 50px;
-        width: 100vw;
+        width: 100%;
     }
 
 

@@ -2,7 +2,7 @@
     .container_create_post {
         margin-top: 30px;
         max-width: 480px;
-        width: 99vw;
+        width: 99%;
         height: 100%;
         border-radius: 15px;
         background: rgb(29, 29, 29);
@@ -36,6 +36,17 @@
         border-top: 1px solid rgb(182, 182, 182);
         padding: 7px;
         top: -10px;
+    }
+    .upload_files {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        text-align: center;
+    }
+    .files_length {
+        font-weight: 600;
+        font-size: 0.9em;
+        margin-left: 5px;
     }
 
     .container_send_post {
