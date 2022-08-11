@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Image from "next/image";
 import styles from "./profileById.module.css";
@@ -19,10 +19,14 @@ import Followings from "./Followings/Followings";
 const Profiles = ({ data, id }) => {
   console.log("data:",data)
   console.log("token:",id)
-
+  const [follow, setFollow] = useState(false)
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
   const { theme } = useContext(ThemeContext);
+
+    useEffect(() => {
+       
+    }, [follow])
   return (
     <>
       <section
@@ -73,7 +77,7 @@ const Profiles = ({ data, id }) => {
           <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-          {id ? (<Unfollow id={data?._id} />) : (<Follow id={data?._id} />)}
+          {data.followers.includes(id) ? (<Unfollow id={data?._id} onClick={() => setFollow(!follow)}/>) : (<Follow id={data?._id} onClick={() => setFollow(!follow)}/>) }
           <Button name="Mensaje" variant="primary" />
           <Icon>
             <BsCashCoin onClick={openCardFiat} />
