@@ -1,5 +1,9 @@
 .menu_item_list {
+    width: 100%;
+    max-width: 400px;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    text-align: start;
 }

@@ -3,6 +3,7 @@
 }
 
 .switch {
+  cursor: pointer;
   --button-width: 3.2em;
   --button-height: 1.7em;
   --toggle-diameter: 1.2em;

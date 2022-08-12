@@ -108,22 +108,12 @@ const Profile = ({ data }) => {
               <GiTwoCoins onClick={openCardCrypto} />
             </IconMoney>
           </div>
-          <Card isOpen={isOpenCardFiat} closeCard={closeCardFiat}>
-            <Wallet />
-          </Card>
           <Card isOpen={isOpenCardCrypto} closeCard={closeCardCrypto}>
             <CryptoWallet />
           </Card>
-        </div>
-        <Switch />
-        <div className={styles.container_publications}>
-          {(data && data.publications.length === 0) ||
-          data.publications === undefined ||
-          data.publications === null ? (
-            <h6>Aún no hay publicaciones</h6>
-          ) : (
-            <Publications />
-          )}
+          <Card isOpen={isOpenCardFiat} closeCard={closeCardFiat}>
+            <Wallet />
+          </Card>
         </div>
       </section>
     </>

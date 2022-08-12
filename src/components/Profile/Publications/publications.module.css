@@ -1,4 +1,6 @@
 .container_publications_light {
+    max-width: 379px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,9 +13,24 @@
 }
 
 .container_publications_dark {
+    max-width: 379px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding-top: 10px;
     margin: 0;
     padding-left: 0;
     padding-right: 0;
     background: black;
+}
+
+.empty_publications_light {
+color: black;
+}
+
+
+.empty_publications_dark {
+color: white;
 }

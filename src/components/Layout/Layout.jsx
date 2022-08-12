@@ -9,12 +9,12 @@ import NavItem from "../NavItem/NavItem";
 import Anchor from "../Anchor/Anchor";
 import Image from "next/image";
 import styles from "./layout.module.css";
-import { TiHome } from "react-icons/ti";
+import { BiHome } from "react-icons/bi";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdOutlineLiveTv } from "react-icons/md";
-import { FaUserCircle, FaUserSecret } from "react-icons/fa";
-import { IoMdNotifications } from "react-icons/io"
-import { logRoles } from "@testing-library/react";
+import { FaUserSecret } from "react-icons/fa";
+import { BiUser } from "react-icons/bi";
+import { MdOutlineNotificationsNone } from "react-icons/md"
 
 const Layout = ({ title, description, menuItem, children }) => {
   const { theme } = useContext(ThemeContext);
@@ -57,7 +57,7 @@ const Layout = ({ title, description, menuItem, children }) => {
       <footer>
         <Nav>
           <NavItem path="/feed">
-            <TiHome/>
+            <BiHome/>
           </NavItem>
           <NavItem path="/search">
             <BiSearchAlt />
@@ -66,13 +66,13 @@ const Layout = ({ title, description, menuItem, children }) => {
             <MdOutlineLiveTv />
           </NavItem>
           <NavItem path="/notifications">
-            <IoMdNotifications />
+            <MdOutlineNotificationsNone />
           </NavItem>
           {premium ? <NavItem path="/user">
           <FaUserSecret />
         </NavItem> :
         <NavItem path="/user">
-        <FaUserCircle />
+        <BiUser />
       </NavItem>
           }
         </Nav>

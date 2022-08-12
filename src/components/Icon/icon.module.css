@@ -3,17 +3,28 @@
     font-size: 30px;
     border-radius: 50%;
     color: #000;
+    padding: 5px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 300ms;
 }
 .icon_light_mode:hover  {
     cursor: pointer;
-    color: rgb(63, 11, 124);
+    filter: brightness(1.2);
+    background: rgb(185, 185, 185);
 }
 .icon_light_mode:focus  {
-    color: rgb(63, 11, 124);
+    color: black;
+    filter: brightness(1.2);
+    background: rgb(167, 167, 167);
 
 }
 .icon_light_mode:active  {
-    color: rgb(63, 11, 124);
+    color: black;
+    background: rgb(167, 167, 167);
+    filter: brightness(1.2);
 }
 
 .icon_dark_mode  {
@@ -55,13 +66,13 @@
 .icon_money_dark {
     display: flex;
     font-size: 30px;
-    color: #1f1e1e;
+    color: #b4b4b4;
     cursor: pointer;
 }
 
 .icon_money_dark:hover  {
     cursor: pointer;
-    color: #404040;
+    color: #e6e6e6;
 }
 .icon_money_dark:focus  {
     color: rgb(63, 11, 124);
