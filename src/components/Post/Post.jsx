@@ -9,6 +9,7 @@ import MoreOptions from "./MoreOptions/MoreOptions";
 
 const Posts = ({ data }) => {
   const { theme } = useContext(ThemeContext);
+  console.log(data)
   return (
     <>
       {data &&
@@ -16,10 +17,11 @@ const Posts = ({ data }) => {
           ({
             content,
             price,
-            image,
+            images,
             createdAt,
             user,
             _id,
+            likes,
             profilePicture,
             userName,
           }) => (
@@ -45,7 +47,7 @@ const Posts = ({ data }) => {
                     </div>
                     <div>
                       <a className={styles.user_name}>{userName}</a>
-                      <p className={styles.user_crate_date}>{createdAt}</p>
+                      {/* <p className={styles.user_crate_date}>{createdAt}</p> */}
                     </div>
                   </div>
                 </Link>
@@ -55,7 +57,7 @@ const Posts = ({ data }) => {
               </div>
               <div className={styles.post}>
                 <p className={styles.post_content}>{content}</p>
-                {image && (
+                {images.map(image => (
                   <Image
                     className={styles.image}
                     src={image.secure_url}
@@ -63,10 +65,10 @@ const Posts = ({ data }) => {
                     height={480}
                     alt="Image"
                   />
-                )}
+                ))}
               </div>
               <>
-                <FooterPost price={price && price} />
+                <FooterPost price={price && price} id={_id} likes={likes} />
               </>
             </article>
           )

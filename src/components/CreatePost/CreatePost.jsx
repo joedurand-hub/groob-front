@@ -1,7 +1,6 @@
 import styles from "./createPost.module.css";
 import Textarea from "../Textarea/Textarea";
 import { useState, useContext } from "react";
-import { getCookie } from "cookies-next";
 import { ENDPOINT, POST_PUBLICATION } from "../../helpers/constants";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
@@ -12,7 +11,6 @@ import usePostPublication from "../../hooks/usePostPublication";
 
 const CreatePost = () => {
   const { theme } = useContext(ThemeContext);
-  const token = getCookie("authToken");
 
   const url = `${ENDPOINT}${POST_PUBLICATION}`
   
@@ -58,7 +56,6 @@ const CreatePost = () => {
       sendPublication({
       endpoint: url,
       postData: body,
-      token: token,
     });
     e.target.reset();
     setLengthValue(0);
@@ -82,7 +79,7 @@ const CreatePost = () => {
           onChange={handleInputChange}
           maxLength={500}
         />
-        <input placeholder="Precio" type="number" onChange={handleInputPriceChange} min={1}/>
+        <input placeholder="Precio" type="number" onChange={handleInputPriceChange}/>
         <div className={styles.container_form_buttons}>
           <div className={styles.upload_files}>
           <label htmlFor="upload">
@@ -91,7 +88,7 @@ const CreatePost = () => {
           </Icon>
           {/* <Image src={imageSrc && imageSrc} width={40} height={40} alt="Icon by upload images"/> */}
           </label>
-          <p className={styles.files_length}>{files.length}/ 7</p>
+          <p className={styles.files_length}>{files.length}/7</p>
           </div>
           <input type="file" id="upload" accept="image/*" multiple className={styles.input_upload} onChange={(e) => handleFilesLoad(e.target.files)}/>
           <div className={styles.container_send_post}>

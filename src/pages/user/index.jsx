@@ -36,6 +36,10 @@ const User = ({ data }) => {
             <h6>Preguntas Frecuentes</h6> <Icon><IoMenu /></Icon>
           </MenuItem>
           <MenuItem>
+            <h6>Contenido explícito</h6>
+            <Switch />
+          </MenuItem>
+          <MenuItem>
             <h6>Contacto</h6> <Icon><IoMenu /></Icon>
           </MenuItem>
         </Menu>

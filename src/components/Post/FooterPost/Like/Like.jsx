@@ -1,10 +1,20 @@
 import React from 'react'
 import { BsHeartFill } from "react-icons/bs";
+import useAuthPost from '../../../../hooks/useAuthPost';
 
-const Like = () => {
+const Like = ({id}) => {
+  const { data, sendData } = useAuthPost()
+  console.log(data, id)
+  const handleSubmit = async () => {
+    sendData({
+      endpoint: `http://localhost:8080/like/${id}`,
+      postData: {idPostLiked: id},
+    });
+  };
+  
   return (
     <>
-      <BsHeartFill/>
+      <BsHeartFill onClick={() => handleSubmit()}/>
     </>
   )
 }

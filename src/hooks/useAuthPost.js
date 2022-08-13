@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { TOKEN } from "../helpers/constants";
 
 const useAuthPost = () => {
   const [postData, setPostData] = useState({
@@ -8,7 +9,7 @@ const useAuthPost = () => {
     error: undefined,
   });
 
-  const sendData = async ({endpoint, postData, token}) => {  
+  const sendData = async ({endpoint, postData}) => {  
     setPostData({ 
       data: undefined,
       pending: true,
@@ -16,7 +17,7 @@ const useAuthPost = () => {
     });
     return axios.post(`${endpoint}`, {...postData}, {
       headers: { 
-        "authToken": token 
+        "authToken": TOKEN 
       }}, {withCredentials: true} )
     .then((response) => {
         setPostData({ 
