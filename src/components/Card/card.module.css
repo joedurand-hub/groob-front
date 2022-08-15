@@ -1,3 +1,4 @@
+@media only screen and (min-width: 260px) and (max-width: 768px) {
 .card_container {
     display: flex;
     justify-content: center;
@@ -38,4 +39,51 @@
 .card_action {
     transition: all 0.5s;
     transform: translate(0, -75vh);
+}
+
+}
+
+@media only screen and (min-width: 769px) {
+    .card_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 5;
+        position: absolute
+    }
+    
+    .card_light_mode {
+        background: rgb(244, 244, 244);
+        color: black;
+        position: fixed;
+        width: 100vw;
+        max-width: 375px;
+        height: 75vh;
+        bottom: -75vh;
+        padding: 15px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border: 1px solid #e6e6e6;
+    }
+    
+    
+    .card_dark_mode {
+        background: #3e3e3e;
+        color: white;
+        position: fixed;
+        width: 100vw;
+        max-width: 375px;
+        height: 75vh;
+        bottom: -75vh;
+        padding: 15px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+    
+    .card_action {
+        transition: all 0.5s;
+        transform: translate(0, -75vh);
+    }
+    
 }

@@ -30,7 +30,13 @@
 .icon_dark_mode  {
     font-size: 30px;
     border-radius: 50%;
-    color: #fff;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 300ms;
 }
 .icon_dark_mode:hover  {
     cursor: pointer;

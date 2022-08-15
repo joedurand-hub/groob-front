@@ -43,3 +43,49 @@
         color: rgb(152, 152, 152);
     }
 }
+
+@media only screen and (min-width: 769px) {
+    .textarea {
+        width: 100%;
+        max-width: 482px;
+        font-size: 1em;
+        font-weight: 600;
+        min-height: 80px;
+        margin: 0;
+        border: none;
+        resize: none;
+        overflow-y: hidden;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    .textarea:focus {
+        border: 2px solid rgb(159, 29, 240);
+        outline: 0 none;
+        border-bottom: none;
+    }
+
+    .textarea:active {
+        border: 2px solid rgb(159, 29, 240);
+        outline: 0 none;
+        border-bottom: none;
+    }
+
+    .light_mode {
+        background: rgb(255, 255, 255);
+        color: black;
+    }
+
+    .light_mode::placeholder {
+        color: rgb(222, 222, 222);
+    }
+
+    .dark_mode {
+        background: rgb(29, 29, 29);
+        color: white;
+    }
+
+    .dark_mode::placeholder {
+        color: rgb(152, 152, 152);
+    }
+}

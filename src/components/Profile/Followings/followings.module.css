@@ -1,3 +1,4 @@
+@media only screen and (min-width: 260px) and (max-width: 768px) {
 .data_followings {
     display: flex;
     flex-direction: column;
@@ -28,4 +29,41 @@
     align-content: center;
     padding: 0;
     margin: 0;
+  }
+
+}
+
+@media only screen and (min-width: 769px) {
+  .data_followings {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4px;
+    }
+  
+    .data {
+      font-size: 1em;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .data_number {
+      height: 35px;
+      background: rgba(207, 207, 207, 0.148);
+      border-radius: 50%;
+      width: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      align-content: center;
+      padding: 0;
+      margin: 0;
+    }
+  
   }

@@ -1,5 +1,6 @@
 import { getCookie } from "cookies-next"
-export const TOKEN = getCookie('authToken')
+export const myToken = getCookie('authToken')
+export const TOKEN = myToken;
 // ENDPOINTS IN THE BACKEND API
 export const ENDPOINT = "http://localhost:8080"
 export const GET_PROFILE = "/profile" 

@@ -79,14 +79,14 @@ const CreatePost = () => {
           onChange={handleInputChange}
           maxLength={500}
         />
-        <input placeholder="Precio" type="number" onChange={handleInputPriceChange}/>
+        {/* <input placeholder="Precio" type="number" onChange={handleInputPriceChange}/> */}
+        {/* <input type="checkbox"/>nsfw */}
         <div className={styles.container_form_buttons}>
           <div className={styles.upload_files}>
           <label htmlFor="upload">
           <Icon>
             <BsFillImageFill />
           </Icon>
-          {/* <Image src={imageSrc && imageSrc} width={40} height={40} alt="Icon by upload images"/> */}
           </label>
           <p className={styles.files_length}>{files.length}/7</p>
           </div>
@@ -97,7 +97,7 @@ const CreatePost = () => {
               type="submit"
               name="Publicar"
               variant={
-                lengthValue > 0 || price || files.length > 0 ? "primary" : "disabled"
+                lengthValue > 0 || files.length > 0 ? "primary" : "disabled"
               }
             />
           </div>

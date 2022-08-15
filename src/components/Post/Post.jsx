@@ -40,8 +40,8 @@ const Posts = ({ data }) => {
                       <Image
                         className={styles.user_picture}
                         src={profilePicture && profilePicture}
-                        width={60}
-                        height={60}
+                        width={45}
+                        height={45}
                         alt={`Post`}
                       />
                     </div>

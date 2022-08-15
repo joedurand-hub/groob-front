@@ -1,3 +1,4 @@
+@media only screen and (min-width: 260px) and (max-width: 768px) {
 .navbar {
     position: absolute;
     display: flex;
@@ -22,4 +23,33 @@
     align-items: center;
     text-align: start;
 
+}
+}
+
+@media only screen and (min-width: 769px) {
+    .navbar {
+        position: absolute;
+        display: flex;
+        height: 100vh;
+        padding: 0 1rem;
+        border-bottom: 1px solid #474a4d;
+        top: 0;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .navbar_nav {
+        list-style: none;
+        margin: 0;
+        padding-top: 60px;
+        width: 100%;
+        max-width: 400px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: start;
+    
+    }
 }

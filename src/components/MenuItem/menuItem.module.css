@@ -1,3 +1,4 @@
+@media only screen and (min-width: 260px) and (max-width: 768px) {
 .menu_item_list {
     width: 100%;
     max-width: 400px;
@@ -6,4 +7,19 @@
     align-items: center;
     justify-content: flex-start;
     text-align: start;
+}
+
+}
+
+
+@media only screen and (min-width: 769px) {
+    .menu_item_list {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: start;
+    }
 }

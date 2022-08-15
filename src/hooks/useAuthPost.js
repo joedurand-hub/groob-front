@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { TOKEN } from "../helpers/constants";
-
 const useAuthPost = () => {
   const [postData, setPostData] = useState({
     data: undefined,
