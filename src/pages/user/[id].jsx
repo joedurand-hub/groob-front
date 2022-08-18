@@ -27,7 +27,7 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authToken", { req, res });
     const {id} = query;
     const response = await fetch(
-      `http://localhost:8080/profileById/${id}`,
+      `http://localhost:8080/profile/${id}`,
       {
         headers: {
           authToken: token,

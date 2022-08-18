@@ -96,6 +96,10 @@
 
 }
 
+.empty {
+    display: none;
+}
+
 @media only screen and (min-width: 769px) {
     .container_post {
         display: flex;

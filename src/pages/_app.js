@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { useState, useEffect, useContext } from "react"
 import { ThemeContext, ThemeProvider } from "../contexts/ThemeContext";
+import { ProfileProvider } from "../contexts/ProfileContext";
 import { useRouter } from "next/router"
 import Loader from "../components/Loader/Loader";
 
@@ -34,8 +35,10 @@ function Loading() {
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider>
+    <ProfileProvider>
       <Loading/>
       <Component {...pageProps} />
+    </ProfileProvider>
     </ThemeProvider>
   );
 }

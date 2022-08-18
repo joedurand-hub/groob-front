@@ -11,7 +11,7 @@ const Feed = ({data}) => {
     <Layout
       menuItem={
         <>
-          <NavItem path="/messages">
+          <NavItem path="/chat">
             <FaRegComment />
           </NavItem>
         </>

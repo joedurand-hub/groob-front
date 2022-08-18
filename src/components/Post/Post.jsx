@@ -56,8 +56,8 @@ const Posts = ({ data }) => {
                 </div>
               </div>
               <div className={styles.post}>
-                <p className={styles.post_content}>{content}</p>
-                {images.map(image => (
+                <p className={content ? styles.post_content : styles.empty}>{content}</p>
+                {images && images.map(image => (
                   <Image
                     className={styles.image}
                     src={image.secure_url}
