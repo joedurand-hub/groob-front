@@ -14,7 +14,6 @@ const FooterPost = ({ likes, price, id }) => {
       {price ? (
         <>
         <div className={styles.container} onClick={() => {
-          console.log("click")
           setComment(!comment)}}>
             <Like id={id} />
           <Icon>

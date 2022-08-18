@@ -18,7 +18,6 @@ import Followers from "./Followers/Followers";
 import Publications from "./Publications/Publications";
 
 const Profile = ({ data }) => {
-  console.log(data);
   const { theme } = useContext(ThemeContext);
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
@@ -89,7 +88,6 @@ const Profile = ({ data }) => {
               name="Activar Premium"
               variant="login"
               onClick={() => {
-                console.log("click");
               }}
             />
           </div>

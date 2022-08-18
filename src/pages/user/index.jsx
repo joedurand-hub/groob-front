@@ -46,7 +46,7 @@ const User = ({ data }) => {
       ) : (
         <>
           <Profile data={data} />
-          <Publications />
+          {/* <Publications /> */}
         </>
       )}
     </Layout>

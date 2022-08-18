@@ -9,7 +9,6 @@ import MoreOptions from "./MoreOptions/MoreOptions";
 
 const Posts = ({ data }) => {
   const { theme } = useContext(ThemeContext);
-  console.log(data)
   return (
     <>
       {data &&

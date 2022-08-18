@@ -60,7 +60,6 @@ const CreatePost = () => {
     e.target.reset();
     setLengthValue(0);
   };
-  console.log(data)
   return (
     <>
       <form

@@ -6,7 +6,6 @@ import { FaRegComment } from "react-icons/fa";
 import { getCookie } from "cookies-next";
 
 const Feed = ({data}) => {
-  console.log(data)
   return (
     <Layout
       menuItem={

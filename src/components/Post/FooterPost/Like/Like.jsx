@@ -4,7 +4,6 @@ import useAuthPost from '../../../../hooks/useAuthPost';
 
 const Like = ({id}) => {
   const { data, sendData } = useAuthPost()
-  console.log(data, id)
   const handleSubmit = async () => {
     sendData({
       endpoint: `http://localhost:8080/like/${id}`,

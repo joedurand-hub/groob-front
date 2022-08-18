@@ -5,6 +5,10 @@
     padding-bottom: 5px;
     border-bottom: 1px solid #e6e6e6
 }
+.user_online {
+  border-radius: 50%;
+}
+
   .chat_container {
     display: flex;
     flex-direction: column;
@@ -22,29 +26,31 @@
     gap: 1rem;
   }
   
-
-  .conversation:hover {
-    background: #80808038;
-    cursor: pointer;
-  }
-  
-  .conversation {
-    border-radius: 0.5rem;
-    padding: 10px;
-  }
-  
-  .conversation > div {
-    position: relative;
-  }
-  
-  .online-dot {
+  .online_dot {
     background-color: greenyellow;
     border-radius: 50%;
     position: absolute;
-    left: 2rem;
+    left: 3.5rem;
+    margin-top: 3rem;
     width: 1rem;
     height: 1rem;
+    z-index: 10;
+    padding: 2px;
   }
+
+  .offline_dot {
+    background-color: rgb(120, 130, 121);
+    border-radius: 50%;
+    position: absolute;
+    left: 3.5rem;
+    margin-top: 3rem;
+    width: 1rem;
+    height: 1rem;
+    z-index: 10;
+    padding: 2px;
+  }
+  
+  
   
   
   .chatbox-empty-message {
