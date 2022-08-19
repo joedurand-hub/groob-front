@@ -22,8 +22,8 @@ const Profiles = ({ data, id }) => {
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
   const { theme } = useContext(ThemeContext);
 
-    useEffect(() => {
-       
+  useEffect(() => {
+    
     }, [follow])
   return (
     <>
@@ -75,7 +75,7 @@ const Profiles = ({ data, id }) => {
           <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-          {data.followers.includes(id) ? (<Unfollow id={data?._id} onClick={() => setFollow(!follow)}/>) : (<Follow id={data?._id} onClick={() => setFollow(!follow)}/>) }
+          {data?.followers?.includes(id) ? (<Unfollow id={data?._id} onClick={() => setFollow(!follow)}/>) : (<Follow id={data?._id} onClick={() => setFollow(!follow)}/>) }
           <Button name="Mensaje" variant="primary" />
           <Icon>
             <BsCashCoin onClick={openCardFiat} />

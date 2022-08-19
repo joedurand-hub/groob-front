@@ -2,16 +2,22 @@ import React, { useState, useEffect, useContext } from "react";
 import Conversation from "./Conversation/Conversation";
 import Image from "next/image";
 import useRequest from "../../hooks/useRequest";
+import { useModal } from "../../hooks/useModal"
+import Modal  from "./Modal/Modal"
 import { ENDPOINT } from "../../helpers/constants";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./chat.module.css";
+import ChatBox from "./ChatBox/ChatBox";
 
-const Chat = ({ dato }) => {
+import ProfilePicture from "./ProfilePicture/ProfilePicture"
+
+const Chat = ({ user, children }) => {
+  const [currentChat, setCurrentChat] = useState(null)
+  console.log(currentChat)
+  const [isOpenModalChat, openModalChat, closeModalChat] = useModal(false);
   const { theme } = useContext(ThemeContext);
 
-  const { data } = useRequest(`${ENDPOINT}/chat/${dato?._id}`);
-
-  if (dato !== undefined) {
+  if (user !== undefined) {
     return (
       <div
         className={
@@ -21,22 +27,22 @@ const Chat = ({ dato }) => {
         }
       >
         <div className={styles.chat_user}>
-        {dato?.online === true && (
+        {user?.online === true && (
         <div className={styles.online_dot}></div>
         )}
-          <Image className={styles.user_online} src={dato?.profilePicture.secure_url} width={60} height={60} />
+          <Image className={styles.user_online} src={user?.profilePicture.secure_url} width={60} height={60} />
           <h5>
-            <strong>{dato?.userName}</strong>
+            <strong>{user?.userName}</strong>
+
           </h5>
         </div>
         <div className={styles.chat_list}>
-          {data &&
-            data.map((chat) => (
-              <>
-                <Conversation chats={chat} currentUserId={dato._id} />
-              </>
-            ))}
+          {children}
         </div>
+        <Modal  isOpen={isOpenModalChat} closeModal={closeModalChat}>
+          {/* <ProfilePicture /> */}
+              {/* <ChatBox chat={currentChat} currentUser={user._id}/> */}
+</Modal>
       </div>
     );
   }

@@ -52,6 +52,7 @@
         padding-left: 5px;
         font-size: 18px;
         font-weight: 600;
+        text-decoration: none;
     }
 
     .user_crate_date {
@@ -148,12 +149,15 @@
         margin: 0;
         padding: 0;
         border-radius: 50%;
+        cursor: pointer;
     }
 
     .user_name {
         padding-left: 5px;
         font-size: 18px;
         font-weight: 600;
+        cursor: pointer;
+
     }
 
     .user_crate_date {

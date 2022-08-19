@@ -15,7 +15,7 @@ const ProfileById = ({ data }) => {
         </>
       }
     >
-      <Profile data={data.profileData} id={data.myIdInFollowers}/>
+      <Profile data={data.profileData} id={data.myId}/>
     </Layout>
   );
 };

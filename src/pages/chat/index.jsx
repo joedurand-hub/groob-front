@@ -4,13 +4,22 @@ import { getCookie } from "cookies-next";
 import Chat from '../../components/Chat/Chat'
 import Messages from '../../components/Chat/Messages/Messages'
 import io from "socket.io-client"
+import Conversation from "../../components/Chat/Conversation/Conversation";
 
 // const socket = io('http://localhost:8080')
 
 const Index = ({data}) => {
+  
   return (
     <>
-      <Chat dato={data}/>
+      <Chat user={data}>
+
+              <div>
+                <Conversation currentUserId={data?._id}/> 
+                {/* recibe el id para buscar todas las conversaciones */}
+              </div>
+
+      </Chat>
     </>
   )
 }
