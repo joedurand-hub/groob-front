@@ -1,4 +1,4 @@
-import { format, register } from 'timeago.js' //Puede utilizar `import` para Javascript code.
+import { format, register } from 'timeago.js' 
 
 register('es_ES', (number, index, total_sec) => [
     ['justo ahora', 'ahora mismo'],

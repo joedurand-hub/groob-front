@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import styles from "./chatbox.module.css"
 import Image from "next/image";
-import Loader from "../../../components/Loader/Loader";
+import Loader from "../../Loader/Loader";
 import Link from "next/link";
 import useRequest from "../../../hooks/useRequest";
 import { ENDPOINT, GET_PROFILE } from "../../../helpers/constants";

@@ -2,11 +2,15 @@ import {useState} from "react";
 import Link from "next/link"
 import { getCookie } from "cookies-next";
 import Chat from '../../components/Chat/Chat'
-import Messages from '../../components/Chat/Messages/Messages'
+import Messages from '../../components/Conversation/Messages/Messages'
 import io from "socket.io-client"
 import Conversation from "../../components/Chat/Conversation/Conversation";
 
 // const socket = io('http://localhost:8080')
+
+// esta ruta recibe el componente con el listado de chats creados
+
+// Al componente debo linkearle el id para reconocer la conversación a abrir
 
 const Index = ({data}) => {
   

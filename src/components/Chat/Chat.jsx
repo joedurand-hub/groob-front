@@ -1,13 +1,18 @@
+
+
+///////////////////////////
+
+// Este componente contiene todos los chats
+
+///////////////////////////
+
 import React, { useState, useEffect, useContext } from "react";
-import Conversation from "./Conversation/Conversation";
 import Image from "next/image";
 import useRequest from "../../hooks/useRequest";
 import { useModal } from "../../hooks/useModal"
-import Modal  from "./Modal/Modal"
 import { ENDPOINT } from "../../helpers/constants";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./chat.module.css";
-import ChatBox from "./ChatBox/ChatBox";
 
 import ProfilePicture from "./ProfilePicture/ProfilePicture"
 
@@ -39,10 +44,7 @@ const Chat = ({ user, children }) => {
         <div className={styles.chat_list}>
           {children}
         </div>
-        <Modal  isOpen={isOpenModalChat} closeModal={closeModalChat}>
-          {/* <ProfilePicture /> */}
-              {/* <ChatBox chat={currentChat} currentUser={user._id}/> */}
-</Modal>
+
       </div>
     );
   }
