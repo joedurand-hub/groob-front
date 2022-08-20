@@ -1,10 +1,10 @@
-import {useState} from "react";
-import Link from "next/link"
+import { useState } from "react";
+import Link from "next/link";
 import { getCookie } from "cookies-next";
-import Chat from '../../components/Chat/Chat'
-import Messages from '../../components/Conversation/Messages/Messages'
-import io from "socket.io-client"
-import Conversation from "../../components/Chat/Conversation/Conversation";
+import Chat from "../../components/Chat/Chat";
+import io from "socket.io-client";
+import ChatUser from "../../components/Chat/ChatUser/ChatUser";
+import ChatList from "../../components/Chat/ChatList/ChatList";
 
 // const socket = io('http://localhost:8080')
 
@@ -12,29 +12,32 @@ import Conversation from "../../components/Chat/Conversation/Conversation";
 
 // Al componente debo linkearle el id para reconocer la conversación a abrir
 
-const Index = ({data}) => {
-  
+const Index = ({ data }) => {
+  const usersData = data.userDataInTheChat.map((obj) => obj);
+
+  const chatsId = data.chatIdAndUserId.map((obj) => obj.id);
+
   return (
     <>
-      <Chat user={data}>
-
-              <div>
-                <Conversation currentUserId={data?._id}/> 
-                {/* recibe el id para buscar todas las conversaciones */}
-              </div>
-
-      </Chat>
+      <ChatUser
+        userName={data?.userName}
+        profilePicture={data?.profilePicture}
+        online={data?.online}
+      />
+      <div>
+        <ChatList chatsId={chatsId} users={usersData} />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 
 export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authToken", { req, res });
     const response = await fetch(
-      `http://localhost:8080/profile-reduced`,
+      `http://localhost:8080/chats`,
       {
         headers: {
           authToken: token,

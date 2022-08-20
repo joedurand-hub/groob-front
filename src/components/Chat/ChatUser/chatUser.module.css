@@ -1,0 +1,35 @@
+.chat_user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e6e6e6
+}
+
+.user_online {
+    border-radius: 50%;
+}
+
+.online_dot {
+    background-color: greenyellow;
+    border-radius: 50%;
+    position: absolute;
+    left: 3.5rem;
+    margin-top: 3rem;
+    width: 1rem;
+    height: 1rem;
+    z-index: 10;
+    padding: 2px;
+}
+
+.offline_dot {
+    background-color: rgb(120, 130, 121);
+    border-radius: 50%;
+    position: absolute;
+    left: 3.5rem;
+    margin-top: 3rem;
+    width: 1rem;
+    height: 1rem;
+    z-index: 10;
+    padding: 2px;
+}

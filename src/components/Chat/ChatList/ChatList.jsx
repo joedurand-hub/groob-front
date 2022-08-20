@@ -1,14 +1,21 @@
-import React from 'react'
+import React from "react";
+import ChatUser from "../ChatUser/ChatUser";
 
-const ChatList = ({list}) => {
+const ChatList = ({ chatsId, users }) => {
+  console.log(chatsId, users);
+
   return (
     <div>
-        {list.map(chat => (
-
-        <ChatUser prop1={chat.prop} prop2={chat.prop}/>
-        ))}
+      {users.map((user) => (
+        <ChatUser
+          id={user?.id}
+          userName={user?.userName}
+          profilePicture={user?.profilePicture}
+          online={user?.online}
+        />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default ChatList
+export default ChatList;
