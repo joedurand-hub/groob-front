@@ -25,13 +25,23 @@ export const SignIn = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    sendData({
-      endpoint: url,
-      postData: {
-        email: data.email,
-        password: data.password,
-      },
-    });
+    if(data.text.includes("@")) {
+      sendData({
+        endpoint: url,
+        postData: {
+          email: data.text,
+          password: data.password,
+        },
+      });
+    } else {
+      sendData({
+        endpoint: url,
+        postData: {
+          userName: data.text,
+          password: data.password,
+        },
+      });
+    }
   };
   
   const handleNewPassword = () => {
@@ -80,29 +90,24 @@ export const SignIn = () => {
           }
         >
           <input
-            placeholder="Email"
+            placeholder="Email o nombre de usuario"
             autoComplete="off"
             className={
               theme
                 ? `${inputField.field_input} ${inputField.field_input_light}`
                 : `${inputField.field_input} ${inputField.field_input_dark}`
             }
-            type="email"
-            {...register("email", {
+            type="text"
+            {...register("text", {
               required: true,
-              pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
             })}
           />
-          {errors.email?.type === "required" && (
+          {errors.text?.type === "required" && (
             <p className={styles.form_text_input_error}>
-              El email no puede estar vacío
+              El campo no puede estar vacío
             </p>
           )}
-          {errors.email?.type === "pattern" && (
-            <p className={styles.form_text_input_error}>
-              Email debe contener arroba y punto
-            </p>
-          )}
+
         </div>
 
         <div
@@ -120,7 +125,7 @@ export const SignIn = () => {
                 : `${inputField.field_input} ${inputField.field_input_dark}`
             }
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             {...register("password", {
               required: true,
               pattern:
