@@ -7,7 +7,7 @@ import { ENDPOINT, GET_PROFILE } from "../../../helpers/constants";
 // import { ThemeContext } from "../../../contexts/ThemeContext";
 import styles from "./conversation.module.css";
 
-const Conversation = ({ chats, currentUserId }) => {
+const Conversation = ({ username, photo, online }) => {
   const { data } = useRequest(`${ENDPOINT}/chat/${currentUserId}`);
   
   // const [userConnected, setUserConnected] = useState({});

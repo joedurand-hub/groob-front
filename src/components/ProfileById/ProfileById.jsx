@@ -10,6 +10,7 @@ import { BsCashCoin } from "react-icons/bs";
 // import { GoVerified } from "react-icons/go";
 import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
+import CreateChat from "../CreateChat/CreateChat";
 import Card from "../Card/Card";
 import Wallet from "../Wallet/Wallet";
 import CryptoWallet from "../WalletCrypto/WalletCrypto";
@@ -76,7 +77,7 @@ const Profiles = ({ data, id }) => {
         </div>
         <div className={styles.container_buttons}>
           {data?.followers?.includes(id) ? (<Unfollow id={data?._id} onClick={() => setFollow(!follow)}/>) : (<Follow id={data?._id} onClick={() => setFollow(!follow)}/>) }
-          <Button name="Mensaje" variant="primary" />
+          <CreateChat myId={id} userId={data?._id}/>
           <Icon>
             <BsCashCoin onClick={openCardFiat} />
           </Icon>
