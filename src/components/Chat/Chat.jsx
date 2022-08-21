@@ -6,13 +6,9 @@
 
 ///////////////////////////
 
-import React, { useState, useEffect, useContext } from "react";
-import Image from "next/image";
 import styles from "./chat.module.css";
-import { getCookie } from "cookies-next";
 
-const Chat = ({ user, children }) => {
-  
+const Chat = ({ children }) => {
 
     return (
       <div>

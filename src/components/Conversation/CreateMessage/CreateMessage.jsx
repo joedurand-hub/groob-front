@@ -1,9 +1,9 @@
 import InputEmoji from "react-input-emoji"
-
+import styles from "./createMessage.module.css"
 
 const CreateMessage = ({value, onChange}) => {
   return (
-    <div>
+    <div className={styles.container}>
         <InputEmoji value={value} onChange={onChange}/>
     </div>
   )

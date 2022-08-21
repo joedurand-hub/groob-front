@@ -1,35 +1,22 @@
-.chat_user {
+.container_user {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #e6e6e6
+    gap: 5px;
+    margin: 5px;
+    cursor: pointer;
 }
 
-.user_online {
-    border-radius: 50%;
+.container_user:hover {
+    background: #e6e6e69b;
+    transition: 0.3s;
 }
 
-.online_dot {
-    background-color: greenyellow;
-    border-radius: 50%;
-    position: absolute;
-    left: 3.5rem;
-    margin-top: 3rem;
-    width: 1rem;
-    height: 1rem;
-    z-index: 10;
-    padding: 2px;
+.container_user:active {
+    background: #c0bfbf
 }
 
-.offline_dot {
-    background-color: rgb(120, 130, 121);
-    border-radius: 50%;
-    position: absolute;
-    left: 3.5rem;
-    margin-top: 3rem;
-    width: 1rem;
-    height: 1rem;
-    z-index: 10;
-    padding: 2px;
+.user_name {
+    padding-bottom: 10px;
 }

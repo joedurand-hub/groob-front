@@ -1,28 +1,32 @@
 import React, { useState, useEffect, useContext } from "react";
-import Image from "next/image";
-import Loader from "../../../components/Loader/Loader";
-import Link from "next/link";
-import useRequest from "../../../hooks/useRequest";
-import { ENDPOINT, GET_PROFILE } from "../../../helpers/constants";
-// import { ThemeContext } from "../../../contexts/ThemeContext";
 import styles from "./conversation.module.css";
 
-const Conversation = ({ username, photo, online }) => {
-  const { data } = useRequest(`${ENDPOINT}/chat/${currentUserId}`);
-  
-  // const [userConnected, setUserConnected] = useState({});
-  const [userConversation, setUserConversation] = useState("");
-  // const { theme } = useContext(ThemeContext);
-
-  console.log(data)
-
+const Conversation = ({
+  children,
+  data,
+  back,
+  userChat,
+  message,
+  createMessage,
+  sendMessage,
+}) => {
   return (
-    <div>
-      hola cara de pija
-    </div>
-  )
+    <div className={styles.container_conversation}>
+      <div className={styles.container_user_conversation}>
+        {back}
+        {userChat}
+      </div>
 
-  
+      <div>
+        {message}
+        {/* <p>{data?.chat.messages?.[0]}</p> */}
+      </div>
+
+      <div className={styles.footer_conversation}>
+        {createMessage} {sendMessage}
+      </div>
+    </div>
+  );
 };
 
 export default Conversation;

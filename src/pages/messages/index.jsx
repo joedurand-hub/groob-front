@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Link from "next/link";
 import { getCookie } from "cookies-next";
 import Chat from "../../components/Chat/Chat";
 import io from "socket.io-client";
@@ -8,26 +7,29 @@ import ChatList from "../../components/Chat/ChatList/ChatList";
 
 // const socket = io('http://localhost:8080')
 
-// esta ruta recibe el componente con el listado de chats creados
-
-// Al componente debo linkearle el id para reconocer la conversación a abrir
 
 const Index = ({ data }) => {
-  const usersData = data.userDataInTheChat.map((obj) => obj);
+  const usersData = data?.usersDataInTheChat?.map((obj) => obj);
+  console.log(usersData)
 
-  const chatsId = data.chatIdAndUserId.map((obj) => obj.id);
+  const chatsId = data?.chatIdAndUserId?.map((obj) => obj.id);
 
   return (
-    <>
+    <Chat>
+      {/* <div styles={{"border-bottom": "1px solid #e6e6e6"}}> */}
+
       <ChatUser
         userName={data?.userName}
         profilePicture={data?.profilePicture}
         online={data?.online}
-      />
+        width={75}
+        height={75}
+        />
+        {/* </div> */}
       <div>
         <ChatList chatsId={chatsId} users={usersData} />
       </div>
-    </>
+    </Chat>
   );
 };
 
