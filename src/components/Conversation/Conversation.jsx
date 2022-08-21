@@ -6,7 +6,6 @@ const Conversation = ({
   data,
   back,
   userChat,
-  message,
   createMessage,
   sendMessage,
 }) => {
@@ -18,7 +17,7 @@ const Conversation = ({
       </div>
 
       <div>
-        {message}
+        {children}
         {/* <p>{data?.chat.messages?.[0]}</p> */}
       </div>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import ChatUser from "../../components/Chat/ChatUser/ChatUser";
 import CreateMessage from "../../components/Conversation/CreateMessage/CreateMessage";
@@ -6,32 +6,54 @@ import SendMessage from "../../components/Conversation/SendMessage/SendMessage";
 import Message from "../../components/Conversation/Message/Message";
 import GoBack from "../../components/GoBack/Back";
 import Conversation from "../../components/Conversation/Conversation";
+import { TOKEN } from "../../helpers/constants";
+import axios from "axios";
 
-const Messages = ({ data }) => {
-  console.log(data);
+const Messages = ({ datas }) => {
+  console.log(datas);
+  const [messages, setMessages] = useState("");
+
+  useEffect(() => {
+    try {
+      const getMessages = async () => {
+        const { data } = await axios.get(
+          `http://localhost:8080/message/${datas?.chat._id}`,
+          { headers: { authToken: TOKEN } },
+          { withCredentials: true }
+        );
+        console.log(data);
+        setMessages(data);
+      };
+
+      if (datas.chat !== null || datas.chat !== undefined) getMessages();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [datas]);
+
   return (
     <div>
       <Conversation
-        back={
-            <GoBack path="/messages"/>
-        }
+        back={<GoBack path="/messages" />}
         userChat={
           <ChatUser
-            profilePicture={data?.profilePicture}
-            userName={data?.userName}
+            profilePicture={datas?.profilePicture}
+            userName={datas?.userName}
             width={50}
             height={50}
           />
         }
-        message={
-          <Message
-            profilePicture={data?.profilePicture}
-            text={data?.chat.messages?.[0]}
-          />
-        }
+        
         createMessage={<CreateMessage />}
         sendMessage={<SendMessage />}
-      ></Conversation>
+      >
+         {/* {messages.map(msj => ( */}
+            <Message
+              profilePicture={datas?.profilePicture}
+              text={datas?.chat.messages?.[0]}
+            />
+         {/* ))}  */}
+      </Conversation>
     </div>
   );
 };
@@ -52,10 +74,10 @@ export async function getServerSideProps({ req, res, query }) {
         withCredentials: true,
       }
     );
-    const data = await response.json();
+    const datas = await response.json();
     return {
       props: {
-        data,
+        datas,
       },
     };
   } catch (error) {

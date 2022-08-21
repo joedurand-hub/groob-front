@@ -9,8 +9,8 @@ import ChatList from "../../components/Chat/ChatList/ChatList";
 
 
 const Index = ({ data }) => {
+  console.log(data)
   const usersData = data?.usersDataInTheChat?.map((obj) => obj);
-  console.log(usersData)
 
   const chatsId = data?.chatIdAndUserId?.map((obj) => obj.id);
 
@@ -19,6 +19,7 @@ const Index = ({ data }) => {
       {/* <div styles={{"border-bottom": "1px solid #e6e6e6"}}> */}
 
       <ChatUser
+        myId={data?.myId}
         userName={data?.userName}
         profilePicture={data?.profilePicture}
         online={data?.online}

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import styles from "./chatUser.module.css";
 import UserConnected from "../UserConnected/UserConnected";
 
-const ChatUser = ({ userName, profilePicture, online, id, width, height }) => {
+const ChatUser = ({ userName, profilePicture, online, id, width, height, myId }) => {
   const router = useRouter();
   return (
     <div
