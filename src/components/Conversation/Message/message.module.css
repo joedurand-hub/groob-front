@@ -14,10 +14,11 @@
     font-weight: 600;
     font-size: 16px;
     padding: 0.7rem;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     max-width: 28rem;
     width: fit-content;
     gap: 0.2rem;
+    margin-bottom: 3px;
     margin-left: 5px;
 }
 
@@ -31,8 +32,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 5px;
-
+    margin-right: 1px;
+    
 }
 
 .send_message {
@@ -44,11 +45,11 @@
     font-weight: 600;
     font-size: 16px;
     padding: 0.7rem;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     max-width: 28rem;
     width: fit-content;
     gap: 0.2rem;
-
+    margin-bottom: 3px;
 }
 
 .send_message>span:nth-child(2) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import ChatUser from "../ChatUser/ChatUser";
 
 const ChatList = ({ users }) => {
@@ -20,4 +20,4 @@ const ChatList = ({ users }) => {
   );
 };
 
-export default ChatList;
+export default memo(ChatList);

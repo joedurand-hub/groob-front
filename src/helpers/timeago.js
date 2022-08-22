@@ -2,9 +2,9 @@ import { format, register } from 'timeago.js'
 
 register('es_ES', (number, index, total_sec) => [
     ['justo ahora', 'ahora mismo'],
-    ['hace %s segundos', 'en %s segundos'],
-    ['hace 1 minuto', 'en 1 minuto'],
-    ['hace %s minutos', 'en %s minutos'],
+    ['hace %s seg', 'en %s segundos'],
+    ['hace 1 min', 'en 1 minuto'],
+    ['hace %s min', 'en %s minutos'],
     ['hace 1 hora', 'en 1 hora'],
     ['hace %s horas', 'in %s horas'],
     ['hace 1 dia', 'en 1 dia'],

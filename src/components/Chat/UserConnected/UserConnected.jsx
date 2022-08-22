@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import Image from "next/image";
 import styles from "./userConnected.module.css";
 
@@ -19,4 +19,4 @@ const UserConnected = ({ online, profilePicture, width, height }) => {
   );
 };
 
-export default UserConnected;
+export default memo(UserConnected);

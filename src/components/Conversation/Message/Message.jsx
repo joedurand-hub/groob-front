@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from 'react'
 import Image from "next/image";
 import TextMessage from "../TextMessage/TextMessage";
 import timeago from "../../../helpers/timeago";
@@ -37,4 +37,4 @@ const Message = ({ profilePicture, text, createdAt, senderId, myId }) => {
       </>
   );
 };
-export default Message;
+export default memo(Message);

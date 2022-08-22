@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, memo } from "react";
 import { useRouter } from "next/router";
 import styles from "./chatUser.module.css";
 import UserConnected from "../UserConnected/UserConnected";
@@ -24,4 +24,4 @@ const ChatUser = ({ userName, profilePicture, online, id, width, height, myId })
   );
 };
 
-export default ChatUser;
+export default memo(ChatUser);

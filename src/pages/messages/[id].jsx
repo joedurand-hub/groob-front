@@ -6,17 +6,15 @@ import SendMessage from "../../components/Conversation/SendMessage/SendMessage";
 import Message from "../../components/Conversation/Message/Message";
 import GoBack from "../../components/GoBack/Back";
 import Conversation from "../../components/Conversation/Conversation";
+import useAuthPost from "../../hooks/useAuthPost"
 import axios from "axios";
+import InputEmoji from "react-input-emoji"
 
 const Messages = ({ datas }) => {
-  console.log(datas);
   const token = getCookie("authToken");
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-
-  const handleMessage = (newMessage) => {
-    setNewMessage(newMessage)
-  }
+  const [sentSuccessfully, setSentSuccessfully] = useState(false)
 
   useEffect(() => {
     try {
@@ -26,7 +24,6 @@ const Messages = ({ datas }) => {
           { headers: { authToken: token } },
           { withCredentials: true }
         );
-        console.log(data);
         setMessages(data);
       };
 
@@ -34,7 +31,33 @@ const Messages = ({ datas }) => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [sentSuccessfully]);
+
+  const handleMessage = (newMessage) => {
+    setNewMessage(newMessage)
+    setSentSuccessfully(false)
+    console.log(newMessage)
+  }
+
+  const handleSendMessage = async () => {
+    try {
+      const { data } = await axios.post(
+        `http://localhost:8080/message`, {
+          chatId: datas?.chat._id,
+          senderId: messages.myId,
+          text: newMessage,
+        },{ headers: { authToken: token }}, { withCredentials: true }
+      );    
+      setNewMessage("")
+      if(data) {
+      console.log("data: ", data)      
+        setSentSuccessfully(true)
+      }
+    } catch (error) {
+    console.log("error: ", error)      
+    }
+  }
+
 console.log(messages)
   return (
     <div>
@@ -49,8 +72,8 @@ console.log(messages)
           />
         }
         
-        createMessage={<CreateMessage value={newMessage && newMessage} onChange={handleMessage} />}
-        sendMessage={<SendMessage />}
+        createMessage={     <InputEmoji value={newMessage} onChange={handleMessage}/>}
+        sendMessage={<SendMessage handleSubmit={handleSendMessage}/>}
       >
         <hr/>
          {messages.chat?.map(msj => (
