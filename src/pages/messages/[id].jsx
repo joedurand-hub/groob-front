@@ -6,11 +6,11 @@ import SendMessage from "../../components/Conversation/SendMessage/SendMessage";
 import Message from "../../components/Conversation/Message/Message";
 import GoBack from "../../components/GoBack/Back";
 import Conversation from "../../components/Conversation/Conversation";
-import { TOKEN } from "../../helpers/constants";
 import axios from "axios";
 
 const Messages = ({ datas }) => {
   console.log(datas);
+  const token = getCookie("authToken");
   const [messages, setMessages] = useState("");
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Messages = ({ datas }) => {
       const getMessages = async () => {
         const { data } = await axios.get(
           `http://localhost:8080/message/${datas?.chat._id}`,
-          { headers: { authToken: TOKEN } },
+          { headers: { authToken: token } },
           { withCredentials: true }
         );
         console.log(data);
@@ -29,8 +29,8 @@ const Messages = ({ datas }) => {
     } catch (error) {
       console.log(error);
     }
-  }, [datas]);
-
+  }, []);
+console.log(messages)
   return (
     <div>
       <Conversation
@@ -47,12 +47,15 @@ const Messages = ({ datas }) => {
         createMessage={<CreateMessage />}
         sendMessage={<SendMessage />}
       >
-         {/* {messages.map(msj => ( */}
-            <Message
+         {messages.chat?.map(msj => (
+            <Message 
+              senderId={msj.senderId} 
+              myId={messages.myId}
               profilePicture={datas?.profilePicture}
-              text={datas?.chat.messages?.[0]}
+              text={msj.text}
+              createdAt={msj.createdAt}
             />
-         {/* ))}  */}
+         ))}  
       </Conversation>
     </div>
   );

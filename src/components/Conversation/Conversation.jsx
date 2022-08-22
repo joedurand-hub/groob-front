@@ -16,9 +16,8 @@ const Conversation = ({
         {userChat}
       </div>
 
-      <div>
+      <div className={styles.container_messages}>
         {children}
-        {/* <p>{data?.chat.messages?.[0]}</p> */}
       </div>
 
       <div className={styles.footer_conversation}>
