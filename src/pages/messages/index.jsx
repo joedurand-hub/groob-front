@@ -1,23 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getCookie } from "cookies-next";
 import Chat from "../../components/Chat/Chat";
-import io from "socket.io-client";
 import ChatUser from "../../components/Chat/ChatUser/ChatUser";
 import ChatList from "../../components/Chat/ChatList/ChatList";
-
-// const socket = io('http://localhost:8080')
-
+import { io } from "socket.io-client";
 
 const Index = ({ data }) => {
-  console.log(data)
-  const usersData = data?.usersDataInTheChat?.map((obj) => obj);
+  const [allChats, setAllChats] = useState([])
+  const [onlineUsers, setOnlineUsers] = useState([])
+  const socket = useRef()
 
+  const usersData = data?.usersDataInTheChat?.map((obj) => obj);  
   const chatsId = data?.chatIdAndUserId?.map((obj) => obj.id);
+
+  useEffect(() => {
+    setAllChats(data.usersDataInTheChat)
+    
+    socket.current = io("http://localhost:8080")
+    socket.current.emit("newUserAdded", data.myId)
+    socket.current.on("getUsers", (allUsers) => {
+      setOnlineUsers(allUsers)
+    })
+    
+  }, [allChats])
+
+  console.log(onlineUsers)
 
   return (
     <Chat>
+      
       {/* <div styles={{"border-bottom": "1px solid #e6e6e6"}}> */}
-
       <ChatUser
         myId={data?.myId}
         userName={data?.userName}
@@ -30,6 +42,7 @@ const Index = ({ data }) => {
       <div>
         <ChatList chatsId={chatsId} users={usersData} />
       </div>
+
     </Chat>
   );
 };

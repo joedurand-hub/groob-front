@@ -11,7 +11,12 @@ import axios from "axios";
 const Messages = ({ datas }) => {
   console.log(datas);
   const token = getCookie("authToken");
-  const [messages, setMessages] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState("");
+
+  const handleMessage = (newMessage) => {
+    setNewMessage(newMessage)
+  }
 
   useEffect(() => {
     try {
@@ -44,9 +49,10 @@ console.log(messages)
           />
         }
         
-        createMessage={<CreateMessage />}
+        createMessage={<CreateMessage value={newMessage && newMessage} onChange={handleMessage} />}
         sendMessage={<SendMessage />}
       >
+        <hr/>
          {messages.chat?.map(msj => (
             <Message 
               senderId={msj.senderId} 
