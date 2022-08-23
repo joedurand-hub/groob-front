@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getCookie } from "cookies-next";
 import ChatUser from "../../components/Chat/ChatUser/ChatUser";
-import CreateMessage from "../../components/Conversation/CreateMessage/CreateMessage";
 import SendMessage from "../../components/Conversation/SendMessage/SendMessage";
 import Message from "../../components/Conversation/Message/Message";
 import GoBack from "../../components/GoBack/Back";
 import Conversation from "../../components/Conversation/Conversation";
-import useAuthPost from "../../hooks/useAuthPost"
+import useAuthPost from "../../hooks/useAuthPost";
 import axios from "axios";
-import InputEmoji from "react-input-emoji"
+import InputEmoji from "react-input-emoji";
+import { io } from "socket.io-client";
 
 const Messages = ({ datas }) => {
   const token = getCookie("authToken");
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const [sentSuccessfully, setSentSuccessfully] = useState(false)
+  const [sendMessage, setSendMessage] = useState(null);
+  const socket = useRef();
+
+  const reciverId = datas.chat.members.find(id => id !== datas.myId)
 
   useEffect(() => {
     try {
@@ -31,34 +34,47 @@ const Messages = ({ datas }) => {
     } catch (error) {
       console.log(error);
     }
-  }, [sentSuccessfully]);
+  }, [sendMessage]);
 
   const handleMessage = (newMessage) => {
-    setNewMessage(newMessage)
-    setSentSuccessfully(false)
-    console.log(newMessage)
-  }
-
+    setNewMessage(newMessage);
+  };
+  
   const handleSendMessage = async () => {
     try {
       const { data } = await axios.post(
-        `http://localhost:8080/message`, {
+        `http://localhost:8080/message`,
+        {
           chatId: datas?.chat._id,
           senderId: messages.myId,
           text: newMessage,
-        },{ headers: { authToken: token }}, { withCredentials: true }
-      );    
-      setNewMessage("")
-      if(data) {
-      console.log("data: ", data)      
-        setSentSuccessfully(true)
-      }
+        },
+        { headers: { authToken: token } },
+        { withCredentials: true }
+        );
+        setSendMessage(data)
+        setNewMessage("");
     } catch (error) {
-    console.log("error: ", error)      
+      console.log("error: ", error);
     }
+  };
+
+  const socketMessage = {
+    reciverId,
+    chatId: datas?.chat._id,
+    senderId: messages.myId,
+    text: newMessage,
   }
 
-console.log(messages)
+  useEffect(() => {
+      socket.current = io("http://localhost:8080");
+      socket.current.emit("sendMessage", socketMessage);
+      socket.current.on("recivedMessage", (newMessage) => {
+        setSendMessage(newMessage)
+      })
+  }, [newMessage]);
+  console.log(sendMessage)
+  
   return (
     <div>
       <Conversation
@@ -71,20 +87,21 @@ console.log(messages)
             height={50}
           />
         }
-        
-        createMessage={     <InputEmoji value={newMessage} onChange={handleMessage}/>}
-        sendMessage={<SendMessage handleSubmit={handleSendMessage}/>}
+        createMessage={
+          <InputEmoji value={newMessage} onChange={handleMessage} />
+        }
+        sendMessage={<SendMessage handleSubmit={handleSendMessage} />}
       >
-        <hr/>
-         {messages.chat?.map(msj => (
-            <Message 
-              senderId={msj.senderId} 
-              myId={messages.myId}
-              profilePicture={datas?.profilePicture}
-              text={msj.text}
-              createdAt={msj.createdAt}
-            />
-         ))}  
+        <hr />
+        {messages.chat?.map((msj) => (
+          <Message
+            senderId={msj.senderId}
+            myId={messages.myId}
+            profilePicture={datas?.profilePicture}
+            text={msj.text}
+            createdAt={msj.createdAt}
+          />
+        ))}
       </Conversation>
     </div>
   );

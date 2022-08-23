@@ -8,7 +8,6 @@ import { io } from "socket.io-client";
 const Index = ({ data }) => {
   const [allChats, setAllChats] = useState([])
   const [onlineUsers, setOnlineUsers] = useState([])
-  const [sendMessage, setSendMessage] = useState(null)
   const socket = useRef()
 
   const usersData = data?.usersDataInTheChat?.map((obj) => obj);  
@@ -24,10 +23,6 @@ const Index = ({ data }) => {
     })
     
   }, [allChats])
-
-  // console.log(onlineUsers)
-  console.log(usersData)
-  console.log(chatsId)
 
   return (
     <Chat>
