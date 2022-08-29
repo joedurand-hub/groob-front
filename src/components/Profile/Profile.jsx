@@ -61,11 +61,7 @@ const Profile = ({ data }) => {
                       : data.publications?.length}
                   </strong>
                 </span>
-                {data && data?.publications.length === 1 ? (
                   <span className={styles.data}>Publicaci...</span>
-                ) : (
-                  <span className={styles.data}>Publicaci...</span>
-                )}
               </div>
               <Followers follows={data?.followers} />
             </div>
@@ -92,9 +88,6 @@ const Profile = ({ data }) => {
             />
           </div>
           <div className={styles.buttons}>
-            <IconMoney>
-              <BsCashCoin onClick={openCardFiat} />
-            </IconMoney>
             <Button
               name="Editar perfil"
               variant={theme ? `secondary_light` : `secondary_dark`}
@@ -102,6 +95,9 @@ const Profile = ({ data }) => {
                 router.push("/user/update");
               }}
             />
+            <IconMoney>
+              <BsCashCoin onClick={openCardFiat} />
+            </IconMoney>
             <IconMoney Profile>
               <GiTwoCoins onClick={openCardCrypto} />
             </IconMoney>

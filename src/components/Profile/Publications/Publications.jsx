@@ -28,7 +28,7 @@ const Publications = () => {
       return data;
     };
     fetchPosts();
-  }, []);
+  }, [data]);
   console.log(data)
   return (
     <div

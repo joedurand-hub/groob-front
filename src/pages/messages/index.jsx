@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import { getCookie } from "cookies-next";
 import Chat from "../../components/Chat/Chat";
 import ChatUser from "../../components/Chat/ChatUser/ChatUser";
@@ -24,9 +25,11 @@ const Index = ({ data }) => {
     })
     
   }, [allChats])
+
+  const { theme } = useContext(ThemeContext);
   return (
     <Chat>
-      <div style={{"border-bottom": "1px solid #e6e6e6", "display": "flex", "flex-direction": "row"}}>
+      <div style={ theme ? {"border-bottom": "1px solid rgb(120 117 122)", "display": "flex", "flex-direction": "row"} : {"border-bottom": "1px solid rgb(84 84 84)", "display": "flex", "flex-direction": "row"}}>
         <GoBack path="/feed"/>
       <ChatUser
         myId={data?.myId}

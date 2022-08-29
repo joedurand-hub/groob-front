@@ -4,7 +4,8 @@ import TextMessage from "../TextMessage/TextMessage";
 import timeago from "../../../helpers/timeago";
 import styles from "./message.module.css";
 
-const Message = ({ profilePicture, text, createdAt, senderId, myId }) => {
+const Message = ({ profilePicture, text, createdAt, senderId, myId, ref }) => {
+
   return (
     <>
     {senderId === myId ? (

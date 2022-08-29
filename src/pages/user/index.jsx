@@ -1,15 +1,21 @@
+import { useState } from "react";
+import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
+import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
-import { IoMenu } from "react-icons/io5";
-import { getCookie } from "cookies-next";
 import Menu from "../../components/MenuDropdown/MenuDropdown";
 import MenuItem from "../../components/MenuItem/MenuItem";
-import { useState } from "react";
 import Icon from "../../components/Icon/Icon";
 import Switch from "../../components/Switch/Switch";
 import Publications from "../../components/Profile/Publications/Publications";
 import Anchor from "../../components/Anchor/Anchor";
+import { IoMenu } from "react-icons/io5";
+import { BiHome } from "react-icons/bi";
+import { BsFillPlusCircleFill } from "react-icons/bs";
+import { BiSearchAlt, BiChat } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
+import { MdOutlineNotificationsNone } from "react-icons/md"
 
 const User = ({ data }) => {
   const [open, setOpen] = useState(false);
@@ -20,6 +26,28 @@ const User = ({ data }) => {
           <Icon>
             <IoMenu onClick={() => setOpen(!open)} />
           </Icon>
+        </>
+      }
+      nav={
+        <>
+          <Nav>
+          <NavItem path="/feed">
+            <BiHome/>
+          </NavItem>
+          <NavItem path="/search">
+            <BiSearchAlt />
+          </NavItem>
+          <BsFillPlusCircleFill onClick={() => {
+
+}} 
+style={{"height": "30px", "width": "30px", "color": "rgb(159, 29, 240)"}}/>
+          <NavItem path="/messages">
+            <BiChat />
+          </NavItem>
+        <NavItem path="/user">
+        <FaUser />
+      </NavItem>
+        </Nav>
         </>
       }
     >

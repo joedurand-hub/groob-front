@@ -1,25 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import { getCookie } from "cookies-next";
 import ChatUser from "../../components/Chat/ChatUser/ChatUser";
-import SendMessage from "../../components/Conversation/SendMessage/SendMessage";
 import Message from "../../components/Conversation/Message/Message";
 import GoBack from "../../components/GoBack/Back";
 import Conversation from "../../components/Conversation/Conversation";
 import axios from "axios";
-import InputEmoji from "react-input-emoji";
 import { io } from "socket.io-client";
 import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
 const Messages = ({ datas }) => {
   const token = getCookie("authToken");
-
-  const [messages, setMessages] = useState([]); //traigo todos los mensajes
+  const [messages, setMessages] = useState([]);
   const [chat, setChat] = useState([]);
-  const [newMessage, setNewMessage] = useState(""); // onChange de nuevos mensajes
+  const [newMessage, setNewMessage] = useState("");
   const [reciveMessage, setReciveMessage] = useState(null);
   const [newSocketMessage, setNewSocketMessage] = useState(null);
   const socket = useRef();
-  const reciverId = datas?.chat.members.find(user => user !== datas?.myId)
+  const scroll = useRef();
+  const reciverId = datas?.chat.members.find((user) => user !== datas?.myId);
 
   useEffect(() => {
     try {
@@ -64,18 +62,22 @@ const Messages = ({ datas }) => {
   };
 
   useEffect(() => {
-      socket.current = io("http://localhost:8080");
-      if(newSocketMessage !== null) {
-        socket.current.emit("newMessage", {newSocketMessage, reciverId});
-      }
+    socket.current = io("http://localhost:8080");
+    if (newSocketMessage !== null) {
+      socket.current.emit("newMessage", { newSocketMessage, reciverId });
+    }
   }, [newSocketMessage]);
 
   useEffect(() => {
-      socket.current = io("http://localhost:8080");
-      socket.current.on("receiveMessage", (newMessage) => {
-        setReciveMessage(newMessage);
-      });
+    socket.current = io("http://localhost:8080");
+    socket.current.on("receiveMessage", (newMessage) => {
+      setReciveMessage(newMessage);
+    });
   }, [reciveMessage]);
+
+  useEffect(() => {
+    scroll.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chat]);
 
   return (
     <>
@@ -90,19 +92,26 @@ const Messages = ({ datas }) => {
           />
         }
       >
-        <br/>
+        <br />
         {chat?.map((msj, index) => (
-          <Message
-            key={index}
-            senderId={msj.senderId}
-            myId={messages.myId}
-            profilePicture={datas.profilePicture}
-            text={msj.text}
-            createdAt={msj.createdAt}
-          />
+          <div ref={scroll}>
+            <Message
+              key={index}
+              senderId={msj.senderId}
+              myId={messages.myId}
+              profilePicture={datas.profilePicture}
+              text={msj.text}
+              createdAt={msj.createdAt}
+            />
+          </div>
         ))}
       </Conversation>
-        <CreateMessage newMessage={newMessage} handleSendMessage={handleSendMessage} handleMessage={handleMessage} placeholder="Escribe un mensaje"/>
+      <CreateMessage
+        newMessage={newMessage}
+        handleSendMessage={handleSendMessage}
+        handleMessage={handleMessage}
+        placeholder="Escribe un mensaje"
+      />
     </>
   );
 };
