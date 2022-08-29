@@ -9,10 +9,6 @@ const CreateChat = ({ myId, userId }) => {
   const { data, pending, error, sendData } = useAuthPost();
   const router = useRouter();
 
-  console.log("componente createChat: ", { senderId: myId, recivedId: userId });
-  console.log("created: ",data);
-  // useEffect(() => {
-  // }, [])
   const handleNewChat = async () => {
     sendData({
       endpoint: `${ENDPOINT}/chat`,

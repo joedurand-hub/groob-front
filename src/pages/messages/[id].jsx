@@ -11,13 +11,14 @@ import { io } from "socket.io-client";
 
 const Messages = ({ datas }) => {
   const token = getCookie("authToken");
-  const [messages, setMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState("");
-  const [submitMessage, setSubmitMessage] = useState({})
+
+  const [messages, setMessages] = useState([]); //traigo todos los mensajes
+  const [chat, setChat] = useState([]);
+  const [newMessage, setNewMessage] = useState(""); // onChange de nuevos mensajes
   const [reciveMessage, setReciveMessage] = useState(null);
-  const [onlineUsers, setOnlineUsers] = useState({});
-  // const socket = useRef();
-  const reciverId = datas.chat.members.find(id => id !== datas.myId)
+  const [newSocketMessage, setNewSocketMessage] = useState(null);
+  const socket = useRef();
+  const reciverId = datas?.chat.members.find(user => user !== datas?.myId)
 
   useEffect(() => {
     try {
@@ -27,9 +28,10 @@ const Messages = ({ datas }) => {
           { headers: { authToken: token } },
           { withCredentials: true }
         );
-        setMessages(data);
-      };
 
+        setMessages(data);
+        setChat(data.chat);
+      };
       if (datas.chat !== null || datas.chat !== undefined) getMessages();
     } catch (error) {
       console.log(error);
@@ -39,40 +41,6 @@ const Messages = ({ datas }) => {
   const handleMessage = (newMessage) => {
     setNewMessage(newMessage);
   };
-
-    const socketMessage = {
-      reciverId,
-      chatId: datas?.chat._id,
-      senderId: messages.myId,
-      text: newMessage,
-  }
-  // console.log("Nuevo mensaje: ", newMessage)
-  // console.log("Mensaje enviado: ", submitMessage)
-  
-  // useEffect(() => {
-  //   socket.current = io("http://localhost:8080");
-  //   socket.current.emit("newUserAdded", messages.myId)
-  //   socket.current.on("getUsers", (allUsers) => {
-  //     setOnlineUsers(allUsers)
-  //   })
-  // }, [onlineUsers]);
-  
-  console.log("online users:", onlineUsers)
-  
-  // console.log("Mensaje enviado al socket: ", socketMessage)
-    // useEffect(() => {
-    //   socket.current = io("http://localhost:8080");
-    //     socket.current.emit("newMessage", socketMessage);
-    //   }, [submitMessage]);
-
-    // useEffect(() => {
-    //   socket.current = io("http://localhost:8080");
-    //   socket.current.on("reciveMessage", (newMessage) => {
-    //     setReciveMessage(newMessage)
-    //   })
-    // }, [reciveMessage]);
-  // console.log("Recibo desde el socket: ", reciveMessage)
-
 
   const handleSendMessage = async () => {
     try {
@@ -85,15 +53,29 @@ const Messages = ({ datas }) => {
         },
         { headers: { authToken: token } },
         { withCredentials: true }
-        );
-        setSubmitMessage(data)
-        setNewMessage("");
+      );
+      setChat([...chat, data]);
+      setNewSocketMessage(data);
+      setNewMessage("");
     } catch (error) {
       console.log("error: ", error);
     }
   };
 
-  
+  useEffect(() => {
+      socket.current = io("http://localhost:8080");
+      if(newSocketMessage !== null) {
+        socket.current.emit("newMessage", {newSocketMessage, reciverId});
+      }
+  }, [newSocketMessage]);
+
+  useEffect(() => {
+      socket.current = io("http://localhost:8080");
+      socket.current.on("receiveMessage", (newMessage) => {
+        setReciveMessage(newMessage);
+      });
+  }, [reciveMessage]);
+
   return (
     <div>
       <Conversation
@@ -112,11 +94,12 @@ const Messages = ({ datas }) => {
         sendMessage={<SendMessage handleSubmit={handleSendMessage} />}
       >
         <hr />
-        {messages.chat?.map((msj) => (
+        {chat?.map((msj, index) => (
           <Message
+            key={index}
             senderId={msj.senderId}
             myId={messages.myId}
-            profilePicture={datas?.profilePicture}
+            profilePicture={datas.profilePicture}
             text={msj.text}
             createdAt={msj.createdAt}
           />

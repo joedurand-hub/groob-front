@@ -13,16 +13,16 @@ const Index = ({ data }) => {
   const usersData = data?.usersDataInTheChat?.map((obj) => obj);  
   const chatsId = data?.chatIdAndUserId?.map((obj) => obj.id);
 
-  // useEffect(() => {
-  //   setAllChats(data.usersDataInTheChat)
+  useEffect(() => {
+    setAllChats(data.usersDataInTheChat)
     
-  //   socket.current = io("http://localhost:8080")
-  //   socket.current.emit("newUserAdded", data.myId)
-  //   socket.current.on("getUsers", (allUsers) => {
-  //     setOnlineUsers(allUsers)
-  //   })
+    socket.current = io("http://localhost:8080")
+    socket.current.emit("newUserAdded", data.myId)
+    socket.current.on("getUsers", (allUsers) => {
+      setOnlineUsers(allUsers)
+    })
     
-  // }, [allChats])
+  }, [allChats])
   return (
     <Chat>
       

@@ -26,7 +26,7 @@
   }
 
   .footer_conversation {
-    position: fixed;
+    position: inherit;
     bottom: 0;
     display: flex;
     flex-direction: row;
