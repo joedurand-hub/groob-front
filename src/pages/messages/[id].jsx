@@ -8,6 +8,7 @@ import Conversation from "../../components/Conversation/Conversation";
 import axios from "axios";
 import InputEmoji from "react-input-emoji";
 import { io } from "socket.io-client";
+import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
 const Messages = ({ datas }) => {
   const token = getCookie("authToken");
@@ -77,7 +78,7 @@ const Messages = ({ datas }) => {
   }, [reciveMessage]);
 
   return (
-    <div>
+    <>
       <Conversation
         back={<GoBack path="/messages" />}
         userChat={
@@ -88,12 +89,8 @@ const Messages = ({ datas }) => {
             height={50}
           />
         }
-        createMessage={
-          <InputEmoji value={newMessage} onChange={handleMessage} />
-        }
-        sendMessage={<SendMessage handleSubmit={handleSendMessage} />}
       >
-        <hr />
+        <br/>
         {chat?.map((msj, index) => (
           <Message
             key={index}
@@ -105,7 +102,8 @@ const Messages = ({ datas }) => {
           />
         ))}
       </Conversation>
-    </div>
+        <CreateMessage newMessage={newMessage} handleSendMessage={handleSendMessage} handleMessage={handleMessage} placeholder="Escribe un mensaje"/>
+    </>
   );
 };
 export default Messages;

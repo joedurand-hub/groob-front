@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef, memo } from "react";
+import React, { memo } from "react";
 import ChatUser from "../ChatUser/ChatUser";
+import styles from "./chatList.module.css"
 
 const ChatList = ({ users }) => {
 
   return (
-    <div>
+    <div className={styles.list}>
       {users?.map((user) => (
         <ChatUser 
         key={user?.id}
@@ -12,8 +13,8 @@ const ChatList = ({ users }) => {
           userName={user?.userName}
           profilePicture={user?.profilePicture}
           online={user?.online}
-          width={60}
-          height={60}
+          width={55}
+          height={55}
         />
       ))}
     </div>

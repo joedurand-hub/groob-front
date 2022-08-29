@@ -1,0 +1,9 @@
+.container_create_message {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
+}

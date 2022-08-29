@@ -6,6 +6,7 @@
     gap: 5px;
     margin: 5px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .container_user:hover {

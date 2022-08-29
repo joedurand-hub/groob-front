@@ -4,6 +4,7 @@ import Chat from "../../components/Chat/Chat";
 import ChatUser from "../../components/Chat/ChatUser/ChatUser";
 import ChatList from "../../components/Chat/ChatList/ChatList";
 import { io } from "socket.io-client";
+import GoBack from "../../components/GoBack/Back";
 
 const Index = ({ data }) => {
   const [allChats, setAllChats] = useState([])
@@ -25,21 +26,18 @@ const Index = ({ data }) => {
   }, [allChats])
   return (
     <Chat>
-      
-      {/* <div styles={{"border-bottom": "1px solid #e6e6e6"}}> */}
+      <div style={{"border-bottom": "1px solid #e6e6e6", "display": "flex", "flex-direction": "row"}}>
+        <GoBack path="/feed"/>
       <ChatUser
         myId={data?.myId}
         userName={data?.userName}
         profilePicture={data?.profilePicture}
-        online={data?.online}
         width={75}
         height={75}
         />
-        {/* </div> */}
-      <div>
+        </div>
         <ChatList chatsId={chatsId} users={usersData} />
-      </div>
-
+  
     </Chat>
   );
 };

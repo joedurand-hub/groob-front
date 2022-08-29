@@ -1,43 +1,41 @@
 .user_online {
-    border-radius: 50%;
+  border-radius: 50%;
 }
+
 .online_dot {
-    background-color: rgb(71, 255, 47);
-    border-radius: 50%;
-    position: absolute;
-    left: 3.5rem;
-    margin-top: 3rem;
-    width: 1rem;
-    height: 1rem;
-    z-index: 10;
-    padding: 2px;
-  }
+  background-color: rgb(71, 255, 47);
+  border-radius: 50%;
+  position: absolute;
+  left: 3.5rem;
+  margin-top: 3rem;
+  width: 1rem;
+  height: 1rem;
+  z-index: 10;
+  padding: 2px;
+}
 
-  .container_conversation {
-    display: flex;
-    flex-direction: column;
-  }
+.container_conversation {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  height: 100vh;
+}
 
-  .container_user_conversation {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .footer_conversation {
-    position: inherit;
-    bottom: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 95%;
-
-  }
-
+.container_user_conversation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #e6e6e6;
+}
 
 .container_messages {
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  text-overflow: ellipsis;
+  max-height: 80vh;
+  height: 100%;
+  padding-bottom: 20px;
 }

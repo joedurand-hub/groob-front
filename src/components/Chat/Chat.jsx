@@ -7,11 +7,10 @@
 ///////////////////////////
 
 import styles from "./chat.module.css";
-
 const Chat = ({ children }) => {
 
     return (
-      <div>
+      <div className={styles.chat}>
         <div className={styles.chat_list}>
           {children}
         </div>

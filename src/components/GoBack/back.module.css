@@ -3,7 +3,12 @@
     flex-direction: row;
     margin-right: 5px;
     align-items: center;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     color: #7d7d7d;
+}
+
+.back:hover {
+    color: #2f2f2f;
+    cursor: pointer;
 }
