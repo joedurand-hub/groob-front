@@ -12,6 +12,7 @@ import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md"
 
 const Feed = ({data}) => {
+  console.log(data)
   return (
     <Layout
       menuItem={

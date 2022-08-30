@@ -41,7 +41,7 @@ const Search = () => {
       }
     
   >
-    hola gente linda
+    hola gente linda <br/><br/><br/>
         </Layout>
   )
 }

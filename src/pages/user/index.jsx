@@ -5,19 +5,16 @@ import Profile from "../../components/Profile/Profile";
 import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
 import Menu from "../../components/MenuDropdown/MenuDropdown";
-import MenuItem from "../../components/MenuItem/MenuItem";
 import Icon from "../../components/Icon/Icon";
-import Switch from "../../components/Switch/Switch";
 import Publications from "../../components/Profile/Publications/Publications";
-import Anchor from "../../components/Anchor/Anchor";
 import { IoMenu } from "react-icons/io5";
 import { BiHome } from "react-icons/bi";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { BiSearchAlt, BiChat } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
-import { MdOutlineNotificationsNone } from "react-icons/md"
 
 const User = ({ data }) => {
+  console.log(data);
   const [open, setOpen] = useState(false);
   return (
     <Layout
@@ -31,46 +28,32 @@ const User = ({ data }) => {
       nav={
         <>
           <Nav>
-          <NavItem path="/feed">
-            <BiHome/>
-          </NavItem>
-          <NavItem path="/search">
-            <BiSearchAlt />
-          </NavItem>
-          <BsFillPlusCircleFill onClick={() => {
-
-}} 
-style={{"height": "30px", "width": "30px", "color": "rgb(159, 29, 240)"}}/>
-          <NavItem path="/messages">
-            <BiChat />
-          </NavItem>
-        <NavItem path="/user">
-        <FaUser />
-      </NavItem>
-        </Nav>
+            <NavItem path="/feed">
+              <BiHome />
+            </NavItem>
+            <NavItem path="/search">
+              <BiSearchAlt />
+            </NavItem>
+            <BsFillPlusCircleFill
+              onClick={() => {}}
+              style={{
+                height: "30px",
+                width: "30px",
+                color: "rgb(159, 29, 240)",
+              }}
+            />
+            <NavItem path="/messages">
+              <BiChat />
+            </NavItem>
+            <NavItem path="/user">
+              <FaUser />
+            </NavItem>
+          </Nav>
         </>
       }
     >
       {open ? (
-        <Menu>
-          <MenuItem>
-            <h6>Modo oscuro</h6>
-            <Switch />
-          </MenuItem>
-          <MenuItem>
-            <Anchor path="/premium" name="premium"/> <Icon><IoMenu /></Icon>
-          </MenuItem>
-          <MenuItem>
-            <h6>Preguntas Frecuentes</h6> <Icon><IoMenu /></Icon>
-          </MenuItem>
-          <MenuItem>
-            <h6>Contenido explícito</h6>
-            <Switch />
-          </MenuItem>
-          <MenuItem>
-            <h6>Contacto</h6> <Icon><IoMenu /></Icon>
-          </MenuItem>
-        </Menu>
+        <Menu value={data?.explicitContent}/>
       ) : (
         <>
           <Profile data={data} />

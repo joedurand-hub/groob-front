@@ -2,7 +2,6 @@ import styles from "./profile.module.css";
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useRouter } from "next/router";
-import Switch from "../Switch/Switch";
 import Image from "next/image";
 import Button from "../Button/Button";
 import { IconMoney } from "../Icon/Icon";
