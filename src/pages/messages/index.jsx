@@ -29,7 +29,7 @@ const Index = ({ data }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <Chat>
-      <div style={ theme ? {"border-bottom": "1px solid rgb(120 117 122)", "display": "flex", "flex-direction": "row"} : {"border-bottom": "1px solid rgb(84 84 84)", "display": "flex", "flex-direction": "row"}}>
+      <div style={ theme ? {"borderBottom": "1px solid rgb(120 117 122)", "display": "flex", "flexDirection": "row"} : {"borderBottom": "1px solid rgb(84 84 84)", "display": "flex", "flexDirection": "row"}}>
         <GoBack path="/feed"/>
       <ChatUser
         myId={data?.myId}

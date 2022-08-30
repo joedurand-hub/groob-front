@@ -60,8 +60,9 @@ const Posts = ({ data }) => {
               </div>
               <div className={styles.post}>
                 <p className={content ? styles.post_content : styles.empty}>{content}</p>
-                {images && images.map(image => (
+                {images && images.map((image, index) => (
                   <Image
+                  key={index}
                     className={styles.image}
                     src={image.secure_url}
                     width={480}

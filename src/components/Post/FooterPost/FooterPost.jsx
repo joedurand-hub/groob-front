@@ -19,9 +19,6 @@ const FooterPost = ({ likes, price, id }) => {
           <Icon>
             <Comment />
           </Icon>
-          <Icon className={styles.user_post}>
-            <Share />
-          </Icon>
           <h6>${price}</h6>
         </div>
         </>
