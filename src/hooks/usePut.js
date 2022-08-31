@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { TOKEN } from "../helpers/constants";
 const usePut = () => {
   const [putData, setPutData] = useState({
     info: undefined,
@@ -8,7 +8,7 @@ const usePut = () => {
     error: undefined,
   });
 
-  const sendUpdatedData = async ({endpoint, putData, token}) => {  
+  const sendUpdatedData = async ({endpoint, putData}) => {  
     setPutData({
       info: undefined,
       pending: true,
@@ -16,7 +16,7 @@ const usePut = () => {
     });
     return axios.put(`${endpoint}`, {...putData}, {
       headers: { 
-        "authToken": token 
+        "authToken": TOKEN 
       }}, {withCredentials: true} )
     .then((response) => {
         setPutData({ 

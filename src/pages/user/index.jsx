@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
@@ -14,8 +14,8 @@ import { BiSearchAlt, BiChat } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 
 const User = ({ data }) => {
-  console.log(data);
   const [open, setOpen] = useState(false);
+  
   return (
     <Layout
       menuItem={
@@ -53,7 +53,7 @@ const User = ({ data }) => {
       }
     >
       {open ? (
-        <Menu value={data?.explicitContent}/>
+        <Menu valueSwitch={data?.explicitContent} id={data?._id}/>
       ) : (
         <>
           <Profile data={data} />
