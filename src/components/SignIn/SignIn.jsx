@@ -8,6 +8,8 @@ import Anchor from "../Anchor/Anchor";
 import styles from "./signin.module.css";
 import inputField from "../Input/input.module.css";
 import Image from "next/image";
+import {Toaster, toast} from "react-hot-toast"
+import Loader from "../Loader/Loader";
 import { ENDPOINT } from "../../helpers/constants";
 import { useRouter } from "next/router"
 
@@ -159,8 +161,23 @@ export const SignIn = () => {
           path="/"
           onClick={handleNewPassword}
         />
-        {pending && <p>Cargando...</p>}
-        {error && <p>{error}</p>}
+        {pending && (
+          <>
+            <br />
+            <Loader />
+          </>
+        )}
+        {error &&
+          toast.error("Ups! Ha ocurrido un error.", {
+            position: "bottom-center",
+            autoClose: "3000",
+          })}
+        {data?.message === "Success" &&
+          toast.success("Inicio de sesión exitoso.", {
+            position: "bottom-center",
+            autoClose: "3000",
+          })}
+        <Toaster />
       </form>
     </div>
   );

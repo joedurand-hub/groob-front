@@ -46,9 +46,11 @@ const Feed = ({data}) => {
         }
       
     >
-      <CreatePost />
       {data ? (
-        <Post data={data} />
+        <div style={{"margin-top": "20px"}}>
+          <Post data={data} />
+
+        </div>
       ) : (
         <h6>
           Aún no hay publicaciones, descubre usuarios en la sección de la lupa o

@@ -3,11 +3,13 @@ import { useRouter } from "next/router";
 import usePost from "../../hooks/usePost";
 import Button from "../Button/Button";
 import Anchor from "../Anchor/Anchor";
+import Loader from "../Loader/Loader";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useForm } from "react-hook-form";
+import { Toaster, toast } from "react-hot-toast";
 import styles from "./signup.module.css";
 import inputField from "../Input/input.module.css";
-import logo from "../../../public/Logo.png" 
+import logo from "../../../public/Logo.png";
 import Image from "next/image";
 
 export const SignUp = () => {
@@ -35,8 +37,8 @@ export const SignUp = () => {
   };
 
   useEffect(() => {
-    data && data.message === "Success" && router.push("/user")
-  }, [data])
+    data && data.message === "Success" && router.push("/user");
+  }, [data]);
   return (
     <div
       className={
@@ -46,12 +48,7 @@ export const SignUp = () => {
       }
     >
       <div className={styles.container_logo}>
-        <Image
-          src={logo}
-          width={100}
-          height={75}
-          alt="Image"
-        />
+        <Image src={logo} width={100} height={75} alt="Image" />
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -206,14 +203,25 @@ export const SignUp = () => {
           </p>
         </section>
         <div>
-          <Button
-            type="submit"
-            name="Registrarme"
-            variant="login"
-          />
+          <Button type="submit" name="Registrarme" variant="login" />
         </div>
-        {pending && <p>Cargando...</p>}
-        {error && <p>{error}</p>}
+        {pending && (
+          <>
+            <br />
+            <Loader />
+          </>
+        )}
+        {error &&
+          toast.error("Ups! Ha ocurrido un error.", {
+            position: "bottom-center",
+            autoClose: "3000",
+          })}
+        {data?.message === "Success" &&
+          toast.success("Registro exitoso! Redireccionando.", {
+            position: "bottom-center",
+            autoClose: "3000",
+          })}
+        <Toaster />
       </form>
     </div>
   );

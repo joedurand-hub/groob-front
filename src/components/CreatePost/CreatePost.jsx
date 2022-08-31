@@ -1,26 +1,32 @@
 import styles from "./createPost.module.css";
 import Textarea from "../Textarea/Textarea";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import { Toaster, toast } from "react-hot-toast";
 import { ENDPOINT, POST_PUBLICATION } from "../../helpers/constants";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
+import { IoIosCloseCircle } from "react-icons/io";
 import { BsFillImageFill } from "react-icons/bs";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import Loader from "../Loader/Loader"
+import { useRouter } from "next/router";
+import Loader from "../Loader/Loader";
 import usePostPublication from "../../hooks/usePostPublication";
 
-const CreatePost = () => {
+const CreatePost = ({ closeModal }) => {
+  const router = useRouter()
   const { theme } = useContext(ThemeContext);
 
-  const url = `${ENDPOINT}${POST_PUBLICATION}`
-  
+  const url = `${ENDPOINT}${POST_PUBLICATION}`;
+
   const [values, setValues] = useState("");
   const [lengthValue, setLengthValue] = useState(0);
   const [price, setPrice] = useState(0);
-  const [files, setFiles] = useState(0)
-  const [uploadData, setUploadData] = useState({})
+  const [files, setFiles] = useState(0);
+  const [posteado, setPosteado] = useState(false)
+  const [uploadData, setUploadData] = useState({});
   const { data, pending, error, sendPublication } = usePostPublication();
-  
+  const [toasts, setToasts] = useState(false)
+
   const handleInputChange = function (e) {
     const value = e.target.value;
     setLengthValue(value.length);
@@ -33,7 +39,7 @@ const CreatePost = () => {
   };
 
   const handleFilesLoad = (e) => {
-    setFiles(e)
+    setFiles(e);
     // const file = e.target.files[0]
     // const reader = new FileReader();
     // reader.onload = function(onLoadEvent) {
@@ -45,21 +51,36 @@ const CreatePost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = new FormData()
-    
+    const body = new FormData();
+
     for (let index = 0; index < files.length; index++) {
-      body.append('images', files[index])
+      body.append("images", files[index]);
     }
-  
-    body.append('content', values)
-    body.append('price', price)
-      sendPublication({
+
+    body.append("content", values);
+    body.append("price", price);
+    sendPublication({
       endpoint: url,
       postData: body,
     });
     e.target.reset();
     setLengthValue(0);
   };
+
+  useEffect(() => {
+   if( data && data?.success === true) {
+    const timer = setTimeout(() => setToasts(true), 800)
+     return () => clearTimeout(timer)
+   } 
+  }, [data])
+  
+  useEffect(() => {
+    const timer = setTimeout(() => toasts === true, 3000)
+    setToasts(false)
+     router.push("/feed") 
+     return () => clearTimeout(timer) 
+   }, [toasts])
+
   return (
     <>
       <form
@@ -73,23 +94,46 @@ const CreatePost = () => {
           handleSubmit(e);
         }}
       >
+        <div className={styles.closeModal}>
+          <i  className={styles.button_closeModal} onClick={closeModal}>
+            <IoIosCloseCircle />
+          </i>
+        </div>
         <Textarea
           placeholder="Crea una publicación o haz una venta"
           onChange={handleInputChange}
           maxLength={500}
         />
-        {/* <input placeholder="Precio" type="number" onChange={handleInputPriceChange}/> */}
-        {/* <input type="checkbox"/>nsfw */}
+        <div className={styles.container_price_and_nsfw}>
+          <div className={styles.container_price}>
+            ¿Es producto o servicio?{" "}
+            <input
+              placeholder="Precio: $000"
+              type="number"
+              onChange={handleInputPriceChange}
+            />
+          </div>
+          <div className={styles.container_nsfw}>
+            ¿Contiene NSFW? <input type="checkbox" />
+          </div>
+        </div>
         <div className={styles.container_form_buttons}>
           <div className={styles.upload_files}>
-          <label htmlFor="upload">
-          <Icon>
-            <BsFillImageFill />
-          </Icon>
-          </label>
-          <p className={styles.files_length}>{files.length}/7</p>
+            <label htmlFor="upload">
+              <Icon>
+                <BsFillImageFill />
+              </Icon>
+            </label>
+            <p className={styles.files_length}>{files.length}/7</p>
           </div>
-          <input type="file" id="upload" accept="image/*" multiple className={styles.input_upload} onChange={(e) => handleFilesLoad(e.target.files)}/>
+          <input
+            type="file"
+            id="upload"
+            accept="image/*"
+            multiple
+            className={styles.input_upload}
+            onChange={(e) => handleFilesLoad(e.target.files)}
+          />
           <div className={styles.container_send_post}>
             <p className={styles.character_counter}>{lengthValue}/500</p>
             <Button
@@ -102,10 +146,19 @@ const CreatePost = () => {
           </div>
         </div>
       </form>
-      <br/>
-      {pending && <Loader/>}
-      {error && <p>Ups... ¡Hubo un error!</p>}
-      {data && <p>Publicación exitosa!</p>}
+      <br />
+      {pending && <Loader />}
+      {error &&
+        toast.error("¡Ups! Ha ocurrido un error.", {
+          position: "bottom-center",
+          autoClose: "3000",
+        })}
+      {toasts === true &&
+        toast.success("¡Post creado! Actualizando.", {
+          position: "top-center",
+          autoClose: "5000",
+        }) }
+      <Toaster />
     </>
   );
 };

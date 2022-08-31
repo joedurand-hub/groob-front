@@ -1,7 +1,10 @@
 import Layout from "../components/Layout/Layout";
 import Icon from "../components/Icon/Icon";
 import Nav from "../components/Nav/Nav";
+import CreatePost from "../components/CreatePost/CreatePost";
 import NavItem from "../components/NavItem/NavItem";
+import Modal from "../components/Modal/Modal"
+import { useModal } from "../hooks/useModal"
 import { getCookie } from "cookies-next";
 import { BiHome } from "react-icons/bi";
 import { RiSearchEyeFill } from "react-icons/ri";
@@ -10,6 +13,7 @@ import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md"
 
 const Search = () => {
+  const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <Layout
     menuItem={
@@ -26,9 +30,7 @@ const Search = () => {
           <NavItem path="/search">
             <RiSearchEyeFill />
           </NavItem>
-            <BsFillPlusCircleFill onClick={() => {
-
-            }} 
+            <BsFillPlusCircleFill onClick={openModalPost} 
             style={{"height": "30px", "width": "30px", "color": "rgb(159, 29, 240)"}}/>
           <NavItem path="/messages">
             <BiChat />
@@ -41,6 +43,9 @@ const Search = () => {
       }
     
   >
+    <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
+      <CreatePost closeModal={closeModalPost}/>
+    </Modal>
     hola gente linda <br/><br/><br/>
         </Layout>
   )

@@ -30,7 +30,7 @@ const usePostPublication = () => {
           data: undefined, 
           pending: false, 
           error: error.message });
-      });
+      })
   };
 
   return {
