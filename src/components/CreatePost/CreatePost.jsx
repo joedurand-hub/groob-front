@@ -89,8 +89,16 @@ const CreatePost = ({ closeModal }) => {
           handleSubmit(e);
         }}
       >
-        <div className={styles.closeModal}>
-          <i className={styles.button_closeModal} onClick={closeModal}>
+        <div className={
+          theme
+          ? `${     styles.closeModal} light_mode`
+          : `${     styles.closeModal} dark_mode`
+          }>
+          <i className={
+                    theme
+                    ? `${     styles.button_closeModal} light_mode`
+                    : `${     styles.button_closeModal} dark_mode`
+            } onClick={closeModal}>
             <IoIosCloseCircle />
           </i>
         </div>

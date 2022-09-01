@@ -1,20 +1,64 @@
-import Layout from "../../components/Layout/Layout";
-import Profile from "../../components/ProfileById/ProfileById";
-import NavItem from "../../components/NavItem/NavItem";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
+import Layout from "../../components/Layout/Layout";
+import Profile from "../../components/Profile/Profile";
+import Nav from "../../components/Nav/Nav";
+import NavItem from "../../components/NavItem/NavItem";
+import Publications from "../../components/Profile/Publications/Publications";
+import Icon from "../../components/Icon/Icon";
+import Modal from "../../components/Modal/Modal";
+import CreatePost from "../../components/CreatePost/CreatePost";
+import { useModal } from "../../hooks/useModal";
+import { MdOutlineNotificationsNone } from "react-icons/md";
+import { IoMenu } from "react-icons/io5";
+import { BiHome } from "react-icons/bi";
+import { BsFillPlusCircleFill } from "react-icons/bs";
+import { BiSearchAlt, BiChat } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
+import { useRouter } from "next/router"
 
 const ProfileById = ({ data }) => {
+  const router = useRouter()
+  const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <Layout
       menuItem={
         <>
-          <NavItem path="/menu">
-            <GiHamburgerMenu />
-          </NavItem>
+          <Icon>
+            <MdOutlineNotificationsNone onClick={() => router.push("/notifications")} />
+          </Icon>
+        </>
+      }
+      nav={
+        <>
+          <Nav>
+            <NavItem path="/feed">
+              <BiHome />
+            </NavItem>
+            <NavItem path="/search">
+              <BiSearchAlt />
+            </NavItem>
+            <BsFillPlusCircleFill
+              onClick={openModalPost}
+              style={{
+                height: "30px",
+                width: "30px",
+                color: "rgb(159, 29, 240)",
+              }}
+            />
+            <NavItem path="/messages">
+              <BiChat />
+            </NavItem>
+            <NavItem path="/user">
+              <FaUser />
+            </NavItem>
+          </Nav>
         </>
       }
     >
+      <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
+        <CreatePost closeModal={closeModalPost} />
+      </Modal>
       <Profile data={data.profileData} id={data.myId}/>
     </Layout>
   );
