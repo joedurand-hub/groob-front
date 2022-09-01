@@ -5,15 +5,15 @@ import { Toaster, toast } from "react-hot-toast";
 import { ENDPOINT, POST_PUBLICATION } from "../../helpers/constants";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
+import { useRouter } from "next/router";
 import { IoIosCloseCircle } from "react-icons/io";
 import { BsFillImageFill } from "react-icons/bs";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { useRouter } from "next/router";
 import Loader from "../Loader/Loader";
 import usePostPublication from "../../hooks/usePostPublication";
 
 const CreatePost = ({ closeModal }) => {
-  const router = useRouter()
+  const router = useRouter();
   const { theme } = useContext(ThemeContext);
 
   const url = `${ENDPOINT}${POST_PUBLICATION}`;
@@ -22,17 +22,15 @@ const CreatePost = ({ closeModal }) => {
   const [lengthValue, setLengthValue] = useState(0);
   const [price, setPrice] = useState(0);
   const [files, setFiles] = useState(0);
-  const [posteado, setPosteado] = useState(false)
   const [uploadData, setUploadData] = useState({});
   const { data, pending, error, sendPublication } = usePostPublication();
-  const [toasts, setToasts] = useState(false)
+  const [toasts, setToasts] = useState(false);
 
   const handleInputChange = function (e) {
     const value = e.target.value;
     setLengthValue(value.length);
     setValues(value);
   };
-
   const handleInputPriceChange = function (e) {
     const value = e.target.value;
     setPrice(value);
@@ -59,6 +57,8 @@ const CreatePost = ({ closeModal }) => {
 
     body.append("content", values);
     body.append("price", price);
+    console.log(url);
+    console.log(body);
     sendPublication({
       endpoint: url,
       postData: body,
@@ -67,19 +67,14 @@ const CreatePost = ({ closeModal }) => {
     setLengthValue(0);
   };
 
+  const redirect = function() {
+    return setTimeout(() => router.push("/feed"), 2500);
+  } 
   useEffect(() => {
-   if( data && data?.success === true) {
-    const timer = setTimeout(() => setToasts(true), 800)
-     return () => clearTimeout(timer)
-   } 
-  }, [data])
-  
-  useEffect(() => {
-    const timer = setTimeout(() => toasts === true, 3000)
-    setToasts(false)
-     router.push("/feed") 
-     return () => clearTimeout(timer) 
-   }, [toasts])
+    if (data && data?.success === true) {
+      redirect()
+    }
+  }, [data]);
 
   return (
     <>
@@ -95,7 +90,7 @@ const CreatePost = ({ closeModal }) => {
         }}
       >
         <div className={styles.closeModal}>
-          <i  className={styles.button_closeModal} onClick={closeModal}>
+          <i className={styles.button_closeModal} onClick={closeModal}>
             <IoIosCloseCircle />
           </i>
         </div>
@@ -153,11 +148,12 @@ const CreatePost = ({ closeModal }) => {
           position: "bottom-center",
           autoClose: "3000",
         })}
-      {toasts === true &&
+      {data &&
+        data?.success === true &&
         toast.success("¡Post creado! Actualizando.", {
           position: "top-center",
           autoClose: "5000",
-        }) }
+        })}
       <Toaster />
     </>
   );

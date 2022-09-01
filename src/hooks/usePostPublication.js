@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TOKEN } from "../helpers/constants";
 import axios from "axios";
 
@@ -8,13 +8,13 @@ const usePostPublication = () => {
     pending: false,
     error: undefined,
   });
-
   const sendPublication = async ({endpoint, postData}) => {  
     setPostData({ 
       data: undefined,
       pending: true,
       error: undefined,
     });
+    
     return axios.post(`${endpoint}`, postData, {
       headers: { 
         "authToken": TOKEN 

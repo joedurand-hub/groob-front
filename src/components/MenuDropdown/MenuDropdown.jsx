@@ -39,6 +39,7 @@ const Menu = ({valueSwitch, id}) => {
             </Icon>
           </MenuItem>
         </ul>
+        <p>Hecho con ❤️ por Joel Durand</p>
     </nav>
   )
 }
