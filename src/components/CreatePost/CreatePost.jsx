@@ -24,7 +24,6 @@ const CreatePost = ({ closeModal }) => {
   const [files, setFiles] = useState(0);
   const [uploadData, setUploadData] = useState({});
   const { data, pending, error, sendPublication } = usePostPublication();
-  const [toasts, setToasts] = useState(false);
 
   const handleInputChange = function (e) {
     const value = e.target.value;
@@ -57,8 +56,6 @@ const CreatePost = ({ closeModal }) => {
 
     body.append("content", values);
     body.append("price", price);
-    console.log(url);
-    console.log(body);
     sendPublication({
       endpoint: url,
       postData: body,
@@ -67,15 +64,13 @@ const CreatePost = ({ closeModal }) => {
     setLengthValue(0);
   };
 
-  const redirect = function() {
-    return setTimeout(() => router.push("/feed"), 2500);
-  } 
   useEffect(() => {
     if (data && data?.success === true) {
-      redirect()
+      const reload = setTimeout(() => router.push(`/feed/${data.publicationSaved._id}`), 1500)
+      // const reload = setTimeout(() => closeModal(), 1500)
+      return () => clearTimeout(reload)
     }
   }, [data]);
-
   return (
     <>
       <form
@@ -158,7 +153,7 @@ const CreatePost = ({ closeModal }) => {
         })}
       {data &&
         data?.success === true &&
-        toast.success("¡Post creado! Actualizando.", {
+        toast.success("¡Post creado!", {
           position: "top-center",
           autoClose: "5000",
         })}

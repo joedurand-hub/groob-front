@@ -1,5 +1,6 @@
+import { useEffect, useMemo } from "react";
+import dynamic from 'next/dynamic'
 import Layout from "../../components/Layout/Layout";
-import Post from "../../components/Post/Post";
 import Icon from "../../components/Icon/Icon";
 import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
@@ -12,8 +13,18 @@ import { BiSearchAlt } from "react-icons/bi";
 import { BsFillPlusCircleFill } from "react-icons/bs"; // icon user Secret by Premium (?)
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
+const Post = dynamic (() => import("../../components/Post/Post"), {ssr: false})
 
 const Feed = ({ data }) => {
+
+  const postsByDate =  useMemo(() => {
+    return data.sort((a, b) => {
+    if (a.createdAt < b.createdAt)
+      return 1;
+    return -1;
+  })
+  }, [data])
+
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <Layout
@@ -56,7 +67,7 @@ const Feed = ({ data }) => {
       </Modal>
       {data ? (
         <div style={{ "marginTop": "20px" }}>
-          <Post data={data} />
+          <Post data={postsByDate} />
         </div>
       ) : (
         <h6>
