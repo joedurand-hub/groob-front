@@ -10,7 +10,7 @@
         resize: none;
         overflow-y: hidden;
         padding: 5px;
-        height: 45%;
+        height: 30%;
     }
 
     .textarea:focus {

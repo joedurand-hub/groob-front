@@ -1,5 +1,6 @@
 import styles from "./createPost.module.css";
 import Textarea from "../Textarea/Textarea";
+import { getCookie } from "cookies-next";
 import { useState, useContext, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { ENDPOINT, POST_PUBLICATION } from "../../helpers/constants";
@@ -13,6 +14,7 @@ import Loader from "../Loader/Loader";
 import usePostPublication from "../../hooks/usePostPublication";
 
 const CreatePost = ({ closeModal }) => {
+  const token = getCookie("authToken");
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
 
@@ -22,15 +24,23 @@ const CreatePost = ({ closeModal }) => {
   const [lengthValue, setLengthValue] = useState(0);
   const [price, setPrice] = useState(0);
   const [files, setFiles] = useState(0);
+  const [explicitContent, setExplicitContent] = useState(false);
   const [uploadData, setUploadData] = useState({});
   const { data, pending, error, sendPublication } = usePostPublication();
 
-  const handleInputChange = function (e) {
+  const handleInputChange = (e) => {
     const value = e.target.value;
     setLengthValue(value.length);
     setValues(value);
   };
-  const handleInputPriceChange = function (e) {
+
+  const handleExplicitContent = (e) => {
+    const value = e.target.checked;
+    setExplicitContent(value)
+  };
+  console.log(explicitContent)
+
+  const handleInputPriceChange = (e) => {
     const value = e.target.value;
     setPrice(value);
   };
@@ -56,9 +66,11 @@ const CreatePost = ({ closeModal }) => {
 
     body.append("content", values);
     body.append("price", price);
+    body.append("explicitContent", explicitContent);
     sendPublication({
       endpoint: url,
       postData: body,
+      token: token,
     });
     e.target.reset();
     setLengthValue(0);
@@ -66,9 +78,12 @@ const CreatePost = ({ closeModal }) => {
 
   useEffect(() => {
     if (data && data?.success === true) {
-      const reload = setTimeout(() => router.push(`/feed/${data.publicationSaved._id}`), 1500)
+      const reload = setTimeout(
+        () => router.push(`/feed/${data.publicationSaved._id}`),
+        1500
+      );
       // const reload = setTimeout(() => closeModal(), 1500)
-      return () => clearTimeout(reload)
+      return () => clearTimeout(reload);
     }
   }, [data]);
   return (
@@ -84,16 +99,21 @@ const CreatePost = ({ closeModal }) => {
           handleSubmit(e);
         }}
       >
-        <div className={
-          theme
-          ? `${     styles.closeModal} light_mode`
-          : `${     styles.closeModal} dark_mode`
-          }>
-          <i className={
-                    theme
-                    ? `${     styles.button_closeModal} light_mode`
-                    : `${     styles.button_closeModal} dark_mode`
-            } onClick={closeModal}>
+        <div
+          className={
+            theme
+              ? `${styles.closeModal} light_mode`
+              : `${styles.closeModal} dark_mode`
+          }
+        >
+          <i
+            className={
+              theme
+                ? `${styles.button_closeModal} light_mode`
+                : `${styles.button_closeModal} dark_mode`
+            }
+            onClick={closeModal}
+          >
             <IoIosCloseCircle />
           </i>
         </div>
@@ -112,7 +132,8 @@ const CreatePost = ({ closeModal }) => {
             />
           </div>
           <div className={styles.container_nsfw}>
-            ¿Contiene NSFW? <input type="checkbox" />
+            ¿Contiene NSFW?{" "}
+            <input type="checkbox" value={explicitContent} onChange={handleExplicitContent} />
           </div>
         </div>
         <div className={styles.container_form_buttons}>
@@ -134,21 +155,24 @@ const CreatePost = ({ closeModal }) => {
           />
           <div className={styles.container_send_post}>
             <p className={styles.character_counter}>{lengthValue}/500</p>
-            <Button
-              type="submit"
-              name="Publicar"
-              variant={
-                lengthValue > 0 || files.length > 0 ? "primary" : "disabled"
-              }
-            />
+            {pending ? (
+              <Loader />
+            ) : (
+              <Button
+                type="submit"
+                name="Publicar"
+                variant={
+                  lengthValue > 0 || files.length > 0 ? "primary" : "disabled"
+                }
+              />
+            )}
           </div>
         </div>
       </form>
       <br />
-      {pending && <Loader />}
       {error &&
         toast.error("¡Ups! Ha ocurrido un error.", {
-          position: "bottom-center",
+          position: "top-center",
           autoClose: "3000",
         })}
       {data &&

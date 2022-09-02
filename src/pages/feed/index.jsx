@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import Layout from "../../components/Layout/Layout";
 import Icon from "../../components/Icon/Icon";
 import Nav from "../../components/Nav/Nav";
@@ -13,17 +13,17 @@ import { BiSearchAlt } from "react-icons/bi";
 import { BsFillPlusCircleFill } from "react-icons/bs"; // icon user Secret by Premium (?)
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
-const Post = dynamic (() => import("../../components/Post/Post"), {ssr: false})
+const Post = dynamic(() => import("../../components/Post/Post"), {
+  ssr: false,
+});
 
 const Feed = ({ data }) => {
-
-  const postsByDate =  useMemo(() => {
+  const postsByDate = useMemo(() => {
     return data.sort((a, b) => {
-    if (a.createdAt < b.createdAt)
-      return 1;
-    return -1;
-  })
-  }, [data])
+      if (a.createdAt < b.createdAt) return 1;
+      return -1;
+    });
+  }, [data]);
 
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
@@ -62,18 +62,23 @@ const Feed = ({ data }) => {
         </>
       }
     >
-      <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-        <CreatePost closeModal={closeModalPost} />
-      </Modal>
-      {data ? (
-        <div style={{ "marginTop": "20px" }}>
-          <Post data={postsByDate} />
-        </div>
+      {isOpenModalPost ? (
+        <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
+          <CreatePost closeModal={closeModalPost} />
+        </Modal>
       ) : (
-        <h6>
-          Aún no hay publicaciones, descubre usuarios en la sección de la lupa o
-          invita a tus amigos!
-        </h6>
+        (data && (
+          <div style={{ marginTop: "20px" }}>
+            <Post data={postsByDate} />
+          </div>
+        )) ||
+        data.length ===
+          0(
+            <h6>
+              Aún no hay publicaciones, descubre usuarios en la sección de la
+              lupa o invita a tus amigos!
+            </h6>
+          )
       )}
     </Layout>
   );
