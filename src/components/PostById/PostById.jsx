@@ -1,4 +1,4 @@
-import styles from "./post.module.css";
+import styles from "./postById.module.css";
 import { useEffect, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { URL } from "../../helpers/constants";
@@ -9,25 +9,11 @@ import MoreOptions from "./MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 
-
 const Posts = ({ data }) => {
+  const { content, price, images, createdAt, comments, user, _id, likes, profilePicture, userName, } = data;
   const { theme } = useContext(ThemeContext);
   return (
     <>
-      {data &&
-        data.map(
-          ({
-            content,
-            price,
-            images,
-            createdAt,
-            comments,
-            user,
-            _id,
-            likes,
-            profilePicture,
-            userName,
-          }) => (
             <article
               key={_id}
               className={
@@ -49,19 +35,18 @@ const Posts = ({ data }) => {
                       />
                     </Link>
                   </div>
-
-                      <Link
-                        href={`${URL}/feed/${_id}`}
-                        style={{ textDecoration: "none" }}
-                        passHref
-                      >
+                  <Link
+                    href={`${URL}/user/${user}`}
+                    style={{ textDecoration: "none" }}
+                    passHref
+                  >
                     <div>
-                        <a className={styles.user_name}>{userName}</a>
-                        <p className={styles.user_crate_date}>
-                          {timeago(createdAt)}
-                        </p>
+                      <a className={styles.user_name}>{userName}</a>
+                      <p className={styles.user_crate_date}>
+                        {timeago(createdAt)}
+                      </p>
                     </div>
-                      </Link>
+                  </Link>
                 </div>
                 <div className={styles.moreOptions}>
                   <MoreOptions />
@@ -86,15 +71,8 @@ const Posts = ({ data }) => {
               <>
                 <FooterPost price={price && price} id={_id} likes={likes} />
               </>
-              <Comments allComments={comments.slice(0, 2)} />
-            <Link href={`${URL}/feed/${_id}`} style={{ textDecoration: "none" }} passHref> 
-            <>
-              {comments.length >= 3 ? (<p className={styles.post_view_more}><strong>Ver más...</strong></p>) : null}
-            </>
-             </Link> 
+                <Comments allComments={comments}/>
             </article>
-          )
-        )}
     </>
   );
 };
