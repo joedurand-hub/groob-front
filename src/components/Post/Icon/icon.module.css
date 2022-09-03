@@ -1,6 +1,6 @@
 
 .icon_light_mode {
-    font-size: 20px;
+    font-size: 22px;
     border-radius: 50%;
     color: #000;
     padding: 5px;
@@ -11,7 +11,7 @@
 }
 
 .icon_dark_mode  {
-    font-size: 30px;
+    font-size: 22px;
     border-radius: 50%;
     color: #fff;
     padding: 5px;

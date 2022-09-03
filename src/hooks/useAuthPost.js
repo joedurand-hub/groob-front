@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { getCookie } from "cookies-next";
 import axios from "axios";
-import { TOKEN } from "../helpers/constants";
+
 const useAuthPost = () => {
+  const token = getCookie("authToken")
   const [postData, setPostData] = useState({
     data: undefined,
     pending: false,
@@ -16,7 +18,7 @@ const useAuthPost = () => {
     });
     return axios.post(`${endpoint}`, {...postData}, {
       headers: { 
-        "authToken": TOKEN 
+        "authToken": token 
       }}, {withCredentials: true} )
     .then((response) => {
         setPostData({ 

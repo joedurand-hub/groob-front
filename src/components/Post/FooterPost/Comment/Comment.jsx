@@ -1,8 +1,8 @@
-import { BiMessageRoundedDetail } from "react-icons/bi";
+import { MdInsertComment } from "react-icons/md";
 const Comment = () => {
   return (
     <>
-      <BiMessageRoundedDetail/>
+      <MdInsertComment/>
     </>
   )
 }

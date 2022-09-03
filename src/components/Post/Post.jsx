@@ -68,13 +68,13 @@ const Posts = ({ data }) => {
                   {content}
                 </p>
                 {images &&
-                  images.map((image, index) => (
+                  images.map((image) => (
                     <Image
-                      key={index}
-                      className={styles.image}
+                      key={image._id}
+                      layout="responsive"
                       src={image.secure_url}
-                      width={480}
-                      height={480}
+                      width={500}
+                      height={500}
                       alt="Image"
                     />
                   ))}

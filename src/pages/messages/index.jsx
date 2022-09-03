@@ -29,8 +29,8 @@ const Index = ({ data }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <Chat>
-      <div style={ theme ? {"borderBottom": "1px solid rgb(120 117 122)", "display": "flex", "flexDirection": "row"} : {"borderBottom": "1px solid rgb(84 84 84)", "display": "flex", "flexDirection": "row"}}>
-        <GoBack path="/feed"/>
+      <div style={ theme ? {"borderBottom": "1px solid rgb(120 117 122)", "display": "flex", "flexDirection": "row", "alignItems": "center", "justifyContent": "flex-start"} : {"borderBottom": "1px solid rgb(84 84 84)", "display": "flex", "flexDirection": "row", "alignItems": "center", "justifyContent": "flex-start"}}>
+      <GoBack path="/feed"/>
       <ChatUser
         myId={data?.myId}
         userName={data?.userName}

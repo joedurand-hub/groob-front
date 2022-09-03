@@ -1,41 +1,53 @@
-import {useState} from "react"
+import { useState } from "react";
 import styles from "./footerPost.module.css";
 import Like from "./Like/Like";
+import Liked from "./Like/Liked";
+import Dislike from "./Like/Dislike";
 import Comment from "./Comment/Comment";
 import Share from "./Share/Share";
 import Price from "./Price/Price";
 import Icon from "../Icon/Icon";
-import Textarea from "../../Textarea/Textarea"
+import Textarea from "../../Textarea/Textarea";
+import { useEffect } from "react";
+import { MdInsertComment } from "react-icons/md";
 
 const FooterPost = ({ likes, price, id }) => {
-  const [comment, setComment] = useState(false)
+
+  const handleLikes = () => {};
+
+  const [comment, setComment] = useState(false);
+
+  useEffect(() => {}, []);
+
   return (
     <>
       {price ? (
-        <>
-        <div className={styles.container} onClick={() => {
-          setComment(!comment)}}>
+        <div className={styles.item_footer_post}>
+          <div className={styles.container}>
             <Like id={id} />
-          <Icon>
-            <Comment />
-          </Icon>
-          <Icon className={styles.user_post}>
-            <Share />
-          </Icon>
-          <h6>${price}</h6>
-        </div>
-        </>
-      ) : (
-        <div className={styles.container} onClick={() => {
-          console.log("click")
-          setComment(!comment)}}>
-          <div className={styles.item_footer_post}>
-          <Icon>
-          <Like id={id} /> 
-          </Icon> <h6>{likes}</h6>
+            <Icon>
+              <Comment
+                onClick={() => {
+                  setComment(!comment);
+                }}
+              />
+            </Icon>
+            <Icon className={styles.user_post}>
+              <Share />
+            </Icon>
+            <h6>${price}</h6>
           </div>
-          <Icon >
-            <Comment />
+        </div>
+      ) : (
+        <div className={styles.container}>
+          <div className={styles.item_footer_post}>
+            <Icon>
+              <Like id={id} likes={likes}/>
+            </Icon>
+            <h6>{likes === 0 ? null : likes}</h6>
+          </div>
+          <Icon>
+            <MdInsertComment onClick={() => setComment(!comment)} />
           </Icon>
           <Icon className={styles.user_post}>
             <Share />
@@ -45,8 +57,8 @@ const FooterPost = ({ likes, price, id }) => {
 
       {comment && (
         <>
-        <Textarea placeholder="|"/>
-        <button>Enviar</button>
+          <Textarea placeholder="|" />
+          <button>Enviar</button>
         </>
       )}
     </>

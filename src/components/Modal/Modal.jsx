@@ -1,7 +1,6 @@
 import styles from "./modal.module.css";
-import {IoIosCloseCircle} from "react-icons"
 
-const Modal = ({ isOpen, closeModal, children }) => {
+const Modal = ({ isOpen,  children }) => {
   const modalHandleClick = (e) => e.stopPropagation();
 
   return (
