@@ -6,7 +6,7 @@ import { BiArrowBack } from "react-icons/bi"
 
 const GoBack = ({path}) => {
   return (
-    <Link href={path} passHred>
+    <Link href={path} passHref>
         <BiArrowBack className={styles.back}/>
     </Link>
   );
