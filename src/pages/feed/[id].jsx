@@ -8,15 +8,21 @@ const Index = ({ data }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <>
+    <div
+      className={theme ? "light_mode" : "dark_mode"}
+      style={{ height: "100vh", paddingTop: "5px" }}
+    >
+      <GoBack path="/feed" />
       <div
-        className={theme ? "light_mode" : "dark_mode"}
-        style={{ "height": "100vh", "paddingTop": "5px" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
       >
-        <GoBack path="/feed" />
         <PostById data={data} />
       </div>
-    </>
+    </div>
   );
 };
 

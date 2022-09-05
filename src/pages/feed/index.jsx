@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import dynamic from "next/dynamic";
 import Layout from "../../components/Layout/Layout";
 import Icon from "../../components/Icon/Icon";
@@ -10,21 +10,24 @@ import CreatePost from "../../components/CreatePost/CreatePost";
 import { getCookie } from "cookies-next";
 import { TiHome } from "react-icons/ti";
 import { BiSearchAlt } from "react-icons/bi";
-import { BsFillPlusCircleFill } from "react-icons/bs"; // icon user Secret by Premium (?)
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
+import { ThemeContext } from "../../contexts/ThemeContext";
+
 const Post = dynamic(() => import("../../components/Post/Post"), {
   ssr: false,
 });
 
-const Feed = ({ data }) => {
+const Feed = ({ posts }) => {
+  const { theme } = useContext(ThemeContext);
+  const postsInFeed = posts.data
   const postsByDate = useMemo(() => {
-    return data.sort((a, b) => {
-      if (a.createdAt < b.createdAt) return 1;
-      return -1;
-    });
-  }, [data]);
+      return postsInFeed.sort((a, b) => {
+        if (a.createdAt < b.createdAt) return 1;
+        return -1;
+      });
+  }, [posts]);
 
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
@@ -45,7 +48,7 @@ const Feed = ({ data }) => {
             <NavItem path="/search">
               <BiSearchAlt />
             </NavItem>
-            <OpenModalPost openModalPost={openModalPost}/>
+            <OpenModalPost openModalPost={openModalPost} />
             <NavItem path="/messages">
               <BiChat />
             </NavItem>
@@ -60,19 +63,22 @@ const Feed = ({ data }) => {
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
           <CreatePost closeModal={closeModalPost} />
         </Modal>
-      ) : (
-        (data && (
-          <div style={{ marginTop: "20px" }}>
-            <Post data={postsByDate} />
-          </div>
-        )) ||
-        data.length ===
-          0(
-            <h6>
+      ) : posts.data.length >= 1 ? (
+        <div style={{ marginTop: "20px", display: "flex", flexDirection:"column", "justifyContent": "center", "alignItems": "center", width: "100%" }}>
+          <Post data={postsByDate} myId={posts.myId} />
+        </div>
+      ) : 
+         (
+          <>
+            <br />
+            <br />
+            <br />
+            <h6 className={theme ? "light_mode" : "dark_mode"}>
               Aún no hay publicaciones, descubre usuarios en la sección de la
               lupa o invita a tus amigos!
             </h6>
-          )
+          </>
+        
       )}
     </Layout>
   );
@@ -94,10 +100,10 @@ export async function getServerSideProps({ req, res }) {
         withCredentials: true,
       }
     );
-    const data = await response.json();
+    const posts = await response.json();
     return {
       props: {
-        data,
+        posts,
       },
     };
   } catch (error) {

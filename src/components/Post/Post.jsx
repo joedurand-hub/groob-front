@@ -9,7 +9,7 @@ import MoreOptions from "./MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 
-const Posts = ({ data }) => {
+const Posts = ({ data, myId }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -65,7 +65,7 @@ const Posts = ({ data }) => {
                   </Link>
                 </div>
                 <div className={styles.moreOptions}>
-                  <MoreOptions />
+                    <MoreOptions idBydeletePost={_id} userId={myId}/>
                 </div>
               </div>
               <div className={styles.post}>

@@ -52,6 +52,7 @@ const ProfileById = ({ data }) => {
         <CreatePost closeModal={closeModalPost} />
       </Modal>
       <Profile data={data.profileData} id={data.myId}/>
+      <Publications id={data?.profileData._id}/>
     </Layout>
   );
 };
