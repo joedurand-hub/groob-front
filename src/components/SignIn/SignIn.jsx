@@ -53,7 +53,7 @@ export const SignIn = () => {
     if(data && data.message === "Success") {
      router.push("/feed")
     } 
-  }, [])
+  }, [data])
   return (
     <div
       className={

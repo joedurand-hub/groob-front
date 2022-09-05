@@ -69,7 +69,7 @@ const Posts = ({ data }) => {
               </div>
               <div className={styles.post}>
                 <p className={content ? styles.post_content : styles.empty}>
-                  {content}
+                  {content ? content : null}
                 </p>
                 {images &&
                   images.map((image) => (
