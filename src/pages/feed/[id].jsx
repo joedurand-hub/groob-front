@@ -1,21 +1,18 @@
-// import { useState, useEffect } from "react";
-import Link from "next/link";
-import Layout from "../../components/Layout/Layout";
+import { useState, useEffect, useContext } from "react";
 import { getCookie } from "cookies-next";
-import Image from "next/image";
-import { URL, ENDPOINT, GET_PROFILE } from "../../helpers/constants";
 import PostById from "../../components/PostById/PostById"
 import GoBack from "../../components/GoBack/Back";
+import { ThemeContext } from "../../contexts/ThemeContext"; 
 
 const Index = ({data}) => {
-  // console.log(data) //funciona
+  const { theme } = useContext(ThemeContext)
 
   return (
     <>
-    <div>
+    <div className={theme ? 'light_mode' : 'dark_mode'} style={{height: "100vh", paddingTop: "5px"}}>
       <GoBack path="/feed" />
-    </div>
     <PostById data={data}/>
+    </div>
     </>
   );
 };
