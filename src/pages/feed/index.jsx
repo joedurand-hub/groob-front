@@ -23,7 +23,7 @@ const Feed = ({ posts }) => {
   const { theme } = useContext(ThemeContext);
   const postsInFeed = posts.data
   const postsByDate = useMemo(() => {
-      return postsInFeed.sort((a, b) => {
+      return postsInFeed?.sort((a, b) => {
         if (a.createdAt < b.createdAt) return 1;
         return -1;
       });
@@ -63,7 +63,7 @@ const Feed = ({ posts }) => {
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
           <CreatePost closeModal={closeModalPost} />
         </Modal>
-      ) : posts.data.length >= 1 ? (
+      ) : posts.data?.length >= 1 ? (
         <div style={{ marginTop: "20px", display: "flex", flexDirection:"column", "justifyContent": "center", "alignItems": "center", width: "100%" }}>
           <Post data={postsByDate} myId={posts.myId} />
         </div>
