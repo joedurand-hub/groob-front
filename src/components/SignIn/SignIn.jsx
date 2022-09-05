@@ -19,7 +19,6 @@ export const SignIn = () => {
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
   const router = useRouter()
-
   const {
     register,
     handleSubmit,
@@ -51,8 +50,10 @@ export const SignIn = () => {
   };
   
   useEffect(() => {
-    data && data.message === "Success" && router.push("/feed")
-  }, [data])
+    if(data && data.message === "Success") {
+     router.push("/feed")
+    } 
+  }, [])
   return (
     <div
       className={

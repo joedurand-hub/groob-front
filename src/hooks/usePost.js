@@ -8,27 +8,26 @@ const usePost = () => {
     error: undefined,
   });
 
-  function sendData({ endpoint, postData }) {
+  async function sendData({ endpoint, postData }) {
     setPostData({
       data: undefined,
       pending: true,
       error: undefined,
     });
-    return axios.post(`${endpoint}`, { ...postData }, { withCredentials: true })
-      .then((response) => {
-        setPostData({
-          data: response.data,
-          pending: false,
-          error: undefined
-        });
-      })
-      .catch((error) => {
-        setPostData({
-          data: undefined,
-          pending: false,
-          error: error.message
-        });
+    try {
+      const response = await axios.post(`${endpoint}`, { ...postData }, {withCredentials: true});
+      setPostData({
+        data: response.data,
+        pending: false,
+        error: undefined
       });
+    } catch (error) {
+      setPostData({
+        data: undefined,
+        pending: false,
+        error: error.message
+      });
+    }
   }
 
   return {
