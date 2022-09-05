@@ -1,18 +1,21 @@
 import { useState, useEffect, useContext } from "react";
 import { getCookie } from "cookies-next";
-import PostById from "../../components/PostById/PostById"
+import PostById from "../../components/PostById/PostById";
 import GoBack from "../../components/GoBack/Back";
-import { ThemeContext } from "../../contexts/ThemeContext"; 
+import { ThemeContext } from "../../contexts/ThemeContext";
 
-const Index = ({data}) => {
-  const { theme } = useContext(ThemeContext)
+const Index = ({ data }) => {
+  const { theme } = useContext(ThemeContext);
 
   return (
     <>
-    <div className={theme ? 'light_mode' : 'dark_mode'} style={{height: "100vh", paddingTop: "5px"}}>
-      <GoBack path="/feed" />
-    <PostById data={data}/>
-    </div>
+      <div
+        className={theme ? "light_mode" : "dark_mode"}
+        style={{ "height": "100vh", "paddingTop": "5px" }}
+      >
+        <GoBack path="/feed" />
+        <PostById data={data} />
+      </div>
     </>
   );
 };
@@ -22,7 +25,7 @@ export default Index;
 export async function getServerSideProps({ req, res, query }) {
   try {
     const token = getCookie("authToken", { req, res });
-    const {id} = query;
+    const { id } = query;
     const response = await fetch(
       `http://localhost:8080/post/${id}`,
       {

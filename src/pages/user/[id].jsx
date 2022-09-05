@@ -10,12 +10,11 @@ import Modal from "../../components/Modal/Modal";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import { useModal } from "../../hooks/useModal";
 import { MdOutlineNotificationsNone } from "react-icons/md";
-import { IoMenu } from "react-icons/io5";
 import { BiHome } from "react-icons/bi";
-import { BsFillPlusCircleFill } from "react-icons/bs";
 import { BiSearchAlt, BiChat } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import { useRouter } from "next/router"
+import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 
 const ProfileById = ({ data }) => {
   const router = useRouter()
@@ -38,14 +37,7 @@ const ProfileById = ({ data }) => {
             <NavItem path="/search">
               <BiSearchAlt />
             </NavItem>
-            <BsFillPlusCircleFill
-              onClick={openModalPost}
-              style={{
-                height: "30px",
-                width: "30px",
-                color: "rgb(159, 29, 240)",
-              }}
-            />
+              <OpenModalPost openModalPost={openModalPost}/>
             <NavItem path="/messages">
               <BiChat />
             </NavItem>

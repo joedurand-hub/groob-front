@@ -9,10 +9,6 @@ import Icon from "../Icon/Icon";
 import { useRouter } from "next/router";
 import { IoIosCloseCircle } from "react-icons/io";
 import { BsFillImageFill } from "react-icons/bs";
-import { SiApplemusic } from "react-icons/si";
-import { FaMicrophoneAlt } from "react-icons/fa";
-import { GiWhiteBook } from "react-icons/gi";
-import { FaVideo } from "react-icons/fa";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Loader from "../Loader/Loader";
 import usePostPublication from "../../hooks/usePostPublication";
@@ -148,26 +144,6 @@ const CreatePost = ({ closeModal }) => {
               </Icon>
             </label>
             <p className={styles.files_length}>{files.length}/7</p>
-            <label htmlFor="uploadPodcast">
-              <Icon>
-                <FaMicrophoneAlt />
-              </Icon>
-            </label>
-            <label htmlFor="uploadMusic">
-              <Icon>
-                <SiApplemusic />
-              </Icon>
-            </label>
-            <label htmlFor="uploadVideo">
-              <Icon>
-                <FaVideo />
-              </Icon>
-            </label>
-            <label htmlFor="uploadPDF">
-              <Icon>
-                <GiWhiteBook />
-              </Icon>
-            </label>
           </div>
           <input
             type="file"

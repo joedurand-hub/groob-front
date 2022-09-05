@@ -8,9 +8,10 @@ import { useModal } from "../hooks/useModal"
 import { getCookie } from "cookies-next";
 import { BiHome } from "react-icons/bi";
 import { RiSearchEyeFill } from "react-icons/ri";
-import { BsFillPlusCircleFill } from "react-icons/bs"; // icon user Secret by Premium (?)
+import { BsFillPlusCircleFill } from "react-icons/bs"; 
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md"
+import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
 
 const Search = () => {
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
@@ -30,8 +31,7 @@ const Search = () => {
           <NavItem path="/search">
             <RiSearchEyeFill />
           </NavItem>
-            <BsFillPlusCircleFill onClick={openModalPost} 
-            style={{"height": "30px", "width": "30px", "color": "rgb(159, 29, 240)"}}/>
+           <OpenModalPost openModalPost={openModalPost}/>
           <NavItem path="/messages">
             <BiChat />
           </NavItem>

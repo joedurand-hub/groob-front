@@ -13,6 +13,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import { BsFillPlusCircleFill } from "react-icons/bs"; // icon user Secret by Premium (?)
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
+import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 const Post = dynamic(() => import("../../components/Post/Post"), {
   ssr: false,
 });
@@ -44,14 +45,7 @@ const Feed = ({ data }) => {
             <NavItem path="/search">
               <BiSearchAlt />
             </NavItem>
-            <BsFillPlusCircleFill
-              onClick={openModalPost}
-              style={{
-                height: "30px",
-                width: "30px",
-                color: "rgb(159, 29, 240)",
-              }}
-            />
+            <OpenModalPost openModalPost={openModalPost}/>
             <NavItem path="/messages">
               <BiChat />
             </NavItem>
