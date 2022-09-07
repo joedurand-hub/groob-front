@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
