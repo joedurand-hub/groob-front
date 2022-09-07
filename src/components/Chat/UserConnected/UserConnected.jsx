@@ -14,6 +14,7 @@ const UserConnected = ({ online, profilePicture, width, height }) => {
         src={profilePicture && profilePicture}
         width={width}
         height={height}
+        alt="Profile picture"
       />
     </div>
   );

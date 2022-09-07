@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import Layout from "../../components/Layout/Layout";
 import Icon from "../../components/Icon/Icon";
@@ -21,13 +21,17 @@ const Post = dynamic(() => import("../../components/Post/Post"), {
 
 const Feed = ({ posts }) => {
   const { theme } = useContext(ThemeContext);
+  
   const postsByDate = useMemo(() => {
     const postsInFeed = posts.data
       return postsInFeed?.sort((a, b) => {
         if (a.createdAt < b.createdAt) return 1;
         return -1;
       });
+       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
 
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (

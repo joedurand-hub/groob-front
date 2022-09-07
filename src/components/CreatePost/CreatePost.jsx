@@ -85,7 +85,8 @@ const CreatePost = ({ closeModal }) => {
       // const reload = setTimeout(() => closeModal(), 1500)
       return () => clearTimeout(reload);
     }
-  }, [data]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <form
