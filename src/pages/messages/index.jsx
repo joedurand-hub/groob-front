@@ -23,6 +23,7 @@ const Index = ({ data }) => {
     socket.current.on("getUsers", (allUsers) => {
       setOnlineUsers(allUsers);
     });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allChats]);
 
   const { theme } = useContext(ThemeContext);

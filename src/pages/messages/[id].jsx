@@ -35,6 +35,7 @@ const Messages = ({ datas }) => {
     } catch (error) {
       console.log(error);
     }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reciveMessage]);
 
   const handleMessage = (newMessage) => {
@@ -66,6 +67,7 @@ const Messages = ({ datas }) => {
     if (newSocketMessage !== null) {
       socket.current.emit("newMessage", { newSocketMessage, reciverId });
     }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newSocketMessage]);
 
   useEffect(() => {
@@ -94,7 +96,7 @@ const Messages = ({ datas }) => {
       >
         <br />
         {chat?.map((msj, index) => (
-          <div ref={scroll}>
+          <div key={index} ref={scroll}>
             <Message
               key={index}
               senderId={msj.senderId}

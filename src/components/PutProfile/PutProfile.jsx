@@ -1,15 +1,13 @@
 import styles from "./putProfile.module.css";
 import { useContext } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
-import { BsPlusCircleFill } from "react-icons/bs";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Loader from "../Loader/Loader"
 
+
 const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
-  const router = useRouter();
+
   const { theme } = useContext(ThemeContext);
   return (
     <div
@@ -24,19 +22,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
         onSubmit(event)
         event.target.reset()
       }}>
-        <Image
-          src={state?.profilePicture.secure_url}
-          width="250"
-          height="250"
-          alt={`Foto de perfil de ${state?.userName}`}
-          className={styles.profile_picture}
-        />
-        <div className={styles.container_upload_image}>
-          <label htmlFor="upload">
-            <BsPlusCircleFill className={styles.upload} />
-          </label>
-          <input type="file" id="upload" className={styles.input_upload} />
-        </div>
         <Input
           label={"Nombre de usuario"}
           name={"userName"}
@@ -96,8 +81,16 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
 
         />
         <div className={styles.container_button}>
+          {pending ? (
+            <>
+            <Loader/>
+            </>
+          ) : (
+            <>
           <Button name={"Cancelar"} variant="cancel" onClick={() => router.push('/user')}/>
-          <Button name={pending ? <Loader/> : "Actualizar"} onSubmit={onSubmit}/>
+          <Button name={"Actualizar"} onSubmit={onSubmit}/>
+            </>
+          )}
         </div>
       </form>
     </div>

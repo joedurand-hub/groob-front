@@ -53,6 +53,7 @@ export const SignIn = () => {
     if(data && data.message === "Success") {
      router.push("/feed")
     } 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
   return (
     <div

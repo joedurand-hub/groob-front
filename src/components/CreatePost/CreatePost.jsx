@@ -38,7 +38,6 @@ const CreatePost = ({ closeModal }) => {
     const value = e.target.checked;
     setExplicitContent(value)
   };
-  console.log(explicitContent)
 
   const handleInputPriceChange = (e) => {
     const value = e.target.value;
@@ -82,10 +81,10 @@ const CreatePost = ({ closeModal }) => {
         () => router.push(`/feed/${data.publicationSaved._id}`),
         1500
       );
-      // const reload = setTimeout(() => closeModal(), 1500)
       return () => clearTimeout(reload);
     }
-  }, [data]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <form

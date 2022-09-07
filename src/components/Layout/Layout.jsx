@@ -1,6 +1,5 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import logoFavicon from "../../../public/logo.ico";
 import logo from "../../../public/Logo.png";
 import Head from "next/head";
 import MenuNav from "../MenuNav/MenuNav";
@@ -17,7 +16,7 @@ const Layout = ({ title, description, menuItem, nav, children }) => {
         <link
           rel="shortcut icon"
           type="image/png"
-          href={logoFavicon}
+          href="/favicon.ico"
         />
         <meta name="description" content={description} />
       </Head>

@@ -1,52 +1,62 @@
 import { useState, useEffect } from "react";
 import usePut from "../../hooks/usePut";
 import Switch from "react-switch";
+import { Toaster, toast } from "react-hot-toast";
 
-const Index = ({id, valueDB}) => {
-  const [value, setValue] = useState(valueDB)
-  const [toggleValue, setToggleValue] = useState(value)
+const Index = ({ id, valueDB }) => {
+  const [value, setValue] = useState(valueDB);
+  const [toggleValue, setToggleValue] = useState(value);
 
-  const { sendUpdatedData } = usePut()
-  
+  const { sendUpdatedData } = usePut();
+
   useEffect(() => {
     let valueAdultContent = window.localStorage.getItem("adultContent");
-    if(valueAdultContent) setValue(JSON.parse(valueAdultContent))
-  }, [toggleValue])
+    if (valueAdultContent) setValue(JSON.parse(valueAdultContent));
+  }, [toggleValue]);
 
   const handleExplicitContent = () => {
-    setToggleValue(!toggleValue)
-    
-    if(typeof window !== "undefined") {
-      window.localStorage.setItem("adultContent", JSON.stringify(!toggleValue));
+    setToggleValue(!toggleValue);
 
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("adultContent", JSON.stringify(!toggleValue));
     }
-    if(toggleValue === false) {
-      alert("Aceptas ser mayor de 18 años. Ahora verás contenido explícito. Éste puede tardar unos minutos en actualizarse la primera vez.")
+    if (toggleValue === false) {
+      toast(
+        "Aceptas ser mayor de 18 años para ver contenido explícito (NSFW). Éste puede tardar unos minutos en actualizarse y ser visible la primera vez. \n\n En caso de ser menor de edad, por favor vuelva a desactivarlo.",
+        {
+          duration: 5500,
+        }
+      );
     } else {
-      alert("Ya no verás contenido explícito. Puede tardar unos minutos en actualizarse la información.")
+      toast("Ya no verás contenido explícito. Actualizando información.", {
+        duration: 5500,
+      });
     }
     sendUpdatedData({
       endpoint: `http://localhost:8080/profile/${id}`,
       putData: {
-        explicitContent: !toggleValue
-      }
+        explicitContent: !toggleValue,
+      },
     });
-  }
+  };
 
   return (
-    <Switch
-      onChange={handleExplicitContent}
-      checked={toggleValue}
-      onColor="#86d3ff"
-      onHandleColor="#2693e6"
-      handleDiameter={30}
-      uncheckedIcon={false}
-      checkedIcon={false}
-      boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-      activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-      height={20}
-      width={48}
-    />
+    <>
+      <Toaster />
+      <Switch
+        onChange={handleExplicitContent}
+        checked={toggleValue}
+        onColor="#86d3ff"
+        onHandleColor="#2693e6"
+        handleDiameter={30}
+        uncheckedIcon={false}
+        checkedIcon={false}
+        boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+        activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+        height={20}
+        width={48}
+      />
+    </>
   );
 };
 
