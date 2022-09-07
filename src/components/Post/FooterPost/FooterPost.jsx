@@ -22,9 +22,9 @@ const FooterPost = ({ likes, price, id }) => {
       {price ? (
         <div className={styles.item_footer_post}>
           <div className={styles.container}>
-            <Like id={id} />
+            {/* <Like id={id} /> */}
             <Icon>
-              <Comment
+              <MdInsertComment
                 onClick={() => {
                   setComment(!comment);
                 }}
@@ -37,13 +37,10 @@ const FooterPost = ({ likes, price, id }) => {
           </div>
         </div>
       ) : (
-        <div className={styles.container}>
           <div className={styles.item_footer_post}>
-            <Icon>
+        <div className={styles.container}>
               <Like id={id} likes={likes}/>
-            </Icon>
             <h6>{likes === 0 ? null : likes}</h6>
-          </div>
           <Icon>
             <MdInsertComment onClick={() => setComment(!comment)} />
           </Icon>
@@ -51,6 +48,7 @@ const FooterPost = ({ likes, price, id }) => {
             <Share />
           </Icon>
         </div>
+          </div>
       )}
 
       {comment && (

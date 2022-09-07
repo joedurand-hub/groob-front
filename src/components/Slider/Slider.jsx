@@ -12,8 +12,6 @@ const Slider = ({ allImages }) => {
   if (!Array.isArray(allImages) || quantity === 0) return;
 
   const nextImage = () => {
-    console.log("indice actual", currentIndex);
-    console.log("total", quantity);
     setCurrentIndex(currentIndex === quantity - 1 ? 0 : currentIndex + 1);
   };
 
