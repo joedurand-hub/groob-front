@@ -1,15 +1,32 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { ENDPOINT, UPDATE_PROFILE } from "../../helpers/constants";
 import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
 import usePut from "../../hooks/usePut";
 import Profile from "../../components/PutProfile/PutProfile";
+import { Toaster, toast } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const UpdateProfile = ({ data }) => {
+  const router = useRouter();
   const token = getCookie("authToken");
   const url = `${ENDPOINT}${UPDATE_PROFILE}/${data?._id}`;
   const { info, pending, error, sendUpdatedData } = usePut();
   console.log(info)
+
+
+  useEffect(() => {
+    if(info !== undefined && info.message) {
+      toast.success("Perfil actualizado!", {
+        position: "top-center",
+        autoClose: "3000",
+      })
+      router.push('/user') 
+    }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [info])
+
+
   const initialState = {
     profilePicture: data.profilePicture,
     description: data.description,
@@ -57,6 +74,7 @@ const UpdateProfile = ({ data }) => {
   };
   return (
     <Layout>
+          <Toaster/>
       <Profile
         state={state}
         pending={pending}

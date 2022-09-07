@@ -14,7 +14,7 @@ import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
 import Followings from "./Followings/Followings";
 import Followers from "./Followers/Followers";
-import Publications from "./Publications/Publications";
+import UpdatePicture from "../PutProfile/UpdatePicture";
 
 const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext);
@@ -39,7 +39,7 @@ const Profile = ({ data }) => {
               height={350}
               alt={`Foto de perfil de ${data?.userName}`}
             />
-
+          <UpdatePicture />
             <div className={styles.container_username}>
               <h2>{data?.userName} </h2>{" "}
               {data && data?.premium ? (

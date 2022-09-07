@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { TOKEN } from "../helpers/constants";
+import { getCookie } from "cookies-next";
 const usePut = () => {
+  const token = getCookie("authToken")
   const [putData, setPutData] = useState({
     info: undefined,
     pending: false,
@@ -16,7 +17,7 @@ const usePut = () => {
     });
     return axios.put(`${endpoint}`, {...putData}, {
       headers: { 
-        "authToken": TOKEN 
+        "authToken": token 
       }}, {withCredentials: true} )
     .then((response) => {
         setPutData({ 
