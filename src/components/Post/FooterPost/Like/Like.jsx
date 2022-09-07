@@ -1,3 +1,4 @@
+import Icon from "../../Icon/Icon";
 import { useState, memo } from "react";
 import { BsHeartFill } from "react-icons/bs";
 import useAuthPost from "../../../../hooks/useAuthPost";
@@ -25,43 +26,47 @@ const Like = ({ id, likes }) => {
 
   return (
     <>
-        {data === undefined && liked === false === dislike === false && (
-          <>
-            <BsHeartFill
-              className={styles.like}
-              onClick={() => {
+      {data === undefined && ((liked === false) === dislike) === false && (
+        <Icon>
+          <BsHeartFill
+            className={styles.like}
+            onClick={() => {
               console.log("click LIKE");
-                handleLike();
-                setLike(false);
-                setLiked(true);
-                setDislike(false);
-              }}
-            />
-          </>
-        )}
+              handleLike();
+              setLike(false);
+              setLiked(true);
+              setDislike(false);
+            }}
+          />
+        </Icon>
+      )}
       {data && liked && (
-        <BsHeartFill
-          className={styles.liked}
-          onClick={() => {
-            console.log("click LIKED");
-            handleDislike();
-            setLike(false);
-            setLiked(false);
-            setDislike(true);
-          }}
-        />
+        <Icon>
+          <BsHeartFill
+            className={styles.liked}
+            onClick={() => {
+              console.log("click LIKED");
+              handleDislike();
+              setLike(false);
+              setLiked(false);
+              setDislike(true);
+            }}
+          />
+        </Icon>
       )}
       {dislike && (
-        <BsHeartFill
-          className={styles.dislike}
-          onClick={() => {
-            console.log("click DISLIKE");
-            handleLike();
-            setLike(false);
-            setLiked(true);
-            setDislike(false);
-          }}
-        />
+        <Icon>
+          <BsHeartFill
+            className={styles.dislike}
+            onClick={() => {
+              console.log("click DISLIKE");
+              handleLike();
+              setLike(false);
+              setLiked(true);
+              setDislike(false);
+            }}
+          />
+        </Icon>
       )}
     </>
   );

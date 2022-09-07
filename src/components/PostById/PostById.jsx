@@ -8,6 +8,7 @@ import FooterPost from "./FooterPost/FooterPost";
 import MoreOptions from "./MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
+import Slider from "../Slider/Slider";
 
 const Posts = ({ data }) => {
   const {
@@ -61,17 +62,7 @@ const Posts = ({ data }) => {
           <p className={content ? styles.post_content : styles.empty}>
             {content}
           </p>
-          {images &&
-            images.map((image) => (
-              <Image
-                key={image._id}
-                layout="responsive"
-                src={image.secure_url}
-                width={500}
-                height={500}
-                alt="Image"
-              />
-            ))}
+            <Slider allImages={images}/>
         </div>
         <>
           <FooterPost price={price && price} id={_id} likes={likes} />

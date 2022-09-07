@@ -10,14 +10,14 @@ const Index = ({ data }) => {
   return (
     <div
       className={theme ? "light_mode" : "dark_mode"}
-      style={{ height: "100vh", paddingTop: "5px" }}
+      style={{ "height": "100vh", paddingTop: "5px" }}
     >
       <GoBack path="/feed" />
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "alignItems": "center",
         }}
       >
         <PostById data={data} />

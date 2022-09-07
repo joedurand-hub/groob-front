@@ -8,6 +8,7 @@ import FooterPost from "./FooterPost/FooterPost";
 import MoreOptions from "./MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
+import Slider from "../Slider/Slider";
 
 const Posts = ({ data, myId }) => {
   const { theme } = useContext(ThemeContext);
@@ -65,24 +66,14 @@ const Posts = ({ data, myId }) => {
                   </Link>
                 </div>
                 <div className={styles.moreOptions}>
-                    <MoreOptions idBydeletePost={_id} userId={myId}/>
+                  <MoreOptions idBydeletePost={_id} userId={myId} />
                 </div>
               </div>
               <div className={styles.post}>
                 <p className={content ? styles.post_content : styles.empty}>
                   {content ? content : null}
                 </p>
-                {images &&
-                  images.map((image) => (
-                    <Image
-                      key={image._id}
-                      layout="responsive"
-                      src={image.secure_url}
-                      width={500}
-                      height={500}
-                      alt="Image"
-                    />
-                  ))}
+                <Slider allImages={images} />
               </div>
               <>
                 <FooterPost price={price && price} id={_id} likes={likes} />
