@@ -27,7 +27,7 @@ const Feed = ({ posts }) => {
         if (a.createdAt < b.createdAt) return 1;
         return -1;
       });
-  }, [posts]);
+  }, [postsInFeed]);
 
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
