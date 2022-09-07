@@ -1,37 +1,49 @@
 import { useState, useEffect } from "react";
 import usePut from "../../hooks/usePut";
 import Switch from "react-switch";
+import { Toaster, toast } from "react-hot-toast";
 
-const Index = ({id, valueDB}) => {
-  const [value, setValue] = useState(valueDB)
-  const [toggleValue, setToggleValue] = useState(value)
+const Index = ({ id, valueDB }) => {
+  const [value, setValue] = useState(valueDB);
+  const [toggleValue, setToggleValue] = useState(value);
 
-  const { sendUpdatedData } = usePut()
-  
+  const { sendUpdatedData } = usePut();
+
   useEffect(() => {
     let valueAdultContent = window.localStorage.getItem("adultContent");
-    if(valueAdultContent) setValue(JSON.parse(valueAdultContent))
-  }, [toggleValue])
+    if (valueAdultContent) setValue(JSON.parse(valueAdultContent));
+  }, [toggleValue]);
 
   const handleExplicitContent = () => {
-    setToggleValue(!toggleValue)
-    
-    if(typeof window !== "undefined") {
-      window.localStorage.setItem("adultContent", JSON.stringify(!toggleValue));
+    setToggleValue(!toggleValue);
 
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("adultContent", JSON.stringify(!toggleValue));
     }
-    if(toggleValue === false) {
-      alert("Aceptas ser mayor de 18 años. Ahora verás contenido explícito. Éste puede tardar unos minutos en actualizarse la primera vez.")
+    if (toggleValue === false) {
+      toast(
+        "Aceptas ser mayor de 18 años para ver contenido explícito (NSFW). Éste puede tardar unos minutos en actualizarse y ser visible la primera vez.",
+        {
+          duration: 4000,
+        }
+      );
     } else {
-      alert("Ya no verás contenido explícito. Puede tardar unos minutos en actualizarse la información.")
+      toast("Ya no verás contenido explícito. Actualizando información.", {
+        duration: 4000,
+      });
     }
     sendUpdatedData({
       endpoint: `http://localhost:8080/profile/${id}`,
       putData: {
-        explicitContent: !toggleValue
-      }
+        explicitContent: !toggleValue,
+      },
     });
-  }
+    return (
+      <>
+        <Toaster />
+      </>
+    );
+  };
 
   return (
     <Switch

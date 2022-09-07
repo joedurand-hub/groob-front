@@ -17,7 +17,7 @@ const Layout = ({ title, description, menuItem, nav, children }) => {
         <link
           rel="shortcut icon"
           type="image/png"
-          href={logoFavicon}
+          href="/favicon.ico"
         />
         <meta name="description" content={description} />
       </Head>
