@@ -21,13 +21,13 @@ const Post = dynamic(() => import("../../components/Post/Post"), {
 
 const Feed = ({ posts }) => {
   const { theme } = useContext(ThemeContext);
-  const postsInFeed = posts.data
   const postsByDate = useMemo(() => {
+    const postsInFeed = posts.data
       return postsInFeed?.sort((a, b) => {
         if (a.createdAt < b.createdAt) return 1;
         return -1;
       });
-  }, [postsInFeed]);
+  }, []);
 
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
