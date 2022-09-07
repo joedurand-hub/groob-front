@@ -22,14 +22,14 @@ const Index = ({ id, valueDB }) => {
     }
     if (toggleValue === false) {
       toast(
-        "Aceptas ser mayor de 18 años para ver contenido explícito (NSFW). Éste puede tardar unos minutos en actualizarse y ser visible la primera vez.",
+        "Aceptas ser mayor de 18 años para ver contenido explícito (NSFW). Éste puede tardar unos minutos en actualizarse y ser visible la primera vez. \n\n En caso de ser menor de edad, por favor vuelva a desactivarlo.",
         {
-          duration: 4000,
+          duration: 5500,
         }
       );
     } else {
       toast("Ya no verás contenido explícito. Actualizando información.", {
-        duration: 4000,
+        duration: 5500,
       });
     }
     sendUpdatedData({
@@ -38,27 +38,25 @@ const Index = ({ id, valueDB }) => {
         explicitContent: !toggleValue,
       },
     });
-    return (
-      <>
-        <Toaster />
-      </>
-    );
   };
 
   return (
-    <Switch
-      onChange={handleExplicitContent}
-      checked={toggleValue}
-      onColor="#86d3ff"
-      onHandleColor="#2693e6"
-      handleDiameter={30}
-      uncheckedIcon={false}
-      checkedIcon={false}
-      boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-      activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-      height={20}
-      width={48}
-    />
+    <>
+      <Toaster />
+      <Switch
+        onChange={handleExplicitContent}
+        checked={toggleValue}
+        onColor="#86d3ff"
+        onHandleColor="#2693e6"
+        handleDiameter={30}
+        uncheckedIcon={false}
+        checkedIcon={false}
+        boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+        activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+        height={20}
+        width={48}
+      />
+    </>
   );
 };
 
