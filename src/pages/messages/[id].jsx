@@ -96,7 +96,7 @@ const Messages = ({ datas }) => {
       >
         <br />
         {chat?.map((msj, index) => (
-          <div ref={scroll}>
+          <div key={index} ref={scroll}>
             <Message
               key={index}
               senderId={msj.senderId}
