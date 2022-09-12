@@ -41,8 +41,8 @@ const Profile = ({ data }) => {
             />
           <UpdatePicture />
             <div className={styles.container_username}>
-              <h2>{data?.userName} </h2>{" "}
-              {data && data?.premium ? (
+              <h1>{data?.userName} </h1>{" "}
+              {data && data?.verified ? (
                 <GoVerified className={styles.verify} />
               ) : null}
             </div>
@@ -80,7 +80,7 @@ const Profile = ({ data }) => {
         <div className={styles.container_buttons}>
           <div className={styles.premium}>
             <Button
-              name="Activar Premium"
+              name="Verificar cuenta"
               variant="login"
               onClick={() => {
               }}

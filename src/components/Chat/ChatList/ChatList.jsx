@@ -1,18 +1,26 @@
-import React, { memo } from "react";
+import React, { useMemo, memo } from "react";
 import ChatUser from "../ChatUser/ChatUser";
 import styles from "./chatList.module.css"
 
 const ChatList = ({ users }) => {
-
+  const chats = useMemo(() => {
+    return users?.sort((a, b) => {
+      if (a.updatedAt < b.updatedAt) return 1;
+      return -1;
+    })      
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [users]);
+  
+  console.log(chats)
   return (
     <div className={styles.list}>
-      {users?.map((user) => (
+      {chats?.map((chat) => (
         <ChatUser 
-        key={user?.id}
-          id={user?.id}
-          userName={user?.userName}
-          profilePicture={user?.profilePicture}
-          online={user?.online}
+        key={chat?.id}
+          id={chat?.id}
+          userName={chat?.userName}
+          profilePicture={chat?.profilePicture}
+          online={chat?.online}
           width={55}
           height={55}
         />

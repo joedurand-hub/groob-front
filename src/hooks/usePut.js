@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { getCookie } from "cookies-next";
+
 const usePut = () => {
   const token = getCookie("authToken")
   const [putData, setPutData] = useState({
