@@ -1,13 +1,13 @@
 import styles from "./putProfile.module.css";
 import { useContext } from "react";
+import { useRouter } from "next/router";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import Loader from "../Loader/Loader"
-
+import Loader from "../Loader/Loader";
 
 const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
-
+  const router = useRouter();
   const { theme } = useContext(ThemeContext);
   return (
     <div
@@ -17,11 +17,13 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           : `${styles.container} ${styles.dark_mode}`
       }
     >
-      <form onSubmit={(event) => {
-        event.preventDefault()
-        onSubmit(event)
-        event.target.reset()
-      }}>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          onSubmit(event);
+          event.target.reset();
+        }}
+      >
         <Input
           label={"Nombre de usuario"}
           name={"userName"}
@@ -39,7 +41,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           variant="field_update_input"
           onChange={onChange}
           value={state?.description}
-
         />
         <Input
           label={"Email"}
@@ -49,7 +50,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           variant="field_update_input"
           onChange={onChange}
           value={state?.email}
-
         />
         <Input
           label={"Edad"}
@@ -68,7 +68,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           variant="field_update_input"
           onChange={onChange}
           value={state?.firstName}
-
         />
         <Input
           label={"Apellido"}
@@ -78,17 +77,20 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           variant="field_update_input"
           onChange={onChange}
           value={state?.lastName}
-
         />
         <div className={styles.container_button}>
           {pending ? (
             <>
-            <Loader/>
+              <Loader />
             </>
           ) : (
             <>
-          <Button name={"Cancelar"} variant="cancel" onClick={() => router.push('/user')}/>
-          <Button name={"Actualizar"} onSubmit={onSubmit}/>
+              <Button
+                name={"Cancelar"}
+                variant="cancel"
+                onClick={() => router.push("/user")}
+              />
+              <Button name={"Actualizar"} onSubmit={onSubmit} />
             </>
           )}
         </div>

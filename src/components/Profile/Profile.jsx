@@ -8,7 +8,7 @@ import { IconMoney } from "../Icon/Icon";
 import Card from "../Card/Card";
 import Wallet from "../Wallet/Wallet";
 import CryptoWallet from "../WalletCrypto/WalletCrypto";
-import { BsCashCoin } from "react-icons/bs";
+import { BsCashCoin, BsPlusCircleFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
@@ -21,6 +21,7 @@ const Profile = ({ data }) => {
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
   const router = useRouter();
+
   return (
     <>
       <section
@@ -36,12 +37,14 @@ const Profile = ({ data }) => {
               className={styles.user_profile_picture}
               src={data && data.profilePicture.secure_url}
               width={400}
-              height={350}
-              alt={`Foto de perfil de ${data?.userName}`}
+              height={400}
+              alt={`Foto de perfil de ${data && data.userName}`}
             />
-          <UpdatePicture />
+
+            <UpdatePicture />
+
             <div className={styles.container_username}>
-              <h1>{data?.userName} </h1>{" "}
+              <h1 className={styles.username}>{data?.userName} </h1>{" "}
               {data && data?.verified ? (
                 <GoVerified className={styles.verify} />
               ) : null}
@@ -60,7 +63,7 @@ const Profile = ({ data }) => {
                       : data.publications?.length}
                   </strong>
                 </span>
-                  <span className={styles.data}>Publicaci...</span>
+                <span className={styles.data}>Publicaci...</span>
               </div>
               <Followers follows={data?.followers} />
             </div>
@@ -82,8 +85,7 @@ const Profile = ({ data }) => {
             <Button
               name="Verificar cuenta"
               variant="login"
-              onClick={() => {
-              }}
+              onClick={() => {}}
             />
           </div>
           <div className={styles.buttons}>

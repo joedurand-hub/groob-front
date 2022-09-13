@@ -1,19 +1,17 @@
 import { useEffect, useReducer } from "react";
 import { ENDPOINT, UPDATE_PROFILE } from "../../helpers/constants";
-import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
 import usePut from "../../hooks/usePut";
 import Profile from "../../components/PutProfile/PutProfile";
 import { Toaster, toast } from "react-hot-toast";
 import { useRouter } from "next/router";
+import useRequest from "../../hooks/useRequest";
 
-const UpdateProfile = ({ data }) => {
+const UpdateProfile = () => {
+  const { data, loading, error } = useRequest(`http://localhost:8080/profile`);
   const router = useRouter();
-  const token = getCookie("authToken");
   const url = `${ENDPOINT}${UPDATE_PROFILE}/${data?._id}`;
-  const { info, pending, error, sendUpdatedData } = usePut();
-  console.log(info)
-
+  const { info, pending, sendUpdatedData } = usePut();
 
   useEffect(() => {
     if(info !== undefined && info.message) {
@@ -28,13 +26,12 @@ const UpdateProfile = ({ data }) => {
 
 
   const initialState = {
-    profilePicture: data.profilePicture,
-    description: data.description,
-    firstName: data.firstName,
-    lastName: data.lastName,
-    userName: data.userName,
-    email: data.email,
-    age: data.age,
+    userName: data?.userName,
+    description: data?.description,
+    firstName: data?.firstName,
+    lastName: data?.lastName,
+    email: data?.email,
+    age: data?.age,
   };
 
   const reducer = (state, action) => {
@@ -64,12 +61,10 @@ const UpdateProfile = ({ data }) => {
       putData: {
         userName: state.userName,
         description: state.description,
-        profilePicture: state.profilePicture,
         firstName: state.firstName,
         lastName: state.lastName,
         age: state.age,
       },
-      token: token,
     });
   };
   return (
@@ -89,27 +84,27 @@ const UpdateProfile = ({ data }) => {
 
 export default UpdateProfile;
 
-export async function getServerSideProps({ req, res }) {
-  try {
-    const token = getCookie("authToken", { req, res });
-    const response = await fetch(
-      `http://localhost:8080/profile`,
-      {
-        headers: {
-          authToken: token,
-        },
-      },
-      {
-        withCredentials: true,
-      }
-    );
-    const data = await response.json();
-    return {
-      props: {
-        data,
-      },
-    };
-  } catch (error) {
-    console.table(error);
-  }
-}
+// export async function getServerSideProps({ req, res }) {
+//   try {
+//     const token = getCookie("authToken", { req, res });
+//     const response = await fetch(
+//       `http://localhost:8080/profile`,
+//       {
+//         headers: {
+//           authToken: token,
+//         },
+//       },
+//       {
+//         withCredentials: true,
+//       }
+//     );
+//     const data = await response.json();
+//     return {
+//       props: {
+//         data,
+//       },
+//     };
+//   } catch (error) {
+//     console.table(error);
+//   }
+// }

@@ -21,17 +21,15 @@ const Post = dynamic(() => import("../../components/Post/Post"), {
 
 const Feed = ({ posts }) => {
   const { theme } = useContext(ThemeContext);
-  
+
   const postsByDate = useMemo(() => {
-    const postsInFeed = posts.data
-      return postsInFeed?.sort((a, b) => {
-        if (a.createdAt < b.createdAt) return 1;
-        return -1;
-      });
-       // eslint-disable-next-line react-hooks/exhaustive-deps
+    const postsInFeed = posts.data;
+    return postsInFeed?.sort((a, b) => {
+      if (a.createdAt < b.createdAt) return 1;
+      return -1;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-
 
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
@@ -68,21 +66,30 @@ const Feed = ({ posts }) => {
           <CreatePost closeModal={closeModalPost} />
         </Modal>
       ) : posts.data?.length >= 1 ? (
-        <div style={{ marginTop: "20px", display: "flex", flexDirection:"column", "justifyContent": "center", "alignItems": "center", width: "100%" }}>
+        <div
+          style={{
+            marginTop: "20px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
           <Post data={postsByDate} myId={posts.myId} />
         </div>
-      ) : 
-         (
-          <>
-            <br />
-            <br />
-            <br />
+      ) : (
+        <>
+          <br />
+          <br />
+          <br />
+          <div style={{ textAlign: "center" }}>
             <h6 className={theme ? "light_mode" : "dark_mode"}>
               Aún no hay publicaciones, descubre usuarios en la sección de la
               lupa o invita a tus amigos!
             </h6>
-          </>
-        
+          </div>
+        </>
       )}
     </Layout>
   );
@@ -96,13 +103,13 @@ export async function getServerSideProps({ req, res }) {
     const response = await fetch(
       `http://localhost:8080/posts`,
       {
+        method: "GET",
         headers: {
           authToken: token,
+          "Access-Control-Allow-Credentials": true,
         },
       },
-      {
-        withCredentials: true,
-      }
+      { withCredentials: true }
     );
     const posts = await response.json();
     return {

@@ -54,7 +54,6 @@
     align-items: center;
   }
 
-
   .container_username {
     width: 100%;
     display: flex;
@@ -63,12 +62,15 @@
     justify-content: flex-start;
     z-index: 5;
     padding-left: 10px;
-    margin-top: -39px;
+    margin-top: -45px;
     color: rgb(255, 255, 255);
     background: transparent;
     box-shadow: inset 0px -20px 20px 0px #00000038;
-
   }
+  /* .username {
+    bottom: 10px;
+    position: relative;
+  } */
 
   .verify {
     margin-top: -12px;

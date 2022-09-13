@@ -21,34 +21,34 @@
     color: white;
 }
 
-.container_upload_image {
-    position: absolute;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    right: 50px;
-    bottom: -7%;
-}
-
-.input_upload {
-    display: none;
-    visibility: none;
-}
-
-.upload {
-    position: absolute;
-    cursor: pointer;
-    display: flex;
-    margin-top: -45px;
-    height: 37px;
-    width: 37px;
-}
-
 .container_button {
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.container_upload_image {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    right: 10px;
+    bottom: -6%;
+}
+
+.input_upload {
+    display: none;
+}
+
+.upload {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    margin-top: -45px;
+    height: 37px;
+    width: 37px;
+    z-index: 10;
 }
 }
 
@@ -80,24 +80,28 @@
         border-radius: 50%; 
     }
     
+
     .container_upload_image {
+        position: absolute;
         display: flex;
         align-items: flex-end;
         justify-content: flex-end;
+        right: 10px;
+        bottom: -6%;
     }
     
     .input_upload {
         display: none;
-        visibility: none;
     }
     
     .upload {
+        position: relative;
         cursor: pointer;
         display: flex;
-        position: relative;
         margin-top: -45px;
         height: 37px;
         width: 37px;
+        z-index: 10;
     }
     
     .container_button {

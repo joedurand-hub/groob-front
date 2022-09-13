@@ -11,12 +11,13 @@ const usePut = () => {
   });
 
   const sendUpdatedData = async ({endpoint, putData}) => {  
+    console.log(putData)
     setPutData({
       info: undefined,
       pending: true,
       error: undefined,
     });
-    return axios.put(`${endpoint}`, {...putData}, {
+    return axios.put(`${endpoint}`, putData, {
       headers: { 
         "authToken": token 
       }}, {withCredentials: true} )

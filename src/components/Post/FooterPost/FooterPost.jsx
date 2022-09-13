@@ -22,7 +22,7 @@ const FooterPost = ({ likes, price, id }) => {
       {price ? (
         <div className={styles.item_footer_post}>
           <div className={styles.container}>
-            {/* <Like id={id} /> */}
+            <Like id={id} />
             <Icon>
               <MdInsertComment
                 onClick={() => {

@@ -62,10 +62,11 @@ const CreatePost = ({ closeModal }) => {
     for (let index = 0; index < files.length; index++) {
       body.append("images", files[index]);
     }
-
+    console.log(body)
     body.append("content", values);
     body.append("price", price);
     body.append("explicitContent", explicitContent);
+    console.log(body)
     sendPublication({
       endpoint: url,
       postData: body,
