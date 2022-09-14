@@ -12,6 +12,7 @@ import { BiUser, BiChat } from "react-icons/bi";
 import { getCookie } from "cookies-next";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
+import SearchUser from "../components/SearchUser/SearchUser";
 
 const Search = ({posts}) => {
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
@@ -47,13 +48,10 @@ const Search = ({posts}) => {
     <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
       <CreatePost closeModal={closeModalPost} />
     </Modal>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-      <input type="search" placeholder="Descubre publicaciones"/>
+    <div className="layout">
+      <SearchUser/>
       <Discover data={posts}/>
+    </div>
     </Layout>
   );
 };

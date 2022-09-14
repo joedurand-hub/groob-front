@@ -3,7 +3,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 280px;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
   max-height: 40vh;
   border-radius: 5px;
 }
@@ -105,5 +107,32 @@
   border: 2px solid #0077ffd0;
 }
 .field_update_input::placeholder {
+  border: none;
+}
+
+.search {
+  width: 98%;
+  height: 37px;
+  line-height: 37px;
+  border: 2px solid transparent;
+  transition: .3s ease all;
+  border-radius: 5px;
+}
+
+.search:focus {
+  border: none;
+  border: 2px solid rgb(159, 29, 240);
+}
+.search:active {
+  border: none;
+  border: 2px solid rgb(159, 29, 240);
+}
+
+.search:focus-visible {
+  border: none;
+  border: 2px solid rgb(159, 29, 240)
+}
+
+.search::placeholder {
   border: none;
 }
