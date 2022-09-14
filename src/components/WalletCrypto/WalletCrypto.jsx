@@ -1,6 +1,8 @@
+import styles from "./walletCrypto.module.css"
+
 const Wallet = () => {
   return (
-    <div>
+    <div className={styles.container_wallet}>
       {/* Agregar copy to clipboard */}
       <br />
       <h5>Redes y Direcciones de Joel</h5> <br />

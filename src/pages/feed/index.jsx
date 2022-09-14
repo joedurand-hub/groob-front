@@ -20,16 +20,17 @@ const Post = dynamic(() => import("../../components/Post/Post"), {
 });
 
 const Feed = ({ posts }) => {
+  console.log(posts)
   const { theme } = useContext(ThemeContext);
 
-  const postsByDate = useMemo(() => {
-    const postsInFeed = posts.data;
-    return postsInFeed?.sort((a, b) => {
-      if (a.createdAt < b.createdAt) return 1;
-      return -1;
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // const postsByDate = useMemo(() => {
+  //   const postsInFeed = posts.data;
+  //   return postsInFeed?.sort((a, b) => {
+  //     if (a.createdAt < b.createdAt) return 1;
+  //     return -1;
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
@@ -76,7 +77,7 @@ const Feed = ({ posts }) => {
             width: "100%",
           }}
         >
-          <Post data={postsByDate} myId={posts.myId} />
+          <Post data={posts.data} myId={posts.myId} />
         </div>
       ) : (
         <>
