@@ -20,18 +20,8 @@ const Post = dynamic(() => import("../../components/Post/Post"), {
 });
 
 const Feed = ({ posts }) => {
-  console.log(posts)
+  console.log(posts);
   const { theme } = useContext(ThemeContext);
-
-  // const postsByDate = useMemo(() => {
-  //   const postsInFeed = posts.data;
-  //   return postsInFeed?.sort((a, b) => {
-  //     if (a.createdAt < b.createdAt) return 1;
-  //     return -1;
-  //   });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <Layout
@@ -84,7 +74,14 @@ const Feed = ({ posts }) => {
           <br />
           <br />
           <br />
-          <div style={{ textAlign: "center" }}>
+          <div
+            style={{
+              textAlign: "center",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <h6 className={theme ? "light_mode" : "dark_mode"}>
               Aún no hay publicaciones, descubre usuarios en la sección de la
               lupa o invita a tus amigos!

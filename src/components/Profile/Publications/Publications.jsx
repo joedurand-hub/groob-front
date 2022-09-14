@@ -25,13 +25,17 @@ const Publications = ({ id }) => {
       </div>
     );
   }
-  // if (error) {
-  //   toast.error("Ups! No se han podido cargar las publicaciones.", {
-  //     position: "bottom-center",
-  //     autoClose: "3000",
-  //   });
-  //   return <Toaster />;
-  // }
+  if (error) {
+    toast.error("Ups! No se han podido cargar las publicaciones.", {
+      position: "bottom-center",
+      autoClose: "3000",
+    });
+    return (
+    <>
+      <Toaster />
+    </>
+    );
+  }
   return (
     <>
       <div
