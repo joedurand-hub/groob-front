@@ -13,4 +13,4 @@ export const GET_FOLLOWINGS = "/followings"
 export const POST_PUBLICATION = "/post"
 
 // ENDPOINTS IN THE FRONTEND ROUTES
-export const URL = "https://groob.vercel.app" // change this domain in production
+export const URL = "http://localhost:3000" // change this domain in production

@@ -80,12 +80,12 @@ const CreatePost = ({ closeModal }) => {
     if (data && data?.success === true) {
       const reload = setTimeout(
         () => router.push(`/feed/${data.publicationSaved._id}`),
-        1500
+        500
       );
       return () => clearTimeout(reload);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [data]);
   return (
     <>
       <form

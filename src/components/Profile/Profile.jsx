@@ -41,7 +41,7 @@ const Profile = ({ data }) => {
               alt={`Foto de perfil de ${data && data.userName}`}
             />
 
-            <UpdatePicture />
+            <UpdatePicture id={data?._id} />
 
             <div className={styles.container_username}>
               <h1 className={styles.username}>{data?.userName} </h1>{" "}
