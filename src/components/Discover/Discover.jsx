@@ -7,14 +7,18 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 const Discover = ({ data }) => {
     const { theme } = useContext(ThemeContext);
   return (
-    <div className={styles.container_discover}>
+    <div className={
+      theme
+      ? `${styles.container_discover} ${styles.light_mode}`
+      : `${styles.container_discover} ${styles.dark_mode}`
+      }>
       {data?.map((post, index) => {
         return (
           <>
             <Link href={`/feed/${post._id}`} passHref>
               <div key={index} className={styles.discover}>
                 {post.images?.map((image, index) => (
-                  <>
+                  <div key={index}>
                     {index === 0 && (
                       <Image
                         key={index}
@@ -24,7 +28,7 @@ const Discover = ({ data }) => {
                         alt={`Post de ${post.userName}`}
                       />
                     )}
-                  </>
+                  </div>
                 ))}
               </div>
             </Link>
