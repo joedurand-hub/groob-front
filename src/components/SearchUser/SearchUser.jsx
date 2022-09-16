@@ -2,11 +2,9 @@ import React from 'react'
 import Input from '../Input/Input'
 import styles from "./searchUser.module.css"
 
-const SearchUser = () => {
+const SearchUser = ({onSubmit, onChange}) => {
   return (
-    <div className={styles.container_search}>
-        <Input type="search" variant="search" placeholder="Buscá por nombre, descripción..."/>
-    </div>
+        <Input type="text" onChange={onChange} variant="search" placeholder="Buscá por nombre, descripción..."/>
   )
 }
 

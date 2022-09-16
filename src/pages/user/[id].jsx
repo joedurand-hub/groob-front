@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
-import Profile from "../../components/Profile/Profile";
+import Profile from "../../components/ProfileById/ProfileById";
 import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
 import Publications from "../../components/Profile/Publications/Publications";

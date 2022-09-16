@@ -2,6 +2,7 @@ import styles from "./input.module.css";
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { variantToStyles } from "../../helpers/variants";
+import { DebounceInput } from 'react-debounce-input'
 
 const Input = ({
   label,
@@ -30,12 +31,13 @@ const Input = ({
           {label}
         </label>
       )}
-      <input
+      <DebounceInput
         className={
           theme
             ? variantToStyles(styles.field_input_light, styles[variant])
             : variantToStyles(styles.field_input_dark, styles[variant])
         }
+        debounceTimeout={500}
         type={type}
         name={name}
         required={required}
