@@ -8,13 +8,7 @@
   }
 
   .data {
-    font-size: 1em;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+    font-size: 0.9em;
   }
 
   .data_number {
@@ -42,7 +36,7 @@
     }
   
     .data {
-      font-size: 1em;
+      font-size: 0.9em;
       display: flex;
       text-align: center;
       justify-content: center;

@@ -67,10 +67,6 @@
     background: transparent;
     box-shadow: inset 0px -20px 20px 0px #00000038;
   }
-  /* .username {
-    bottom: 10px;
-    position: relative;
-  } */
 
   .verify {
     margin-top: -12px;
@@ -120,6 +116,7 @@
     margin-bottom: 10px;
     display: flex;
     padding-left: 10px;
+    margin-top: 2px;
   }
 
   .container_buttons {

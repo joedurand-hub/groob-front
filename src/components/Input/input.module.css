@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
   max-width: 420px;
   max-height: 40vh;
   border-radius: 5px;
@@ -30,7 +29,7 @@
 
 .field_input:focus {
   width: 255px;
-  border: 2px solid #0077ffd0;
+  border: 2px solid rgb(159, 29, 240);
   outline: none;
   box-shadow: 3px 0 30px rgba(130, 130, 130, 0.2);
   transition: .1s ease all;
@@ -76,40 +75,6 @@
   font-weight: 600;
 }
 
-.field_update_input {
-  width: 255px;
-  max-width: 350px;
-  padding-right: 15px;
-  height: 37px;
-  line-height: 37px;
-  border: none;
-  border: 2px solid transparent;
-  background: transparent;
-  border-bottom: 1px solid grey;
-  transition: .1s ease all;
-}
-
-.field_update_input:focus:not(:focus-visible) {
-  background: transparent;
-  border-radius: 5px;
-}
-.field_update_input:hover {
-  box-shadow: 3px 0 30px rgba(130, 130, 130, 0.2);
-  border: 2px solid #0000004f;
-  border-radius: 5px;
-}
-.field_update_input:focus {
-  border: none;
-  border: 2px solid #0077ffd0;
-}
-.field_update_input:active {
-  border: none;
-  border: 2px solid #0077ffd0;
-}
-.field_update_input::placeholder {
-  border: none;
-}
-
 .search {
   width: 99%;
   height: 37px;
@@ -120,18 +85,23 @@
 }
 
 .search:focus {
-  border: none;
   border: 2px solid rgb(159, 29, 240);
+  outline: none;
+  box-shadow: 3px 0 30px rgba(176, 176, 176, 0.2);
+  transition: .1s ease all;
 }
 .search:active {
-  border: none;
   border: 2px solid rgb(159, 29, 240);
 }
 .search:hover {
-  border: none;
   border: 2px solid rgb(159, 29, 240);
 }
 
 .search:focus:not(:focus-visible) {
+  width: 99%;
   background: transparent;
+}
+
+.search::placeholder {
+  border: none;
 }

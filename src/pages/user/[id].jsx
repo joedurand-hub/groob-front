@@ -5,26 +5,26 @@ import Profile from "../../components/ProfileById/ProfileById";
 import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
 import Publications from "../../components/Profile/Publications/Publications";
+import Menu from "../../components/MenuDropdown/MenuDropdown";
 import Icon from "../../components/Icon/Icon";
 import Modal from "../../components/Modal/Modal";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import { useModal } from "../../hooks/useModal";
-import { MdOutlineNotificationsNone } from "react-icons/md";
 import { BiHome } from "react-icons/bi";
+import { IoMenu } from "react-icons/io5";
 import { BiSearchAlt, BiChat } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
-import { useRouter } from "next/router"
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 
 const ProfileById = ({ data }) => {
-  const router = useRouter()
+  const [open, setOpen] = useState(false);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <Layout
       menuItem={
         <>
           <Icon>
-            <MdOutlineNotificationsNone onClick={() => router.push("/notifications")} />
+          <IoMenu onClick={() => setOpen(!open)} />
           </Icon>
         </>
       }
@@ -51,8 +51,14 @@ const ProfileById = ({ data }) => {
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
         <CreatePost closeModal={closeModalPost} />
       </Modal>
-      <Profile data={data.profileData} id={data.myId}/>
-      <Publications id={data?.profileData._id}/>
+      {open ? (
+        <Menu valueSwitch={data?.explicitContent} id={data?._id} />
+      ) : (
+        <>
+          <Profile data={data?.profileData} id={data?.myId} />
+          <Publications id={data?.profileData._id}/>
+        </>
+      )}
     </Layout>
   );
 };

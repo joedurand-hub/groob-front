@@ -5,21 +5,24 @@ import Image from "next/image";
 
 const User = ({ data, index }) => {
   return (
-    <Link href={`/data/${data._id}`} passHref>
-      <li key={index}>
-        <div>
-          <Image
-            src={data.profilePicture.secure_url}
-            width={50}
-            height={50}
-            alt={`Foto de perfil de ${data.dataName}`}
-          />
-          <h4>
-            <strong>{data.userName}</strong>
-          </h4>
-        </div>
-      </li>
-    </Link>
+      <Link href={`/data/${data._id}`} passHref>
+        <li key={index}>
+          <div className={styles.users_found}>
+            <Image
+              className={styles.users_profile}
+              src={data.profilePicture.secure_url}
+              width={65}
+              height={65}
+              alt={`Foto de perfil de ${data.dataName}`}
+            />
+            <h4 className={styles.users_userName}>
+              <strong>
+                {data.userName[0].toUpperCase() + data.userName.substring(1)}
+              </strong>
+            </h4>
+          </div>
+        </li>
+      </Link>
   );
 };
 

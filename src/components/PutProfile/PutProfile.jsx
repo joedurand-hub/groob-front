@@ -29,7 +29,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           name={"userName"}
           type="text"
           placeholder={"Nombre de usuario"}
-          variant="field_update_input"
           onChange={onChange}
           value={state?.userName}
         />
@@ -38,7 +37,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           name={"description"}
           type="text"
           placeholder={"Descripción"}
-          variant="field_update_input"
           onChange={onChange}
           value={state?.description}
         />
@@ -47,7 +45,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           name={"email"}
           type="email"
           placeholder={"Email"}
-          variant="field_update_input"
           onChange={onChange}
           value={state?.email}
         />
@@ -56,7 +53,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           name={"age"}
           type="date"
           placeholder={"Edad"}
-          variant="field_update_input"
           onChange={onChange}
           // value={state?.age}
         />
@@ -65,7 +61,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           name={"firstName"}
           type="text"
           placeholder={"Nombre"}
-          variant="field_update_input"
           onChange={onChange}
           value={state?.firstName}
         />
@@ -74,7 +69,6 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           name={"lastName"}
           type="text"
           placeholder={"Apellido"}
-          variant="field_update_input"
           onChange={onChange}
           value={state?.lastName}
         />

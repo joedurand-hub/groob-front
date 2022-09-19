@@ -71,20 +71,15 @@ const Feed = ({ posts }) => {
         </div>
       ) : (
         <>
-          <br />
-          <br />
-          <br />
           <div
             style={{
               textAlign: "center",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              marginTop: "50%",
             }}
           >
             <h6 className={theme ? "light_mode" : "dark_mode"}>
-              Aún no hay publicaciones, descubre usuarios en la sección de la
-              lupa o invita a tus amigos!
+              Aún no hay publicaciones, crea un post, descubre usuarios en la sección de la
+              lupa e invita a tus amigos!
             </h6>
           </div>
         </>

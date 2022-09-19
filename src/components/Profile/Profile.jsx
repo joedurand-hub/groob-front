@@ -44,7 +44,7 @@ const Profile = ({ data }) => {
             <UpdatePicture id={data?._id} />
 
             <div className={styles.container_username}>
-              <h1 className={styles.username}>{data?.userName} </h1>{" "}
+              <h1>{data?.userName[0].toUpperCase() + data?.userName.substring(1)} </h1>{" "}
               {data && data?.verified ? (
                 <GoVerified className={styles.verify} />
               ) : null}
@@ -68,9 +68,7 @@ const Profile = ({ data }) => {
               <Followers follows={data?.followers} />
             </div>
           </div>
-          <br />
         </header>
-
         <div
           className={
             data?.description

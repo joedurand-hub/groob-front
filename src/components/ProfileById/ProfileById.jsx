@@ -17,7 +17,8 @@ import CryptoWallet from "../WalletCrypto/WalletCrypto";
 import Followers from "./Followers/Followers";
 import Followings from "./Followings/Followings";
 
-const Profiles = ({ data, id }) => {
+const ProfileById = ({ data, id }) => {
+  console.log(data)
   const [follow, setFollow] = useState(false)
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
@@ -47,7 +48,7 @@ const Profiles = ({ data, id }) => {
           </div>
           <div className={styles.container_user_data}>
             <div>
-              <h3>{data?.username}</h3>
+              <h3>{data?.userName[0].toUpperCase() + data?.userName.substring(1)}</h3>
             </div>
 
             <div className={styles.user_data}>
@@ -63,13 +64,13 @@ const Profiles = ({ data, id }) => {
                       : data.publications?.length}
                   </strong>
                 </span>
-                <span className={styles.data}>Publicaciones</span>
+                { data?.publications.length === 1 && <span className={styles.data}>Publicación</span>}
+                { data?.publications.length === 0 || data?.publications.length > 1 && <span className={styles.data}>Publicaciones</span>}
               </div>
 
               <Followings followings={data?.followings} />
             </div>
           </div>
-          <br />
         </header>
 
         <div className={styles.container_user_description}>
@@ -97,4 +98,4 @@ const Profiles = ({ data, id }) => {
   );
 };
 
-export default Profiles;
+export default ProfileById;

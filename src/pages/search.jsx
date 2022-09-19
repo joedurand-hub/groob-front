@@ -15,6 +15,7 @@ import { getCookie } from "cookies-next";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
 import SearchUser from "../components/SearchUser/SearchUser";
+import Container from "../components/SearchUser/Container/Container";
 import User from "../components/SearchUser/User/User";
 
 const Search = ({ posts }) => {
@@ -76,15 +77,16 @@ const Search = ({ posts }) => {
       </Modal>
       <div className="layout">
         <SearchUser onChange={handleInputChange} />
+
         {query !== "" && results.length > 0 ? (
-          <>
+        <Container>
             {results.slice(0, 15)?.map((user, index) => (
               <User data={user} index={index} />
-            ))}
-          </>
+              ))}
+          </Container>
         ) : (
           <Discover data={posts} />
-        )}
+          )}
       </div>
     </Layout>
   );
