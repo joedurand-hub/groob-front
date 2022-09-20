@@ -1,8 +1,8 @@
 import React from "react";
 import { AiOutlineMore } from "react-icons/ai";
-import Icon from "../../Icon/Icon";
-import useDelete from "../../../hooks/useDelete";
-import { ENDPOINT } from "../../../helpers/constants";
+import Icon from "../PostIcons/Icon";
+import useDelete from "../../hooks/useDelete";
+import { ENDPOINT } from "../../helpers/constants";
 
 const MoreOptions = ({ idBydeletePost, userId }) => {
   const { data, pending, error, deletePostById } = useDelete();

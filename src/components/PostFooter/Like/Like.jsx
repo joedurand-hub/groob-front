@@ -1,7 +1,7 @@
-import Icon from "../../Icon/Icon";
 import { useState, memo } from "react";
-import { BsHeartFill } from "react-icons/bs";
-import useAuthPost from "../../../../hooks/useAuthPost";
+import { BsHeartFill, BsHeart } from "react-icons/bs";
+import Icon from "../../PostIcons/Icon";
+import useAuthPost from "../../../hooks/useAuthPost";
 import styles from "./likes.module.css";
 
 const Like = ({ id, likes }) => {
@@ -28,7 +28,7 @@ const Like = ({ id, likes }) => {
     <>
       {data === undefined && ((liked === false) === dislike) === false && (
         <Icon>
-          <BsHeartFill
+          <BsHeart
             className={styles.like}
             onClick={() => {
               console.log("click LIKE");

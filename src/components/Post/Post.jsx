@@ -1,14 +1,14 @@
 import styles from "./post.module.css";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { URL } from "../../helpers/constants";
 import Link from "next/link";
 import Image from "next/image";
-import FooterPost from "./FooterPost/FooterPost";
-import MoreOptions from "./MoreOptions/MoreOptions";
+import MoreOptions from "../MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 import Slider from "../Slider/Slider";
+import PostFooter from "../PostFooter/PostFooter";
 
 const Posts = ({ data, myId }) => {
   const { theme } = useContext(ThemeContext);
@@ -76,22 +76,22 @@ const Posts = ({ data, myId }) => {
                 <Slider allImages={images} />
               </div>
               <>
-                <FooterPost price={price && price} id={_id} likes={likes} />
+                <PostFooter price={price && price} id={_id} likes={likes} />
               </>
               <Comments allComments={comments.slice(0, 2)} />
-              <Link
-                href={`${URL}/feed/${_id}`}
-                style={{ textDecoration: "none" }}
-                passHref
-              >
                 <>
                   {comments.length >= 3 ? (
+                      <Link
+                        href={`${URL}/feed/${_id}`}
+                        style={{ textDecoration: "none" }}
+                        passHref
+                      >
                     <p className={styles.post_view_more}>
                       <strong>Ver más...</strong>
                     </p>
+                  </Link>
                   ) : null}
                 </>
-              </Link>
             </article>
           )
         )}

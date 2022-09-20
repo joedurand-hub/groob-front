@@ -1,30 +1,30 @@
 import { useState } from "react";
-import styles from "./footerPost.module.css";
+import styles from "./postFooter.module.css";
 import Like from "./Like/Like";
-import Comment from "./Comment/Comment";
 import Share from "./Share/Share";
-import Price from "./Price/Price";
-import Icon from "../Icon/Icon";
-import Textarea from "../../Textarea/Textarea";
-import { useEffect } from "react";
+import Icon from "../PostIcons/Icon";
 import { MdInsertComment } from "react-icons/md";
+import InputComment from "../PostComment/PostComment";
 
-const FooterPost = ({ likes, price, id }) => {
-
-  const handleLikes = () => {};
-
+const PostFooter = ({ likes, price, id }) => {
+  console.log(id)
+  
   const [comment, setComment] = useState(false);
+  const [textComment, setTextComment] = useState("");
 
-  useEffect(() => {}, []);
+  
+  const handleComment = (e) => {
+    setTextComment(e)
+  }
 
   return (
     <>
       {price ? (
         <div className={styles.item_footer_post}>
           <div className={styles.container}>
-            <Like id={id} />
+            <Like id={id} likes={likes}/>
             <Icon>
-              <Comment
+              <MdInsertComment
                 onClick={() => {
                   setComment(!comment);
                 }}
@@ -37,13 +37,10 @@ const FooterPost = ({ likes, price, id }) => {
           </div>
         </div>
       ) : (
-        <div className={styles.container}>
           <div className={styles.item_footer_post}>
-            <Icon>
+        <div className={styles.container}>
               <Like id={id} likes={likes}/>
-            </Icon>
             <h6>{likes === 0 ? null : likes}</h6>
-          </div>
           <Icon>
             <MdInsertComment onClick={() => setComment(!comment)} />
           </Icon>
@@ -51,16 +48,16 @@ const FooterPost = ({ likes, price, id }) => {
             <Share />
           </Icon>
         </div>
+          </div>
       )}
 
       {comment && (
         <>
-          <Textarea placeholder="|" />
-          <button>Enviar</button>
+          <InputComment sendText={handleComment} text={textComment} id={id} />
         </>
       )}
     </>
   );
 };
 
-export default FooterPost;
+export default PostFooter;

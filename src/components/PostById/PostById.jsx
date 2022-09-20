@@ -4,13 +4,13 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { URL } from "../../helpers/constants";
 import Link from "next/link";
 import Image from "next/image";
-import FooterPost from "./FooterPost/FooterPost";
-import MoreOptions from "./MoreOptions/MoreOptions";
+import PostFooter from "../PostFooter/PostFooter";
+import MoreOptions from "../MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 import Slider from "../Slider/Slider";
 
-const Posts = ({ data }) => {
+const PostById = ({ data }) => {
   const {
     content,
     price,
@@ -23,6 +23,7 @@ const Posts = ({ data }) => {
     profilePicture,
     userName,
   } = data;
+  console.log(_id)
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -65,7 +66,7 @@ const Posts = ({ data }) => {
             <Slider allImages={images}/>
         </div>
         <>
-          <FooterPost price={price && price} id={_id} likes={likes} />
+          <PostFooter price={price && price} id={_id} likes={likes} />
         </>
         <Comments allComments={comments} />
       </article>
@@ -73,4 +74,4 @@ const Posts = ({ data }) => {
   );
 };
 
-export default Posts;
+export default PostById;
