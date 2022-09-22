@@ -33,6 +33,7 @@ const Search = ({ posts }) => {
       setResults(data);
     };
     if (query !== "") searchQuery();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   console.log(results);
@@ -81,7 +82,7 @@ const Search = ({ posts }) => {
         {query !== "" && results.length > 0 ? (
         <Container>
             {results.slice(0, 15)?.map((user, index) => (
-              <User data={user} index={index} />
+              <User key={index} data={user} index={index} />
               ))}
           </Container>
         ) : (

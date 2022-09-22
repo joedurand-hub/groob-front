@@ -3,10 +3,10 @@ import styles from "./user.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const User = ({ data, index }) => {
+const User = ({ data}) => {
   return (
       <Link href={`/data/${data._id}`} passHref>
-        <li key={index}>
+        <li>
           <div className={styles.users_found}>
             <Image
               className={styles.users_profile}
