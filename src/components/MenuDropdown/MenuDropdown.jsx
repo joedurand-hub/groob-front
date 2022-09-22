@@ -2,7 +2,7 @@ import React from 'react'
 import { getCookie } from 'cookies-next'
 import MenuItem from '../MenuItem/MenuItem'
 import Anchor from '../Anchor/Anchor'
-import Icon from '../Post/Icon/Icon'
+import Icon from '../Icon/Icon'
 import ThemeSwitch from "../Switch/ThemeSwitch"
 import ExplicitSwitch from "../Switch/ExplicitSwitch"
 import styles from "./menuDropdown.module.css"
