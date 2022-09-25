@@ -100,13 +100,24 @@
 }
 
 .cancel {
-  background: #ee0f0f;
-  color: rgb(243, 243, 243);
+  background: transparent;
+  color: #ee0f0fd2;
 }
 
 .cancel:hover {
   cursor: pointer;
-  background: #ee0f0fd2;
+  color: #ff0000d2;
+  border: 1px solid #ff0000d2;
+}
+
+.cancel:active {
+  color: #ff0000d2;
+  border: 1px solid #ff0000d2;
+}
+
+.cancel:focus {
+  color: #ff0000d2;
+  border: 1px solid #ff0000d2;
 }
 
 .disabled {
