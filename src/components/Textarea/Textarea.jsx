@@ -8,6 +8,8 @@ const Textarea = ({variant, onChange, placeholder, maxLength}) => {
   return (
     <>
       <textarea
+      autofocus
+      autoFocus
       onChange={onChange}
       placeholder={placeholder}
       maxLength={maxLength}

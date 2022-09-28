@@ -1,8 +1,36 @@
 .container {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 2px;
 }
+
+.send {
+    color: rgb(159, 29, 240)
+}
+
+.disabled {
+    color: grey;
+    pointer-events: none;
+    box-shadow: none;
+    background: transparent;
+    cursor: not-allowed !important;
+  }
+  
+  .disabled:hover {
+    cursor: not-allowed !important;
+    background: transparent;
+  }
+
+  .disabled:focus {
+    cursor: not-allowed !important;
+    background: none;
+  }
+
+  .disabled:active {
+    cursor: not-allowed !important;
+    background: none;
+  }
+  

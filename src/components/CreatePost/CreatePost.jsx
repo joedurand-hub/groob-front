@@ -36,7 +36,7 @@ const CreatePost = ({ closeModal }) => {
 
   const handleExplicitContent = (e) => {
     const value = e.target.checked;
-    setExplicitContent(value)
+    setExplicitContent(value);
   };
 
   const handleInputPriceChange = (e) => {
@@ -62,11 +62,11 @@ const CreatePost = ({ closeModal }) => {
     for (let index = 0; index < files.length; index++) {
       body.append("images", files[index]);
     }
-    console.log(body)
+    console.log(body);
     body.append("content", values);
     body.append("price", price);
     body.append("explicitContent", explicitContent);
-    console.log(body)
+    console.log(body);
     sendPublication({
       endpoint: url,
       postData: body,
@@ -124,16 +124,17 @@ const CreatePost = ({ closeModal }) => {
         />
         <div className={styles.container_price_and_nsfw}>
           <div className={styles.container_price}>
-            ¿Es producto o servicio?{" "}
+
+            <span className={styles.price_title}>Precio</span>
+            <span className={styles.price_title_optional}>
+              {"("}opcional{")"}
+            </span>
             <input
-              placeholder="Precio: $000"
+              className={theme ? `${styles.price_input} ${styles.price_light}` : `${styles.price_input} ${styles.price_dark}`}
+              placeholder="1000"
               type="number"
               onChange={handleInputPriceChange}
-            />
-          </div>
-          <div className={styles.container_nsfw}>
-            ¿Contiene NSFW?{" "}
-            <input type="checkbox" value={explicitContent} onChange={handleExplicitContent} />
+              />
           </div>
         </div>
         <div className={styles.container_form_buttons}>
@@ -143,7 +144,7 @@ const CreatePost = ({ closeModal }) => {
                 <BsFillImageFill />
               </Icon>
             </label>
-            <p className={styles.files_length}>{files.length}/7</p>
+            <p className={styles.files_length}>{files.length} {files.length > 0 ? "/7" : null}</p>
           </div>
           <input
             type="file"
@@ -153,6 +154,17 @@ const CreatePost = ({ closeModal }) => {
             className={styles.input_upload}
             onChange={(e) => handleFilesLoad(e.target.files)}
           />
+          <div className={styles.container_nsfw}>
+            <input
+              type="checkbox"
+              id="nsfw"
+              value={explicitContent}
+              onChange={handleExplicitContent}
+            />
+            <label htmlFor="nsfw">
+              <strong>¿NSFW?</strong>
+            </label>
+          </div>
           <div className={styles.container_send_post}>
             <p className={styles.character_counter}>{lengthValue}/500</p>
             {pending ? (
