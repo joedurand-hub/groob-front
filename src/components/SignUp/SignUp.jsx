@@ -13,7 +13,7 @@ import logo from "../../../public/Logo.png";
 import Image from "next/image";
 
 export const SignUp = () => {
-  const url = "http://localhost:8080/signup";
+  const url = "https://groob-backend-production.up.railway.app/signup";
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
 
