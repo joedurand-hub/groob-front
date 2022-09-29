@@ -1,16 +1,22 @@
-import styles from "./walletCrypto.module.css"
+import styles from "./walletCrypto.module.css";
+import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
 
-const Wallet = () => {
+const Wallet = ({ userName, coin, red, address }) => {
   return (
     <div className={styles.container_wallet}>
-      {/* Agregar copy to clipboard */}
-      <br />
-      <h5>Redes y Direcciones de Joel</h5> <br />
-      <strong>Moneda:</strong> USDT <br />
-      <strong>Red:</strong> Ethereum <br />
-      <p>
-        <strong>Address:</strong> 0000x003100027jF97894c0081250r1X912NE7
-      </p>
+      <>
+        <br />
+        <h5>Redes y Direcciones de {userName}</h5> <br />
+        <strong>Moneda:</strong> {coin}
+        <br />
+        <strong>Red:</strong> {red} <br />
+        <p>
+          <strong>Address:</strong> {address}
+        </p>
+      </>
+      <div>
+        <CopyToClipboard value={address}/>
+      </div>
     </div>
   );
 };

@@ -1,14 +1,22 @@
-import styles from "./wallet.module.css"
+import styles from "./wallet.module.css";
 
-const Wallet = () => {
+const Wallet = ({ userName, entidad, CBU, CVU, alias }) => {
   return (
     <div className={styles.container_wallet}>
       {/* Agregar copy to clipboard */}
       <br />
-      <h5>Cuentas bancarias y billeteras</h5> <br />
-      <strong>Entidad:</strong> Mercado Pago <br />
-      <strong>CVU:</strong> 0000003100027978940501 <br />
-      <strong>ALIAS:</strong> joe.ars.mp <br />
+      <h5>Cuentas bancarias y billeteras de {userName}</h5> <br />
+      <strong>Entidad:</strong> {entidad} <br />
+      {CBU ? (
+        <div>
+          <strong>CBU:</strong> <p>{CBU}</p>
+        </div>
+      ) : (
+        <div>
+          <strong>CVU:</strong> <p>{CVU}</p>
+        </div>
+      )}
+      <strong>ALIAS:</strong> {alias} <br />
     </div>
   );
 };
