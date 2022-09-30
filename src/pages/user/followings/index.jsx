@@ -17,10 +17,10 @@ export default Followings;
 
 export async function getServerSideProps({req, res}) {
   try {
-    const token = getCookie("authToken", {req, res});
+    const token = getCookie("authtoken", {req, res});
     const response = await fetch(`http://localhost:8080/followings`, {
       headers: { 
-        "authToken": token 
+        "authtoken": token 
       }}, {
         withCredentials: true
       })

@@ -3,7 +3,7 @@ import { getCookie } from "cookies-next";
 import axios from "axios";
 
 const useAuthPost = () => {
-  const token = getCookie("authToken")
+  const token = getCookie("authtoken")
   const [postData, setPostData] = useState({
     data: undefined,
     pending: false,
@@ -18,7 +18,7 @@ const useAuthPost = () => {
     });
     return axios.post(`${endpoint}`, {...postData}, {
       headers: { 
-        "authToken": token 
+        "authtoken": token 
       }}, {withCredentials: true} )
     .then((response) => {
         setPostData({ 

@@ -83,28 +83,3 @@ const UpdateProfile = () => {
 };
 
 export default UpdateProfile;
-
-// export async function getServerSideProps({ req, res }) {
-//   try {
-//     const token = getCookie("authToken", { req, res });
-//     const response = await fetch(
-//       `http://localhost:8080/profile`,
-//       {
-//         headers: {
-//           authToken: token,
-//         },
-//       },
-//       {
-//         withCredentials: true,
-//       }
-//     );
-//     const data = await response.json();
-//     return {
-//       props: {
-//         data,
-//       },
-//     };
-//   } catch (error) {
-//     console.table(error);
-//   }
-// }

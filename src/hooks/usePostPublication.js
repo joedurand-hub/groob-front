@@ -17,7 +17,7 @@ const usePostPublication = () => {
     
     return axios.post(`${endpoint}`, postData, {
       headers: { 
-        "authToken": token, 
+        "authtoken": token, 
       }}, {withCredentials: true} )
     .then((response) => {
         setPostData({ 

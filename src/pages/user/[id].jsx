@@ -67,13 +67,13 @@ export default ProfileById;
 
 export async function getServerSideProps({ req, res, query }) {
   try {
-    const token = getCookie("authToken", { req, res });
+    const token = getCookie("authtoken", { req, res });
     const {id} = query;
     const response = await fetch(
       `http://localhost:8080/profile/${id}`,
       {
         headers: {
-          authToken: token,
+          authtoken: token,
         },
       },
       {

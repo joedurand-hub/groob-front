@@ -19,7 +19,7 @@ import Container from "../components/SearchUser/Container/Container";
 import User from "../components/SearchUser/User/User";
 
 const Search = ({ posts }) => {
-  const token = getCookie("authToken");
+  const token = getCookie("authtoken");
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
 
@@ -27,7 +27,7 @@ const Search = ({ posts }) => {
     const searchQuery = async () => {
       const { data } = await axios.get(
         `http://localhost:8080/search?input=${query}`,
-        { headers: { authToken: token } },
+        { headers: { authtoken: token } },
         { withCredentials: true }
       );
       setResults(data);
@@ -97,13 +97,13 @@ export default Search;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const token = getCookie("authToken", { req, res });
+    const token = getCookie("authtoken", { req, res });
     const response = await fetch(
       `http://localhost:8080/discover`,
       {
         method: "GET",
         headers: {
-          authToken: token,
+          authtoken: token,
           "Access-Control-Allow-Credentials": true,
         },
       },

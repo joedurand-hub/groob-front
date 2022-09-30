@@ -9,7 +9,7 @@ import { io } from "socket.io-client";
 import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
 const Messages = ({ datas }) => {
-  const token = getCookie("authToken");
+  const token = getCookie("authtoken");
   const [messages, setMessages] = useState([]);
   const [chat, setChat] = useState([]);
   const [newMessage, setNewMessage] = useState("");
@@ -24,7 +24,7 @@ const Messages = ({ datas }) => {
       const getMessages = async () => {
         const { data } = await axios.get(
           `http://localhost:8080/message/${datas?.chat._id}`,
-          { headers: { authToken: token } },
+          { headers: { authtoken: token } },
           { withCredentials: true }
         );
 
@@ -51,7 +51,7 @@ const Messages = ({ datas }) => {
           senderId: messages.myId,
           text: newMessage,
         },
-        { headers: { authToken: token } },
+        { headers: { authtoken: token } },
         { withCredentials: true }
       );
       setChat([...chat, data]);
@@ -121,13 +121,13 @@ export default Messages;
 
 export async function getServerSideProps({ req, res, query }) {
   try {
-    const token = getCookie("authToken", { req, res });
+    const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
       `http://localhost:8080/chat/${id}`,
       {
         headers: {
-          authToken: token,
+          authtoken: token,
         },
       },
       {

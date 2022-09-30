@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
 
 const useRequest = (url) => {
-    const token = getCookie("authToken")
+    const token = getCookie("authtoken")
     const [data, setData] = useState(undefined)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(undefined)
     useEffect(() => {
         setLoading(true)
-        axios.get(`${url}`, { headers: { authToken: token } },
+        axios.get(`${url}`, { headers: { authtoken: token } },
             { withCredentials: true })
             .then(response => {
                 setData(response.data)
