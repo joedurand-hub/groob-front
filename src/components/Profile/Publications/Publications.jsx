@@ -10,7 +10,7 @@ const Publications = ({ id }) => {
   console.log(id)
   const { theme } = useContext(ThemeContext);
   const { data, loading, error } = useRequest(
-    `http://localhost:8080/posts/${id}`
+    `https://groob-backend-production.up.railway.app/posts/${id}`
   );
 
   if (loading) {

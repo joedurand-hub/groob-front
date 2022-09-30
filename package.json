@@ -2,6 +2,7 @@
   "name": "groob-front",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://www.groob.com.ar", 
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -99,7 +99,6 @@ export async function getServerSideProps({ req, res }) {
         method: "GET",
         headers: {
           authToken: token,
-          "Access-Control-Allow-Credentials": true,
         },
       },
       { withCredentials: true }
