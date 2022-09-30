@@ -12,7 +12,7 @@ import {Toaster, toast} from "react-hot-toast"
 import Loader from "../Loader/Loader";
 import { ENDPOINT } from "../../helpers/constants";
 import { useRouter } from "next/router"
-
+import { setCookie } from 'cookies-next';
 
 export const SignIn = () => {
   const url = `https://groob-backend-production.up.railway.app/login`;
@@ -52,6 +52,12 @@ export const SignIn = () => {
   
   useEffect(() => {
     if(data && data.message === "Success") {
+      setCookie('authtoken', data.token, {
+        maxAge: 9000000,
+        httpOnly: true, 
+        sameSite: 'none',
+        secure: true,
+      });
      router.push("/feed")
     } 
         // eslint-disable-next-line react-hooks/exhaustive-deps
