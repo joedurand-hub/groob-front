@@ -93,15 +93,13 @@ export default Feed;
 export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
-    const response = await fetch(
-      `https://groob-backend-production.up.railway.app/posts`,
-      {
+    const response = await fetch(`https://groob-backend-production.up.railway.app/posts`, {
         method: "GET",
         headers: {
           authtoken: token,
         },
-      },
-      { credentials: include }
+        credentials: include
+      }
     );
     const posts = await response.json();
     return {
