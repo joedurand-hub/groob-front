@@ -159,11 +159,10 @@ export const SignUp = () => {
             type="password"
             placeholder="Contraseña"
             {...register("password", {
-              minLength: 8,
-              maxLength: 32,
+              minLength: 6,
+              maxLength: 16,
               required: true,
-              pattern:
-                /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9 \S]{8,32}$/,
+              pattern: regex(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/),
             })}
           />
           {errors.password?.type === "required" && (
@@ -175,19 +174,19 @@ export const SignUp = () => {
           {errors.password?.type === "minLength" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña debe tener más de 8 caracteres.{" "}
+              La contraseña debe tener más de 6 caracteres.{" "}
             </p>
           )}
           {errors.password?.type === "maxLength" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña debe ser menor a 32 <br /> caracteres.{" "}
+              La contraseña debe ser menor a 16 <br /> caracteres.{" "}
             </p>
           )}
           {errors.passowrd?.type === "pattern" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña debe contener entre 8 y 32 caracteres y al menos 1
+              La contraseña debe contener entre 6 y 16 caracteres y al menos 1
               caracter alfanumérico.{" "}
             </p>
           )}
