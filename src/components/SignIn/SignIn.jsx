@@ -19,7 +19,6 @@ export const SignIn = () => {
   // const url = `http://localhost:8080/login`;
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-  console.log(data)
   const router = useRouter()
   const {
     register,
@@ -53,8 +52,8 @@ export const SignIn = () => {
 
   useEffect(() => {
     if(data && data.message === "Success") {
-      // const token = data.token
-      // setCookie('authtoken', token)
+      const token = data.token
+      setCookie('authtoken', token)
      router.push("/feed")
     } 
         // eslint-disable-next-line react-hooks/exhaustive-deps

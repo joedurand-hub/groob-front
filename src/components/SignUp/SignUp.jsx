@@ -11,6 +11,7 @@ import styles from "./signup.module.css";
 import inputField from "../Input/input.module.css";
 import logo from "../../../public/Logo.png";
 import Image from "next/image";
+import { setCookie } from 'cookies-next';
 
 export const SignUp = () => {
   const url = "https://groob-backend-production.up.railway.app/signup";
@@ -38,8 +39,12 @@ export const SignUp = () => {
   };
 
   useEffect(() => {
-    data && data.message === "Success" && router.push("/user");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    if(data && data.message === "Success") {
+    const token = data.token
+    setCookie('authtoken', token)
+    router.push("/user");
+    }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   return (
     <div
