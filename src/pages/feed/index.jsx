@@ -101,7 +101,7 @@ export async function getServerSideProps({ req, res }) {
           authtoken: token,
         },
       },
-      { withCredentials: true }
+      { credentials: include }
     );
     const posts = await response.json();
     return {

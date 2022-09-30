@@ -14,6 +14,7 @@ import Image from "next/image";
 
 export const SignUp = () => {
   const url = "https://groob-backend-production.up.railway.app/signup";
+  // const url = "http://localhost:8080/signup";
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
 
@@ -162,19 +163,19 @@ export const SignUp = () => {
               minLength: 6,
               maxLength: 16,
               required: true,
-              pattern: regex(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/),
+              pattern: /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9 \S]{6,16}$/,
             })}
           />
           {errors.password?.type === "required" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña no puede estar vacía.{" "}
+              La contraseña no puede estar vacía y debe tener más de 6 caracteres.{" "}
             </p>
           )}
           {errors.password?.type === "minLength" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña debe tener más de 6 caracteres.{" "}
+              La contraseña debe tener más de 8 caracteres.{" "}
             </p>
           )}
           {errors.password?.type === "maxLength" && (
