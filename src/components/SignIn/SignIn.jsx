@@ -52,8 +52,12 @@ export const SignIn = () => {
   };
   if(data && data.message === "Success") {
     const token = data.token
-    setCookie('authtoken', token)
-    setCookie('prueba', "hola")
+    setCookie('authtoken', token, {
+      maxAge: 9000000,
+      httpOnly: true, 
+      sameSite: 'none',
+      secure: true,
+    })
   }
   useEffect(() => {
     if(data && data.message === "Success") {
