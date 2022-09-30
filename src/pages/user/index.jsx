@@ -74,9 +74,7 @@ export async function getServerSideProps({ req, res }) {
         headers: {
           authtoken: token,
         },
-      },
-      {
-        withCredentials: true,
+        credentials: 'include'
       }
     );
     const data = await response.json();
