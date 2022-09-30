@@ -7,7 +7,7 @@ import NavItem from "../../components/NavItem/NavItem";
 import Modal from "../../components/Modal/Modal";
 import { useModal } from "../../hooks/useModal";
 import CreatePost from "../../components/CreatePost/CreatePost";
-import { getCookie } from "cookies-next";
+import { setCookie, getCookie } from "cookies-next";
 import { TiHome } from "react-icons/ti";
 import { BiSearchAlt } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";

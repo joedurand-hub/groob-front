@@ -53,8 +53,8 @@ export const SignIn = () => {
   if(data && data.message === "Success") {
     const token = data.token
     setCookie('authtoken', token)
+    setCookie('prueba', "hola")
   }
-  setCookie('prueba', "hola")
   useEffect(() => {
     if(data && data.message === "Success") {
       const token = data.token
