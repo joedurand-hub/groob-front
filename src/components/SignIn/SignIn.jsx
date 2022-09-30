@@ -50,15 +50,15 @@ export const SignIn = () => {
   const handleNewPassword = () => {
     //method POST to /reset-password
   };
-  
+  if(data && data.message === "Success") {
+    const token = data.token
+    setCookie('authtoken', token)
+  }
+  setCookie('prueba', "hola")
   useEffect(() => {
     if(data && data.message === "Success") {
-      setCookie('authtoken', data.token, {
-        maxAge: 9000000,
-        httpOnly: true, 
-        sameSite: 'none',
-        secure: true,
-      });
+      const token = data.token
+      setCookie('authtoken', token)
      router.push("/feed")
     } 
         // eslint-disable-next-line react-hooks/exhaustive-deps
