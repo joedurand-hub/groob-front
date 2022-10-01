@@ -18,7 +18,7 @@ const CreatePost = ({ closeModal }) => {
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
 
-  const url = `${ENDPOINT}${POST_PUBLICATION}`;
+  const url = `${ENDPOINT}/${POST_PUBLICATION}`;
 
   const [values, setValues] = useState("");
   const [lengthValue, setLengthValue] = useState(0);
