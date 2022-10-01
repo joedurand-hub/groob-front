@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const User = ({ data}) => {
   return (
-      <Link href={`/data/${data._id}`} passHref>
+      <Link href={`/user/${data._id}`} passHref>
         <li>
           <div className={styles.users_found}>
             <Image
