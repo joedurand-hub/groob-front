@@ -43,7 +43,7 @@ const UpdatePicture = ({ id }) => {
           autoClose: "1000",
         })}
       {error !== undefined &&
-        toast.success("¡Ups! Ha habido un error.", {
+        toast.error("¡Ups! Ha habido un error.", {
           position: "top-center",
           autoClose: "1000",
         })}
