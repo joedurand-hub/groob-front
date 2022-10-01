@@ -15,8 +15,7 @@ import { useRouter } from "next/router"
 import { setCookie } from 'cookies-next';
 
 export const SignIn = () => {
-  const url = `https://groob-backend-production.up.railway.app/login`;
-  // const url = `http://localhost:8080/login`;
+  const URL = `${ENDPOINT}/login`
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
   const router = useRouter()
@@ -29,7 +28,7 @@ export const SignIn = () => {
   const onSubmit = async (data) => {
     if(data.text.includes("@")) {
       sendData({
-        endpoint: url,
+        endpoint: URL,
         postData: {
           email: data.text,
           password: data.password,
@@ -37,7 +36,7 @@ export const SignIn = () => {
       });
     } else {
       sendData({
-        endpoint: url,
+        endpoint: URL,
         postData: {
           userName: data.text,
           password: data.password,

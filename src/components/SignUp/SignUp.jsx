@@ -12,10 +12,9 @@ import inputField from "../Input/input.module.css";
 import logo from "../../../public/Logo.png";
 import Image from "next/image";
 import { setCookie } from 'cookies-next';
+import { ENDPOINT } from "../../helpers/constants"
 
 export const SignUp = () => {
-  const url = "https://groob-backend-production.up.railway.app/signup";
-  // const url = "http://localhost:8080/signup";
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
 
@@ -29,7 +28,7 @@ export const SignUp = () => {
 
   const onSubmit = async (data) => {
     sendData({
-      endpoint: url,
+      endpoint: ENDPOINT,
       postData: {
         userName: data.userName,
         email: data.email,
