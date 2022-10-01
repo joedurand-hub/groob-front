@@ -28,7 +28,7 @@ export const SignUp = () => {
 
   const onSubmit = async (data) => {
     sendData({
-      endpoint: ENDPOINT,
+      endpoint: `${ENDPOINT}/signup`,
       postData: {
         userName: data.userName,
         email: data.email,

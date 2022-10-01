@@ -14,7 +14,7 @@ import Loader from "../Loader/Loader";
 import usePostPublication from "../../hooks/usePostPublication";
 
 const CreatePost = ({ closeModal }) => {
-  const token = getCookie("authToken");
+  const token = getCookie("authtoken");
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
 

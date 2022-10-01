@@ -3,7 +3,7 @@ import axios from "axios";
 import { getCookie } from "cookies-next";
 
 const usePut = () => {
-  const token = getCookie("authToken")
+  const token = getCookie("authtoken")
   const [putData, setPutData] = useState({
     info: undefined,
     pending: false,
