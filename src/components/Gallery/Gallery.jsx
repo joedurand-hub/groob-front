@@ -6,7 +6,6 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Discover = ({ data }) => {
     const { theme } = useContext(ThemeContext);
-  console.log(data);
   return (
     <div className={styles.container_discover}>
       {data?.map((post, index) => {

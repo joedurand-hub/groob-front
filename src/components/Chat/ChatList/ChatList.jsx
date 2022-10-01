@@ -11,7 +11,6 @@ const ChatList = ({ users }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [users]);
   
-  console.log(chats)
   return (
     <div className={styles.list}>
       {chats?.map((chat) => (

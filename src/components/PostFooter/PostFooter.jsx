@@ -7,7 +7,6 @@ import { MdInsertComment } from "react-icons/md";
 import InputComment from "../PostComment/PostComment";
 
 const PostFooter = ({ likes, price, id }) => {
-  console.log(id)
   
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");

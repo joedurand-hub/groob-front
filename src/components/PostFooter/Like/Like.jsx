@@ -31,7 +31,6 @@ const Like = ({ id, likes }) => {
           <BsHeart
             className={styles.like}
             onClick={() => {
-              console.log("click LIKE");
               handleLike();
               setLike(false);
               setLiked(true);
@@ -45,7 +44,6 @@ const Like = ({ id, likes }) => {
           <BsHeartFill
             className={styles.liked}
             onClick={() => {
-              console.log("click LIKED");
               handleDislike();
               setLike(false);
               setLiked(false);
@@ -59,7 +57,6 @@ const Like = ({ id, likes }) => {
           <BsHeartFill
             className={styles.dislike}
             onClick={() => {
-              console.log("click DISLIKE");
               handleLike();
               setLike(false);
               setLiked(true);

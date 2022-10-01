@@ -8,7 +8,6 @@ const usePostPublication = () => {
     error: undefined,
   });
   const sendPublication = async ({endpoint, postData, token}) => {  
-    console.log(postData)
     setPostData({ 
       data: undefined,
       pending: true,

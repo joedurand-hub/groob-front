@@ -33,7 +33,7 @@ const Messages = ({ datas }) => {
       };
       if (datas.chat !== null || datas.chat !== undefined) getMessages();
     } catch (error) {
-      console.log(error);
+      console.log("error:", error);
     }
         // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reciveMessage]);

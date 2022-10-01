@@ -23,7 +23,6 @@ const PostById = ({ data }) => {
     profilePicture,
     userName,
   } = data;
-  console.log(_id)
   const { theme } = useContext(ThemeContext);
   return (
     <>

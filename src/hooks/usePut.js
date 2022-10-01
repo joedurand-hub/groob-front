@@ -11,7 +11,6 @@ const usePut = () => {
   });
 
   const sendUpdatedData = async ({endpoint, putData}) => {  
-    console.log(putData)
     setPutData({
       info: undefined,
       pending: true,

@@ -36,8 +36,6 @@ const Search = ({ posts }) => {
      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
-  console.log(results);
-
   const handleInputChange = (e) => {
     const value = e.target.value;
     setQuery(value.toLowerCase());
@@ -110,7 +108,6 @@ export async function getServerSideProps({ req, res }) {
       { withCredentials: true }
     );
     const posts = await response.json();
-    console.log(posts);
     return {
       props: {
         posts,

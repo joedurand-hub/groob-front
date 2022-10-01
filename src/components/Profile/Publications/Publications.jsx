@@ -7,7 +7,6 @@ import Loader from "../../Loader/Loader";
 import { Toaster, toast } from "react-hot-toast";
 
 const Publications = ({ id }) => {
-  console.log(id)
   const { theme } = useContext(ThemeContext);
   const { data, loading, error } = useRequest(
     `https://groob-backend-production.up.railway.app/posts/${id}`
