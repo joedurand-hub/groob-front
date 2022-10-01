@@ -1,7 +1,7 @@
 .container_form {
     width: 100%;
     max-width: 380px;
-    height: 85vh;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     align-items: center;
