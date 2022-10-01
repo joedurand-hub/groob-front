@@ -18,7 +18,7 @@ const Index = ({ data }) => {
   useEffect(() => {
     setAllChats(data.usersDataInTheChat);
 
-    socket.current = io("http://localhost:8080");
+    socket.current = io("https://groob-backend-production.up.railway.app");
     socket.current.emit("newUserAdded", data.myId);
     socket.current.on("getUsers", (allUsers) => {
       setOnlineUsers(allUsers);
@@ -68,7 +68,7 @@ export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
-      `http://localhost:8080/chats`,
+      `https://groob-backend-production.up.railway.app/chats`,
       {
         headers: {
           authtoken: token,

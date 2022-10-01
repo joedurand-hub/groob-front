@@ -22,7 +22,7 @@ const UpdatePicture = ({ id }) => {
       body.append("image", profilePicture[index]);
     }
     sendUpdatedData({
-      endpoint: `http://localhost:8080/picture/${id}`,
+      endpoint: `https://groob-backend-production.up.railway.app/picture/${id}`,
       putData: body,
     });
     setProfilePicture(null);
