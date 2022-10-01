@@ -19,7 +19,7 @@ const usePut = () => {
     return axios.put(`${endpoint}`, putData, {
       headers: { 
         "authToken": token 
-      }}, {withCredentials: true} )
+      }})
     .then((response) => {
         setPutData({ 
           info: response.data, 
