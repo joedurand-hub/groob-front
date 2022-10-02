@@ -91,7 +91,17 @@ export default Feed;
 
 export async function getServerSideProps({ req, res }) {
   try {
+    deleteCookie("authtoken");
     const token = getCookie("authtoken", { req, res });
+    setCookie("authtoken", token, {
+      req,
+      res,
+      maxAge: 1815000000,
+      httpOnly: true,
+      sameSite: "lax",
+      secure: true,
+    });
+
     const response = await fetch(
       `https://groob-backend-production.up.railway.app/posts`,
       {
