@@ -96,10 +96,10 @@ export async function getServerSideProps({ req, res }) {
     setCookie("authtoken", token, {
       req,
       res,
-      maxAge: 18150000,
-      httpOnly: true,
-      domain: "www.groob.com.ar",
-      secure: true,
+      maxAge: 1815000,
+      // httpOnly: true,
+      // domain: "www.groob.com.ar",
+      // secure: true,
     });
 
     const response = await fetch(
