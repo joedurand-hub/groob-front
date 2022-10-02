@@ -22,11 +22,6 @@ const User = ({ data }) => {
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <>
-      {openCreatePost ? (
-      <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-        <CreatePost closeModal={closeModalPost} />
-      </Modal>
-      ) : (
       <Layout
         menuItem={
           <>
@@ -44,7 +39,7 @@ const User = ({ data }) => {
               <NavItem path="/search">
                 <BiSearchAlt />
               </NavItem>
-              <OpenModalPost openModalPost={openModalPost} onClick={() => setOpenCreatePost(!openCreatePost)}  />
+              <OpenModalPost openModalPost={openModalPost} />
               <NavItem path="/messages">
                 <BiChat />
               </NavItem>
@@ -55,6 +50,9 @@ const User = ({ data }) => {
           </>
         }
       >
+              <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
+        <CreatePost closeModal={closeModalPost} />
+      </Modal>
         {open ? (
           <Menu valueSwitch={data?.explicitContent} id={data?._id} />
         ) : (
@@ -64,8 +62,6 @@ const User = ({ data }) => {
           </>
         )}
       </Layout>
-
-      )}
     </>
   );
 };
