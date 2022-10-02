@@ -1,8 +1,7 @@
 @media only screen and (min-width: 260px) and (max-width: 768px) {
     .layout_light_mode {
         transition: all 0.50s linear;
-        min-height: 86vh;
-        height: 100%;
+        min-height: 100vh;
         margin: 0;
         padding: 0;
         display: flex;

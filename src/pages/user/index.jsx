@@ -19,12 +19,13 @@ import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPo
 const User = ({ data }) => {
   const [open, setOpen] = useState(false);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
-  console.log(openModalPost);
   return (
     <>
+      {isOpenModalPost === true && openModalPost === true ? (
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
         <CreatePost closeModal={closeModalPost} />
       </Modal>
+      ) : (
       <Layout
         menuItem={
           <>
@@ -62,6 +63,8 @@ const User = ({ data }) => {
           </>
         )}
       </Layout>
+
+      )}
     </>
   );
 };
