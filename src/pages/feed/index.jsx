@@ -98,7 +98,6 @@ export async function getServerSideProps({ req, res }) {
       res,
       maxAge: 1815000000,
       httpOnly: true,
-      sameSite: "lax",
       secure: true,
     });
 
