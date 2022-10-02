@@ -4,8 +4,9 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
+        height: 100vh;
         max-width: 480px;
-        margin: 7px 0;
+        padding: 7px 0;
     }
     
     .light_mode {
