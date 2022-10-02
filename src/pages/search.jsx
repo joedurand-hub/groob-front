@@ -20,6 +20,7 @@ import User from "../components/SearchUser/User/User";
 
 const Search = ({ posts }) => {
   const token = getCookie("authtoken");
+  console.log(token)
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
 
