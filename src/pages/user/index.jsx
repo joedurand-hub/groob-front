@@ -21,10 +21,12 @@ const User = ({ data }) => {
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <>
-      {openModalPost === true ? (
-        <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-          <CreatePost closeModal={closeModalPost} />
-        </Modal>
+      {openModalPost === true && isOpenModalPost === true ? (
+        <>
+          <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
+            <CreatePost closeModal={closeModalPost} />
+          </Modal>
+        </>
       ) : (
         <Layout
           menuItem={
