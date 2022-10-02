@@ -11,16 +11,13 @@ import styles from "./signup.module.css";
 import inputField from "../Input/input.module.css";
 import logo from "../../../public/Logo.png";
 import Image from "next/image";
-import { setCookie, getCookie } from 'cookies-next';
-import { ENDPOINT } from "../../helpers/constants"
+import { setCookie, getCookie } from "cookies-next";
+import { ENDPOINT } from "../../helpers/constants";
 
 export const SignUp = () => {
-  const getToken = getCookie("authtoken")
-  const { theme } = useContext(ThemeContext);
+  const getToken = getCookie("authtoken");
   const router = useRouter();
-  if(getToken) {
-    router.push("/feed")
-  }
+  const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
 
   const {
@@ -28,7 +25,6 @@ export const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
 
   const onSubmit = async (data) => {
     sendData({
@@ -42,12 +38,15 @@ export const SignUp = () => {
   };
 
   useEffect(() => {
-    if(data && data.message === "Success") {
-    const token = data.token
-    setCookie('authtoken', token)
-    router.push("/user");
+    if (getToken) {
+      router.push("/feed");
     }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (data && data.message === "Success") {
+      const token = data.token;
+      setCookie("authtoken", token);
+      router.push("/user");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   return (
     <div
@@ -171,13 +170,15 @@ export const SignUp = () => {
               minLength: 6,
               maxLength: 16,
               required: true,
-              pattern: /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9 \S]{6,16}$/,
+              pattern:
+                /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9 \S]{6,16}$/,
             })}
           />
           {errors.password?.type === "required" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña no puede estar vacía y debe tener más de 6 caracteres.{" "}
+              La contraseña no puede estar vacía y debe tener más de 6
+              caracteres.{" "}
             </p>
           )}
           {errors.password?.type === "minLength" && (
