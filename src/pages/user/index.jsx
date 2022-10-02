@@ -21,47 +21,49 @@ const User = ({ data }) => {
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <>
-      <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-        <CreatePost closeModal={closeModalPost} />
-      </Modal>
-
-      <Layout
-        menuItem={
-          <>
-            <Icon>
-              <IoMenu onClick={() => setOpen(!open)} />
-            </Icon>
-          </>
-        }
-        nav={
-          <>
-            <Nav>
-              <NavItem path="/feed">
-                <BiHome />
-              </NavItem>
-              <NavItem path="/search">
-                <BiSearchAlt />
-              </NavItem>
-              <OpenModalPost openModalPost={openModalPost} />
-              <NavItem path="/messages">
-                <BiChat />
-              </NavItem>
-              <NavItem path="/user">
-                <FaUser />
-              </NavItem>
-            </Nav>
-          </>
-        }
-      >
-        {open ? (
-          <Menu valueSwitch={data?.explicitContent} id={data?._id} />
-        ) : (
-          <>
-            <Profile data={data} />
-            <Publications id={data?._id} />
-          </>
-        )}
-      </Layout>
+      {openModalPost ? (
+        <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
+          <CreatePost closeModal={closeModalPost} />
+        </Modal>
+      ) : (
+        <Layout
+          menuItem={
+            <>
+              <Icon>
+                <IoMenu onClick={() => setOpen(!open)} />
+              </Icon>
+            </>
+          }
+          nav={
+            <>
+              <Nav>
+                <NavItem path="/feed">
+                  <BiHome />
+                </NavItem>
+                <NavItem path="/search">
+                  <BiSearchAlt />
+                </NavItem>
+                <OpenModalPost openModalPost={openModalPost} />
+                <NavItem path="/messages">
+                  <BiChat />
+                </NavItem>
+                <NavItem path="/user">
+                  <FaUser />
+                </NavItem>
+              </Nav>
+            </>
+          }
+        >
+          {open ? (
+            <Menu valueSwitch={data?.explicitContent} id={data?._id} />
+          ) : (
+            <>
+              <Profile data={data} />
+              <Publications id={data?._id} />
+            </>
+          )}
+        </Layout>
+      )}
     </>
   );
 };
