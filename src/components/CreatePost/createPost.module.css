@@ -9,6 +9,7 @@
         background: rgb(29, 29, 29);
         margin: 0;
         padding: 0;
+        z-index: 999;
     }
 
     .create_post_form {
