@@ -58,7 +58,6 @@ const CreatePost = ({ closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = new FormData();
-
     for (let index = 0; index < files.length; index++) {
       body.append("images", files[index]);
     }

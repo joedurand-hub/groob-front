@@ -36,7 +36,7 @@ const Messages = ({ datas }) => {
       console.log("error:", error);
     }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reciveMessage]);
+  }, [reciveMessage, newSocketMessage]);
 
   const handleMessage = (newMessage) => {
     setNewMessage(newMessage);
@@ -131,7 +131,7 @@ export async function getServerSideProps({ req, res, query }) {
         },
       },
       {
-        withCredentials: true,
+        credentials: 'include',
       }
     );
     const datas = await response.json();
