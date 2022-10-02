@@ -91,14 +91,14 @@ export default Feed;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    deleteCookie("authtoken");
     const token = getCookie("authtoken", { req, res });
+    deleteCookie("authtoken");
     setCookie("authtoken", token, {
       req,
       res,
       maxAge: 18150000,
       httpOnly: true,
-      domain: "groob.com.ar",
+      domain: "www.groob.com.ar",
       secure: true,
     });
 
