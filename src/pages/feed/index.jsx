@@ -7,7 +7,7 @@ import NavItem from "../../components/NavItem/NavItem";
 import Modal from "../../components/Modal/Modal";
 import { useModal } from "../../hooks/useModal";
 import CreatePost from "../../components/CreatePost/CreatePost";
-import { setCookie, getCookie } from "cookies-next";
+import { setCookie, getCookie, deleteCookie } from "cookies-next";
 import { TiHome } from "react-icons/ti";
 import { BiSearchAlt } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";
@@ -77,8 +77,8 @@ const Feed = ({ posts }) => {
             }}
           >
             <h6 className={theme ? "light_mode" : "dark_mode"}>
-              Aún no hay publicaciones, crea un post, descubre usuarios en la sección de la
-              lupa e invita a tus amigos!
+              Aún no hay publicaciones, crea un post, descubre usuarios en la
+              sección de la lupa e invita a tus amigos!
             </h6>
           </div>
         </>
@@ -92,12 +92,24 @@ export default Feed;
 export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
-    const response = await fetch(`https://groob-backend-production.up.railway.app/posts`, {
+    deleteCookie("authtoken");
+    const newTokenInServer = setCookie("authtoken", token, {
+      req,
+      res,
+      maxAge: 1815000000,
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+    });
+
+    const response = await fetch(
+      `https://groob-backend-production.up.railway.app/posts`,
+      {
         method: "GET",
         headers: {
-          authtoken: token,
+          authtoken: newTokenInServer,
         },
-        credentials: 'include'
+        credentials: "include",
       }
     );
     const posts = await response.json();
