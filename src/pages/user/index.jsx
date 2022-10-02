@@ -20,46 +20,49 @@ const User = ({ data }) => {
   const [open, setOpen] = useState(false);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
-    <Layout
-      menuItem={
-        <>
-          <Icon>
-            <IoMenu onClick={() => setOpen(!open)} />
-          </Icon>
-        </>
-      }
-      nav={
-        <>
-          <Nav>
-            <NavItem path="/feed">
-              <BiHome />
-            </NavItem>
-            <NavItem path="/search">
-              <BiSearchAlt />
-            </NavItem>
-              <OpenModalPost openModalPost={openModalPost}/>
-            <NavItem path="/messages">
-              <BiChat />
-            </NavItem>
-            <NavItem path="/user">
-              <FaUser />
-            </NavItem>
-          </Nav>
-        </>
-      }
-    >
+    <>
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
         <CreatePost closeModal={closeModalPost} />
       </Modal>
-      {open ? (
-        <Menu valueSwitch={data?.explicitContent} id={data?._id} />
-      ) : (
-        <>
-          <Profile data={data} />
-          <Publications id={data?._id}/>
-        </>
-      )}
-    </Layout>
+
+      <Layout
+        menuItem={
+          <>
+            <Icon>
+              <IoMenu onClick={() => setOpen(!open)} />
+            </Icon>
+          </>
+        }
+        nav={
+          <>
+            <Nav>
+              <NavItem path="/feed">
+                <BiHome />
+              </NavItem>
+              <NavItem path="/search">
+                <BiSearchAlt />
+              </NavItem>
+              <OpenModalPost openModalPost={openModalPost} />
+              <NavItem path="/messages">
+                <BiChat />
+              </NavItem>
+              <NavItem path="/user">
+                <FaUser />
+              </NavItem>
+            </Nav>
+          </>
+        }
+      >
+        {open ? (
+          <Menu valueSwitch={data?.explicitContent} id={data?._id} />
+        ) : (
+          <>
+            <Profile data={data} />
+            <Publications id={data?._id} />
+          </>
+        )}
+      </Layout>
+    </>
   );
 };
 
@@ -74,7 +77,7 @@ export async function getServerSideProps({ req, res }) {
         headers: {
           authtoken: token,
         },
-        credentials: 'include'
+        credentials: "include",
       }
     );
     const data = await response.json();
