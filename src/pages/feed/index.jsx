@@ -96,8 +96,9 @@ export async function getServerSideProps({ req, res }) {
     setCookie("authtoken", token, {
       req,
       res,
-      maxAge: 1815000000,
+      maxAge: 18150000,
       httpOnly: true,
+      domain: "groob.com.ar",
       secure: true,
     });
 
