@@ -11,7 +11,11 @@ const PostComment = ({ sendText, text, id }) => {
   const router = useRouter();
   const { data, pending, error, sendData } = useAuthPost();
     if(data && data !== undefined) {
-      toast.success("¡Comentario creado!", {
+      router.reload(window.location.pathname);
+    }
+
+    if(error && error !== undefined) {
+      toast.error("¡Ups, algo ha salido mal! No fuiste tu, no te preocupes.", {
         position: "top-center",
         autoClose: "3000",
       })
