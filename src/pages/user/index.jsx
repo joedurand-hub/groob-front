@@ -18,10 +18,11 @@ import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPo
 
 const User = ({ data }) => {
   const [open, setOpen] = useState(false);
+  const [openCreatePost, setOpenCreatePost] = useState(false);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <>
-      {isOpenModalPost === true && openModalPost === true ? (
+      {openCreatePost ? (
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
         <CreatePost closeModal={closeModalPost} />
       </Modal>
@@ -43,7 +44,7 @@ const User = ({ data }) => {
               <NavItem path="/search">
                 <BiSearchAlt />
               </NavItem>
-              <OpenModalPost openModalPost={openModalPost} />
+              <OpenModalPost openModalPost={openModalPost} onClick={() => setOpenCreatePost(!openCreatePost)}  />
               <NavItem path="/messages">
                 <BiChat />
               </NavItem>
