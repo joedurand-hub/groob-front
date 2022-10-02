@@ -11,11 +11,16 @@ import styles from "./signup.module.css";
 import inputField from "../Input/input.module.css";
 import logo from "../../../public/Logo.png";
 import Image from "next/image";
-import { setCookie } from 'cookies-next';
+import { setCookie, getCookie } from 'cookies-next';
 import { ENDPOINT } from "../../helpers/constants"
 
 export const SignUp = () => {
+  const getToken = getCookie("authtoken")
   const { theme } = useContext(ThemeContext);
+  const router = useRouter();
+  if(getToken) {
+    router.push("/feed")
+  }
   const { data, pending, error, sendData } = usePost();
 
   const {
@@ -24,7 +29,6 @@ export const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const router = useRouter();
 
   const onSubmit = async (data) => {
     sendData({
