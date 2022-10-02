@@ -91,9 +91,9 @@ export default Feed;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const token = getCookie("authtoken", { req, res });
     deleteCookie("authtoken");
-    const newTokenInServer = setCookie("authtoken", token, {
+    const token = getCookie("authtoken", { req, res });
+    setCookie("authtoken", token, {
       req,
       res,
       maxAge: 1815000000,
@@ -107,7 +107,7 @@ export async function getServerSideProps({ req, res }) {
       {
         method: "GET",
         headers: {
-          authtoken: newTokenInServer,
+          authtoken: token,
         },
         credentials: "include",
       }
