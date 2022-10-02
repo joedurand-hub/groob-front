@@ -21,7 +21,7 @@ const User = ({ data }) => {
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <>
-      {openModalPost ? (
+      {openModalPost === true ? (
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
           <CreatePost closeModal={closeModalPost} />
         </Modal>
