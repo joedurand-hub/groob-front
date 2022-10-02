@@ -96,8 +96,7 @@ export async function getServerSideProps({ req, res }) {
     setCookie("authtoken", token, {
       req,
       res,
-      maxAge: 1815000,
-      httpOnly: true,
+      maxAge: 1815050,
     });
 
     const response = await fetch(
