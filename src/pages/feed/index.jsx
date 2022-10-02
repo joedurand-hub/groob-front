@@ -97,9 +97,9 @@ export async function getServerSideProps({ req, res }) {
       req,
       res,
       maxAge: 1815000,
-      // httpOnly: true,
-      // domain: "www.groob.com.ar",
-      // secure: true,
+      httpOnly: true,
+      domain: ".groob.com.ar",
+      secure: true,
     });
 
     const response = await fetch(
