@@ -51,8 +51,8 @@ export const SignIn = () => {
 
   useEffect(() => {
     if(data && data.message === "Success") {
-      // const token = data.token
-      // setCookie('authtoken', token)
+      const token = data.token
+      setCookie('authtoken', token)
      router.push("/feed")
     } 
         // eslint-disable-next-line react-hooks/exhaustive-deps
