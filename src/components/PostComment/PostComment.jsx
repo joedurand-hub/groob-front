@@ -4,8 +4,7 @@ import InputEmoji from "react-input-emoji";
 import Loader from "../Loader/Loader";
 import { Toaster, toast } from "react-hot-toast";
 import { useRouter } from "next/router";
-import { IoSend } from "react-icons/io5";
-import Icon from "../Icon/Icon";
+import Send from "../Send/Send";
 
 const PostComment = ({ sendText, text, id }) => {
   const router = useRouter();
