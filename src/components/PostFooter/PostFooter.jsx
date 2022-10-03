@@ -6,7 +6,7 @@ import Icon from "../PostIcons/Icon";
 import { MdInsertComment } from "react-icons/md";
 import InputComment from "../PostComment/PostComment";
 
-const PostFooter = ({ postText, postLikes, imageLink, user, price, id }) => {
+const PostFooter = ({ postToShare, postLikes, price, id }) => {
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
 
@@ -28,7 +28,7 @@ const PostFooter = ({ postText, postLikes, imageLink, user, price, id }) => {
               />
             </Icon>
             <Icon className={styles.user_post}>
-              <Share />
+            {postToShare}
             </Icon>
             <h6>${price}</h6>
           </div>
@@ -42,13 +42,7 @@ const PostFooter = ({ postText, postLikes, imageLink, user, price, id }) => {
               <MdInsertComment onClick={() => setComment(!comment)} />
             </Icon>
             <Icon className={styles.user_post}>
-              <Share
-                content={postText}
-                price={price}
-                username={user}
-                fileLink={imageLink}
-                postIdLink={id}
-              />
+              {postToShare}
             </Icon>
           </div>
         </div>

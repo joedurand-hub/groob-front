@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { IoMdShareAlt } from "react-icons/io"
 import { useEffect } from 'react'
 
-const Share = ({content, price, fileLink, username, description, userLink, postIdLink}) => {
+const Share = ({content, price, fileLink, postIdLink, username, description, userLink}) => {
   console.log(content, price, fileLink, username, description, userLink, postIdLink)
   const [file, setFile] = useState(null)
   const postLink = `https://www.groob.com.ar/feed/${postIdLink}`

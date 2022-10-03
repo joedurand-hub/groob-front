@@ -9,6 +9,7 @@ import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 import Slider from "../Slider/Slider";
 import PostFooter from "../PostFooter/PostFooter";
+import Share from "../PostFooter/Share/Share";
 
 const Posts = ({ data, myId }) => {
   const { theme } = useContext(ThemeContext);
@@ -83,7 +84,15 @@ const Posts = ({ data, myId }) => {
                   price={price && price}
                   id={_id}
                   likes={likes}
-                />
+                >
+                  <Share
+                    content={postText}
+                    price={price}
+                    fileLink={images}
+                    postIdLink={_id}
+                    username={userName}
+                  />
+                </PostFooter>
               </>
               <Comments allComments={comments.slice(0, 2)} />
               <>
