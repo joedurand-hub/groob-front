@@ -9,10 +9,6 @@ import Send from "../Send/Send";
 const PostComment = ({ sendText, text, id }) => {
   const router = useRouter();
   const { data, pending, error, sendData } = useAuthPost();
-  console.log(text)
-  console.log(id)
-  console.log(data)
-  console.log(error)
   if (data && data !== undefined) {
     router.reload(window.location.pathname);
   }
@@ -42,7 +38,7 @@ const PostComment = ({ sendText, text, id }) => {
         maxLength={500}
         placeholder="Dejá tu comentario"
       />
-      {pending ? <Loader /> : <Send value={text} onClick={handleSubmit} />}
+      {pending ? <Loader /> : <Send value={text} submit={handleSubmit} />}
     </div>
   );
 };

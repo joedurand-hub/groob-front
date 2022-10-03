@@ -9,7 +9,6 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
   // cada posición contiene public_id, secure_url
 
   const images = fileLink?.map(image => image.secure_url)
-  console.log(images)
   // Necesito iterar sobre el array de imágenes
   // Y a cada una convertirla en blob para luego almacenarla
 
