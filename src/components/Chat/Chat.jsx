@@ -8,13 +8,13 @@ const Chat = ({ children }) => {
     return (
       <div className={
         theme
-        ? `${styles.chat} light_mode`
-        : `${styles.chat} dark_mode`
+        ? `${styles.chat_light}`
+        : `${styles.chat_dark}`
       }>
         <div className={
                   theme
-                  ? `${styles.chat_list} light_mode`
-                  : `${styles.chat_list} dark_mode`
+                  ? `${styles.chat_list}`
+                  : `${styles.chat_list}`
           }>
           {children}
         </div>

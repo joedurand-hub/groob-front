@@ -1,7 +1,14 @@
-.chat {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
+.chat_light {
+  transition: all 0.50s linear;
+  background: #ececec;
+  color: #000;
+}
+
+.chat_dark {
+  transition: all 0.50s linear;
+  background: rgb(16, 16, 16);
+  color: #fff;
+
 }
 .chat_list {
     display: flex;
