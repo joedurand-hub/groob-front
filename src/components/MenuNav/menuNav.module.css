@@ -16,7 +16,19 @@
     padding-left: 10px;
     padding-right: 10px;
     top: 0;
-    z-index: 990;
+    z-index: 90;
+}
+
+.hidden {
+    opacity: 0;
+    transition-timing-function: ease-in;
+    transition: 0.1s;
+}
+
+.visible {
+    opacity: 1;
+    transition-timing-function: ease-in;
+    transition: 0.1s;
 }
 
 .menu_list_ul {
@@ -30,13 +42,13 @@
 }
 
 .light_mode {
-    background: rgb(255, 255, 255);
+    background: #e9e9e9;
     color: rgba(0, 0, 0);
     border-bottom: 1px solid #b1b1b1;
 }
 .dark_mode {
     color: rgb(255, 255, 255);
-    background: rgb(0, 0, 0);
+    background: rgb(16, 16, 16);
     border-bottom: 1px solid #5a5959;
 }
 
