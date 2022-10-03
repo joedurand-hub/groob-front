@@ -5,10 +5,15 @@ import { useEffect } from 'react'
 const Share = ({content, price, fileLink, postIdLink, username, description, userLink}) => {
   const [file, setFile] = useState(null)
 
+  // fileLink es un array de imágenes
+  // cada posición contiene public_id, secure_url
+
+  // Necesito iterar sobre el array de imágenes
+  // Y a cada una convertirla en blob para luego almacenarla
+
   useEffect(() => {
-    async function getFile() {
-      const image = await fetch(`${fileLink}`)
-      const blob = await image.blob()
+    function getFile() {
+      const blob = fileLink[0].blob()
       const file = new File([blob], 'Imagen')
       setFile(file)
     }

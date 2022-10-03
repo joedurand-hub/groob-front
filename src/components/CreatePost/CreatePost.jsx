@@ -147,7 +147,7 @@ const CreatePost = ({ closeModal }) => {
               </Icon>
             </label>
             <p className={styles.files_length}>
-              {files.length} {files.length > 0 ? "/7" : null}
+              {files.length > 0 ?  `${files.length}/7` : null}
             </p>
           </div>
           <input
