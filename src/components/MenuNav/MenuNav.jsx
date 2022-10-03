@@ -4,7 +4,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 const MenuNav = ({ children }) => {
   const { theme } = useContext(ThemeContext);
-  const [scrollDir, setScrollDir] = useState("down");
+  const [scrollDir, setScrollDir] = useState(null);
 
 useEffect(() => {
   const threshold = 0;
@@ -31,7 +31,6 @@ useEffect(() => {
   };
 
   window.addEventListener("scroll", onScroll);
-  console.log(scrollDir);
 
   return () => window.removeEventListener("scroll", onScroll);
 }, [scrollDir]);
