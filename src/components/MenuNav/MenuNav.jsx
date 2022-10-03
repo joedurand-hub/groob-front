@@ -14,6 +14,9 @@ const MenuNav = ({ children }) => {
       }
     };
     window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, []);
   return (
     <div className={show ? styles.visible : styles.hidden}>
