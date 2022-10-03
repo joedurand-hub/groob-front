@@ -22,13 +22,13 @@
 .hidden {
     opacity: 0;
     transition-timing-function: ease-in;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 
 .visible {
     opacity: 1;
     transition-timing-function: ease-in;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 
 .menu_list_ul {

@@ -37,7 +37,7 @@ useEffect(() => {
 }, [scrollDir]);
 
   return (
-    <div className={scrollDir === down ? styles.hidden : styles.visible}>
+    <div className={scrollDir === "down" ? styles.hidden : styles.visible}>
       <nav
         className={
           theme
