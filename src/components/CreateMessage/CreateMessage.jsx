@@ -5,7 +5,7 @@ import styles from "./createMessage.module.css"
 const CreateMessage = ({newMessage, handleMessage, handleSendMessage, placeholder}) => {
   return (
     <div className={styles.container_create_message}>
-          <InputEmoji value={newMessage} onChange={handleMessage} placeholder={placeholder}/>
+          <InputEmoji className={styles.inputEmoji} value={newMessage} onChange={handleMessage} placeholder={placeholder}/>
           <SendMessage message={newMessage} handleSubmit={handleSendMessage} />   
     </div>
   )
