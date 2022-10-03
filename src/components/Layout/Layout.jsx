@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import logo from "../../../public/Logo.png";
 import Head from "next/head";
@@ -6,9 +6,11 @@ import MenuNav from "../MenuNav/MenuNav";
 import Anchor from "../Anchor/Anchor";
 import Image from "next/image";
 import styles from "./layout.module.css";
+import inactivityTime from "../../helpers/inactivitiTime";
 
 const Layout = ({ title, description, menuItem, nav, children }) => {
   const { theme } = useContext(ThemeContext);
+  inactivityTime()
   return (
     <>
       <Head>

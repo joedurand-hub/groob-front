@@ -29,4 +29,4 @@ function inactivityTime(userId) {
         time = setTimeout(logout, 180000);  // time is in milliseconds
     }
 }
-idleLogout();
+export default inactivityTime;
