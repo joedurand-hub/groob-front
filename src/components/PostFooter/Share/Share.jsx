@@ -16,7 +16,7 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
   useEffect(() => {
     async function getFile() {
       const image = await fetch(`${images[0]}`)
-      const blob = await fileLink[0].blob()
+      const blob = await image.blob()
       const file = new File([blob], 'Imagen')
       setFile(file)
     }
