@@ -8,12 +8,15 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
   // fileLink es un array de imágenes
   // cada posición contiene public_id, secure_url
 
+  const images = fileLink?.map(image => image.secure_url)
+  console.log(images)
   // Necesito iterar sobre el array de imágenes
   // Y a cada una convertirla en blob para luego almacenarla
 
   useEffect(() => {
-    function getFile() {
-      const blob = fileLink[0].blob()
+    async function getFile() {
+      const image = await fetch(`${images[0]}`)
+      const blob = await fileLink[0].blob()
       const file = new File([blob], 'Imagen')
       setFile(file)
     }
