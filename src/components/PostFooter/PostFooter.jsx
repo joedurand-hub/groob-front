@@ -16,6 +16,22 @@ const PostFooter = ({ likes, price, id }) => {
     setTextComment(e)
   }
 
+  const texto = {
+    title: "Gran día",
+    text: "Veamos por qué es un gran día hoy",
+    url: "https://www.groob.com.ar/feed/6338d965da97b7306286f857"
+  }
+
+  const sharePost = (post) => {
+    if(navigator.share) {
+      navigator.share(post)
+      .then(() => console.log("Ey, funciona!")
+      .catch(error => console.log("Error al compartir", error)))
+    } else {
+      console.log("No soportado")
+    }
+  }
+
   return (
     <>
       {price ? (
@@ -30,7 +46,7 @@ const PostFooter = ({ likes, price, id }) => {
               />
             </Icon>
             <Icon className={styles.user_post}>
-              <Share />
+              <Share onClick={() => sharePost(texto)}/>
             </Icon>
             <h6>${price}</h6>
           </div>
@@ -44,7 +60,7 @@ const PostFooter = ({ likes, price, id }) => {
             <MdInsertComment onClick={() => setComment(!comment)} />
           </Icon>
           <Icon className={styles.user_post}>
-            <Share />
+          <Share onClick={() => sharePost(texto)}/>
           </Icon>
         </div>
           </div>
