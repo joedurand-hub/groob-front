@@ -9,6 +9,10 @@ import Send from "../Send/Send";
 const PostComment = ({ sendText, text, id }) => {
   const router = useRouter();
   const { data, pending, error, sendData } = useAuthPost();
+  console.log(text)
+  console.log(id)
+  console.log(data)
+  console.log(error)
   if (data && data !== undefined) {
     router.reload(window.location.pathname);
   }

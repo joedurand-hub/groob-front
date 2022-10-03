@@ -1,10 +1,9 @@
 import { useState } from "react";
 import styles from "./postFooter.module.css";
 import Like from "./Like/Like";
-import Share from "./Share/Share";
 import Icon from "../PostIcons/Icon";
 import { MdInsertComment } from "react-icons/md";
-import InputComment from "../PostComment/PostComment";
+import PostComment from "../PostComment/PostComment";
 
 const PostFooter = ({ postToShare, postLikes, price, id }) => {
   const [comment, setComment] = useState(false);
@@ -50,7 +49,7 @@ const PostFooter = ({ postToShare, postLikes, price, id }) => {
 
       {comment && (
         <>
-          <InputComment sendText={handleComment} text={textComment} id={id} />
+          <PostComment sendText={handleComment} text={textComment} id={id} />
         </>
       )}
     </>
