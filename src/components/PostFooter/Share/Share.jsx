@@ -9,13 +9,22 @@ const Share = ({content, price, file}) => {
     url: "https://www.groob.com.ar/feed/6338d965da97b7306286f857"
   }
   
-  const sharePost = (post) => {
-    if(navigator.share) {
-      navigator.share(post)
-      .then(() => console.log("Ey, funciona!")
-      .catch(error => console.log("Error al compartir", error)))
+  const sharePost = async (post) => {
+    if (navigator.share) {
+      try {
+        await navigator
+          .share(texto)
+          .then(() =>
+            console.log("Largar alerta de que se está compartiendo")
+          );
+      } catch (error) {
+        console.log(`Ups! No se pudo compartir debido a: ${error}`);
+      }
     } else {
-      console.log("No soportado")
+      // fallback code
+      console.log(
+        "Tu navegador no tiene soporte para esta funcionalidad."
+      );
     }
   }
   return (
