@@ -1,10 +1,11 @@
 import React, {memo} from 'react'
 import styles from "./sendMessage.module.css"
+import Send from '../../Send/Send'
 
-const SendMessage = ({handleSubmit}) => {
+const SendMessage = ({message, handleSubmit}) => {
   return (
     <div className={styles.send_container}>
-      <button className={styles.send} type="submit" onClick={handleSubmit}>Enviar</button>
+      <Send value={message} submit={handleSubmit}/>
     </div>
   )
 }

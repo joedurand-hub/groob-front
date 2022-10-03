@@ -6,7 +6,7 @@ const CreateMessage = ({newMessage, handleMessage, handleSendMessage, placeholde
   return (
     <div className={styles.container_create_message}>
           <InputEmoji value={newMessage} onChange={handleMessage} placeholder={placeholder}/>
-          <SendMessage handleSubmit={handleSendMessage} />   
+          <SendMessage message={newMessage} handleSubmit={handleSendMessage} />   
     </div>
   )
 }

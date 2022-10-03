@@ -1,0 +1,27 @@
+.send {
+    color: rgb(159, 29, 240)
+}
+
+.disabled {
+    color: grey;
+    pointer-events: none;
+    box-shadow: none;
+    background: transparent;
+    cursor: not-allowed !important;
+  }
+  
+  .disabled:hover {
+    cursor: not-allowed !important;
+    background: transparent;
+  }
+
+  .disabled:focus {
+    cursor: not-allowed !important;
+    background: none;
+  }
+
+  .disabled:active {
+    cursor: not-allowed !important;
+    background: none;
+  }
+  
