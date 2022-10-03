@@ -10,6 +10,24 @@
     transition: filter 300ms;
 }
 
+.icon_light_mode:hover  {
+    cursor: pointer;
+    filter: brightness(1.2);
+    background: rgb(185, 185, 185);
+}
+.icon_light_mode:focus  {
+    color: black;
+    filter: brightness(1.2);
+    background: rgb(167, 167, 167);
+
+}
+.icon_light_mode:active  {
+    color: black;
+    background: rgb(167, 167, 167);
+    filter: brightness(1.2);
+}
+
+
 .icon_dark_mode  {
     font-size: 22px;
     border-radius: 50%;
