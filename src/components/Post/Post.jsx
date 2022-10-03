@@ -78,15 +78,12 @@ const Posts = ({ data, myId }) => {
               </div>
               <>
                 <PostFooter
-                  user={userName}
-                  postText={content}
-                  imageLink={images}
                   price={price && price}
                   id={_id}
                   likes={likes}
                 >
                   <Share
-                    content={postText}
+                    content={content}
                     price={price}
                     fileLink={images}
                     postIdLink={_id}

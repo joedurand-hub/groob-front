@@ -56,15 +56,14 @@
 }
 
 .field_input_light {
-  background: rgb(205, 205, 205);
+  background: rgb(217, 217, 217);
   color: #000000;
 }
 
 .field_input_light::placeholder {
-  color: #737373;
+  color: #919191;
   font-weight: 600;
 }
-
 .field_input_dark {
   background: #343434;
   color: white;
