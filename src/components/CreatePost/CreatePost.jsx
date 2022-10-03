@@ -147,7 +147,7 @@ const CreatePost = ({ closeModal }) => {
               </Icon>
             </label>
             <p className={styles.files_length}>
-              {files.length > 0 ?  `${files.length}/7` : null}
+              {files.length > 0 ? `${files.length}/7` : null}
             </p>
           </div>
           <input
@@ -158,17 +158,19 @@ const CreatePost = ({ closeModal }) => {
             className={styles.input_upload}
             onChange={(e) => handleFilesLoad(e.target.files)}
           />
-          <div className={styles.container_nsfw}>
-            <input
-              type="checkbox"
-              id="nsfw"
-              value={explicitContent}
-              onChange={handleExplicitContent}
-            />
-            <label htmlFor="nsfw">
-              <strong>¿NSFW?</strong>
-            </label>
-          </div>
+          {files.length > 0 && (
+            <div className={styles.container_nsfw}>
+              <input
+                type="checkbox"
+                id="nsfw"
+                value={explicitContent}
+                onChange={handleExplicitContent}
+              />
+              <label htmlFor="nsfw">
+                <strong>¿NSFW?</strong>
+              </label>
+            </div>
+          )}
           <div className={styles.container_send_post}>
             <p className={styles.character_counter}>{lengthValue}/500</p>
             {pending ? (
