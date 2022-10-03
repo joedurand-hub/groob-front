@@ -42,27 +42,12 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
     }
   }
 
-  // Post con texto
-  const simplePost = {
-    title: username,
-    text: content,
-    url: postIdLink
-  }
-
-    // Post con precio
-    const postWithPrice = {
-      title: price,
-      text: content,
-      url: postIdLink,
-      files: [file]
-    }
-
   // Post con foto
   const postWithOutPriceButWithImage = {
-    title: username,
-    text: content,
+    title: username ? username : price,
+    text: content ? content : "Groob",
     url: postIdLink,
-    files: [file]
+    files: fileLink && [file]
   }
 
 
@@ -71,12 +56,14 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
     title: username,
     text: description,
     url: userLink,
-    files: [file]
+    files: fileLink &&  [file]
   }
+
+const send = description ? user : postWithOutPriceButWithImage
 
   return (
     <>
-      <IoMdShareAlt onClick={() => sharePost(simplePost)}/>
+      <IoMdShareAlt onClick={() => sharePost(send)}/>
     </>
   )
 }
