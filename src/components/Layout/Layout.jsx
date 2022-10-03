@@ -6,11 +6,9 @@ import MenuNav from "../MenuNav/MenuNav";
 import Anchor from "../Anchor/Anchor";
 import Image from "next/image";
 import styles from "./layout.module.css";
-import inactivityTime from "../../helpers/inactivitiTime";
 
 const Layout = ({ title, description, menuItem, nav, children }) => {
   const { theme } = useContext(ThemeContext);
-  inactivityTime()
   return (
     <>
       <Head>

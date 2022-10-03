@@ -15,10 +15,11 @@ import { BiHome } from "react-icons/bi";
 import { BiSearchAlt, BiChat } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
+import inactivityTime from "../../helpers/inactivityTime";
 
 const User = ({ data }) => {
+  inactivityTime(data?._id);
   const [open, setOpen] = useState(false);
-  const [openCreatePost, setOpenCreatePost] = useState(false);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <>
@@ -50,9 +51,9 @@ const User = ({ data }) => {
           </>
         }
       >
-              <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-        <CreatePost closeModal={closeModalPost} />
-      </Modal>
+        <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
+          <CreatePost closeModal={closeModalPost} />
+        </Modal>
         {open ? (
           <Menu valueSwitch={data?.explicitContent} id={data?._id} />
         ) : (
