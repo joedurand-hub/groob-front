@@ -23,7 +23,7 @@ const Follow = ({id}) => {
       {data === true ? (
               <Unfollow id={id}/>
       ) : (
-        <Button type="submit" onClick={handleSubmit} name="Seguir"/>
+        <Button type="submit" onClick={handleSubmit} name="Suscribirse"/>
       )}
     </div>
   )

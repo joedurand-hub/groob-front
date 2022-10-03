@@ -1,13 +1,15 @@
 import React from 'react'
 import { IoMdShareAlt } from "react-icons/io"
 
-const Share = ({content, price, file}) => {
+const Share = ({content, price, file, username, userLink, postLink}) => {
 
   const texto = {
     title: "Gran día",
     text: "Veamos por qué es un gran día hoy",
     url: "https://www.groob.com.ar/feed/6338d965da97b7306286f857"
   }
+
+
   
   const sharePost = async (post) => {
     if (navigator.share) {

@@ -3,10 +3,11 @@ import Button from "../Button/Button";
 import { useRouter } from "next/router";
 import { ENDPOINT } from "../../helpers/constants";
 import useAuthPost from "../../hooks/useAuthPost";
+import Loader from "../Loader/Loader";
 
 const CreateChat = ({ myId, userId }) => {
-  const [newChat, setNewChat] = useState("");
   const { data, pending, error, sendData } = useAuthPost();
+  console.log(data)
   const router = useRouter();
 
   const handleNewChat = async () => {
@@ -21,14 +22,18 @@ const CreateChat = ({ myId, userId }) => {
 
   return (
     <>
+    {pending ? (
+      <Loader/>
+    ) : (
       <Button
         variant="primary"
         name="Mensaje"
         onClick={() => {
           handleNewChat();
-          router.push(`/messages/${userId}`)
+          data && data !== undefined && router.push(`/messages/${userId}`)
         }}
       />
+    )}
     </>
   );
 };
