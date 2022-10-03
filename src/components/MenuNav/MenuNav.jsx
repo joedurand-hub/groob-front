@@ -4,22 +4,40 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 const MenuNav = ({ children }) => {
   const { theme } = useContext(ThemeContext);
-  const [show, setShow] = useState(true);
-  useEffect(() => {
-    const handleScroll = () => {
-      if(window.scrollY > 5) {
-        setShow(false);
-      } else {
-        setShow(true)
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
+  const [scrollDir, setScrollDir] = useState("down");
+
+useEffect(() => {
+  const threshold = 0;
+  let lastScrollY = window.pageYOffset;
+  let upAndDown = false;
+
+  const updateScrollDir = () => {
+    const scrollY = window.pageYOffset;
+
+    if (Math.abs(scrollY - lastScrollY) < threshold) {
+      upAndDown = false;
+      return;
     }
-  }, []);
+    setScrollDir(scrollY > lastScrollY ? "down" : "up");
+    lastScrollY = scrollY > 0 ? scrollY : 0;
+    upAndDown = false;
+  };
+
+  const onScroll = () => {
+    if (!upAndDown) {
+      window.requestAnimationFrame(updateScrollDir);
+      upAndDown = true;
+    }
+  };
+
+  window.addEventListener("scroll", onScroll);
+  console.log(scrollDir);
+
+  return () => window.removeEventListener("scroll", onScroll);
+}, [scrollDir]);
+
   return (
-    <div className={show ? styles.visible : styles.hidden}>
+    <div className={scrollDir === down ? styles.hidden : styles.visible}>
       <nav
         className={
           theme
