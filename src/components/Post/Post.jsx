@@ -90,7 +90,7 @@ const Posts = ({ data, myId }) => {
                       username={userName}
                     />
                   }
-                ></PostFooter>
+                />
               </>
               <Comments allComments={comments.slice(0, 2)} />
               <>

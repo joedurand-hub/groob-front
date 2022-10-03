@@ -9,6 +9,7 @@ import MoreOptions from "../MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 import Slider from "../Slider/Slider";
+import Share from "../PostFooter/Share/Share";
 
 const PostById = ({ data }) => {
   const {
@@ -65,7 +66,16 @@ const PostById = ({ data }) => {
             <Slider allImages={images}/>
         </div>
         <>
-          <PostFooter price={price && price} id={_id} likes={likes} />
+          <PostFooter price={price && price} id={_id} likes={likes} 
+                postToShare={
+                  <Share
+                    content={content}
+                    price={price}
+                    fileLink={images}
+                    postIdLink={`${URL}/feed/${_id}`}
+                    username={userName}
+                  />
+                }/>
         </>
         <Comments allComments={comments} />
       </article>
