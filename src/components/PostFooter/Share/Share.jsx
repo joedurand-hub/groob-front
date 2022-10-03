@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useEffect } from 'react'
 
 const Share = ({content, price, fileLink, username, description, userLink, postIdLink}) => {
+  console.log(content, price, fileLink, username, description, userLink, postIdLink)
   const [file, setFile] = useState(null)
   const postLink = `https://www.groob.com.ar/feed/${postIdLink}`
 
