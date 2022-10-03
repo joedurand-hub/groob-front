@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { IoMdShareAlt } from "react-icons/io"
-import { useState } from "react"
 import { useEffect } from 'react'
 
 const Share = ({content, price, fileLink, username, description, userLink, postIdLink}) => {
