@@ -76,7 +76,7 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
 
   return (
     <>
-      <IoMdShareAlt onClick={() => sharePost(postWithOutPriceButWithImage)}/>
+      <IoMdShareAlt onClick={() => sharePost(simplePost)}/>
     </>
   )
 }

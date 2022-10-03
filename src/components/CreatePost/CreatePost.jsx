@@ -119,7 +119,7 @@ const CreatePost = ({ closeModal }) => {
           onChange={handleInputChange}
           maxLength={500}
         />
-        {files && (
+        {files.length > 0 && (
           <div className={styles.container_price_and_nsfw}>
             <div className={styles.container_price}>
               <span className={styles.price_title}>Precio</span>
