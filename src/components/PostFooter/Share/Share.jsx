@@ -3,9 +3,7 @@ import { IoMdShareAlt } from "react-icons/io"
 import { useEffect } from 'react'
 
 const Share = ({content, price, fileLink, postIdLink, username, description, userLink}) => {
-  console.log(content, price, fileLink, username, description, userLink, postIdLink)
   const [file, setFile] = useState(null)
-  const postLink = `https://www.groob.com.ar/feed/${postIdLink}`
 
   useEffect(() => {
     async function getFile() {
@@ -40,14 +38,14 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
   const simplePost = {
     title: username,
     text: content,
-    url: postLink
+    url: postIdLink
   }
 
     // Post con precio
     const postWithPrice = {
       title: price,
       text: content,
-      url: postLink,
+      url: postIdLink,
       files: [file]
     }
 
@@ -55,7 +53,7 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
   const postWithOutPriceButWithImage = {
     title: username,
     text: content,
-    url: postLink,
+    url: postIdLink,
     files: [file]
   }
 

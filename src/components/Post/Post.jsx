@@ -86,7 +86,7 @@ const Posts = ({ data, myId }) => {
                       content={content}
                       price={price}
                       fileLink={images}
-                      postIdLink={_id}
+                      postIdLink={`${URL}/feed/${_id}`}
                       username={userName}
                     />
                   }
