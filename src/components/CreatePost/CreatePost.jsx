@@ -158,7 +158,6 @@ const CreatePost = ({ closeModal }) => {
             className={styles.input_upload}
             onChange={(e) => handleFilesLoad(e.target.files)}
           />
-          {files.length > 0 && (
             <div className={styles.container_nsfw}>
               <input
                 type="checkbox"
@@ -170,7 +169,6 @@ const CreatePost = ({ closeModal }) => {
                 <strong>¿NSFW?</strong>
               </label>
             </div>
-          )}
           <div className={styles.container_send_post}>
             <p className={styles.character_counter}>{lengthValue}/500</p>
             {pending ? (

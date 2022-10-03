@@ -47,7 +47,6 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
     title: username ? username : price,
     text: content ? content : "Groob",
     url: postIdLink,
-    files: fileLink && [file]
   }
 
 
@@ -59,11 +58,9 @@ const Share = ({content, price, fileLink, postIdLink, username, description, use
     files: fileLink &&  [file]
   }
 
-const send = description ? user : postWithOutPriceButWithImage
-
   return (
     <>
-      <IoMdShareAlt onClick={() => sharePost(send)}/>
+      <IoMdShareAlt onClick={() => sharePost(postWithOutPriceButWithImage)}/>
     </>
   )
 }
