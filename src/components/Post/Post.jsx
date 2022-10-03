@@ -17,16 +17,16 @@ const Posts = ({ data, myId }) => {
       {data &&
         data.map(
           ({
+            _id,
             content,
             price,
             images,
             createdAt,
             comments,
-            user,
-            _id,
             likes,
-            profilePicture,
             userName,
+            profilePicture,
+            user,
           }) => (
             <article
               key={_id}
@@ -76,22 +76,29 @@ const Posts = ({ data, myId }) => {
                 <Slider allImages={images} />
               </div>
               <>
-                <PostFooter price={price && price} id={_id} likes={likes} />
+                <PostFooter
+                  user={userName}
+                  postText={content}
+                  imageLink={images}
+                  price={price && price}
+                  id={_id}
+                  likes={likes}
+                />
               </>
               <Comments allComments={comments.slice(0, 2)} />
-                <>
-                  {comments.length >= 3 ? (
-                      <Link
-                        href={`${URL}/feed/${_id}`}
-                        style={{ textDecoration: "none" }}
-                        passHref
-                      >
+              <>
+                {comments.length >= 3 ? (
+                  <Link
+                    href={`${URL}/feed/${_id}`}
+                    style={{ textDecoration: "none" }}
+                    passHref
+                  >
                     <p className={styles.post_view_more}>
                       <strong>Ver más...</strong>
                     </p>
                   </Link>
-                  ) : null}
-                </>
+                ) : null}
+              </>
             </article>
           )
         )}

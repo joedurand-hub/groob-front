@@ -6,23 +6,20 @@ import Icon from "../PostIcons/Icon";
 import { MdInsertComment } from "react-icons/md";
 import InputComment from "../PostComment/PostComment";
 
-const PostFooter = ({ likes, price, id }) => {
-  
+const PostFooter = ({ postText, postLikes, imageLink, user, price, id }) => {
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
 
-  
   const handleComment = (e) => {
-    setTextComment(e)
-  }
-
+    setTextComment(e);
+  };
 
   return (
     <>
       {price ? (
         <div className={styles.item_footer_post}>
           <div className={styles.container}>
-            <Like id={id} likes={likes}/>
+            <Like id={id} likes={postLikes} />
             <Icon>
               <MdInsertComment
                 onClick={() => {
@@ -31,24 +28,30 @@ const PostFooter = ({ likes, price, id }) => {
               />
             </Icon>
             <Icon className={styles.user_post}>
-              <Share/>
+              <Share />
             </Icon>
             <h6>${price}</h6>
           </div>
         </div>
       ) : (
-          <div className={styles.item_footer_post}>
-        <div className={styles.container}>
-              <Like id={id} likes={likes}/>
-            <h6>{likes === 0 ? null : likes}</h6>
-          <Icon>
-            <MdInsertComment onClick={() => setComment(!comment)} />
-          </Icon>
-          <Icon className={styles.user_post}>
-          <Share />
-          </Icon>
-        </div>
+        <div className={styles.item_footer_post}>
+          <div className={styles.container}>
+            <Like id={id} likes={postLikes} />
+            <h6>{postLikes === 0 ? null : postLikes}</h6>
+            <Icon>
+              <MdInsertComment onClick={() => setComment(!comment)} />
+            </Icon>
+            <Icon className={styles.user_post}>
+              <Share
+                content={postText}
+                price={price}
+                username={user}
+                fileLink={imageLink}
+                postIdLink={id}
+              />
+            </Icon>
           </div>
+        </div>
       )}
 
       {comment && (

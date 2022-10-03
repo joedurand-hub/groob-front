@@ -119,21 +119,26 @@ const CreatePost = ({ closeModal }) => {
           onChange={handleInputChange}
           maxLength={500}
         />
-        <div className={styles.container_price_and_nsfw}>
-          <div className={styles.container_price}>
-
-            <span className={styles.price_title}>Precio</span>
-            <span className={styles.price_title_optional}>
-              {"("}opcional{")"}
-            </span>
-            <input
-              className={theme ? `${styles.price_input} ${styles.price_light}` : `${styles.price_input} ${styles.price_dark}`}
-              placeholder="1000"
-              type="number"
-              onChange={handleInputPriceChange}
+        {files && (
+          <div className={styles.container_price_and_nsfw}>
+            <div className={styles.container_price}>
+              <span className={styles.price_title}>Precio</span>
+              <span className={styles.price_title_optional}>
+                {"("}opcional{")"}
+              </span>
+              <input
+                className={
+                  theme
+                    ? `${styles.price_input} ${styles.price_light}`
+                    : `${styles.price_input} ${styles.price_dark}`
+                }
+                placeholder="1000"
+                type="number"
+                onChange={handleInputPriceChange}
               />
+            </div>
           </div>
-        </div>
+        )}
         <div className={styles.container_form_buttons}>
           <div className={styles.upload_files}>
             <label htmlFor="upload">
@@ -141,7 +146,9 @@ const CreatePost = ({ closeModal }) => {
                 <BsFillImageFill />
               </Icon>
             </label>
-            <p className={styles.files_length}>{files.length} {files.length > 0 ? "/7" : null}</p>
+            <p className={styles.files_length}>
+              {files.length} {files.length > 0 ? "/7" : null}
+            </p>
           </div>
           <input
             type="file"

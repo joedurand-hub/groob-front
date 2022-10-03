@@ -3,11 +3,18 @@ import { IoMdShareAlt } from "react-icons/io"
 import { useState } from "react"
 import { useEffect } from 'react'
 
-const Share = ({content, price, fileLink, username, userLink, postLink}) => {
+const Share = ({content, price, fileLink, username, description, userLink, postIdLink}) => {
   const [file, setFile] = useState(null)
+  const postLink = `https://www.groob.com.ar/feed/${postIdLink}`
 
   useEffect(() => {
-
+    async function getFile() {
+      const image = await fetch(`${fileLink}`)
+      const blob = await image.blob()
+      const file = new File([blob], 'Imagen')
+      setFile(file)
+    }
+    getFile()
   }, [])
 
   
@@ -15,7 +22,7 @@ const Share = ({content, price, fileLink, username, userLink, postLink}) => {
     if (navigator.share) {
       try {
         await navigator
-          .share(post)
+          .share(data)
           .then(() =>
             console.log("Largar alerta de que se está compartiendo")
           );
@@ -28,32 +35,42 @@ const Share = ({content, price, fileLink, username, userLink, postLink}) => {
       );
     }
   }
-  const title = content ? content : username
+
   // Post con texto
-  const postOrUser = {
-    title: title,
-    text: "Veamos por qué es un gran día hoy",
-    url: "https://www.groob.com.ar/feed/6338d965da97b7306286f857"
+  const simplePost = {
+    title: username,
+    text: content,
+    url: postLink
   }
 
-  // // Post con foto
-  // const postWithImage = {
-  //   title: "Gran día",
-  //   text: "Veamos por qué es un gran día hoy",
-  //   url: "https://www.groob.com.ar/feed/6338d965da97b7306286f857"
-  // }
+    // Post con precio
+    const postWithPrice = {
+      title: price,
+      text: content,
+      url: postLink,
+      files: [file]
+    }
 
-  // // Perfil de usuario
+  // Post con foto
+  const postWithOutPriceButWithImage = {
+    title: username,
+    text: content,
+    url: postLink,
+    files: [file]
+  }
 
-  // const user = {
-  //   title: "Gran día",
-  //   text: "Veamos por qué es un gran día hoy",
-  //   url: "https://www.groob.com.ar/feed/6338d965da97b7306286f857"
-  // }
+
+  // Perfil de usuario
+  const user = {
+    title: username,
+    text: description,
+    url: userLink,
+    files: [file]
+  }
 
   return (
     <>
-      <IoMdShareAlt onClick={() => sharePost()}/>
+      <IoMdShareAlt onClick={() => sharePost(postWithOutPriceButWithImage)}/>
     </>
   )
 }
