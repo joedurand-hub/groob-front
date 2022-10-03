@@ -8,7 +8,7 @@ import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import { useRouter } from "next/router";
 import { IoIosCloseCircle } from "react-icons/io";
-import { BsFillImageFill } from "react-icons/bs";
+import { BsFillImageFill, BsInfoCircle } from "react-icons/bs";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Loader from "../Loader/Loader";
 import usePostPublication from "../../hooks/usePostPublication";
@@ -158,6 +158,7 @@ const CreatePost = ({ closeModal }) => {
             className={styles.input_upload}
             onChange={(e) => handleFilesLoad(e.target.files)}
           />
+          {files.length > 0 && (
             <div className={styles.container_nsfw}>
               <input
                 type="checkbox"
@@ -166,9 +167,10 @@ const CreatePost = ({ closeModal }) => {
                 onChange={handleExplicitContent}
               />
               <label htmlFor="nsfw">
-                <strong>¿NSFW?</strong>
+                <strong>¿NSFW?</strong><BsInfoCircle/>
               </label>
             </div>
+          )}
           <div className={styles.container_send_post}>
             <p className={styles.character_counter}>{lengthValue}/500</p>
             {pending ? (
