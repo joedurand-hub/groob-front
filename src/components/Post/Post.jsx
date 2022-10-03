@@ -81,15 +81,16 @@ const Posts = ({ data, myId }) => {
                   price={price && price}
                   id={_id}
                   likes={likes}
-                >
-                  <Share
-                    content={content}
-                    price={price}
-                    fileLink={images}
-                    postIdLink={_id}
-                    username={userName}
-                  />
-                </PostFooter>
+                  postToShare={
+                    <Share
+                      content={content}
+                      price={price}
+                      fileLink={images}
+                      postIdLink={_id}
+                      username={userName}
+                    />
+                  }
+                ></PostFooter>
               </>
               <Comments allComments={comments.slice(0, 2)} />
               <>
