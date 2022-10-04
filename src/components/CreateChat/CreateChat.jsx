@@ -21,9 +21,6 @@ const CreateChat = ({ myId, userId }) => {
 
   return (
     <>
-    {pending ? (
-      <Loader/>
-    ) : (
       <Button
         variant="primary"
         name="Mensaje"
@@ -32,7 +29,6 @@ const CreateChat = ({ myId, userId }) => {
           data && data !== undefined && router.push(`/messages/${userId}`)
         }}
       />
-    )}
     </>
   );
 };
