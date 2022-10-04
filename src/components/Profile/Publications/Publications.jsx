@@ -9,7 +9,7 @@ import { Toaster, toast } from "react-hot-toast";
 const Publications = ({ id }) => {
   const { theme } = useContext(ThemeContext);
   const { data, loading, error } = useRequest(
-    `https://groob-backend-production.up.railway.app/posts/${id}`
+    `http://localhost:8080/posts/${id}`
   );
 
   if (loading) {

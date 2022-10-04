@@ -7,6 +7,7 @@ import Loader from "../Loader/Loader";
 
 const CreateChat = ({ myId, userId }) => {
   const { data, pending, error, sendData } = useAuthPost();
+  console.log(data)
   const router = useRouter();
 
   const handleNewChat = async () => {
@@ -21,6 +22,9 @@ const CreateChat = ({ myId, userId }) => {
 
   return (
     <>
+    {pending ? (
+      <Loader/>
+    ) : (
       <Button
         variant="primary"
         name="Mensaje"
@@ -29,6 +33,7 @@ const CreateChat = ({ myId, userId }) => {
           data && data !== undefined && router.push(`/messages/${userId}`)
         }}
       />
+    )}
     </>
   );
 };

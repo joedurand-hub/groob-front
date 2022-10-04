@@ -23,7 +23,7 @@ const PostComment = ({ sendText, text, id }) => {
 
   const handleSubmit = async () => {
     sendData({
-      endpoint: `https://groob-backend-production.up.railway.app/post/${id}`,
+      endpoint: `http://localhost:8080/post/${id}`,
       postData: { value: text },
     });
   };

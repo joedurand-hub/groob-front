@@ -11,24 +11,24 @@ const Share = ({
   description,
   userLink,
 }) => {
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
 
   // fileLink es un array de imágenes
   // cada posición contiene public_id, secure_url
 
-  const images = fileLink?.map((image) => image.secure_url);
+  // const images = fileLink?.map((image) => image.secure_url);
   // Necesito iterar sobre el array de imágenes
   // Y a cada una convertirla en blob para luego almacenarla
 
-  useEffect(() => {
-    async function getFile() {
-      const image = await fetch(`${images[0]}`);
-      const blob = await image.blob();
-      const file = new File([blob], "Imagen");
-      setFile(file);
-    }
-    getFile();
-  }, []);
+  // useEffect(() => {
+  //   async function getFile() {
+  //     const image = await fetch(`${images[0]}`);
+  //     const blob = await image.blob();
+  //     const file = new File([blob], "Imagen");
+  //     setFile(file);
+  //   }
+  //   getFile();
+  // }, []);
 
   const sharePost = async (data) => {
     if (navigator.share) {
@@ -52,12 +52,12 @@ const Share = ({
   };
 
   // Perfil de usuario
-  const user = {
-    title: username,
-    text: description,
-    url: userLink,
-    files: fileLink && [file],
-  };
+  // const user = {
+  //   title: username,
+  //   text: description,
+  //   url: userLink,
+  //   files: fileLink && [file],
+  // };
 
   return (
     <>

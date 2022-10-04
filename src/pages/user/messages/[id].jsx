@@ -27,7 +27,7 @@ const Messages = ({ datas }) => {
     try {
       const getMessages = async () => {
         const { data } = await axios.get(
-          `https://groob-backend-production.up.railway.app/message/${datas?.chat._id}`,
+          `http://localhost:8080/message/${datas?.chat._id}`,
           { headers: { authtoken: token } },
           { withCredentials: true }
         );
@@ -49,7 +49,7 @@ const Messages = ({ datas }) => {
   const handleSendMessage = async () => {
     try {
       const { data } = await axios.post(
-        `https://groob-backend-production.up.railway.app/message`,
+        `http://localhost:8080/message`,
         {
           chatId: datas?.chat._id,
           senderId: messages.myId,
@@ -67,7 +67,7 @@ const Messages = ({ datas }) => {
   };
 
   useEffect(() => {
-    socket.current = io("https://groob-backend-production.up.railway.app");
+    socket.current = io("http://localhost:8080");
     if (newSocketMessage !== null) {
       socket.current.emit("newMessage", { newSocketMessage, reciverId });
     }
@@ -75,7 +75,7 @@ const Messages = ({ datas }) => {
   }, [newSocketMessage]);
 
   useEffect(() => {
-    socket.current = io("https://groob-backend-production.up.railway.app");
+    socket.current = io("http://localhost:8080");
     socket.current.on("receiveMessage", (newMessage) => {
       setReciveMessage(newMessage);
     });
@@ -128,7 +128,7 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      `https://groob-backend-production.up.railway.app/chat/${id}`,
+      `http://localhost:8080/chat/${id}`,
       {
         headers: {
           authtoken: token,

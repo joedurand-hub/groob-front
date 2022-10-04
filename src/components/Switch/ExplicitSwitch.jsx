@@ -33,7 +33,7 @@ const Index = ({ id, valueDB }) => {
       });
     }
     sendUpdatedData({
-      endpoint: `https://groob-backend-production.up.railway.app/profile/${id}`,
+      endpoint: `http://localhost:8080/profile/${id}`,
       putData: {
         explicitContent: !toggleValue,
       },

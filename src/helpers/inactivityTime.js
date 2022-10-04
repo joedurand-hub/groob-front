@@ -4,9 +4,9 @@ import usePut from "../hooks/usePut";
 export const inactivityTime = (userId) => {
   const { sendUpdatedData } = usePut();
   const url = `${ENDPOINT}${UPDATE_PROFILE}/${userId}`;
-  if (typeof window !== undefined) {
-    const register = () => {
-      var time;
+  const register = () => {
+    var time;
+    if (typeof window !== undefined) {
       window.onload = resetTimer;
       // Eventos del DOM
       window.onload = resetTimer;

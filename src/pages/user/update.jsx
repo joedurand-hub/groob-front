@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import useRequest from "../../hooks/useRequest";
 
 const UpdateProfile = () => {
-  const { data, loading, error } = useRequest(`https://groob-backend-production.up.railway.app/profile`);
+  const { data, loading, error } = useRequest(`http://localhost:8080/profile`);
   const router = useRouter();
   const url = `${ENDPOINT}${UPDATE_PROFILE}/${data?._id}`;
   const { info, pending, sendUpdatedData } = usePut();

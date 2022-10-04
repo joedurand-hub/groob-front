@@ -26,7 +26,7 @@ const Search = ({ posts }) => {
   useEffect(() => {
     const searchQuery = async () => {
       const { data } = await axios.get(
-        `https://groob-backend-production.up.railway.app/search?input=${query}`,
+        `http://localhost:8080/search?input=${query}`,
         { headers: { authtoken: token } },
         { withCredentials: true }
       );
@@ -97,7 +97,7 @@ export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
-      `https://groob-backend-production.up.railway.app/discover`,
+      `http://localhost:8080/discover`,
       {
         method: "GET",
         headers: {

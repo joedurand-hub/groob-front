@@ -1,5 +1,5 @@
 import { useState, memo } from "react";
-import { FaRegHeart, FaHeart } from "react-icons/bs";
+import { BsHeartFill, BsHeart } from "react-icons/bs";
 import Icon from "../../PostIcons/Icon";
 import useAuthPost from "../../../hooks/useAuthPost";
 import styles from "./likes.module.css";
@@ -28,7 +28,8 @@ const Like = ({ id, likes }) => {
     <>
       {data === undefined && ((liked === false) === dislike) === false && (
         <Icon>
-          <FaRegHeart
+          <BsHeart
+            className={styles.like}
             onClick={() => {
               handleLike();
               setLike(false);
@@ -40,7 +41,7 @@ const Like = ({ id, likes }) => {
       )}
       {data && liked && (
         <Icon>
-          <FaHeart
+          <BsHeartFill
             className={styles.liked}
             onClick={() => {
               handleDislike();
@@ -53,7 +54,8 @@ const Like = ({ id, likes }) => {
       )}
       {dislike && (
         <Icon>
-          <FaRegHeart
+          <BsHeartFill
+            className={styles.dislike}
             onClick={() => {
               handleLike();
               setLike(false);
