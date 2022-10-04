@@ -17,8 +17,8 @@
 
   .btn_slide {
     z-index: 9;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background: #01010136;
     border: none;
@@ -31,8 +31,6 @@
   }
 
   .btn_slide:active {
-    width: 40px;
-    height: 40px;
     border-radius: 50%;
     background: #010101a5;
     border: none;
@@ -49,8 +47,8 @@
   }
   
   .icon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     color: #565656;
   }
