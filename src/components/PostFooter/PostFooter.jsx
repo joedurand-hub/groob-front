@@ -18,7 +18,6 @@ const PostFooter = ({ postToShare, postLikes, price, id }) => {
       {price ? (
         <div className={styles.item_footer_post}>
           <div className={styles.container}>
-            <Like id={id} likes={postLikes} />
             <Icon>
               <MdInsertComment
                 onClick={() => {
@@ -29,20 +28,21 @@ const PostFooter = ({ postToShare, postLikes, price, id }) => {
             <Icon className={styles.user_post}>
             {postToShare}
             </Icon>
+            <Like id={id} likes={postLikes} />
             <h6>${price}</h6>
           </div>
         </div>
       ) : (
         <div className={styles.item_footer_post}>
           <div className={styles.container}>
-            <Like id={id} likes={postLikes} />
-            <h6>{postLikes === 0 ? null : postLikes}</h6>
             <Icon>
               <MdInsertComment onClick={() => setComment(!comment)} />
             </Icon>
             <Icon className={styles.user_post}>
               {postToShare}
             </Icon>
+            <Like id={id} likes={postLikes} />
+            <h6>{postLikes === 0 ? null : postLikes}</h6>
           </div>
         </div>
       )}
