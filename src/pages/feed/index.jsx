@@ -20,6 +20,36 @@ const Post = dynamic(() => import("../../components/Post/Post"), {
 });
 
 const Feed = ({ posts }) => {
+  
+if (typeof window !== "undefined") {
+
+  var registrarInactividad = function () {
+    var t;
+  window.onload = reiniciarTiempo;
+  // Eventos del DOM
+  window.onmousemove = reiniciarTiempo;
+  window.onkeypress = reiniciarTiempo;
+  window.onload = reiniciarTiempo;
+  window.onmousemove = reiniciarTiempo;
+  window.onmousedown = reiniciarTiempo; // aplica para una pantalla touch
+  window.ontouchstart = reiniciarTiempo;
+  window.onclick = reiniciarTiempo;     // aplica para un clic del touchpad
+  window.onscroll = reiniciarTiempo;    // navegando con flechas del teclado
+  window.onkeypress = reiniciarTiempo;
+
+  function tiempoExcedido() {
+      alert("Estuvo inactivo durante mucho tiempo.")
+  }
+
+  function reiniciarTiempo() {
+      clearTimeout(t);
+      t = setTimeout(tiempoExcedido, 3000)
+      // 1000 milisegundos = 1 segundo
+  }
+};
+
+registrarInactividad();
+}
   const { theme } = useContext(ThemeContext);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
