@@ -56,12 +56,13 @@ const Index = ({ data }) => {
         <ChatUser
           myId={data?.myId}
           userName={data?.userName}
+          online={data?.online}
           profilePicture={data?.profilePicture}
           width={75}
           height={75}
         />
       </div>
-      <ChatList chatsId={chatsId} users={usersData} />
+      <ChatList chatsId={chatsId} users={usersData}  />
     </Chat>
   );
 };
