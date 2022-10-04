@@ -32,6 +32,7 @@ const UpdateProfile = () => {
     lastName: data?.lastName,
     email: data?.email,
     age: data?.age,
+    online: false
   };
 
   const reducer = (state, action) => {

@@ -15,10 +15,8 @@ import { BiHome } from "react-icons/bi";
 import { BiSearchAlt, BiChat } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
-import inactivityTime from "../../helpers/inactivityTime";
 
 const User = ({ data }) => {
-  inactivityTime(data?._id);
   const [open, setOpen] = useState(false);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (

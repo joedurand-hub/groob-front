@@ -13,7 +13,7 @@ function inactivityTime(userId) {
     window.onclick = resetTimer;      // catches touchpad clicks as well
     window.onkeypress = resetTimer;   
     window.addEventListener('scroll', resetTimer, true); // improved; see comments
-
+  console.log(url)
     function logout() {
         console.log("No estas usando la app.")
         sendUpdatedData({
@@ -25,6 +25,7 @@ function inactivityTime(userId) {
     }
 
     function resetTimer() {
+      console.log("reset timer")
         clearTimeout(time);
         time = setTimeout(logout, 180000);  // time is in milliseconds
     }
