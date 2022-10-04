@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { IoMdShareAlt } from "react-icons/io";
 import { FaShareSquare } from "react-icons/fa";
-import { RiShareForward2Line } from "react-icons/ri";
 import { useEffect } from "react";
 
 const Share = ({
@@ -63,9 +61,7 @@ const Share = ({
 
   return (
     <>
-      <IoMdShareAlt onClick={() => sharePost(postWithOutPriceButWithImage)} />
       <FaShareSquare onClick={() => sharePost(postWithOutPriceButWithImage)} />
-      <RiShareForward2Line onClick={() => sharePost(postWithOutPriceButWithImage)} />
     </>
   );
 };
