@@ -10,7 +10,8 @@ import inactivityTime from "../helpers/inactivityTime";
 
 const Index = ({ data }) => {
   console.log(data)
-  inactivityTime(data?.myId)
+  const res = inactivityTime(data?.myId)
+  console.log(res)
   const [allChats, setAllChats] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const socket = useRef();

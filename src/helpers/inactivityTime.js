@@ -40,5 +40,6 @@ function inactivityTime(userId) {
     }
     register()
   }
+  return info;
 }
 export default inactivityTime;
