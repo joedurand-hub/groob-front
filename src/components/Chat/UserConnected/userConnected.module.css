@@ -19,7 +19,6 @@
     margin-top: 3rem;
     width: 1rem;
     height: 1rem;
-    z-index: 10;
 }
 
 .offline_dot {
@@ -31,5 +30,4 @@
     margin-top: 3rem;
     width: 1rem;
     height: 1rem;
-    z-index: 10;
 }
