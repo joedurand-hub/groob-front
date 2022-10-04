@@ -8,7 +8,7 @@ const UserConnected = ({ online, profilePicture, width, height }) => {
     <div
       className={styles.chat_user}
     >
-      <div className={online ? styles.online_dot : styles.offline_dot}></div>
+      <div className={online === true ? styles.online_dot : styles.offline_dot}></div>
       <Image
         className={styles.user_online}
         src={profilePicture && profilePicture}
