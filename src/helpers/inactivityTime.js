@@ -1,12 +1,12 @@
 import { ENDPOINT, UPDATE_PROFILE } from "./constants";
 import usePut from "../hooks/usePut";
 
-function inactivityTime(userId) {
+export const inactivityTime = (userId) => {
   const { info, pending, sendUpdatedData } = usePut();
   const url = `${ENDPOINT}${UPDATE_PROFILE}/${userId}`;
 
   if (typeof window !== undefined) {
-    var register = function () {
+    const register = () => {
       var time;
       window.onload = resetTimer;
       // Eventos del DOM
@@ -42,4 +42,3 @@ function inactivityTime(userId) {
   }
   return info;
 }
-export default inactivityTime;

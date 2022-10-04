@@ -6,7 +6,7 @@ import GoBack from "../../components/GoBack/Back";
 import Conversation from "../../components/Conversation/Conversation";
 import axios from "axios";
 import { io } from "socket.io-client";
-import inactivityTime from "../../helpers/inactivityTime";
+import { inactivityTime } from "../../helpers/inactivityTime";
 import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
 const Messages = ({ datas }) => {
