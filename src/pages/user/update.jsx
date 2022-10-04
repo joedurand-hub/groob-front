@@ -64,7 +64,6 @@ const UpdateProfile = () => {
         firstName: state.firstName,
         lastName: state.lastName,
         age: state.age,
-        online: false
       },
     });
   };
