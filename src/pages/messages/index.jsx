@@ -6,7 +6,7 @@ import ChatUser from "../../components/Chat/ChatUser/ChatUser";
 import ChatList from "../../components/Chat/ChatList/ChatList";
 import { io } from "socket.io-client";
 import GoBack from "../../components/GoBack/Back";
-import { inactivityTime } from "../helpers/inactivityTime";
+import { inactivityTime } from "../../helpers/inactivityTime";
 
 const Index = ({ data }) => {
   console.log(data)

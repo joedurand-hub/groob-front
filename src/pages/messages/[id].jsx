@@ -10,6 +10,7 @@ import { inactivityTime } from "../../helpers/inactivityTime";
 import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
 const Messages = ({ datas }) => {
+  console.log(inactivityTime)
   const res = inactivityTime(datas?.myId)
   console.log(res)
   const token = getCookie("authtoken");
