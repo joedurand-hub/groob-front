@@ -6,9 +6,11 @@ import GoBack from "../../components/GoBack/Back";
 import Conversation from "../../components/Conversation/Conversation";
 import axios from "axios";
 import { io } from "socket.io-client";
+import inactivityTime from "../../helpers/inactivityTime";
 import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
 const Messages = ({ datas }) => {
+  inactivityTime(datas?.myId)
   const token = getCookie("authtoken");
   const [messages, setMessages] = useState([]);
   const [chat, setChat] = useState([]);

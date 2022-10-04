@@ -1,63 +1,44 @@
 import { ENDPOINT, UPDATE_PROFILE } from "./constants";
 import usePut from "../hooks/usePut";
 
-// function inactivityTime(userId) {
-//     const { info, pending, sendUpdatedData } = usePut();
-//     const url = `${ENDPOINT}${UPDATE_PROFILE}/${userId}`;
-//     console.log(info)
-//     let time;
-//     window.onload = resetTimer;
-//     window.onmousemove = resetTimer;
-//     window.onmousedown = resetTimer;  // catches touchscreen presses as well      
-//     window.ontouchstart = resetTimer; // catches touchscreen swipes as well 
-//     window.onclick = resetTimer;      // catches touchpad clicks as well
-//     window.onkeypress = resetTimer;   
-//     window.addEventListener('scroll', resetTimer, true); // improved; see comments
-//   console.log(url)
-//     function logout() {
-//         console.log("No estas usando la app.")
-//         sendUpdatedData({
-//           endpoint: url,
-//           putData: {
-//             online: false,
-//           },
-//         });
-//     }
+function inactivityTime(userId) {
+  const { info, pending, sendUpdatedData } = usePut();
+  const url = `${ENDPOINT}${UPDATE_PROFILE}/${userId}`;
 
-//     function resetTimer() {
-//       console.log("reset timer")
-//         clearTimeout(time);
-//         time = setTimeout(logout, 180000);  // time is in milliseconds
-//     }
-// }
-// export default inactivityTime;
+  if (typeof window !== undefined) {
+    var register = function () {
+      var time;
+      window.onload = resetTimer;
+      // Eventos del DOM
+      window.onload = resetTimer;
+      window.onmousemove = resetTimer;
+      window.onmousedown = resetTimer;
+      window.ontouchstart = resetTimer;
+      window.onclick = resetTimer;
+      window.onscroll = resetTimer;
+      window.onkeypress = resetTimer;
 
-if(typeof window !== undefined) {
+      function offline() {
+        sendUpdatedData({
+          endpoint: url,
+          putData: {
+            online: false,
+          },
+        });
+      }
 
-  var registrarInactividad = function () {
-    var t;
-  window.onload = reiniciarTiempo;
-  // Eventos del DOM
-  window.onmousemove = reiniciarTiempo;
-  window.onkeypress = reiniciarTiempo;
-  window.onload = reiniciarTiempo;
-  window.onmousemove = reiniciarTiempo;
-  window.onmousedown = reiniciarTiempo; // aplica para una pantalla touch
-  window.ontouchstart = reiniciarTiempo;
-  window.onclick = reiniciarTiempo;     // aplica para un clic del touchpad
-  window.onscroll = reiniciarTiempo;    // navegando con flechas del teclado
-  window.onkeypress = reiniciarTiempo;
-
-  function tiempoExcedido() {
-      alert("Estuvo inactivo durante mucho tiempo.")
+      function resetTimer() {
+        clearTimeout(time);
+        time = setTimeout(offline, 10000)
+        sendUpdatedData({
+          endpoint: url,
+          putData: {
+            online: true,
+          },
+        });
+      }
+    }
+    register()
   }
-
-  function reiniciarTiempo() {
-      clearTimeout(t);
-      t = setTimeout(tiempoExcedido, 3000)
-      // 1000 milisegundos = 1 segundo
-  }
-};
-
-registrarInactividad();
 }
+export default inactivityTime;

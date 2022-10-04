@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from "react"
 import { ThemeContext, ThemeProvider } from "../contexts/ThemeContext";
 import { useRouter } from "next/router"
 import Loader from "../components/Loader/Loader";
-
 function Loading() {
   const { theme } = useContext(ThemeContext)
   const router = useRouter();
@@ -32,6 +31,7 @@ function Loading() {
 }
 
 function MyApp({ Component, pageProps }) {
+  
   return (
     <ThemeProvider>
       <Loading/>
