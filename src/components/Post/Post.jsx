@@ -67,7 +67,7 @@ const Posts = ({ data, myId }) => {
                   </Link>
                 </div>
                 <div className={styles.moreOptions}>
-                  <MoreOptions idBydeletePost={_id} userId={myId} />
+                  <MoreOptions postId={_id} userId={user} myId={myId} />
                 </div>
               </div>
               <div className={styles.post}>

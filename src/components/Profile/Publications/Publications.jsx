@@ -11,7 +11,7 @@ const Publications = ({ id }) => {
   const { data, loading, error } = useRequest(
     `http://localhost:8080/posts/${id}`
   );
-
+    console.log(id)
   if (loading) {
     return (
       <div
@@ -56,7 +56,7 @@ const Publications = ({ id }) => {
             Aún no hay publicaciones
           </h6>
         ) : (
-          <Posts data={data} />
+          <Posts data={data} myId={id}/>
         )}
       </div>
     </>
