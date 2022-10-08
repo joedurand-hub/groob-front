@@ -4,8 +4,11 @@ import Switch from "react-switch";
 import { Toaster, toast } from "react-hot-toast";
 
 const Index = ({ id, valueDB }) => {
+  console.log(id)
   const [value, setValue] = useState(valueDB);
+  console.log(value)
   const [toggleValue, setToggleValue] = useState(value);
+  console.log(toggleValue)
 
   const { sendUpdatedData } = usePut();
 

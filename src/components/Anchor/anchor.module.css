@@ -1,89 +1,49 @@
-@media only screen and (min-width: 260px) and (max-width: 768px) {
     .small {
-        font-family: "Roboto-Bold", sans-serif;
         font-size: 0.9rem;
+        color: rgb(20, 67, 175);
+
     }
 
     .intermediate {
-        font-family: "Roboto-Bold", sans-serif;
         font-size: 1rem;
+        color: rgb(20, 67, 175);
+
     }
 
     .large {
-        font-family: "Roboto-Bold", sans-serif;
         font-size: 1.2rem;
-    }
-
-    .link_light_mode {
-        outline: none;
-        text-decoration: none;
         color: rgb(20, 67, 175);
+
     }
 
-    .link_light_mode:hover {
-        text-decoration: underline;
-    }
-
-    .link_light_mode:active {
-        text-decoration: underline;
-    }
-
-    .link_dark_mode {
-        outline: none;
-        text-decoration: none;
-        color: rgb(20, 67, 175);
-    }
-
-    .link_dark_mode:hover {
-        text-decoration: underline;
-    }
-
-    .link_dark_mode:active {
-        text-decoration: underline;
-    }
-}
-
-@media only screen and (min-width: 769px) {
-    .small {
-        font-family: "Roboto-Bold", sans-serif;
-        font-size: 0.9rem;
-    }
-
-    .intermediate {
-        font-family: "Roboto-Bold", sans-serif;
-        font-size: 1rem;
-    }
-
-    .large {
-        font-family: "Roboto-Bold", sans-serif;
+    .logout {
+        margin: 0;
+        padding: 0;
         font-size: 1.2rem;
-    }
+        color: rgb(226, 19, 78);
+    }    
 
-    .link_light_mode {
+    .logout:hover {
+        outline: none;
+        border-bottom-style: solid;
+    } 
+    
+    .logout:active {
+        outline: none;
+        border-bottom-style: solid;
+    } 
+    
+    .link {
+        font-family: "Roboto-Bold", sans-serif;
         outline: none;
         text-decoration: none;
-        color: rgb(20, 67, 175);
     }
 
-    .link_light_mode:hover {
-        text-decoration: underline;
-    }
-
-    .link_light_mode:active {
-        text-decoration: underline;
-    }
-
-    .link_dark_mode {
+    .link:hover {
         outline: none;
-        text-decoration: none;
-        color: rgb(20, 67, 175);
     }
 
-    .link_dark_mode:hover {
+    .link:active {
+        outline: none;
         text-decoration: underline;
     }
-
-    .link_dark_mode:active {
-        text-decoration: underline;
-    }
-}

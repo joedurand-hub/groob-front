@@ -14,8 +14,8 @@ const Anchor = React.forwardRef(
         <a
           className={
             theme
-              ? variantToStyles(styles.link_light_mode, styles[variant])
-              : variantToStyles(styles.link_dark_mode, styles[variant])
+              ? variantToStyles(styles.link, styles[variant])
+              : variantToStyles(styles.link, styles[variant])
           }
           rel="noreferrer noopener"
           onClick={onClick}
