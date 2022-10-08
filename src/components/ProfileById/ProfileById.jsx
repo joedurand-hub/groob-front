@@ -7,7 +7,7 @@ import Follow from "../Follow/Follow";
 import Unfollow from "../Unfollow/Unfollow";
 import Icon from "../Icon/Icon";
 import { BsCashCoin } from "react-icons/bs";
-// import { GoVerified } from "react-icons/go";
+import { GoVerified } from "react-icons/go";
 import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
 import CreateChat from "../CreateChat/CreateChat";
@@ -31,8 +31,8 @@ const ProfileById = ({ data, id }) => {
       <section
         className={
           theme
-            ? `${styles.container} light_mode`
-            : `${styles.container} dark_mode`
+            ? `${styles.container} ${styles.light_mode}`
+            : `${styles.container} ${styles.dark_mode}`
         }
       >
         <header className={styles.user_header}>
@@ -40,14 +40,17 @@ const ProfileById = ({ data, id }) => {
             <Image
               className={styles.user_profile_picture}
               src={data && data?.profilePicture.secure_url}
-              width={200}
-              height={200}
+              width={225}
+              height={225}
               alt="Image"
             />
           </div>
           <div className={styles.container_user_data}>
-            <div>
+            <div className={styles.container_username}>
               <h3>{data?.userName[0].toUpperCase() + data?.userName.substring(1)}</h3>
+              {data && data?.verified ? (
+                <GoVerified className={styles.verify} />
+              ) : null}
             </div>
 
             <div className={styles.user_data}>
@@ -91,7 +94,6 @@ const ProfileById = ({ data, id }) => {
             <CryptoWallet />
           </Card>
         </div>
-        <hr />
       </section>
     </>
   );

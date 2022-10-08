@@ -12,6 +12,7 @@ import Slider from "../Slider/Slider";
 import Share from "../PostFooter/Share/Share";
 
 const PostById = ({ data }) => {
+  console.log(data);
   const {
     content,
     price,
@@ -50,10 +51,10 @@ const PostById = ({ data }) => {
                 </a>
               </Link>
             </div>
-              <div>
-                <a className={styles.user_name}>{userName}</a>
-                <p className={styles.user_crate_date}>{timeago(createdAt)}</p>
-              </div>
+            <div>
+              <a className={styles.user_name}>{userName}</a>
+              <p className={styles.user_crate_date}>{timeago(createdAt)}</p>
+            </div>
           </div>
           <div className={styles.moreOptions}>
             <MoreOptions />
@@ -63,19 +64,26 @@ const PostById = ({ data }) => {
           <p className={content ? styles.post_content : styles.empty}>
             {content}
           </p>
-            <Slider allImages={images}/>
+          <Slider allImages={images} />
         </div>
+        {content && images.length > 0 ? null : (
+          <hr className={styles.if_empty_image} />
+        )}
         <>
-          <PostFooter price={price && price} id={_id} likes={likes} 
-                postToShare={
-                  <Share
-                    content={content}
-                    price={price}
-                    fileLink={images}
-                    postIdLink={`${URL}/feed/${_id}`}
-                    username={userName}
-                  />
-                }/>
+          <PostFooter
+            price={price && price}
+            id={_id}
+            likes={likes}
+            postToShare={
+              <Share
+                content={content}
+                price={price}
+                fileLink={images}
+                postIdLink={`${URL}/feed/${_id}`}
+                username={userName}
+              />
+            }
+          />
         </>
         <Comments allComments={comments} />
       </article>

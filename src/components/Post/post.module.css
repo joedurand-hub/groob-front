@@ -6,6 +6,10 @@
         width: 100%;
         max-width: 480px;
         margin: 7px 0;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
     }
     
     .light_mode {
@@ -61,6 +65,10 @@
 
     .moreOptions {
         margin-top: 11px
+    }
+
+    .if_empty_image {
+        width: 95%;
     }
 
     .post {

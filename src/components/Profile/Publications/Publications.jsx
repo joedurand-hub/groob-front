@@ -17,8 +17,8 @@ const Publications = ({ id }) => {
       <div
         className={
           theme
-            ? `${styles.container_publications_light}`
-            : `${styles.container_publications_dark}`
+            ? `${styles.container_publications} ${styles.light}`
+            : `${styles.container_publications} ${styles.dark}`
         }
       >
         <Loader />
@@ -41,16 +41,16 @@ const Publications = ({ id }) => {
       <div
         className={
           theme
-            ? `${styles.container_publications_light}`
-            : `${styles.container_publications_dark}`
+            ? `${styles.container_publications} ${styles.light}`
+            : `${styles.container_publications} ${styles.dark}`
         }
       >
         {(data && data.length === 0) || data === undefined || data === null ? (
           <h6
             className={
               theme
-                ? `${styles.container_publications_light}`
-                : `${styles.container_publications_dark}`
+                ? `${styles.container_publications} ${styles.light}`
+                : `${styles.container_publications} ${styles.dark}`
             }
           >
             Aún no hay publicaciones

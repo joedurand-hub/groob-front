@@ -36,8 +36,8 @@ const Profile = ({ data }) => {
             <Image
               className={styles.user_profile_picture}
               src={data && data.profilePicture.secure_url}
-              width={400}
-              height={400}
+              width={480}
+              height={480}
               alt={`Foto de perfil de ${data && data.userName}`}
             />
 

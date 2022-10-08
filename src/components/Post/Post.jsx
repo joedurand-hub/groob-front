@@ -12,6 +12,7 @@ import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
 
 const Posts = ({ data, myId }) => {
+  console.log(data);
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -76,6 +77,9 @@ const Posts = ({ data, myId }) => {
                 </p>
                 <Slider allImages={images} />
               </div>
+                {content && images.length > 0 ? null : (
+                  <hr className={styles.if_empty_image} />
+                )}
               <>
                 <PostFooter
                   price={price && price}

@@ -1,4 +1,4 @@
-import Layout from "../../../components/Layout/Layout";
+import Layout from "../../../../components/Layout/Layout";
 import { getCookie } from "cookies-next";
 
 const Followings = ({data}) => {
@@ -22,7 +22,7 @@ export async function getServerSideProps({req, res}) {
       headers: { 
         "authtoken": token 
       }}, {
-        withCredentials: true
+        credentials: 'include'
       })
     const data = await response.json()
     return {

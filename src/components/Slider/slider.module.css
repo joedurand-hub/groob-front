@@ -9,6 +9,7 @@
     height: auto;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    position: relative;
   }
   
   .active {
@@ -17,8 +18,8 @@
 
   .btn_slide {
     z-index: 9;
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: #01010136;
     border: none;
@@ -32,7 +33,7 @@
 
   .btn_slide:active {
     border-radius: 50%;
-    background: #010101a5;
+    background: #01010190;
     border: none;
 
   }
@@ -50,7 +51,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    color: #565656;
+    color: #898989;
   }
   
   .container-dots {
