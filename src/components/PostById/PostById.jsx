@@ -67,7 +67,7 @@ const PostById = ({ data }) => {
           <Slider allImages={images} />
         </div>
         {content && images.length > 0 ? null : (
-          <hr className={styles.if_empty_image} />
+          <hr className={styles.hr} />
         )}
         <>
           <PostFooter
@@ -85,6 +85,7 @@ const PostById = ({ data }) => {
             }
           />
         </>
+        { content && comments.length > 0 && images.length > 0 && <hr className={styles.hr} />}
         <Comments allComments={comments} />
       </article>
     </>

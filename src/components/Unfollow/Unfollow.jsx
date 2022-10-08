@@ -24,7 +24,7 @@ const Unfollow = ({id}) => {
       {data === true ? (
               <Follow id={id}/>
       ) : (
-      <Button type="submit" onClick={handleSubmit} name="Desuscribirse"/>
+      <Button type="submit" onClick={handleSubmit} name="Dejar de seguir"/>
       )}
     </div>
   )

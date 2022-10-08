@@ -5,7 +5,7 @@ const Comments = ({allComments}) => {
   return (
     <div className={styles.container_comments}>
         {allComments?.map((comment, index) => (
-                <p key={index}>{comment}</p>
+                <p className={styles.comment} key={index}>{comment}</p>
         ))}
     </div>
   )

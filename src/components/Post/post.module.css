@@ -67,8 +67,15 @@
         margin-top: 11px
     }
 
-    .if_empty_image {
-        width: 95%;
+    .hr {
+        width: 93%;
+        padding-bottom: 0;
+        margin: 0;
+        margin-left: 4%;
+        border-left: none;
+        border-right: none;
+        color: #e6e6e6;
+        background-color: #e6e6e6;
     }
 
     .post {

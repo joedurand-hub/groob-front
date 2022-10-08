@@ -77,9 +77,11 @@ const Posts = ({ data, myId }) => {
                 </p>
                 <Slider allImages={images} />
               </div>
-                {content && images.length > 0 ? null : (
-                  <hr className={styles.if_empty_image} />
-                )}
+              {content && images.length > 0 ? null : (
+                <div>
+                  <hr className={styles.hr} />
+                </div>
+              )}
               <>
                 <PostFooter
                   price={price && price}
@@ -96,9 +98,10 @@ const Posts = ({ data, myId }) => {
                   }
                 />
               </>
-              <Comments allComments={comments.slice(0, 2)} />
+              { content && comments.length > 0 && images.length > 0 && <hr className={styles.hr} />}
+              <Comments allComments={comments.slice(0, 3)} />
               <>
-                {comments.length >= 3 ? (
+                {comments.length > 3 ? (
                   <Link
                     href={`${URL}/feed/${_id}`}
                     style={{ textDecoration: "none" }}
