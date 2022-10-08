@@ -38,7 +38,7 @@ const Menu = ({ valueSwitch, id }) => {
           <div className={styles.row}>{">"}</div>
         </MenuItem>
         <MenuItem>
-          <Anchor path="/terms" name="Reportar errores" variant="large" />
+          <Anchor path="/report-errors" name="Reportar errores" variant="large" />
           <div className={styles.row}>{">"}</div>
         </MenuItem>
         <MenuItem>
