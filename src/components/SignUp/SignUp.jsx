@@ -120,7 +120,7 @@ export const SignUp = () => {
           }
         >
           <input
-            autoComplete="off"
+            autoComplete="on"
             className={
               theme
                 ? `${inputField.field_input} ${inputField.field_input_light}`
@@ -167,34 +167,32 @@ export const SignUp = () => {
               minLength: 6,
               maxLength: 16,
               required: true,
-              pattern:
-                /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9 \S]{6,16}$/,
+              pattern: /((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,18}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{6,18}))/,
             })}
           />
           {errors.password?.type === "required" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña no puede estar vacía y debe tener más de 6
-              caracteres.{" "}
+              La contraseña no puede estar vacía.
             </p>
           )}
           {errors.password?.type === "minLength" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña debe tener más de 8 caracteres.{" "}
+              La contraseña debe tener más de 6 caracteres.{" "}
             </p>
           )}
           {errors.password?.type === "maxLength" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña debe ser menor a 16 <br /> caracteres.{" "}
+              La contraseña debe ser menor a 18 <br /> caracteres.{" "}
             </p>
           )}
-          {errors.passowrd?.type === "pattern" && (
+          {errors.password?.type === "pattern" && (
             <p className={styles.field_text_input_error}>
-              {" "}
-              La contraseña debe contener entre 6 y 16 caracteres y al menos 1
-              caracter alfanumérico.{" "}
+              Mínimo 6 caracteres. <br/>
+              Máximo 18 caracteres. <br/>
+              Al menos una letra mayúscula, un número y algún caracter especial.
             </p>
           )}
         </div>
