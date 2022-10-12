@@ -6,7 +6,7 @@ import Image from "next/image";
 import Button from "../Button/Button";
 import { IconMoney } from "../Icon/Icon";
 import Card from "../Card/Card";
-import LargeCard from "../Card/LargeCard"
+import LargeCard from "../Card/LargeCard";
 import Wallet from "../Wallet/Wallet";
 import CryptoWallet from "../WalletCrypto/WalletCrypto";
 import { BsCashCoin } from "react-icons/bs";
@@ -16,6 +16,7 @@ import { useCard } from "../../hooks/useCard";
 import Followings from "./Followings/Followings";
 import Followers from "./Followers/Followers";
 import UpdatePicture from "../PutProfile/UpdatePicture";
+import BuyVerify from "../BuyVerify/BuyVerify";
 
 const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext);
@@ -46,7 +47,9 @@ const Profile = ({ data }) => {
             <UpdatePicture id={data?._id} />
 
             <div className={styles.container_username}>
-              <h1>{data?.userName[0].toUpperCase() + data?.userName.substring(1)} </h1>{" "}
+              <h1>
+                {data?.userName[0].toUpperCase() + data?.userName.substring(1)}{" "}
+              </h1>{" "}
               {data && data?.verified ? (
                 <GoVerified className={styles.verify} />
               ) : null}
@@ -88,8 +91,8 @@ const Profile = ({ data }) => {
               onClick={openCardVerify}
             />
 
-            <LargeCard isOpen={isOpenCardVerify} closeCard={closeCardVerify} button={<Button variant="login" onClick={closeCardVerify} name="Close"/>}>
-              asdasd
+            <LargeCard isOpen={isOpenCardVerify} closeCard={closeCardVerify}>
+              <BuyVerify closeCardVerify={closeCardVerify}/>
             </LargeCard>
           </div>
           <div className={styles.buttons}>
@@ -107,10 +110,22 @@ const Profile = ({ data }) => {
               <GiTwoCoins onClick={openCardCrypto} />
             </IconMoney>
           </div>
-          <Card isOpen={isOpenCardCrypto} closeCard={closeCardCrypto} button={<Button variant="login" onClick={closeCardCrypto} name="Close"/>}>
+          <Card
+            isOpen={isOpenCardCrypto}
+            closeCard={closeCardCrypto}
+            button={
+              <Button variant="login" onClick={closeCardCrypto} name="Close" />
+            }
+          >
             <CryptoWallet />
           </Card>
-          <Card isOpen={isOpenCardFiat} closeCard={closeCardFiat} button={<Button variant="login" onClick={closeCardFiat} name="Close"/>}>
+          <Card
+            isOpen={isOpenCardFiat}
+            closeCard={closeCardFiat}
+            button={
+              <Button variant="login" onClick={closeCardFiat} name="Close" />
+            }
+          >
             <Wallet />
           </Card>
         </div>

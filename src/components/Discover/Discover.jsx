@@ -9,8 +9,8 @@ const Discover = ({ data }) => {
   return (
     <div className={
       theme
-      ? `${styles.container_discover} ${styles.light_mode}`
-      : `${styles.container_discover} ${styles.dark_mode}`
+      ? `${styles.container_discover} light_mode`
+      : `${styles.container_discover} dark_mode`
       }>
       {data?.map((post, index) => {
         return (

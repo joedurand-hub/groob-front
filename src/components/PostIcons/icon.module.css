@@ -13,17 +13,17 @@
 .icon_light_mode:hover  {
     cursor: pointer;
     filter: brightness(1.2);
-    background: rgb(185, 185, 185);
+    background: #eeeeee;
 }
 .icon_light_mode:focus  {
     color: black;
     filter: brightness(1.2);
-    background: rgb(167, 167, 167);
+    background: #eeeeee;
 
 }
 .icon_light_mode:active  {
     color: black;
-    background: rgb(167, 167, 167);
+    background: #eeeeee;
     filter: brightness(1.2);
 }
 

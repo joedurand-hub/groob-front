@@ -12,17 +12,17 @@
 .icon_light_mode:hover  {
     cursor: pointer;
     filter: brightness(1.2);
-    background: rgb(185, 185, 185);
+    background: #e9e9e9;
 }
 .icon_light_mode:focus  {
     color: black;
     filter: brightness(1.2);
-    background: rgb(167, 167, 167);
+    background: #e9e9e9;
 
 }
 .icon_light_mode:active  {
     color: black;
-    background: rgb(167, 167, 167);
+    background: #e9e9e9;
     filter: brightness(1.2);
 }
 
@@ -38,13 +38,13 @@
 }
 .icon_dark_mode:hover  {
     cursor: pointer;
-    color: rgb(63, 11, 124);
+    color: rgb(29, 29, 29);
 }
 .icon_dark_mode:focus  {
-    color: rgb(63, 11, 124);
+    color: rgb(29, 29, 29);
 }
 .icon_dark_mode:active  {
-    color: rgb(63, 11, 124);
+    color: rgb(29, 29, 29);
 }
 
 
@@ -60,10 +60,10 @@
     color: #858585;
 }
 .icon_money_light:focus  {
-    color: rgb(63, 11, 124);
+    color: rgb(29, 29, 29);
 }
 .icon_money_light:active  {
-    color: rgb(63, 11, 124);
+    color: rgb(29, 29, 29);
 }
 
 
@@ -79,10 +79,10 @@
     color: #e6e6e6;
 }
 .icon_money_dark:focus  {
-    color: rgb(63, 11, 124);
+    color: rgb(29, 29, 29);
 }
 .icon_money_dark:active  {
-    color: rgb(63, 11, 124);
+    color: rgb(29, 29, 29);
 }
 
 .secondary {

@@ -90,7 +90,7 @@ input[type="checkbox"] {
 
 .light_mode {
   transition: all 0.50s linear;
-  background: #eaeaea;
+  background: #eeeeee;
   color: #000;
 }
 
@@ -101,7 +101,7 @@ input[type="checkbox"] {
   justify-content: center;
   align-items: center;
   position: fixed;
-  background-color: #e6e6e6;
+  background-color: #eeeeee;
   z-index: 10;
   margin: 0;
   padding: 0;
