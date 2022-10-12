@@ -6,9 +6,10 @@ import Image from "next/image";
 import Button from "../Button/Button";
 import { IconMoney } from "../Icon/Icon";
 import Card from "../Card/Card";
+import LargeCard from "../Card/LargeCard"
 import Wallet from "../Wallet/Wallet";
 import CryptoWallet from "../WalletCrypto/WalletCrypto";
-import { BsCashCoin, BsPlusCircleFill } from "react-icons/bs";
+import { BsCashCoin } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
@@ -20,6 +21,7 @@ const Profile = ({ data }) => {
   const { theme } = useContext(ThemeContext);
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
+  const [isOpenCardVerify, openCardVerify, closeCardVerify] = useCard(false);
   const router = useRouter();
 
   return (
@@ -83,8 +85,12 @@ const Profile = ({ data }) => {
             <Button
               name="Verificar cuenta"
               variant="login"
-              onClick={() => {}}
+              onClick={openCardVerify}
             />
+
+            <LargeCard isOpen={isOpenCardVerify} closeCard={closeCardVerify} button={<Button variant="login" onClick={closeCardVerify} name="Close"/>}>
+              asdasd
+            </LargeCard>
           </div>
           <div className={styles.buttons}>
             <Button
@@ -101,10 +107,10 @@ const Profile = ({ data }) => {
               <GiTwoCoins onClick={openCardCrypto} />
             </IconMoney>
           </div>
-          <Card isOpen={isOpenCardCrypto} closeCard={closeCardCrypto}>
+          <Card isOpen={isOpenCardCrypto} closeCard={closeCardCrypto} button={<Button variant="login" onClick={closeCardCrypto} name="Close"/>}>
             <CryptoWallet />
           </Card>
-          <Card isOpen={isOpenCardFiat} closeCard={closeCardFiat}>
+          <Card isOpen={isOpenCardFiat} closeCard={closeCardFiat} button={<Button variant="login" onClick={closeCardFiat} name="Close"/>}>
             <Wallet />
           </Card>
         </div>

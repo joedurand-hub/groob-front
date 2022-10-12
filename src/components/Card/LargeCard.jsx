@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from "./card.module.css";
-import Button from "../Button/Button";
-import { variantToStyles } from "../../helpers/variants";
 
 const Card = ({ isOpen, button, children }) => {
   const cardHandleClick = (e) => e.stopPropagation();
@@ -13,14 +11,14 @@ const Card = ({ isOpen, button, children }) => {
       <div
         className={
           theme && isOpen === true
-            ? `${styles.card_light_mode} ${styles.card_action}`
+            ? `${styles.large_card_light} ${styles.large_action}`
             : theme && isOpen
-            ? `${styles.card_light_mode}`
-            : `${styles.card_light_mode}` && theme === false && isOpen === true
-            ? `${styles.card_dark_mode} ${styles.card_action}`
+            ? `${styles.large_card_light}`
+            : `${styles.large_card_light}` && theme === false && isOpen === true
+            ? `${styles.large_card_dark} ${styles.large_action}`
             : theme === false && isOpen
-            ? `${styles.card_dark_mode}`
-            : `${styles.card_dark_mode}`
+            ? `${styles.large_card_dark}`
+            : `${styles.large_card_dark}`
         }
         onClick={cardHandleClick}
       >

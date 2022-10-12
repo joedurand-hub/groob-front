@@ -1,45 +1,109 @@
 @media only screen and (min-width: 260px) and (max-width: 768px) {
-.card_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 7;
-    position: absolute
-}
+    .card_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 7;
+        position: absolute
+    }
 
-.card_light_mode {
-    background: #e9e9e9;
-    color: black;
-    position: fixed;
-    width: 100vw;
-    max-width: 375px;
-    height: 75vh;
-    bottom: -75vh;
-    padding: 15px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    border: 1px solid #e6e6e6;
-}
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card_light_mode {
+        background: #e9e9e9;
+        color: black;
+        position: fixed;
+        width: 100vw;
+        max-width: 480px;
+        height: 75vh;
+        bottom: -75vh;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border: 1px solid #e6e6e6;
+    }
 
 
-.card_dark_mode {
-    background: #3e3e3e;
-    color: white;
-    position: fixed;
-    width: 100vw;
-    max-width: 375px;
-    height: 75vh;
-    bottom: -75vh;
-    padding: 15px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-}
+    .card_dark_mode {
+        background: #3e3e3e;
+        color: white;
+        position: fixed;
+        width: 100vw;
+        max-width: 480px;
+        height: 75vh;
+        bottom: -75vh;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
 
-.card_action {
-    transition: all 0.5s;
-    transform: translate(0, -75vh);
-}
+    .small_card_light {
+        background: #e9e9e9;
+        color: black;
+        position: fixed;
+        width: 100vw;
+        max-width: 480px;
+        height: 35vh;
+        bottom: -35vh;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border: 1px solid #e6e6e6;
+    }
+
+
+    .small_card_dark {
+        background: #3e3e3e;
+        color: white;
+        position: fixed;
+        width: 100vw;
+        max-width: 480px;
+        height: 35vh;
+        bottom: -35vh;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+
+    .large_card_light {
+        background: #e9e9e9;
+        color: black;
+        position: fixed;
+        width: 100vw;
+        max-width: 480px;
+        height: 90vh;
+        bottom: -90vh;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border: 1px solid #e6e6e6;
+    }
+
+
+    .large_card_dark {
+        background: #3e3e3e;
+        color: white;
+        position: fixed;
+        width: 100vw;
+        max-width: 480px;
+        height: 90vh;
+        bottom: -90vh;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+
+    .card_action {
+        transition: all 0.5s;
+        transform: translate(0, -75vh);
+    }
+    .small_action {
+        transition: all 0.5s;
+        transform: translate(0, -35vh);
+    }
+    .large_action {
+        transition: all 0.5s;
+        transform: translate(0, -90vh);
+    }
 
 }
 
@@ -52,38 +116,36 @@
         z-index: 5;
         position: absolute
     }
-    
+
     .card_light_mode {
         background: #e9e9e9;
         color: black;
         position: fixed;
         width: 100vw;
-        max-width: 375px;
+        max-width: 480px;
         height: 75vh;
         bottom: -75vh;
-        padding: 15px;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
         border: 1px solid #e6e6e6;
     }
-    
-    
+
+
     .card_dark_mode {
         background: #3e3e3e;
         color: white;
         position: fixed;
         width: 100vw;
-        max-width: 375px;
+        max-width: 480px;
         height: 75vh;
         bottom: -75vh;
-        padding: 15px;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
     }
-    
+
     .card_action {
         transition: all 0.5s;
         transform: translate(0, -75vh);
     }
-    
+
 }
