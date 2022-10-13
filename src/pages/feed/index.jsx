@@ -101,7 +101,7 @@ export async function getServerSideProps({ req, res }) {
     });
 
     const response = await fetch(
-      `http://localhost:8080/posts`,
+      `https://groob-backend-production.up.railway.app/posts`,
       {
         method: "GET",
         headers: {

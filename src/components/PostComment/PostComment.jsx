@@ -2,6 +2,7 @@ import styles from "./postComment.module.css";
 import useAuthPost from "../../hooks/useAuthPost";
 import InputEmoji from "react-input-emoji";
 import Loader from "../Loader/Loader";
+import { ENDPOINT } from "../../helpers/constants";
 import { Toaster, toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import Send from "../Send/Send";
@@ -23,7 +24,7 @@ const PostComment = ({ sendText, text, id }) => {
 
   const handleSubmit = async () => {
     sendData({
-      endpoint: `http://localhost:8080/post/${id}`,
+      endpoint: `${ENDPOINT}/post/${id}`,
       postData: { value: text },
     });
   };

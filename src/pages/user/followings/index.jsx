@@ -22,7 +22,7 @@ export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
-      `http://localhost:8080/followings`,
+      `https://groob-backend-production.up.railway.app/followings`,
       {
         headers: {
           authtoken: token,

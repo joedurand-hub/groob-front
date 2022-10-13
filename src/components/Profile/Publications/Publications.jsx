@@ -1,6 +1,7 @@
 import styles from "./publications.module.css";
 import Posts from "../../Post/Post";
 import { useContext } from "react";
+import { ENDPOINT } from "../../../helpers/constants";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 import useRequest from "../../../hooks/useRequest";
 import Loader from "../../Loader/Loader";
@@ -9,7 +10,7 @@ import { Toaster, toast } from "react-hot-toast";
 const Publications = ({ id }) => {
   const { theme } = useContext(ThemeContext);
   const { data, loading, error } = useRequest(
-    `http://localhost:8080/posts/${id}`
+    `${ENDPOINT}/posts/${id}`
   );
     console.log(id)
   if (loading) {

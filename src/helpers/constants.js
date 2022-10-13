@@ -2,7 +2,7 @@ import { getCookie } from "cookies-next"
 export const myToken = getCookie('authToken')
 export const TOKEN = myToken;
 // ENDPOINTS IN THE BACKEND API
-export const ENDPOINT = "http://localhost:8080"
+export const ENDPOINT = "https://groob-backend-production.up.railway.app"
 export const GET_PROFILE = "/profile" 
 export const GET_PROFILE_BY_ID = "/profile/:id" 
 export const UPDATE_PROFILE = "/profile" 

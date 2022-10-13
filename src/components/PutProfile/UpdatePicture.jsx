@@ -5,6 +5,7 @@ import { BsPlusCircleFill } from "react-icons/bs";
 import usePut from "../../hooks/usePut";
 import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
+import { ENDPOINT } from "../../helpers/constants";
 import { Toaster, toast } from "react-hot-toast";
 
 const UpdatePicture = ({ id }) => {
@@ -22,7 +23,7 @@ const UpdatePicture = ({ id }) => {
       body.append("image", profilePicture[index]);
     }
     sendUpdatedData({
-      endpoint: `http://localhost:8080/picture/${id}`,
+      endpoint: `${ENDPOINT}/picture/${id}`,
       putData: body,
     });
     setProfilePicture(null);

@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { getCookie } from "cookies-next";
+import { io } from "socket.io-client";
+import { inactivityTime } from "../../helpers/inactivityTime";
+import { ENDPOINT } from "../../helpers/constants";
+import axios from "axios";
 import ChatUser from "../../components/Chat/ChatUser/ChatUser";
 import Message from "../../components/Conversation/Message/Message";
 import GoBack from "../../components/GoBack/Back";
 import Conversation from "../../components/Conversation/Conversation";
-import axios from "axios";
-import { io } from "socket.io-client";
-import { inactivityTime } from "../../helpers/inactivityTime";
 import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
 const Messages = ({ datas }) => {
@@ -27,7 +28,7 @@ const Messages = ({ datas }) => {
     try {
       const getMessages = async () => {
         const { data } = await axios.get(
-          `http://localhost:8080/message/${datas?.chat._id}`,
+          `${ENDPOINT}/message/${datas?.chat._id}`,
           { headers: { authtoken: token } },
           { withCredentials: true }
         );
@@ -49,7 +50,7 @@ const Messages = ({ datas }) => {
   const handleSendMessage = async () => {
     try {
       const { data } = await axios.post(
-        `http://localhost:8080/message`,
+        `${ENDPOINT}/message`,
         {
           chatId: datas?.chat._id,
           senderId: messages.myId,
@@ -67,7 +68,7 @@ const Messages = ({ datas }) => {
   };
 
   useEffect(() => {
-    socket.current = io("http://localhost:8080");
+    socket.current = io(`${ENDPOINT}`);
     if (newSocketMessage !== null) {
       socket.current.emit("newMessage", { newSocketMessage, reciverId });
     }
@@ -75,7 +76,7 @@ const Messages = ({ datas }) => {
   }, [newSocketMessage]);
 
   useEffect(() => {
-    socket.current = io("http://localhost:8080");
+    socket.current = io(`${ENDPOINT}`);
     socket.current.on("receiveMessage", (newMessage) => {
       setReciveMessage(newMessage);
     });
@@ -128,7 +129,7 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      `http://localhost:8080/chat/${id}`,
+      `https://groob-backend-production.up.railway.app/chat/${id}`,
       {
         headers: {
           authtoken: token,

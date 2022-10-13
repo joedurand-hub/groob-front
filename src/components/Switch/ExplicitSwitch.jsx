@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import usePut from "../../hooks/usePut";
 import Switch from "react-switch";
+import { ENDPOINT } from "../../helpers/constants";
 import { Toaster, toast } from "react-hot-toast";
 
 const Index = ({ id, valueDB }) => {
@@ -36,7 +37,7 @@ const Index = ({ id, valueDB }) => {
       });
     }
     sendUpdatedData({
-      endpoint: `http://localhost:8080/profile/${id}`,
+      endpoint: `${ENDPOINT}/profile/${id}`,
       putData: {
         explicitContent: !toggleValue,
       },
