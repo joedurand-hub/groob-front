@@ -12,7 +12,6 @@ import Slider from "../Slider/Slider";
 import Share from "../PostFooter/Share/Share";
 
 const PostById = ({ data }) => {
-  console.log(data);
   const {
     content,
     price,

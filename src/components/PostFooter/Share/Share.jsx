@@ -35,7 +35,7 @@ const Share = ({
       try {
         await navigator
           .share(data)
-          .then(() => console.log("Largar alerta de que se está compartiendo"));
+          .then(() => console.log("Compartiendo"));
       } catch (error) {
         console.log(`Ups! No se pudo compartir debido a: ${error}`);
       }

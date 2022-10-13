@@ -7,7 +7,6 @@ import Loader from "../Loader/Loader";
 
 const CreateChat = ({ myId, userId }) => {
   const { data, pending, error, sendData } = useAuthPost();
-  console.log(data)
   const router = useRouter();
 
   const handleNewChat = async () => {

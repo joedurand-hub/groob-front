@@ -17,7 +17,6 @@ import { FaUser } from "react-icons/fa";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 
 const User = ({ data }) => {
-  console.log(data)
   const [open, setOpen] = useState(false);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (

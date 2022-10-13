@@ -12,7 +12,6 @@ const Publications = ({ id }) => {
   const { data, loading, error } = useRequest(
     `${ENDPOINT}/posts/${id}`
   );
-    console.log(id)
   if (loading) {
     return (
       <div
