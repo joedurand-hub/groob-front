@@ -10,7 +10,7 @@ export const inactivityTime = (userId) => {
       window.onload = resetTimer;
       // Eventos del DOM
       window.onload = resetTimer;
-      window.onmousemove = resetTimer;
+      window.onmousemove = resetTimer; 
       window.onmousedown = resetTimer;
       window.ontouchstart = resetTimer;
       window.onclick = resetTimer;

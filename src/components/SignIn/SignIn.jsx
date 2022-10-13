@@ -12,13 +12,17 @@ import {Toaster, toast} from "react-hot-toast"
 import Loader from "../Loader/Loader";
 import { ENDPOINT } from "../../helpers/constants";
 import { useRouter } from "next/router"
-import { setCookie } from 'cookies-next';
+import { setCookie, getCookie } from 'cookies-next';
 
 export const SignIn = () => {
   const URL = `${ENDPOINT}/login`
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
-  const router = useRouter()
+  const router = useRouter();
+  const token = getCookie("authtoken");
+  if(token) {
+    router.push('/feed')
+  }
   const {
     register,
     handleSubmit,

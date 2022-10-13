@@ -15,8 +15,11 @@ import { setCookie, getCookie } from "cookies-next";
 import { ENDPOINT } from "../../helpers/constants";
 
 export const SignUp = () => {
-  // const getToken = getCookie("authtoken");
   const router = useRouter();
+  const token = getCookie("authtoken");
+  if(token) {
+    router.push('/feed')
+  }
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
 
