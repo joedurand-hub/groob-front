@@ -18,6 +18,9 @@ export const SignUp = () => {
   const router = useRouter();
   const token = getCookie("authtoken");
   if(token) {
+    toast("Hola de nuevo!", {
+      duration: 1000,
+    });
     router.push('/feed')
   }
   const { theme } = useContext(ThemeContext);
