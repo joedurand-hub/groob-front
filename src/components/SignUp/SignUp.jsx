@@ -110,6 +110,11 @@ export const SignUp = () => {
               El nombre debe ser menor a 16 letras.{" "}
             </p>
           )}
+          {data !== undefined && data.message === 'The username is already in use.' && (
+            <p className={styles.field_text_input_error}>
+            El nombre de usuario ya se encuentra en uso.{" "}
+          </p>
+          )}
         </div>
 
         <div
@@ -145,6 +150,11 @@ export const SignUp = () => {
               El email debe contener arroba y punto.{" "}
             </p>
           )}
+            {data !== undefined && data.message === 'The email is already in use.' && (
+            <p className={styles.field_text_input_error}>
+            El email ya se encuentra en uso.{" "}
+          </p>
+          )}
         </div>
 
         <div
@@ -179,7 +189,8 @@ export const SignUp = () => {
           {errors.password?.type === "minLength" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña debe tener más de 6 caracteres.{" "}
+              La contraseña debe tener más de 6 caracteres.{" "} <br/>
+              Al menos una letra mayúscula, un número y algún caracter especial.
             </p>
           )}
           {errors.password?.type === "maxLength" && (
@@ -191,7 +202,6 @@ export const SignUp = () => {
           {errors.password?.type === "pattern" && (
             <p className={styles.field_text_input_error}>
               Mínimo 6 caracteres. <br/>
-              Máximo 18 caracteres. <br/>
               Al menos una letra mayúscula, un número y algún caracter especial.
             </p>
           )}
