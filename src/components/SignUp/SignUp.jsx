@@ -17,12 +17,6 @@ import { ENDPOINT } from "../../helpers/constants";
 export const SignUp = () => {
   const router = useRouter();
   const token = getCookie("authtoken");
-  if(token) {
-    toast("Hola de nuevo!", {
-      duration: 1200,
-    })
-    router.push('/feed')
-  }
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
 
@@ -42,12 +36,18 @@ export const SignUp = () => {
       },
     });
   };
-
+  
   useEffect(() => {
     if (data && data.message === "Success") {
       const token = data.token;
       setCookie("authtoken", token);
       router.push("/user");
+    }
+    if(token) {
+      toast("Hola de nuevo!", {
+        duration: 1200,
+      })
+      router.push('/feed')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
