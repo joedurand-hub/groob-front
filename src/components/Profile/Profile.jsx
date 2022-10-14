@@ -86,7 +86,7 @@ const Profile = ({ data }) => {
         <div className={styles.container_buttons}>
           <div className={styles.premium}>
             <Button
-              name="Activar Mercado Pago"
+              name="Verificar cuenta"
               variant="login"
               onClick={openCardVerify}
             />
