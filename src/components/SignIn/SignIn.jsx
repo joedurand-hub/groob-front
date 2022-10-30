@@ -20,9 +20,6 @@ export const SignIn = () => {
   const { data, pending, error, sendData } = usePost();
   const router = useRouter();
   const token = getCookie("authtoken");
-  if(token) {
-    router.push('/feed')
-  }
   const {
     register,
     handleSubmit,
@@ -59,6 +56,12 @@ export const SignIn = () => {
       setCookie('authtoken', token)
      router.push("/feed")
     } 
+    if(token) {
+      toast("Hola de nuevo!", {
+        duration: 1200,
+      })
+      router.push('/feed')
+    }
         // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
   return (

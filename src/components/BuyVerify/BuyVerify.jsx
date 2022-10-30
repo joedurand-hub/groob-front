@@ -11,10 +11,10 @@ const BuyVerify = ({closeCardVerify}) => {
           <strong>Beneficios de una cuenta verificada.</strong>
         </h3>{" "}
         <h4 className={styles.benefits}>
-          Mayor confianza de los usuarios hacia ti.
+          Mayor confianza de los usuarios hacia tí.
         </h4>
         <h4 className={styles.benefits}>
-          Mejor prescencia en resultados de búsqueda.
+          Mejor presencia en resultados de búsqueda.
         </h4>
         <h4 className={styles.benefits}>
           Demostrar autenticidad y evitar perfiles falsos.
@@ -27,7 +27,7 @@ const BuyVerify = ({closeCardVerify}) => {
         </h4>
         <div className={styles.benefits_actions}>
           <h3 className={styles.benefits_price}>
-            <strong>AR $3.999 finales</strong>
+            <strong>AR $2.999 finales</strong>
           </h3>
           <Button variant="login" name="Solicitar" onClick={() => router.push('https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1216478638-ffbbb1b2-eae5-4ba6-a40e-8e8f658ca604')}/>
           <Button variant="cancel" onClick={closeCardVerify} name="Cerrar" />

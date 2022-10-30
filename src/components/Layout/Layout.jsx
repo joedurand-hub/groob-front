@@ -6,8 +6,9 @@ import MenuNav from "../MenuNav/MenuNav";
 import Anchor from "../Anchor/Anchor";
 import Image from "next/image";
 import styles from "./layout.module.css";
+import { GoVerified } from "react-icons/go";
 
-const Layout = ({ title, description, menuItem, nav, children }) => {
+const Layout = ({ title, description, username, verified, menuItem, nav, children }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -27,11 +28,19 @@ const Layout = ({ title, description, menuItem, nav, children }) => {
               <Image
                 src={logo}
                 alt="Groob logo"
-                width={70}
-                height={45}
+                width={50}
+                height={32}
               />
             </Anchor>
           </li>
+          <div className={styles.container_username_and_verify}>
+          <li>
+            <h3 className={styles.username}><strong>{username && username[0].toUpperCase() + username?.substring(1)}</strong></h3>
+          </li>
+            {verified ? (
+              <GoVerified className={styles.verify} />
+              ) : null}
+              </div>
           <div className={styles.layout_container_links}>
             {menuItem}
             </div>

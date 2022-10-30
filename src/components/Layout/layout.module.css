@@ -37,6 +37,19 @@
     .icon_clicked {
         background-color: blue;
     }
+    .container_username_and_verify {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+    }
+    .username{ 
+        margin-left: -15px;;
+    }
+    .verify {
+        font-size: 25px;
+        color: rgb(46, 135, 244);
+    }
 }
 
 @media only screen and (min-width: 769px) { 

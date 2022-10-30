@@ -12,14 +12,14 @@ const Like = ({ id, likes }) => {
   const { data, sendData } = useAuthPost();
   const handleLike = async () => {
     sendData({
-      endpoint: `https://groob-backend-production.up.railway.app/like/${id}`,
+      endpoint: `http://localhost/8080/like/${id}`,
       postData: { idPostLiked: id },
     });
   };
 
   const handleDislike = async () => {
     sendData({
-      endpoint: `https://groob-backend-production.up.railway.app/dislike/${id}`,
+      endpoint: `http://localhost/8080/dislike/${id}`,
       postData: { idPostLiked: id },
     });
   };

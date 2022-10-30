@@ -10,20 +10,33 @@ import LargeCard from "../Card/LargeCard";
 import Wallet from "../Wallet/Wallet";
 import CryptoWallet from "../WalletCrypto/WalletCrypto";
 import { BsCashCoin } from "react-icons/bs";
-import { GoVerified } from "react-icons/go";
+// import { GoVerified } from "react-icons/go";
 import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
 import Followings from "./Followings/Followings";
 import Followers from "./Followers/Followers";
 import UpdatePicture from "../PutProfile/UpdatePicture";
 import BuyVerify from "../BuyVerify/BuyVerify";
+import axios from "axios"
+import { ENDPOINT } from "../../helpers/constants";
+import useAuthPost from "../../hooks/useAuthPost";
 
 const Profile = ({ data }) => {
+  const { datas, sendData } = useAuthPost();
   const { theme } = useContext(ThemeContext);
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
   const [isOpenCardCrypto, openCardCrypto, closeCardCrypto] = useCard(false);
   const [isOpenCardVerify, openCardVerify, closeCardVerify] = useCard(false);
   const router = useRouter();
+
+  const handlePreferenceToVerifyCccount = async () => {
+    sendData({
+      endpoint: `${ENDPOINT}/prefer-verify-account`,
+      postData: {
+        followTo: id,
+      },
+    });
+  }
 
   return (
     <>
@@ -46,14 +59,14 @@ const Profile = ({ data }) => {
 
             <UpdatePicture id={data?._id} />
 
-            <div className={styles.container_username}>
+            {/* <div className={styles.container_username}>
               <h1>
                 {data?.userName[0].toUpperCase() + data?.userName.substring(1)}{" "}
               </h1>{" "}
               {data && data?.verified ? (
                 <GoVerified className={styles.verify} />
               ) : null}
-            </div>
+            </div> */}
           </div>
           <div className={styles.container_user_data}>
             <div className={styles.user_data}>
@@ -88,7 +101,10 @@ const Profile = ({ data }) => {
             <Button
               name="Verificar cuenta"
               variant="login"
-              onClick={openCardVerify}
+              onClick={() => {
+                handlePreferenceToVerifyCccount()
+                openCardVerify
+              }}
             />
 
             <LargeCard isOpen={isOpenCardVerify} closeCard={closeCardVerify}>
