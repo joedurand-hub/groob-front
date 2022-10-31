@@ -20,7 +20,7 @@ const Post = dynamic(() => import("../../components/Post/Post"), {
 });
 
 const Feed = ({ posts }) => {
-  
+  console.log(posts)
   const { theme } = useContext(ThemeContext);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
@@ -67,7 +67,7 @@ const Feed = ({ posts }) => {
             width: "100%",
           }}
         >
-          <Post data={posts.data} myId={posts.myId} />
+          <Post data={posts.data} myId={posts.myId} myUserExplicitContent={posts.myUserExplicitContent} />
         </div>
       ) : (
         <>

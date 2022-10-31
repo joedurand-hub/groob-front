@@ -1,10 +1,9 @@
 import styles from './blurredImage.module.css'
 
-
-const BlurredImage = () => {
+const BlurredImage = ({children}) => {
   return (
-    <div className={styles}>
-
+    <div className={styles.blur}>
+      {children}
     </div>
   )
 }

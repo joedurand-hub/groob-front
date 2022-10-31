@@ -19,6 +19,7 @@ const PostById = ({ data }) => {
     createdAt,
     comments,
     user,
+    explicitContent,
     _id,
     likes,
     profilePicture,
@@ -63,7 +64,7 @@ const PostById = ({ data }) => {
           <p className={content ? styles.post_content : styles.empty}>
             {content}
           </p>
-          <Slider allImages={images} />
+          <Slider allImages={images} nsfw={explicitContent} price={price}/>
         </div>
         {content && images.length > 0 ? null : (
           <hr className={styles.hr} />

@@ -172,7 +172,7 @@ const CreatePost = ({ closeModal }) => {
             </div>
           )}
           <div className={styles.container_send_post}>
-            <p className={styles.character_counter}>{lengthValue}/500</p>
+            <p className={styles.character_counter}>{lengthValue > 0 ? `${lengthValue}/500` : null}</p>
             {pending ? (
               <Loader />
             ) : (

@@ -11,7 +11,7 @@ import Slider from "../Slider/Slider";
 import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
 
-const Posts = ({ data, myId }) => {
+const Posts = ({ data, myId, myUserExplicitContent }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -24,6 +24,7 @@ const Posts = ({ data, myId }) => {
             images,
             createdAt,
             comments,
+            explicitContent,
             likes,
             userName,
             profilePicture,
@@ -74,7 +75,8 @@ const Posts = ({ data, myId }) => {
                 <p className={content ? styles.post_content : styles.empty}>
                   {content ? content : null}
                 </p>
-                <Slider allImages={images} />
+
+                  <Slider allImages={images} nsfw={explicitContent} price={price} userExplicitContent={myUserExplicitContent}/>
               </div>
               {content && images.length > 0 ? null : (
                 <div>

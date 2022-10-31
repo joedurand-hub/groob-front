@@ -72,12 +72,12 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
           onChange={onChange}
           value={state?.lastName}
         />
-        <div className={styles.container_button}>
-          {pending ? (
-            <>
-              <Loader />
-            </>
-          ) : (
+        {pending ? (
+          <div className={styles.loading}>
+            <Loader />
+          </div>
+        ) : (
+          <div className={styles.container_button}>
             <>
               <Button
                 name={"Cancelar"}
@@ -86,8 +86,8 @@ const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
               />
               <Button name={"Actualizar"} onSubmit={onSubmit} />
             </>
-          )}
-        </div>
+          </div>
+        )}
       </form>
     </div>
   );

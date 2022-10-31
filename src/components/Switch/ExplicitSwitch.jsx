@@ -29,8 +29,8 @@ const Index = ({ id, valueDB }) => {
         }
       );
     } else {
-      toast("Ya no verás contenido explícito. Actualizando información.", {
-        duration: 5500,
+      toast("Ya no verás contenido explícito. Actualizando información...", {
+        duration: 2500,
       });
     }
     sendUpdatedData({
