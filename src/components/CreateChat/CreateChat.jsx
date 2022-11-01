@@ -9,6 +9,10 @@ const CreateChat = ({ myId, userId }) => {
   const { data, pending, error, sendData } = useAuthPost();
   const router = useRouter();
 
+  useEffect(() => {
+    data !== undefined && router.push(`/messages/${userId}`)
+  }, [data])
+
   const handleNewChat = async () => {
     sendData({
       endpoint: `${ENDPOINT}/chat`,
@@ -27,10 +31,7 @@ const CreateChat = ({ myId, userId }) => {
       <Button
         variant="primary"
         name="Mensaje"
-        onClick={() => {
-          handleNewChat();
-          data && data !== undefined && router.push(`/messages/${userId}`)
-        }}
+        onClick={handleNewChat}
       />
     )}
     </>
