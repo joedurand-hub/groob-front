@@ -68,6 +68,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   </Link>
                 </div>
                 <div className={styles.moreOptions}>
+                  <p>{price > 0 && price}</p>
                   <MoreOptions postId={_id} userId={user} myId={myId} />
                 </div>
               </div>

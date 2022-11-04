@@ -4,6 +4,9 @@ import MenuItem from "../MenuItem/MenuItem";
 import Anchor from "../Anchor/Anchor";
 import Icon from "../Icon/Icon";
 import Link from "next/link";
+import { ENDPOINT } from "../../helpers/constants";
+import { deleteCookie } from "cookies-next";
+import useAuthPost from "../../hooks/useAuthPost";
 import ThemeSwitch from "../Switch/ThemeSwitch";
 import ExplicitSwitch from "../Switch/ExplicitSwitch";
 import styles from "./menuDropdown.module.css";
@@ -11,6 +14,16 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Menu = ({ valueSwitch, id }) => {
   const { theme } = useContext(ThemeContext);
+  const {data, sendData} = useAuthPost()
+  
+  const handleLogout = async () => {
+    sendData({
+      endpoint: `${ENDPOINT}/logout`,
+      id: id,
+    });
+    deleteCookie("authtoken")
+  };
+
   return (
     <nav
       className={
@@ -74,7 +87,7 @@ const Menu = ({ valueSwitch, id }) => {
           <div className={styles.row}>{">"}</div>
         </MenuItem>
         <MenuItem>
-          <Anchor path="/login" name="Cerrar sesión" variant="logout" />
+          <Anchor path="/" name="Cerrar sesión" onClick={handleLogout} variant="logout" />
           <div className={styles.row}>{">"}</div>
         </MenuItem>
       </ul>

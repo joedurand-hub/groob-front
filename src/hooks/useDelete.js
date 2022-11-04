@@ -2,7 +2,7 @@ import { useState } from "react";
 import { getCookie } from "cookies-next";
 import axios from "axios";
 
-const useAuthPost = () => {
+const useDelete = () => {
   const token = getCookie("authtoken")
   const [deleteOnePost, setDeleteOnePost] = useState({
     data: undefined,
@@ -42,4 +42,4 @@ const useAuthPost = () => {
   };
 };
 
-export default useAuthPost;
+export default useDelete;
