@@ -73,7 +73,6 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                   <Image
                     key={index}
                     src={imageBlurred}
-                    layout="responsive"
                     width={500}
                     height={500}
                     alt="Image"
