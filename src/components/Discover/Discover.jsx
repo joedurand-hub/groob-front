@@ -52,7 +52,12 @@ const Discover = ({ data }) => {
                 </>
               );
             })
-        : explicitContent === true && data?.map((post, index) => {
+        : explicitContent === true && data
+        .filter((post) => {
+          if (post.explicitContent === true && post.price === 0 || post.explicitContent === false && post.price === 0) {
+            return post;
+          }
+        }).map((post, index) => {
             return (
               <>
                 <Link href={`/feed/${post._id}`} passHref>
@@ -60,6 +65,8 @@ const Discover = ({ data }) => {
                     {post.images?.map((image, index) => (
                       <div key={index}>
                         {index === 0 && (
+                          <div>
+
                           <Image
                             key={index}
                             src={image.secure_url}
@@ -67,6 +74,7 @@ const Discover = ({ data }) => {
                             height={600}
                             alt={`Post de ${post.userName}`}
                           />
+                          </div>
                         )}
                       </div>
                     ))}

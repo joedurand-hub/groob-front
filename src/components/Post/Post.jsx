@@ -76,13 +76,18 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   {content ? content : null}
                 </p>
 
-                  <Slider allImages={images} nsfw={explicitContent} price={price} userExplicitContent={myUserExplicitContent}/>
+                <Slider
+                  allImages={images}
+                  nsfw={explicitContent}
+                  price={price}
+                  userExplicitContent={myUserExplicitContent}
+                />
               </div>
-              {content && images.length > 0 ? null : (
+              {/* {content && images.length > 0 ? null : (
                 <div>
                   <hr className={styles.hr} />
                 </div>
-              )}
+              )} */}
               <>
                 <PostFooter
                   price={price && price}
@@ -99,7 +104,13 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   }
                 />
               </>
-              { content && comments.length > 0 && images.length > 0 && <hr className={styles.hr} />}
+              {/* {content && comments.length > 0 && images.length > 0 ? (
+                <hr className={styles.hr} />
+              ) : (
+                !content &&
+                comments.length === 0 &&
+                images.length > 0 && null
+              )} */}
               <Comments allComments={comments.slice(0, 3)} />
               <>
                 {comments.length > 3 ? (
