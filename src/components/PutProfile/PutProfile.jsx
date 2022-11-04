@@ -7,6 +7,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import Loader from "../Loader/Loader";
 
 const PutProfile = ({ state, onChange, onSubmit, pending, error }) => {
+  console.log(state)
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
   return (

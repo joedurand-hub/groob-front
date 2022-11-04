@@ -55,6 +55,19 @@
     margin-top: 20px;
 }
 
+.container_reset_password {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+    gap: 20px;
+}
+
+.button_reset_password {
+    background: transparent;
+    border: none;
+    color: rgb(159, 29, 240)
+}
+
 
 @media screen and (max-width: 320px) {
     .form_terms_link {
