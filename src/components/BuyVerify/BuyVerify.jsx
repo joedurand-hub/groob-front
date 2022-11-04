@@ -1,9 +1,42 @@
+import { useEffect } from "react";
 import styles from "./buyVerify.module.css";
 import Button from "../Button/Button";
+import useAuthPost from "../../hooks/useAuthPost";
 import { useRouter } from "next/router";
+import { ENDPOINT } from "../../helpers/constants";
 
-const BuyVerify = ({closeCardVerify}) => {
-  const router = useRouter()
+const BuyVerify = ({ closeCardVerify, dataVerify }) => {
+  const router = useRouter();
+  const { data, sendData } = useAuthPost();
+  console.log(data);
+  useEffect(() => {
+    data !== undefined && router.push(data.body.init_point)
+  }, [data]);
+
+  const handlePreferenceToVerifyCccount = async () => {
+    sendData({
+      endpoint: `${ENDPOINT}/prefer-verify-account`,
+      postData: {
+        idToVerify: dataVerify?._id,
+        title: "Verificación de la cuenta en Groob.",
+        price: 2999,
+        quantity: 1,
+        descripcion:
+        
+          "Con la verificación de la cuenta obtenés el check azul en tu perfil. Además, en nuestro algoritmo daremos mejor presencia en resultados de búsqueda, evitaremos perfiles falsos. Aumento de las ventas.",
+        // picURL: ,
+        nombre: dataVerify?.firstName,
+        apellido: dataVerify?.lastName,
+        email: dataVerify?.email,
+        // direccion,
+        // numeroDireccion,
+        // area,
+        // tel,
+        // postal,
+      },
+    });
+  };
+
   return (
     <div>
       <div className={styles.benefits_for_verifying}>
@@ -29,7 +62,11 @@ const BuyVerify = ({closeCardVerify}) => {
           <h3 className={styles.benefits_price}>
             <strong>AR $2.999 finales</strong>
           </h3>
-          <Button variant="login" name="Solicitar" onClick={() => router.push('https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1216478638-ffbbb1b2-eae5-4ba6-a40e-8e8f658ca604')}/>
+          <Button
+            variant="login"
+            name="Solicitar"
+            onClick={handlePreferenceToVerifyCccount}
+          />
           <Button variant="cancel" onClick={closeCardVerify} name="Cerrar" />
         </div>
       </div>

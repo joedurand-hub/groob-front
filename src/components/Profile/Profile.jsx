@@ -29,15 +29,6 @@ const Profile = ({ data }) => {
   const [isOpenCardVerify, openCardVerify, closeCardVerify] = useCard(false);
   const router = useRouter();
 
-  const handlePreferenceToVerifyCccount = async () => {
-    sendData({
-      endpoint: `${ENDPOINT}/prefer-verify-account`,
-      postData: {
-        followTo: id,
-      },
-    });
-  }
-
   return (
     <>
       <section
@@ -101,14 +92,11 @@ const Profile = ({ data }) => {
             <Button
               name="Verificar cuenta"
               variant="login"
-              onClick={() => {
-                handlePreferenceToVerifyCccount()
-                openCardVerify
-              }}
+              onClick={openCardVerify}
             />
 
             <LargeCard isOpen={isOpenCardVerify} closeCard={closeCardVerify}>
-              <BuyVerify closeCardVerify={closeCardVerify}/>
+              <BuyVerify dataVerify={data} closeCardVerify={closeCardVerify}/>
             </LargeCard>
           </div>
           <div className={styles.buttons}>
