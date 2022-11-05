@@ -15,7 +15,6 @@ const Publications = ({ id }) => {
   const { profile } = useRequest(
     `${ENDPOINT}/profile`
   );
-  console.log(profile)
   // hacer get de los posts desde getServerSide
   // hacer acá in client el perfil reducido del usuario para myUserExplicitContent
   if (loading) {

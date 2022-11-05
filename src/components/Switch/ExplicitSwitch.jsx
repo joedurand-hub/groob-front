@@ -12,8 +12,8 @@ const Index = ({ id, valueDB }) => {
 
   useEffect(() => {
     let valueAdultContent = window.localStorage.getItem("adultContent");
-    if (valueAdultContent) setValue(JSON.parse(valueAdultContent));
-  }, [toggleValue]);
+    if (valueAdultContent) setValue(JSON.parse(value));
+  }, [value, toggleValue]);
 
   const handleExplicitContent = () => {
     setToggleValue(!toggleValue);

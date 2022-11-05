@@ -6,7 +6,6 @@ import BlurredImage from "../BlurredImage/BlurredImage";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Discover = ({ data }) => {
-  console.log(data);
   const { theme } = useContext(ThemeContext);
   const [explicitContent, setExplicitContent] = useState("");
 

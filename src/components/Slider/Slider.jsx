@@ -8,7 +8,6 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { getCookie } from "cookies-next";
 
 const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
-  console.log(allImages)
   const token = getCookie("authtoken")
   const { theme } = useContext(ThemeContext);
   const [currentIndex, setCurrentIndex] = useState(0);

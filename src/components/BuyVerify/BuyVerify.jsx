@@ -8,7 +8,6 @@ import { ENDPOINT } from "../../helpers/constants";
 const BuyVerify = ({ closeCardVerify, dataVerify }) => {
   const router = useRouter();
   const { data, sendData } = useAuthPost();
-  console.log(data);
   useEffect(() => {
     data !== undefined && router.push(data.body.init_point)
   }, [data]);
