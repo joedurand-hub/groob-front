@@ -7,11 +7,13 @@ import Image from "next/image";
 import MoreOptions from "../MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
+import Button from "../Button/Button";
 import Slider from "../Slider/Slider";
+import { GoVerified } from "react-icons/go";
 import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
 
-const Posts = ({ data, myId, myUserExplicitContent }) => {
+const Posts = ({ data, myId, isVerified, myUserExplicitContent }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -24,6 +26,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
             images,
             createdAt,
             comments,
+            userVerified,
             explicitContent,
             likes,
             userName,
@@ -60,7 +63,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                     passHref
                   >
                     <div>
-                      <a className={styles.user_name}>{userName}</a>
+                      <a className={styles.user_name}>{userName}</a> {userVerified && <GoVerified/>}
                       <p className={styles.user_crate_date}>
                         {timeago(createdAt)}
                       </p>
@@ -68,7 +71,8 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   </Link>
                 </div>
                 <div className={styles.moreOptions}>
-                  <p>{price > 0 && price}</p>
+
+                  <h6 className={styles.price}><strong>{price > 0 && `AR$ ${price}`}</strong></h6>
                   <MoreOptions postId={_id} userId={user} myId={myId} />
                 </div>
               </div>
@@ -84,6 +88,11 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   userExplicitContent={myUserExplicitContent}
                 />
               </div>
+              {explicitContent && price && (
+                <div className={styles.container_buy_button}>
+                  <button className={styles.buy_button}>Comprar</button>
+                </div>
+              )}
               {/* {content && images.length > 0 ? null : (
                 <div>
                   <hr className={styles.hr} />
@@ -91,6 +100,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
               )} */}
               <>
                 <PostFooter
+                explicit={explicitContent}
                   price={price && price}
                   id={_id}
                   likes={likes}

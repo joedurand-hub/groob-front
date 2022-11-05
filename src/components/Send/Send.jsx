@@ -6,7 +6,7 @@ const Send = ({ value, submit }) => {
   return (
     <>
       <Icon>
-        <IoSend className={value.length > 0 ? styles.send : styles.disabled} onClick={submit} />
+        <IoSend className={value.length > 0 && value.length <= 500 ? styles.send : styles.disabled} onClick={submit} />
       </Icon>
     </>
   );

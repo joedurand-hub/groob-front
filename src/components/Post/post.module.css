@@ -64,9 +64,57 @@
     }
 
     .moreOptions {
-        margin-top: 11px
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+    .price {
+        font-size: 19px;
+        margin-bottom: 3px;
     }
 
+    .container_buy_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .buy_button {
+        width: 200px;
+        height: 60px;
+        border: none;
+        border-radius: 15px;
+        background: rgb(38, 56, 225);
+        color: #fff;
+        z-index: 40;
+        font-size: 22px;
+        margin-top: -100%;
+        position: absolute;
+    }
+    .buy_button:focus {
+        width: 200px;
+        height: 60px;
+        border: none;
+        border-radius: 15px;
+        background: rgb(159, 29, 240);
+        color: #fff;
+        z-index: 40;
+        margin-top: -100%;
+        position: absolute;
+    }
+    .buy_button:hover {
+        width: 200px;
+        height: 60px;
+        border: none;
+        border-radius: 15px;
+        background: rgb(159, 29, 240);
+        color: #fff;
+        z-index: 40;
+        margin-top: -100%;
+        position: absolute;
+    }
     .hr {
         width: 93%;
         padding-bottom: 0;
@@ -100,8 +148,11 @@
     .post_view_more {
         margin: 0;
         padding: 0;
-        margin-left: 10px;
+        margin-left: 15px;
         margin-bottom: 10px;
+        color: rgb(159, 29, 240);
+        padding-bottom: 5px;
+        
     }
 
     .post_image {
@@ -187,7 +238,6 @@
 
     .moreOptions {
         display: flex;
-        margin-top: 11px
     }
 
     .post {

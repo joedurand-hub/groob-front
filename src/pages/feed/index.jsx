@@ -67,7 +67,7 @@ const Feed = ({ posts }) => {
             width: "100%",
           }}
         >
-          <Post data={posts.data} myId={posts.myId} myUserExplicitContent={posts.myUserExplicitContent} />
+          <Post data={posts.data} myId={posts.myId} myUserExplicitContent={posts.myUserExplicitContent} isVerified={posts.verified}/>
         </div>
       ) : (
         <>

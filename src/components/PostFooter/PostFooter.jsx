@@ -2,10 +2,13 @@ import { useState } from "react";
 import styles from "./postFooter.module.css";
 import Like from "./Like/Like";
 import Icon from "../PostIcons/Icon";
+import { GiTakeMyMoney } from "react-icons/gi"
+import { BsCashCoin } from "react-icons/bs"
+
 import { MdInsertComment } from "react-icons/md";
 import PostComment from "../PostComment/PostComment";
 
-const PostFooter = ({ postToShare, postLikes, price, id }) => {
+const PostFooter = ({ postToShare, explicit, postLikes, price, id }) => {
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
 
@@ -29,7 +32,11 @@ const PostFooter = ({ postToShare, postLikes, price, id }) => {
             {postToShare}
             </Icon>
             <Like id={id} likes={postLikes} />
-            <h6>${price}</h6>
+            {explicit === false && price > 0 && (
+              <Icon>
+                <BsCashCoin />
+              </Icon>
+            )}
           </div>
         </div>
       ) : (

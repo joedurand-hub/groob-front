@@ -9,6 +9,7 @@ import MoreOptions from "../MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 import Slider from "../Slider/Slider";
+import { GoVerified } from "react-icons/go";
 import Share from "../PostFooter/Share/Share";
 
 const PostById = ({ data }) => {
@@ -22,6 +23,7 @@ const PostById = ({ data }) => {
     user,
     explicitContent,
     _id,
+    userVerified,
     likes,
     profilePicture,
     userName,
@@ -53,7 +55,7 @@ const PostById = ({ data }) => {
               </Link>
             </div>
             <div>
-              <a className={styles.user_name}>{userName}</a>
+              <a className={styles.user_name}>{userName}</a> {userVerified && <GoVerified/>}
               <p className={styles.user_crate_date}>{timeago(createdAt)}</p>
             </div>
           </div>
