@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import styles from "./discover.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import BlurredImage from "../BlurredImage/BlurredImage";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Discover = ({ data }) => {

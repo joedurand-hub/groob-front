@@ -5,7 +5,7 @@ import { ENDPOINT } from "../../helpers/constants";
 import { Toaster, toast } from "react-hot-toast";
 
 const Index = ({ id, valueDB }) => {
-  const [value, setValue] = useState(valueDB);
+  const [value, setValue] = useState(false);
   const [toggleValue, setToggleValue] = useState(value);
 
   const { sendUpdatedData } = usePut();

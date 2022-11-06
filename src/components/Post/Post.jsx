@@ -13,7 +13,7 @@ import { GoVerified } from "react-icons/go";
 import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
 
-const Posts = ({ data, myId, isVerified, myUserExplicitContent }) => {
+const Posts = ({ data, myId, myUserExplicitContent }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <>

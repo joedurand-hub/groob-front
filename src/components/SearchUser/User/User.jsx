@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./user.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { GoVerified } from "react-icons/go";
 
 const User = ({ data}) => {
   return (
@@ -20,6 +21,7 @@ const User = ({ data}) => {
                 {data.userName[0].toUpperCase() + data.userName.substring(1)}
               </strong>
             </h4>
+            {data.verified && <GoVerified/>}
           </div>
         </li>
       </Link>

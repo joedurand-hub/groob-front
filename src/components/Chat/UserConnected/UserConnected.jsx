@@ -2,7 +2,7 @@ import React, {memo} from "react";
 import Image from "next/image";
 import styles from "./userConnected.module.css";
 
-const UserConnected = ({ online, profilePicture, width, height }) => {
+const UserConnected = ({ online, profilePicture, verified, width, height }) => {
 
   return (
     <div
