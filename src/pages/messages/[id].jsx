@@ -90,6 +90,7 @@ const Messages = ({ datas }) => {
         back={<GoBack path="/messages" />}
         userChat={
           <ChatUser
+          verified={datas?.verified}
             profilePicture={datas?.profilePicture}
             userName={datas?.userName}
             width={50}

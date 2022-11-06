@@ -27,7 +27,7 @@ const Index = ({ data }) => {
       setOnlineUsers(allUsers);
     });
         // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allChats]);
+  }, [data]);
 
   const { theme } = useContext(ThemeContext);
   return (
@@ -55,6 +55,7 @@ const Index = ({ data }) => {
         <ChatUser
           myId={data?.myId}
           userName={data?.userName}
+          verified={data?.verified}
           online={data?.online}
           profilePicture={data?.profilePicture}
           width={75}

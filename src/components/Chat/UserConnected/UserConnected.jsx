@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./userConnected.module.css";
 
 const UserConnected = ({ online, profilePicture, verified, width, height }) => {
-
+ 
   return (
     <div
       className={styles.chat_user}

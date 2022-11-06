@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext, memo } from "react";
 import { useRouter } from "next/router";
 import styles from "./chatUser.module.css";
+import { GoVerified } from "react-icons/go";
 import UserConnected from "../UserConnected/UserConnected";
 
 const ChatUser = ({ userName, profilePicture, verified, online, id, width, height, myId }) => {
+
   const router = useRouter();
   return (
     <div
@@ -20,6 +22,7 @@ const ChatUser = ({ userName, profilePicture, verified, online, id, width, heigh
       <h5 className={styles.user_name}>
         <strong>{userName && userName}</strong>
       </h5>
+      {verified && <GoVerified/>}
     </div>
   );
 };

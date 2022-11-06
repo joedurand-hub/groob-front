@@ -3,13 +3,11 @@ import ChatUser from "../ChatUser/ChatUser";
 import styles from "./chatList.module.css"
 
 const ChatList = ({ users }) => {
-  const chats = useMemo(() => {
-    return users?.sort((a, b) => {
-      if (a.updatedAt < b.updatedAt) return 1;
+  console.log(users)
+  const chats = users?.sort((a, b) => {
+      if (a.updated < b.updated) return 1;
       return -1;
     })      
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [users]);
   
   return (
     <div className={styles.list}>
@@ -17,6 +15,7 @@ const ChatList = ({ users }) => {
         <ChatUser 
         key={chat?.id}
           id={chat?.id}
+          verified={chat?.verified}
           userName={chat?.userName}
           profilePicture={chat?.profilePicture}
           online={chat?.online}
