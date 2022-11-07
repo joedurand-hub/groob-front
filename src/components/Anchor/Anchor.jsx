@@ -17,7 +17,7 @@ const Anchor = React.forwardRef(
               ? variantToStyles(styles.link, styles[variant])
               : variantToStyles(styles.link, styles[variant])
           }
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           onClick={onClick}
           disabled={disabled}
           ref={ref}

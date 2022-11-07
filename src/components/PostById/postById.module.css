@@ -61,9 +61,12 @@
     }
 
     .moreOptions {
-        margin-top: 11px
+        display: flex;
     }
-
+    .price {
+        font-size: 19px;
+        margin-bottom: 3px;
+    }
     .hr {
         width: 93%;
         padding-bottom: 0;

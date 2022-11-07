@@ -49,7 +49,7 @@ const PostFooter = ({ postToShare, explicit, postLikes, price, id }) => {
               {postToShare}
             </Icon>
             <Like id={id} likes={postLikes} />
-            <h6>{postLikes === 0 ? null : postLikes}</h6>
+            {/* <h6>{postLikes === 0 ? null : postLikes}</h6> */}
           </div>
         </div>
       )}

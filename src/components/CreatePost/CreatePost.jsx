@@ -7,6 +7,7 @@ import { ENDPOINT, POST_PUBLICATION } from "../../helpers/constants";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import { useRouter } from "next/router";
+import Tooltip from "../Tooltip/Tooltip";
 import { IoIosCloseCircle } from "react-icons/io";
 import { BsFillImageFill, BsInfoCircle } from "react-icons/bs";
 import { ThemeContext } from "../../contexts/ThemeContext";
@@ -135,7 +136,7 @@ const CreatePost = ({ closeModal }) => {
                 placeholder="1000"
                 type="number"
                 onChange={handleInputPriceChange}
-              />
+                />
             </div>
           </div>
         )}
@@ -158,19 +159,20 @@ const CreatePost = ({ closeModal }) => {
             className={styles.input_upload}
             onChange={(e) => handleFilesLoad(e.target.files)}
           />
-          {files.length > 0 && (
-            <div className={styles.container_nsfw}>
-              <input
-                type="checkbox"
-                id="nsfw"
-                value={explicitContent}
-                onChange={handleExplicitContent}
-              />
-              <label htmlFor="nsfw">
-                <strong>¿NSFW?</strong><BsInfoCircle/>
-              </label>
-            </div>
-          )}
+                {files.length > 0 && (
+                  <div className={styles.container_nsfw}>
+                    <input
+                      type="checkbox"
+                      id="nsfw"
+                      value={explicitContent}
+                      onChange={handleExplicitContent}
+                    />
+                    <label  htmlFor="nsfw">
+                      <strong>¿NSFW?</strong><BsInfoCircle style={{"fontWeight": 600, "position": "relative", "fontSize": "20px", "marginBottom": "-4px", "marginLeft": "5px"}} data-tip data-for="NsfwTooltip"/>
+                    </label>
+                    <Tooltip id="NsfwTooltip" place="top" effect="solid" text={`Marca esta opción si tu publicación es para mayores de 18 años o contiene violencia. Caso contrario puede ser motivo de baneo.`} />
+                  </div>
+                )}
           <div className={styles.container_send_post}>
             <p className={styles.character_counter}>{lengthValue > 0 ? `${lengthValue}/500` : null}</p>
             {pending ? (

@@ -26,6 +26,7 @@
     "react-infinite-scroll-component": "6.1.0",
     "react-input-emoji": "^4.1.0",
     "react-switch": "^7.0.0",
+    "react-tooltip": "^4.4.3",
     "socket.io-client": "^4.5.1",
     "timeago.js": "^4.0.2",
     "vercel": "^25.1.0"

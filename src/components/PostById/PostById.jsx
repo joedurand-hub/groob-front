@@ -43,7 +43,7 @@ const PostById = ({ data }) => {
           <div className={styles.user}>
             <div className={styles.user_container_picture_and_foto}>
               <Link href={`${URL}/user/${user}`} passHref>
-                <a>
+                <a rel="noopener noreferrer">
                   <Image
                     className={styles.user_picture}
                     src={profilePicture && profilePicture}
@@ -60,6 +60,7 @@ const PostById = ({ data }) => {
             </div>
           </div>
           <div className={styles.moreOptions}>
+          <h6 className={styles.price}><strong>{price > 0 && `AR$ ${price}`}</strong></h6>
             <MoreOptions />
           </div>
         </div>
@@ -74,6 +75,7 @@ const PostById = ({ data }) => {
         )}
         <>
           <PostFooter
+          explicit={explicitContent}
             price={price && price}
             id={_id}
             likes={likes}

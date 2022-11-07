@@ -45,7 +45,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                 <div className={styles.user}>
                   <div className={styles.user_container_picture_and_foto}>
                     <Link href={`${URL}/user/${user}`} passHref>
-                      <a>
+                      <a rel="noopener noreferrer">
                         <Image
                           className={styles.user_picture}
                           src={profilePicture && profilePicture}
