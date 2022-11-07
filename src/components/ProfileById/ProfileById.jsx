@@ -7,7 +7,7 @@ import Follow from "../Follow/Follow";
 import Unfollow from "../Unfollow/Unfollow";
 import Icon from "../Icon/Icon";
 import { BsCashCoin } from "react-icons/bs";
-import { GoVerified } from "react-icons/go";
+import GoVerified from "../GoVerified/Verified";
 import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
 import CreateChat from "../CreateChat/CreateChat";

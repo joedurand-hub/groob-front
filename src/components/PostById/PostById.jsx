@@ -9,7 +9,7 @@ import MoreOptions from "../MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 import Slider from "../Slider/Slider";
-import { GoVerified } from "react-icons/go";
+import GoVerified from "../GoVerified/Verified";
 import Share from "../PostFooter/Share/Share";
 
 const PostById = ({ data }) => {

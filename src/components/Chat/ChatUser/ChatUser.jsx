@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, memo } from "react";
 import { useRouter } from "next/router";
 import styles from "./chatUser.module.css";
-import { GoVerified } from "react-icons/go";
+import GoVerified from "../../GoVerified/Verified";
 import UserConnected from "../UserConnected/UserConnected";
 
 const ChatUser = ({ userName, profilePicture, verified, online, id, width, height, myId }) => {

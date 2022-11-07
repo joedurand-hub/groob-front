@@ -46,10 +46,6 @@
     .username{ 
         margin-left: -15px;;
     }
-    .verify {
-        font-size: 25px;
-        color: rgb(46, 135, 244);
-    }
 }
 
 @media only screen and (min-width: 769px) { 

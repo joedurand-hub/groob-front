@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./user.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { GoVerified } from "react-icons/go";
+import GoVerified from "../../GoVerified/Verified";
 
 const User = ({ data}) => {
   return (

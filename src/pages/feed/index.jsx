@@ -14,6 +14,7 @@ import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import SignUp from "../../components/SignUp/SignUp"
 
 const Post = dynamic(() => import("../../components/Post/Post"), {
   ssr: false,

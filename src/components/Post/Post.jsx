@@ -9,7 +9,7 @@ import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 import Button from "../Button/Button";
 import Slider from "../Slider/Slider";
-import { GoVerified } from "react-icons/go";
+import GoVerified from "../GoVerified/Verified";
 import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
 
@@ -87,12 +87,12 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   price={price}
                   userExplicitContent={myUserExplicitContent}
                 />
-              </div>
               {explicitContent && price && (
                 <div className={styles.container_buy_button}>
                   <button className={styles.buy_button}>Comprar</button>
                 </div>
               )}
+              </div>
               {/* {content && images.length > 0 ? null : (
                 <div>
                   <hr className={styles.hr} />

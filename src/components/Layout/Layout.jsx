@@ -6,7 +6,7 @@ import MenuNav from "../MenuNav/MenuNav";
 import Anchor from "../Anchor/Anchor";
 import Image from "next/image";
 import styles from "./layout.module.css";
-import { GoVerified } from "react-icons/go";
+import GoVerified from "../GoVerified/Verified";
 
 const Layout = ({ title, description, username, verified, menuItem, nav, children }) => {
   const { theme } = useContext(ThemeContext);
@@ -37,9 +37,9 @@ const Layout = ({ title, description, username, verified, menuItem, nav, childre
           <li>
             <h3 className={styles.username}><strong>{username && username[0].toUpperCase() + username?.substring(1)}</strong></h3>
           </li>
-            {verified ? (
-              <GoVerified className={styles.verify} />
-              ) : null}
+            {verified && (
+              <GoVerified/>
+              )}
               </div>
           <div className={styles.layout_container_links}>
             {menuItem}

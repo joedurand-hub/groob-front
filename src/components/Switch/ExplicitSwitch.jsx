@@ -25,7 +25,7 @@ const Index = ({ id, valueDB }) => {
       toast(
         "Aceptas ser mayor de 18 años para ver contenido explícito (NSFW). Éste puede tardar unos minutos en actualizarse y ser visible la primera vez. \n\n",
         {
-          duration: 5500,
+          duration: 4500,
         }
       );
     } else {
