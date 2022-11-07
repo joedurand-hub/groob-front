@@ -131,3 +131,13 @@
   cursor: not-allowed !important;
   background: #ccc;
 }
+
+
+.option {
+  background: transparent;
+  color: black;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}

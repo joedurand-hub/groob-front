@@ -1,0 +1,54 @@
+.menu_wrapper {
+  cursor: pointer;
+}
+
+.menu_open {
+  visibility: visible;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.menu_close {
+  visibility: hidden;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.menu_ul {
+  padding-left: 5px;
+  list-style: none;
+}
+
+.menu_list {
+  padding: 5px;
+  list-style: none;
+}
+
+
+.menu{
+  position: absolute;
+  top: -1px;
+  right: 15px;
+  width: 200px;
+  border-radius: 3px;
+  padding: 5px;
+  transition: all 0.3s cubic-bezier(.35,0,.25,1);
+  transform-origin: top right;
+  font-size: 1em;
+}
+
+.light {
+  background: white;
+  color: black;
+  box-shadow: 2px 1px 18px 3px rgba(0,0,0,0.64);
+-webkit-box-shadow: 2px 1px 18px 3px rgba(0,0,0,0.64);
+-moz-box-shadow: 2px 1px 18px 3px rgba(0,0,0,0.64);
+}
+
+.dark {
+background: rgb(24, 24, 24);
+color: white;
+box-shadow: 2px 1px 18px 3px rgba(255,255,255,0.64);
+-webkit-box-shadow: 2px 1px 18px 3px rgba(255,255,255,0.64);
+-moz-box-shadow: 2px 1px 18px 3px rgba(255,255,255,0.64);
+}

@@ -7,8 +7,9 @@ import Image from "next/image";
 import MoreOptions from "../MoreOptions/MoreOptions";
 import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
-import Button from "../Button/Button";
+import DeletePost from "../DeletePost/DeletePost";
 import Slider from "../Slider/Slider";
+
 import GoVerified from "../GoVerified/Verified";
 import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
@@ -73,7 +74,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                 <div className={styles.moreOptions}>
 
                   <h6 className={styles.price}><strong>{price > 0 && `AR$ ${price}`}</strong></h6>
-                  <MoreOptions postId={_id} userId={user} myId={myId} />
+                  <MoreOptions postId={_id} userId={user} myId={myId} option1={<DeletePost postId={_id}/>} />
                 </div>
               </div>
               <div className={styles.post}>

@@ -12,7 +12,6 @@
 
 .icon_light_mode:hover  {
     cursor: pointer;
-    filter: brightness(1.2);
     background: #eeeeee;
 }
 .icon_light_mode:focus  {
@@ -37,4 +36,22 @@
     align-items: center;
     justify-content: center;
     transition: filter 300ms;
+}
+
+.icon_dark_mode:hover  {
+    cursor: pointer;
+    color: #fff;
+    background: #181818;
+}
+
+.icon_dark_mode:focus  {
+    color: black;
+    filter: brightness(1.2);
+    background: #181818;
+}
+
+.icon_dark_mode:active  {
+    color: black;
+    background: #eeeeee;
+    background: #181818;
 }

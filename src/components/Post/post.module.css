@@ -69,6 +69,7 @@
         align-items: center;
         justify-content: center;
         margin: 0;
+        z-index: 9;
     }
     .price {
         font-size: 19px;
@@ -94,40 +95,13 @@
         position: absolute;
     }
     .buy_button:focus {
-        width: 200px;
-        height: 60px;
-        top: 50%;
-        border: none;
-        border-radius: 15px;
         background: rgb(38, 56, 225);
-        color: #fff;
-        z-index: 7;
-        font-size: 22px;
-        position: absolute;
     }
     .buy_button:hover {
-        width: 200px;
-        height: 60px;
-        top: 50%;
-        border: none;
-        border-radius: 15px;
         background: rgb(38, 56, 225);
-        color: #fff;
-        z-index: 7;
-        font-size: 22px;
-        position: absolute;
     }
     .buy_button:active {
-        width: 200px;
-        height: 60px;
-        top: 50%;
-        border: none;
-        border-radius: 15px;
         background: rgb(38, 56, 225);
-        color: #fff;
-        z-index: 7;
-        font-size: 22px;
-        position: absolute;
     }
 
     .hr {
