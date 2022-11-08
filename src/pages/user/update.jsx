@@ -23,7 +23,7 @@ const UpdateProfile = () => {
     }
         // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [info])
-
+  console.log(info)
 
   const initialState = {
     userName: data?.userName,
@@ -32,8 +32,9 @@ const UpdateProfile = () => {
     lastName: data?.lastName,
     email: data?.email,
     age: data?.age,
+    phone: data?.phone,
   };
-
+console.log(initialState)
   const reducer = (state, action) => {
     switch (action.type) {
       case "update":
@@ -47,6 +48,7 @@ const UpdateProfile = () => {
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  console.log(state)
 
   const handleInputAction = (event) => {
     dispatch({
@@ -64,6 +66,7 @@ const UpdateProfile = () => {
         firstName: state.firstName,
         lastName: state.lastName,
         age: state.age,
+        phone: state.phone,
       },
     });
   };
@@ -72,6 +75,7 @@ const UpdateProfile = () => {
           <Toaster/>
       <Profile
         state={state}
+        value={initialState}
         pending={pending}
         error={error}
         onChange={handleInputAction}

@@ -43,12 +43,12 @@ const MoreOptions = ({
               {userId === myId && (
                 <li className={styles.menu_list}>{option1}</li>
               )}
-              <li className={styles.menu_list}>{option2}</li>
-              <li className={styles.menu_list}>{option3}</li>
-              <li className={styles.menu_list}>{option4}</li>
-              <li className={styles.menu_list}>{option5}</li>
-              <li className={styles.menu_list}>{option6}</li>
-              <li className={styles.menu_list}>{option7}</li>
+              <li className={theme ? `${styles.menu_list} light_mode` : `${styles.menu_list} dark_mode`}>{option2}</li>
+              {/* <li className={styles.menu_list}>{option3}</li> */}
+              {/* <li className={styles.menu_list}>{option4}</li> */}
+              {/* <li className={styles.menu_list}>{option5}</li> */}
+              {/* <li className={styles.menu_list}>{option6}</li> */}
+              {/* <li className={styles.menu_list}>{option7}</li> */}
             </ul>
           </nav>
         )}

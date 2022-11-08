@@ -15,6 +15,7 @@ import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
 import Followings from "./Followings/Followings";
 import Followers from "./Followers/Followers";
+import Tooltip from "../Tooltip/Tooltip"
 import UpdatePicture from "../PutProfile/UpdatePicture";
 import BuyVerify from "../BuyVerify/BuyVerify";
 import axios from "axios"
@@ -85,16 +86,22 @@ const Profile = ({ data }) => {
               : styles.empty_user_description
           }
         >
-          <span>{data?.description}</span>
+          <span
+          
+          >{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-          <div className={styles.premium}>
+          <div className={styles.premium}
+                    data-tip
+                    data-for="verifiedButton"
+          >
             <Button
               name="Verificar cuenta"
-              variant="login"
-              onClick={openCardVerify}
+              variant={"login"}
+              onClick={data.phone && data.firstName && data.lastName ? openCardVerify : null}
             />
 
+            <Tooltip id="verifiedButton" place="top" effect="solid" text={`de 18 años o contiene violencia. Caso contrario puede ser motivo de baneo.`}/>
             <LargeCard isOpen={isOpenCardVerify} closeCard={closeCardVerify}>
               <BuyVerify dataVerify={data} closeCardVerify={closeCardVerify}/>
             </LargeCard>

@@ -15,15 +15,29 @@
 }
 
 .menu_ul {
-  padding-left: 5px;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
 .menu_list {
-  padding: 5px;
   list-style: none;
 }
 
+.menu_list:hover {
+  background: #3f78f3;
+  list-style: none;
+}
+
+.menu_list:focus {
+  background: #2564eb;
+  list-style: none;
+}
+
+.menu_list:active {
+  background: #2564eb;
+  list-style: none;
+}
 
 .menu{
   position: absolute;
@@ -31,7 +45,6 @@
   right: 15px;
   width: 200px;
   border-radius: 3px;
-  padding: 5px;
   transition: all 0.3s cubic-bezier(.35,0,.25,1);
   transform-origin: top right;
   font-size: 1em;

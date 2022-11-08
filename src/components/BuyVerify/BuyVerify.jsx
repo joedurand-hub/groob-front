@@ -3,6 +3,8 @@ import styles from "./buyVerify.module.css";
 import Button from "../Button/Button";
 import useAuthPost from "../../hooks/useAuthPost";
 import { useRouter } from "next/router";
+import {GoVerified} from "react-icons/go"
+import {FcCheckmark} from "react-icons/fc"
 import { ENDPOINT } from "../../helpers/constants";
 
 const BuyVerify = ({ closeCardVerify, dataVerify }) => {
@@ -22,7 +24,7 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
         quantity: 1,
         descripcion:
         
-          "Con la verificación de la cuenta obtenés el check azul en tu perfil. Además, en nuestro algoritmo daremos mejor presencia en resultados de búsqueda, evitaremos perfiles falsos. Aumento de las ventas.",
+          "Con la verificación de la cuenta obtenés el check azul en tu perfil. Además, en nuestro algoritmo daremos múltiples beneficios a estos perfiles.",
         // picURL: ,
         nombre: dataVerify?.firstName,
         apellido: dataVerify?.lastName,
@@ -39,24 +41,22 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
   return (
     <div>
       <div className={styles.benefits_for_verifying}>
+        
+        <div className={styles.title_verified} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+          <GoVerified style={{ fontSize: "50px", color: "rgb(46, 91, 244)" }}/>
         <h3 style={{ textAlign: "center" }}>
-          <strong>Beneficios de una cuenta verificada.</strong>
+          <strong>Verificate</strong>
         </h3>{" "}
-        <h4 className={styles.benefits}>
-          Mayor confianza de los usuarios hacia tí.
-        </h4>
-        <h4 className={styles.benefits}>
-          Mejor presencia en resultados de búsqueda.
-        </h4>
-        <h4 className={styles.benefits}>
-          Demostrar autenticidad y evitar perfiles falsos.
-        </h4>
-        <h4 className={styles.benefits}>
-          Aumento de las ventas ante mayor tráfico hacia tu perfil.
-        </h4>
-        <h4 className={styles.benefits}>
-          Destacar tu contenido entre la multitud.
-        </h4>
+          </div>
+        <h5 className={styles.benefits}>
+          <FcCheckmark style={{ fontSize: "20px", fontWeight: "bold" }}/> Mejor presencia en resultados de búsqueda.<br/>
+          <FcCheckmark/> Evitar perfiles falsos o duplicados. <br/>
+          <FcCheckmark/> Aumento de las ventas. <br/>
+          <FcCheckmark/> Más confianza de los usuarios hacia tí. <br/>
+          <FcCheckmark/> Mayor tu status social. <br/>
+          <FcCheckmark/> Destacar tu contenido entre la multitud.
+        </h5>
+        <p style={{ fontSize: "14px" }}>*Una vez realizado el pago, se te habilitará un formulario para cargar fotos del documento y que validemos tu identidad, los cuales serán borrados luego.</p>
         <div className={styles.benefits_actions}>
           <h3 className={styles.benefits_price}>
             <strong>AR $2.999 finales</strong>
