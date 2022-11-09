@@ -89,13 +89,13 @@ const PutProfile = ({ state, onChange, value, onSubmit, pending, error }) => {
         ) : (
           <div className={styles.container_button}>
             <>
-              <Button
-                name={"Cancelar"}
-                variant="cancel"
-                type="text"
-                onClick={() => router.push("/user")}
-              />
-              <Button name={"Actualizar"} onSubmit={onSubmit} />
+            <Button
+              name={"Cancelar"}
+              variant="cancel"
+              type="text"
+              onClick={() => router.push("/user")}
+            />
+              <Button name={"Actualizar"} type="submit" onSubmit={onSubmit} />
             </>
           </div>
         )}

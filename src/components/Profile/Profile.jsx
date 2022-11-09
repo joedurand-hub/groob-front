@@ -92,16 +92,13 @@ const Profile = ({ data }) => {
         </div>
         <div className={styles.container_buttons}>
           <div className={styles.premium}
-                    data-tip
-                    data-for="verifiedButton"
           >
             <Button
               name="Verificar cuenta"
               variant={"login"}
-              onClick={data.phone && data.firstName && data.lastName ? openCardVerify : null}
+              onClick={openCardVerify}
             />
 
-            <Tooltip id="verifiedButton" place="top" effect="solid" text={`de 18 años o contiene violencia. Caso contrario puede ser motivo de baneo.`}/>
             <LargeCard isOpen={isOpenCardVerify} closeCard={closeCardVerify}>
               <BuyVerify dataVerify={data} closeCardVerify={closeCardVerify}/>
             </LargeCard>

@@ -43,7 +43,6 @@ const Search = ({ posts }) => {
     setQuery(value.toLowerCase());
   };
 
-  console.log(results)
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   return (
     <Layout

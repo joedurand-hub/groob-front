@@ -24,20 +24,6 @@
   list-style: none;
 }
 
-.menu_list:hover {
-  background: #3f78f3;
-  list-style: none;
-}
-
-.menu_list:focus {
-  background: #2564eb;
-  list-style: none;
-}
-
-.menu_list:active {
-  background: #2564eb;
-  list-style: none;
-}
 
 .menu{
   position: absolute;

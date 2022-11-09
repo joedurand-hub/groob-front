@@ -5,9 +5,11 @@ import useAuthPost from "../../hooks/useAuthPost";
 import { useRouter } from "next/router";
 import {GoVerified} from "react-icons/go"
 import {FcCheckmark} from "react-icons/fc"
+// import Tooltip from "../Tooltip/Tooltip";
 import { ENDPOINT } from "../../helpers/constants";
 
 const BuyVerify = ({ closeCardVerify, dataVerify }) => {
+  console.log(dataVerify)
   const router = useRouter();
   const { data, sendData } = useAuthPost();
   useEffect(() => {
@@ -40,7 +42,9 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
 
   return (
     <div>
-      <div className={styles.benefits_for_verifying}>
+      <div className={styles.benefits_for_verifying}     
+      >
+        {/* <Tooltip id="verifiedButton" place="top" effect="solid" text={`Para activar esta funcionalidad completa tu perfil en "Editar perfil"`}/> */}
         
         <div className={styles.title_verified} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
           <GoVerified style={{ fontSize: "50px", color: "rgb(46, 91, 244)" }}/>
@@ -48,24 +52,31 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
           <strong>Verificate</strong>
         </h3>{" "}
           </div>
-        <h5 className={styles.benefits}>
+        <h6 className={styles.benefits}>
           <FcCheckmark style={{ fontSize: "20px", fontWeight: "bold" }}/> Mejor presencia en resultados de búsqueda.<br/>
           <FcCheckmark/> Evitar perfiles falsos o duplicados. <br/>
           <FcCheckmark/> Aumento de las ventas. <br/>
           <FcCheckmark/> Más confianza de los usuarios hacia tí. <br/>
           <FcCheckmark/> Mayor tu status social. <br/>
           <FcCheckmark/> Destacar tu contenido entre la multitud.
-        </h5>
+        </h6>
         <p style={{ fontSize: "14px" }}>*Una vez realizado el pago, se te habilitará un formulario para cargar fotos del documento y que validemos tu identidad, los cuales serán borrados luego.</p>
         <div className={styles.benefits_actions}>
           <h3 className={styles.benefits_price}>
             <strong>AR $2.999 finales</strong>
           </h3>
+          <div  
+          // data-tip
+      // data-for="verifiedButton"
+      >
+            
           <Button
-            variant="login"
+            variant={"login"}
             name="Solicitar"
             onClick={handlePreferenceToVerifyCccount}
           />
+            </div>
+
           <Button variant="cancel" onClick={closeCardVerify} name="Cerrar" />
         </div>
       </div>

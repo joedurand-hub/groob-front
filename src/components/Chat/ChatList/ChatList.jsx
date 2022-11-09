@@ -3,7 +3,6 @@ import ChatUser from "../ChatUser/ChatUser";
 import styles from "./chatList.module.css"
 
 const ChatList = ({ users }) => {
-  console.log(users)
   const chats = users?.sort((a, b) => {
       if (a.updated < b.updated) return 1;
       return -1;

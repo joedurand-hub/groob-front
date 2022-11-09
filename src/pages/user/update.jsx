@@ -14,7 +14,7 @@ const UpdateProfile = () => {
   const { info, pending, sendUpdatedData } = usePut();
 
   useEffect(() => {
-    if(info !== undefined && info.message) {
+    if(info !== undefined) {
       toast.success("Perfil actualizado!", {
         position: "top-center",
         autoClose: "3000",
@@ -24,7 +24,6 @@ const UpdateProfile = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [info])
   console.log(info)
-
   const initialState = {
     userName: data?.userName,
     description: data?.description,
@@ -34,7 +33,6 @@ const UpdateProfile = () => {
     age: data?.age,
     phone: data?.phone,
   };
-console.log(initialState)
   const reducer = (state, action) => {
     switch (action.type) {
       case "update":
@@ -48,7 +46,6 @@ console.log(initialState)
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state)
 
   const handleInputAction = (event) => {
     dispatch({
