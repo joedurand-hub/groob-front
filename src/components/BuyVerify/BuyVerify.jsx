@@ -9,16 +9,16 @@ import {FcCheckmark} from "react-icons/fc"
 import { ENDPOINT } from "../../helpers/constants";
 
 const BuyVerify = ({ closeCardVerify, dataVerify }) => {
-  console.log(dataVerify)
   const router = useRouter();
   const { data, sendData } = useAuthPost();
-  useEffect(() => {
-    data !== undefined && router.push(data.init_point)
-  }, [data]);
-
+  // useEffect(() => {
+  //   data !== undefined && router.push(data.init_point)
+  // }, [data]);
+  
+  console.log(data)
   const handlePreferenceToVerifyCccount = async () => {
     sendData({
-      endpoint: `${ENDPOINT}/prefer-verify-account`,
+      endpoint: `${ENDPOINT}/prefer-verify`,
       postData: {
         idToVerify: dataVerify?._id,
         title: "Verificación de la cuenta en Groob.",
