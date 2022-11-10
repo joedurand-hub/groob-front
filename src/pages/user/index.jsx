@@ -59,13 +59,14 @@ const User = ({ data }) => {
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
           <CreatePost closeModal={closeModalPost} />
         </Modal>
-        {open && (
+        {open ? (
           <Menu valueSwitch={data?.explicitContent} id={data?._id} />
-        )}
+        ) : (
           <>
             <Profile data={data} />
             <Publications id={data?._id} />
           </>
+        )}
       </Layout>
     </>
   );
