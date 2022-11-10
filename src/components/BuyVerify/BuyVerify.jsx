@@ -13,7 +13,7 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
   const router = useRouter();
   const { data, sendData } = useAuthPost();
   useEffect(() => {
-    data !== undefined && router.push(data.body.init_point)
+    data !== undefined && router.push(data.init_point)
   }, [data]);
 
   const handlePreferenceToVerifyCccount = async () => {
