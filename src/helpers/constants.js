@@ -1,6 +1,6 @@
 // ENDPOINTS IN THE BACKEND API
 const deploy = false
-export const ENDPOINT = deploy ? "https://groob-backend-production.up.railway.app" : "http://localhost:8080"
+export const ENDPOINT = deploy ? "https://groob-back-production.up.railway.app" : "http://localhost:8080"
 export const GET_PROFILE = "/profile" 
 export const GET_PROFILE_BY_ID = "/profile/:id" 
 export const UPDATE_PROFILE = "/profile" 

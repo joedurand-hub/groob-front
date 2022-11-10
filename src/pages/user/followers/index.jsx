@@ -18,7 +18,7 @@ export default Followers;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const response = await fetch(`http://localhost:8080/followers`);
+    const response = await fetch(`https://groob-back-production.up.railway.app/followers`);
     const data = await response.json();
     return {
       props: {

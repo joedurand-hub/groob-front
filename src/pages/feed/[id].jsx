@@ -33,7 +33,7 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      `http://localhost:8080/post/${id}`,
+      `https://groob-back-production.up.railway.app/post/${id}`,
       {
         headers: {
           authtoken: token,
