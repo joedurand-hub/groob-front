@@ -92,16 +92,7 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
       </div>
     );
   } 
-  if(userExplicitContent === false && nsfw === false && price > 0
-    || userExplicitContent === true && nsfw === false && price > 0
-    || userExplicitContent === true && nsfw === true && price === 0
-    || userExplicitContent === false && nsfw === false && price === 0
-    || userExplicitContent === true && nsfw === false && price === 0
-    || !userExplicitContent && nsfw === false && price > 0
-    || !userExplicitContent && nsfw === true && price === 0
-    || !userExplicitContent && nsfw === false && price === 0
-    || !userExplicitContent && nsfw === false && price === 0
-    ) {
+  else {
     return (
       <div
         className={
