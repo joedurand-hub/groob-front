@@ -26,6 +26,7 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
 
   if (userExplicitContent === false && nsfw === true 
   || userExplicitContent === true && nsfw === true && price > 0
+  || nsfw === true && price > 0
   || userExplicitContent === false && nsfw === true && price > 0
   || !token 
     ) {
