@@ -17,10 +17,9 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
   // }, [data]);
   
   console.log(data)
-  console.log(`${ENDPOINT}/prefer-verify`)
   const handlePreferenceToVerifyCccount = async () => {
     sendData({
-      endpoint: `${ENDPOINT}/prefer-verify`,
+      endpoint: `${ENDPOINT}/verifyAccount`,
       postData: {
         idToVerify: dataVerify?._id,
         title: "Verificación de la cuenta en Groob.",
