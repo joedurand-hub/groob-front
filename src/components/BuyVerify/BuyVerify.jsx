@@ -11,11 +11,12 @@ import { ENDPOINT } from "../../helpers/constants";
 const BuyVerify = ({ closeCardVerify, dataVerify }) => {
   const router = useRouter();
   const { data, sendData } = useAuthPost();
-  // useEffect(() => {
-  //   data !== undefined && router.push(data.init_point)
-  // }, [data]);
+  useEffect(() => {
+    data !== undefined && router.push(data.init_point)
+  }, [data]);
   
   console.log(data)
+  console.log(ENDPOINT,"/prefer-verify")
   const handlePreferenceToVerifyCccount = async () => {
     sendData({
       endpoint: `${ENDPOINT}/prefer-verify`,
