@@ -23,6 +23,7 @@ import { ENDPOINT } from "../../helpers/constants";
 import useAuthPost from "../../hooks/useAuthPost";
 
 const Profile = ({ data }) => {
+  console.log(data)
   const { datas, sendData } = useAuthPost();
   const { theme } = useContext(ThemeContext);
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
