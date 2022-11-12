@@ -23,8 +23,6 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
       postData: {
         idToVerify: dataVerify?._id,
         funca: "Verificación de la cuenta en Groob.",
-        price: 2999,
-        quantity: 1,
         descripcion: "Con la verificación de la cuenta obtenés el check azul en tu perfil. Además, en nuestro algoritmo damos múltiples beneficios a estos perfiles.",
         // picURL: ,
         nombre: dataVerify?.firstName,

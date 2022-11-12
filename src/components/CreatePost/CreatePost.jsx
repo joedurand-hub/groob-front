@@ -168,7 +168,7 @@ const CreatePost = ({ closeModal }) => {
                 onChange={handleExplicitContent}
               />
               <label htmlFor="nsfw">
-                <strong>¿NSFW?</strong>
+                <strong>NSFW</strong>
                 <BsInfoCircle
                   style={{
                     fontWeight: 600,
@@ -185,8 +185,7 @@ const CreatePost = ({ closeModal }) => {
                 id="NsfwTooltip"
                 place="top"
                 effect="solid"
-                text={`Marca esta opción si tu publicación es para mayores de 18 años
-                 o contiene violencia. Caso contrario puede ser motivo de baneo.`}
+                text={`Marca esta opción si tu publicación es para mayores de 18 años.`}
               />
             </div>
           )}
