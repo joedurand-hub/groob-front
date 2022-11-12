@@ -4,6 +4,7 @@ import GoBack from "../components/GoBack/Back";
 import Link from "next/link";
 
 const Contact = () => {
+  const { theme } = useContext(ThemeContext);
   return (
     <div>
       <GoBack path="/feed" />
