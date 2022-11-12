@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
-import GoBack from "../components/GoBack/Back";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import GoBack from "../../components/GoBack/Back";
 import Link from "next/link";
 import { useRouter } from 'next/router';
 
@@ -19,7 +19,7 @@ const Success = () => {
     console.log("router.query:", router.query)
     // const { payment_id, status, merchant_order_id } = router.query;
     // const query = router.query;
-    
+
     return (
         <div>
         <GoBack path="/feed" />
