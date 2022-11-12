@@ -185,7 +185,7 @@ const CreatePost = ({ closeModal }) => {
                 id="NsfwTooltip"
                 place="top"
                 effect="solid"
-                text={`Marca esta opción si tu publicación es para mayores de 18 años.`}
+                text={`Marcá esta opción si tu publicación es para mayores de 18 años.`}
               />
             </div>
           )}
