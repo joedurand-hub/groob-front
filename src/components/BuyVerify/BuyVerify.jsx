@@ -16,15 +16,14 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
     data !== undefined && router.push(data.body.init_point)
   }, [data]);
 
-  console.log(data);
   const handlePreferenceToVerifyCccount = async () => {
     sendData({
       endpoint: `${ENDPOINT}/preferenceVerification`,
       postData: {
         idToVerify: dataVerify?._id,
-        funca: "Verificación de la cuenta en Groob.",
+        title: "Verificación de cuenta - Groob.",
         descripcion: "Con la verificación de la cuenta obtenés el check azul en tu perfil. Además, en nuestro algoritmo damos múltiples beneficios a estos perfiles.",
-        // picURL: ,
+        picURL: "https://tecnoartes.net/wordpress/wp-content/uploads/2021/02/check-icon-1.jpg",
         nombre: dataVerify?.firstName,
         apellido: dataVerify?.lastName,
         email: dataVerify?.email,
