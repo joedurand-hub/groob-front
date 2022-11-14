@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import GoBack from "../../components/GoBack/Back";
 import Link from "next/link";
+import Layout from "../../components/Layout/Layout"
 import { useRouter } from 'next/router';
 
 // notifications/success?collection_id=1310744205&collection_status=approved&
@@ -16,6 +17,8 @@ const Success = () => {
     console.log("router.query:", router.query)
 
     return (
+      <Layout>
+
         <div>
         <GoBack path="/feed" />
         <Link href="/feed">
@@ -29,18 +32,22 @@ const Success = () => {
               justifyContent: "center",
             }}
           >
-            <h1 className={theme ? "light_mode" : "dark_mode"}>
+            <h1 style={{color: "green"}}>
                 Pago aprobado!
             </h1>
+            <div>
+
             <h3>Código de pago: {router.query.payment_id}</h3>
             <h2>Estado: {router.query.status}</h2>
             <h2>ID de la orden de compra: {router.query.merchant_order_id}</h2>
             <h2>Código de Referencia: {router.query.preference_id}</h2>
             <h2></h2>
+            </div>
             <p>Ya puedes continuar navegando.</p>
           </div>
         </Link>
         </div>
+              </Layout>
     );
 }
 export default Success;
