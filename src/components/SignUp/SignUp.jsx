@@ -195,7 +195,7 @@ export const SignUp = () => {
           {errors.password?.type === "minLength" && (
             <p className={styles.field_text_input_error}>
               {" "}
-              La contraseña debe tener más de 6 caracteres.{" "} <br/>
+              La contraseña debe tener 6 caracteres o más.{" "} <br/>
               Al menos una letra mayúscula, un número y algún caracter especial.
             </p>
           )}
@@ -207,7 +207,6 @@ export const SignUp = () => {
           )}
           {errors.password?.type === "pattern" && (
             <p className={styles.field_text_input_error}>
-              Mínimo 6 caracteres. <br/>
               Al menos una letra mayúscula, un número y algún caracter especial.
             </p>
           )}
