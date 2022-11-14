@@ -19,18 +19,17 @@ const Success = () => {
     return (
       <Layout>
 
-        <div>
-        <GoBack path="/feed" />
-        <Link href="/feed">
-          <div
-            style={{
-              marginTop: "50%",
+        <div             style={{
+              marginTop: "30px",
               textAlign: "center",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-            }}
+            }}>
+        <GoBack path="/feed" />
+        <Link href="/feed">
+          <div
           >
             <h1 style={{color: "green"}}>
                 Pago aprobado!
