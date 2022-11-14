@@ -68,9 +68,7 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
           <FcCheckmark /> Destacar tu contenido entre la multitud.
         </h6>
         <p style={{ fontSize: "14px" }}>
-          *Una vez realizado el pago, se te habilitará un formulario para cargar
-          fotos del documento y que validemos tu identidad, los cuales serán
-          borrados luego.
+          *Una vez realizado el pago, en esta sección te aparecerá un nuevo botón para continuar el proceso de verificación.
         </p>
         <div className={styles.benefits_actions}>
           <h3 className={styles.benefits_price}>

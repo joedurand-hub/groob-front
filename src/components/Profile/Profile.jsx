@@ -97,7 +97,7 @@ const Profile = ({ data }) => {
           >
             {data.verificationPay === true ? (
 <>
-<Anchor name="Cargar documentos" variant="large" path="/verify-account" />
+<Anchor name="Continuar verificación" variant="large" path="/verify-account" />
 </>
             ) : (
               <>

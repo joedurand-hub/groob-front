@@ -1,23 +1,36 @@
 import React from "react";
+import Layout from "../components/Layout/Layout";
+import UploadDocuments from "../components/UploadDocument/UploadDocument";
 
-const Verify = () => {
+const Verify = ({ data }) => {
   return (
-    <div>
-      <p>
-        Si no puso número de teléfono, pedirselo, enviar código, que inserte el
-        código y luego mostrar lo siguiente.
-      </p>{" "}
-      <p>
-        {" "}
-        Pedir 2 imágenes del DNI + foto sosteniendo el DNI + input de subida de
-        archivos... Y una advertencia de recuerdo para que posean foto de perfil
-        y al menos 1 publicación donde se vea su cara.
-      </p>
-      <br />
-      Tras esto, ratificar que las fotos del DNI serán borradas una vez
-      verificada su identidad.
-    </div>
+    <Layout>
+      <UploadDocuments />
+    </Layout>
   );
 };
 
 export default Verify;
+
+// export async function getServerSideProps({ req, res }) {
+//   try {
+//     const token = getCookie("authtoken", { req, res });
+//     const response = await fetch(
+//       `https://groob-back-production.up.railway.app/profile`,
+//       {
+//         headers: {
+//           authtoken: token,
+//         },
+//         credentials: "include",
+//       }
+//     );
+//     const data = await response.json();
+//     return {
+//       props: {
+//         data,
+//       },
+//     };
+//   } catch (error) {
+//     console.table(error);
+//   }
+// }

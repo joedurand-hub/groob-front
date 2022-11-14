@@ -47,13 +47,6 @@ const CreatePost = ({ closeModal }) => {
 
   const handleFilesLoad = (e) => {
     setFiles(e);
-    // const file = e.target.files[0]
-    // const reader = new FileReader();
-    // reader.onload = function(onLoadEvent) {
-    //   setImageSrc(onLoadEvent.target.result)
-    //   setUploadData(undefined)
-    // }
-    // reader.readAsDataURL(changeEvent.target.files[0])
   };
 
   const handleSubmit = (e) => {
