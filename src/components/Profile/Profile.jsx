@@ -21,6 +21,7 @@ import BuyVerify from "../BuyVerify/BuyVerify";
 import axios from "axios"
 import { ENDPOINT } from "../../helpers/constants";
 import useAuthPost from "../../hooks/useAuthPost";
+import Anchor from "../Anchor/Anchor";
 
 const Profile = ({ data }) => {
   console.log(data)
@@ -94,11 +95,19 @@ const Profile = ({ data }) => {
         <div className={styles.container_buttons}>
           <div className={styles.premium}
           >
-            <Button
-              name="Verificar cuenta"
-              variant={"login"}
-              onClick={openCardVerify}
-            />
+            {data.verificationPay === true ? (
+<>
+<Anchor name="Cargar documentos" variant="large" path="/verify-account" />
+</>
+            ) : (
+              <>
+              <Button
+                name="Verificar cuenta"
+                variant={"login"}
+                onClick={openCardVerify}
+                />
+                </>
+            )}
 
             <LargeCard isOpen={isOpenCardVerify} closeCard={closeCardVerify}>
               <BuyVerify dataVerify={data} closeCardVerify={closeCardVerify}/>
