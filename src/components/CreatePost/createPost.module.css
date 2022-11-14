@@ -171,6 +171,11 @@
         font-size: 0.9em;
         margin-right: 7px;
     }
+    .message_MP {
+        font-size: 16px;
+        color: #343434;
+        margin: 0 0 0 10px;
+    }
 
     .light_mode {
         background: white;

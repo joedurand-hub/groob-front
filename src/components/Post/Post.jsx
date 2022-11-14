@@ -13,6 +13,7 @@ import Slider from "../Slider/Slider";
 import GoVerified from "../GoVerified/Verified";
 import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
+import CreatePreference from "../CreatePreference/CreatePreference";
 
 const Posts = ({ data, myId, myUserExplicitContent }) => {
   const { theme } = useContext(ThemeContext);
@@ -90,7 +91,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                 />
               {explicitContent && price && (
                 <div className={styles.container_buy_button}>
-                  <button className={styles.buy_button}>Comprar</button>
+                  <CreatePreference />
                 </div>
               )}
               </div>

@@ -44,12 +44,12 @@ const UploadDocument = () => {
       </div>
       <h2>Frente</h2>
       <label htmlFor="imagePicture">
-        <Image height={150} width={300} src={Frente} />
+        <Image height={150} width={300} src={Frente} alt="Imagen frontal del documento de identidad"/>
       </label>
       <br />
       <h2>Dorso</h2>
       <label htmlFor="imagePicture">
-        <Image height={150} width={300} src={Dorso} />
+        <Image height={150} width={300} src={Dorso} alt="Imagen del dorso del documento de identidad"/>
       </label>
       <br />
       <div className={styles.container_submit}>

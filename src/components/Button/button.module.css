@@ -40,6 +40,7 @@
   border: 1px solid rgb(255, 255, 255);
   background: rgb(147, 22, 225)
 }
+
 .login:active {
   border: 1px solid rgb(255, 255, 255);
   background: rgb(147, 22, 225)
@@ -54,6 +55,7 @@
   border: 1px solid rgb(255, 255, 255);
   background: rgb(147, 22, 225)
 }
+
 .primary:active {
   border: 1px solid rgb(255, 255, 255);
   background: rgb(147, 22, 225)
@@ -74,6 +76,7 @@
   border: 1px solid #807f79;
   background: #d4d4d4;
 }
+
 .secondary_light:active {
   border: 1px solid #807f79;
   background: #d4d4d4;
@@ -94,9 +97,60 @@
   border: 1px solid #d0d0d0;
   background: #343434;
 }
+
 .secondary_dark:active {
   border: 1px solid #d0d0d0;
   background: #343434;
+}
+
+.purchase {
+  top: 50%;
+  width: 200px;
+  height: 40px;
+  color: white;
+  background: rgb(38, 56, 225);
+  position: absolute;
+  z-index: 8
+}
+
+.purchase:hover {
+  cursor: pointer;
+  background: rgb(147, 22, 225);
+}
+
+.purchase:focus {
+  background: rgb(147, 22, 225);
+}
+
+.purchase:active {
+  background: rgb(147, 22, 225);
+}
+
+
+.tab {
+  top: 50%;
+  width: 150px;
+  height: 40px;
+  color: rgb(147, 22, 225);
+  background: transparent;
+  z-index: 8;
+  transition: all 0.50s linear;
+}
+
+.tab:hover {
+  color: white;
+  cursor: pointer;
+  background: rgba(147, 22, 225, 0.696);
+}
+
+.tab:focus {
+  color: white;
+  background: rgb(147, 22, 225);
+}
+
+.tab:active {
+  color: rgb(147, 22, 225);
+  background: transparent;
 }
 
 .cancel {

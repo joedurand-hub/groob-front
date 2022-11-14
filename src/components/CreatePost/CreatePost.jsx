@@ -15,6 +15,7 @@ import Loader from "../Loader/Loader";
 import usePostPublication from "../../hooks/usePostPublication";
 
 const CreatePost = ({ closeModal }) => {
+  const accountMP = false;
   const token = getCookie("authtoken");
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
@@ -47,6 +48,13 @@ const CreatePost = ({ closeModal }) => {
 
   const handleFilesLoad = (e) => {
     setFiles(e);
+    // const file = e.target.files[0]
+    // const reader = new FileReader();
+    // reader.onload = function(onLoadEvent) {
+    //   setImageSrc(onLoadEvent.target.result)
+    //   setUploadData(undefined)
+    // }
+    // reader.readAsDataURL(changeEvent.target.files[0])
   };
 
   const handleSubmit = (e) => {
@@ -113,13 +121,14 @@ const CreatePost = ({ closeModal }) => {
           onChange={handleInputChange}
           maxLength={500}
         />
-        {files.length > 0 && (
+        {files.length > 0 && accountMP === true && (
           <div className={styles.container_price_and_nsfw}>
             <div className={styles.container_price}>
               <span className={styles.price_title}>Precio</span>
               <span className={styles.price_title_optional}>
                 {"("}opcional{")"}
               </span>
+
               <input
                 className={
                   theme
@@ -199,6 +208,12 @@ const CreatePost = ({ closeModal }) => {
             )}
           </div>
         </div>
+        {files.length > 0 && (
+          <p className={styles.message_MP}>
+            *Si deseas realizar una venta primero tenés que asociar tu cuenta de
+            Mercado Pago.
+          </p>
+        )}
       </form>
       <br />
       {error &&

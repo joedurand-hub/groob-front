@@ -9,20 +9,40 @@ import { useModal } from "../../hooks/useModal";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import { setCookie, getCookie, deleteCookie } from "cookies-next";
 import { TiHome } from "react-icons/ti";
+import axios from "axios";
 import { BiSearchAlt } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import SignUp from "../../components/SignUp/SignUp"
+import SignUp from "../../components/SignUp/SignUp";
+import Button from "../../components/Button/Button";
+import { ENDPOINT } from "../../helpers/constants";
 
 const Post = dynamic(() => import("../../components/Post/Post"), {
   ssr: false,
 });
 
 const Feed = ({ posts }) => {
+  const token = getCookie("authtoken");
+  const [active, setActive] = useState(true);
+  const [postsRecomended, setPostsRecomended] = useState([]);
   const { theme } = useContext(ThemeContext);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
+  console.log(postsRecomended);
+  useEffect(() => {
+    try {
+      const getPosts = async () => {
+        const { data } = await axios.get(`${ENDPOINT}/surfing`);
+
+        setPostsRecomended(data);
+      };
+      getPosts();
+    } catch (error) {
+      console.log("error:", error);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <Layout
       menuItem={
@@ -52,36 +72,82 @@ const Feed = ({ posts }) => {
         </>
       }
     >
+      {token && posts.length === 0 && (
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: "50%",
+          }}
+        >
+          <h6 className={theme ? "light_mode" : "dark_mode"}>
+            Aún no hay publicaciones, crea un post, descubre usuarios en la
+            sección de la lupa e invita a tus amigos!
+          </h6>
+        </div>
+      )}
       {isOpenModalPost ? (
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
           <CreatePost closeModal={closeModalPost} />
         </Modal>
-      ) : posts.data?.length >= 1 ? (
-        <div
-          style={{
-            marginTop: "20px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <Post data={posts.data} myId={posts.myId} myUserExplicitContent={posts.myUserExplicitContent} isVerified={posts.verified}/>
-        </div>
       ) : (
         <>
           <div
             style={{
-              textAlign: "center",
-              marginTop: "50%",
+              margin: "-30px 30px 0 0",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              zIndex: 8,
+              position: "fixed",
             }}
           >
-            <h6 className={theme ? "light_mode" : "dark_mode"}>
-              Aún no hay publicaciones, crea un post, descubre usuarios en la
-              sección de la lupa e invita a tus amigos!
-            </h6>
+            <Button
+              onClick={() => setActive(false)}
+              name="Feed"
+              variant="tab"
+            />
+            <Button
+              onClick={() => setActive(true)}
+              name="Recomendados"
+              variant="tab"
+            />
           </div>
+          {postsRecomended.length > 0 && active ? (
+            <div
+              style={{
+                marginTop: "20px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
+              <Post data={postsRecomended} />
+            </div>
+          ) : (
+            active === false && (
+              <div
+                style={{
+                  marginTop: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
+                <Post
+                  data={posts.data}
+                  myId={posts.myId}
+                  myUserExplicitContent={posts.myUserExplicitContent}
+                  isVerified={posts.verified}
+                />
+              </div>
+            )
+          )}
         </>
       )}
     </Layout>
