@@ -22,7 +22,7 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
       postData: {
         idToVerify: dataVerify?._id,
         title: "Verificación de cuenta - Groob.",
-        price: 2999,
+        price: 35,
         descripcion: "Con la verificación de la cuenta obtenés el check azul en tu perfil. Además, en nuestro algoritmo damos múltiples beneficios a estos perfiles.",
         picURL: "https://tecnoartes.net/wordpress/wp-content/uploads/2021/02/check-icon-1.jpg",
         nombre: dataVerify?.firstName,
