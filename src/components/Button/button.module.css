@@ -145,13 +145,9 @@
 
 .tab:focus {
   color: white;
-  background: rgb(147, 22, 225);
+  background: rgba(147, 22, 225, 0.696);
 }
 
-.tab:active {
-  color: rgb(147, 22, 225);
-  background: transparent;
-}
 
 .cancel {
   background: transparent;

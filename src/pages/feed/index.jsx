@@ -29,7 +29,6 @@ const Feed = ({ posts }) => {
   const [postsRecomended, setPostsRecomended] = useState([]);
   const { theme } = useContext(ThemeContext);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
-  console.log(postsRecomended);
   useEffect(() => {
     try {
       const getPosts = async () => {
@@ -72,19 +71,6 @@ const Feed = ({ posts }) => {
         </>
       }
     >
-      {token && posts.length === 0 && (
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: "50%",
-          }}
-        >
-          <h6 className={theme ? "light_mode" : "dark_mode"}>
-            Aún no hay publicaciones, crea un post, descubre usuarios en la
-            sección de la lupa e invita a tus amigos!
-          </h6>
-        </div>
-      )}
       {isOpenModalPost ? (
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
           <CreatePost closeModal={closeModalPost} />
@@ -139,6 +125,19 @@ const Feed = ({ posts }) => {
                   width: "100%",
                 }}
               >
+                {token && posts.length === 0 && (
+                  <div
+                    style={{
+                      textAlign: "center",
+                      marginTop: "50%",
+                    }}
+                  >
+                    <h6 className={theme ? "light_mode" : "dark_mode"}>
+                      Aún no hay publicaciones, crea un post, descubre usuarios
+                      en la sección de la lupa e invita a tus amigos!
+                    </h6>
+                  </div>
+                )}
                 <Post
                   data={posts.data}
                   myId={posts.myId}
