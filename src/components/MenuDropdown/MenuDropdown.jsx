@@ -12,15 +12,16 @@ import styles from "./menuDropdown.module.css";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Menu = ({ valueSwitch, id }) => {
+  console.log(id);
   const { theme } = useContext(ThemeContext);
-  const {data, sendData} = useAuthPost()
-  
+  const { data, sendData } = useAuthPost();
+
   const handleLogout = async () => {
     sendData({
       endpoint: `${ENDPOINT}/logout`,
       id: id,
     });
-    deleteCookie("authtoken")
+    deleteCookie("authtoken");
   };
 
   return (
@@ -45,7 +46,7 @@ const Menu = ({ valueSwitch, id }) => {
         <Link href="/feed" passHref>
           <MenuItem>
             <Anchor
-              path="/payments"
+              path={`https://auth.mercadopago.com/authorization?client_id=6604225923180824&response_type=code&platform_id=mp&state=${id}&redirect_uri=https://groob-back-production.up.railway.app/codeToken`}
               name="Activar Mercado Pago"
               variant="intermediate"
             />
@@ -86,7 +87,12 @@ const Menu = ({ valueSwitch, id }) => {
           <div className={styles.row}>{">"}</div>
         </MenuItem>
         <MenuItem>
-          <Anchor path="/" name="Cerrar sesión" onClick={handleLogout} variant="logout" />
+          <Anchor
+            path="/"
+            name="Cerrar sesión"
+            onClick={handleLogout}
+            variant="logout"
+          />
           <div className={styles.row}>{">"}</div>
         </MenuItem>
       </ul>
