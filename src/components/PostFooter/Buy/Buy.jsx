@@ -1,10 +1,9 @@
 import React from "react";
-import useAuthPost from "../../hooks/useAuthPost";
-import Button from "../Button/Button";
-import { ENDPOINT } from "../../helpers/constants";
-import Loader from "../Loader/Loader";
+import useAuthPost from "../../../hooks/useAuthPost";
+import { ENDPOINT } from "../../../helpers/constants";
+import { BsCashCoin } from "react-icons/bs";
 
-const CreatePreference = ({
+const Buy = ({
   explicitContent,
   creatorId,
   userName,
@@ -30,15 +29,11 @@ const CreatePreference = ({
     });
   };
   console.log(data)
+  console.log(pending)
+  console.log(error)
   return (
-    <>
-      {pending ? (
-        <Loader />
-      ) : (
-        <Button name="Comprar" variant="purchase" onClick={handlePreference} />
-      )}
-    </>
-  );
+    <BsCashCoin onClick={handlePreference}/>
+  )
 };
 
-export default CreatePreference;
+export default Buy;

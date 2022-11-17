@@ -9,7 +9,7 @@ import timeago from "../../helpers/timeago";
 import Comments from "../Comments/Comments";
 import DeletePost from "../DeletePost/DeletePost";
 import Slider from "../Slider/Slider";
-
+import Button from "../Button/Button";
 import GoVerified from "../GoVerified/Verified";
 import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
@@ -99,23 +99,25 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                 {explicitContent && price && (
                   <div className={styles.container_buy_button}>
                     <CreatePreference
+                      explicitContent={explicitContent}
                       creatorId={user}
                       userName={userName}
                       postId={_id}
                       price={price}
                       descripcion={content}
                       picUrl={profilePicture}
-                    />
+                    ></CreatePreference>
                   </div>
                 )}
               </div>
-              {/* {content && images.length > 0 ? null : (
-                <div>
-                  <hr className={styles.hr} />
-                </div>
-              )} */}
               <>
                 <PostFooter
+                  creatorId={user}
+                  userName={userName}
+                  postId={_id}
+                  price={price}
+                  descripcion={content}
+                  picUrl={profilePicture}
                   explicit={explicitContent}
                   price={price && price}
                   id={_id}
@@ -131,13 +133,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   }
                 />
               </>
-              {/* {content && comments.length > 0 && images.length > 0 ? (
-                <hr className={styles.hr} />
-              ) : (
-                !content &&
-                comments.length === 0 &&
-                images.length > 0 && null
-              )} */}
+
               <Comments allComments={comments.slice(0, 3)} />
               <>
                 {comments.length > 3 ? (

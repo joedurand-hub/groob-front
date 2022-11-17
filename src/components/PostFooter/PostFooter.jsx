@@ -2,13 +2,17 @@ import { useState } from "react";
 import styles from "./postFooter.module.css";
 import Like from "./Like/Like";
 import Icon from "../PostIcons/Icon";
-import { GiTakeMyMoney } from "react-icons/gi"
-import { BsCashCoin } from "react-icons/bs"
-
-import { MdInsertComment } from "react-icons/md";
+import Buy from "./Buy/Buy";
 import PostComment from "../PostComment/PostComment";
+import { MdInsertComment } from "react-icons/md";
 
-const PostFooter = ({ postToShare, explicit, postLikes, price, id }) => {
+const PostFooter = ({
+  postToShare,
+  explicit,
+  postLikes,
+  price,
+  id,
+}) => {
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
 
@@ -18,41 +22,24 @@ const PostFooter = ({ postToShare, explicit, postLikes, price, id }) => {
 
   return (
     <>
-      {price ? (
-        <div className={styles.item_footer_post}>
-          <div className={styles.container}>
+      <div className={styles.item_footer_post}>
+        <div className={styles.container}>
+          <Icon>
+            <MdInsertComment
+              onClick={() => {
+                setComment(!comment);
+              }}
+            />
+          </Icon>
+          <Icon className={styles.user_post}>{postToShare}</Icon>
+          <Like id={id} likes={postLikes} />
+          {explicit === false && price > 0 && (
             <Icon>
-              <MdInsertComment
-                onClick={() => {
-                  setComment(!comment);
-                }}
-              />
+              <Buy />
             </Icon>
-            <Icon className={styles.user_post}>
-            {postToShare}
-            </Icon>
-            <Like id={id} likes={postLikes} />
-            {explicit === false && price > 0 && (
-              <Icon>
-                <BsCashCoin />
-              </Icon>
-            )}
-          </div>
+          )}
         </div>
-      ) : (
-        <div className={styles.item_footer_post}>
-          <div className={styles.container}>
-            <Icon>
-              <MdInsertComment onClick={() => setComment(!comment)} />
-            </Icon>
-            <Icon className={styles.user_post}>
-              {postToShare}
-            </Icon>
-            <Like id={id} likes={postLikes} />
-            {/* <h6>{postLikes === 0 ? null : postLikes}</h6> */}
-          </div>
-        </div>
-      )}
+      </div>
 
       {comment && (
         <>
