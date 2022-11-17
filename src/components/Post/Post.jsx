@@ -115,7 +115,6 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   creatorId={user}
                   userName={userName}
                   postId={_id}
-                  price={price}
                   descripcion={content}
                   picUrl={profilePicture}
                   explicit={explicitContent}
