@@ -49,7 +49,7 @@ const ProfileById = ({ data }) => {
       }
     >
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-        <CreatePost closeModal={closeModalPost} />
+        <CreatePost closeModal={closeModalPost} mpAsociated={data?.mpAccountAsociated}/>
       </Modal>
       {open ? (
         <Menu valueSwitch={data?.explicitContent} id={data?._id} />

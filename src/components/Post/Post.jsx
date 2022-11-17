@@ -65,7 +65,8 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                     passHref
                   >
                     <div>
-                      <a className={styles.user_name}>{userName}</a> {userVerified && <GoVerified/>}
+                      <a className={styles.user_name}>{userName}</a>{" "}
+                      {userVerified && <GoVerified />}
                       <p className={styles.user_crate_date}>
                         {timeago(createdAt)}
                       </p>
@@ -73,9 +74,15 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   </Link>
                 </div>
                 <div className={styles.moreOptions}>
-
-                  <h6 className={styles.price}><strong>{price > 0 && `AR$ ${price}`}</strong></h6>
-                  <MoreOptions postId={_id} userId={user} myId={myId} option1={<DeletePost postId={_id}/>} />
+                  <h6 className={styles.price}>
+                    <strong>{price > 0 && `AR$ ${price}`}</strong>
+                  </h6>
+                  <MoreOptions
+                    postId={_id}
+                    userId={user}
+                    myId={myId}
+                    option1={<DeletePost postId={_id} />}
+                  />
                 </div>
               </div>
               <div className={styles.post}>
@@ -89,11 +96,18 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   price={price}
                   userExplicitContent={myUserExplicitContent}
                 />
-              {explicitContent && price && (
-                <div className={styles.container_buy_button}>
-                  <CreatePreference />
-                </div>
-              )}
+                {explicitContent && price && (
+                  <div className={styles.container_buy_button}>
+                    <CreatePreference
+                      creatorId={user}
+                      userName={userName}
+                      postId={_id}
+                      price={price}
+                      descripcion={content}
+                      picUrl={profilePicture}
+                    />
+                  </div>
+                )}
               </div>
               {/* {content && images.length > 0 ? null : (
                 <div>
@@ -102,7 +116,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
               )} */}
               <>
                 <PostFooter
-                explicit={explicitContent}
+                  explicit={explicitContent}
                   price={price && price}
                   id={_id}
                   likes={likes}

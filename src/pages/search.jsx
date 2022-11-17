@@ -74,7 +74,7 @@ const Search = ({ posts }) => {
       }
     >
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-        <CreatePost closeModal={closeModalPost} />
+        <CreatePost closeModal={closeModalPost} mpAsociated={posts.mpAccountAsociated}/>
       </Modal>
       <div className={theme ? `layout light_mode` : `layout dark_mode`}>
         <SearchUser onChange={handleInputChange} />
@@ -86,7 +86,7 @@ const Search = ({ posts }) => {
               ))}
           </Container>
         ) : (
-          <Discover data={posts} />
+          <Discover data={posts.orderByDate} />
           )}
       </div>
     </Layout>

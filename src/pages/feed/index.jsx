@@ -24,6 +24,7 @@ const Post = dynamic(() => import("../../components/Post/Post"), {
 });
 
 const Feed = ({ posts }) => {
+  console.log(posts)
   const token = getCookie("authtoken");
   const [active, setActive] = useState(true);
   const [postsRecomended, setPostsRecomended] = useState([]);
@@ -73,7 +74,7 @@ const Feed = ({ posts }) => {
     >
       {isOpenModalPost ? (
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-          <CreatePost closeModal={closeModalPost} />
+          <CreatePost closeModal={closeModalPost} mpAsociated={posts?.mpAccountAsociated} />
         </Modal>
       ) : (
         <>

@@ -14,7 +14,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import Loader from "../Loader/Loader";
 import usePostPublication from "../../hooks/usePostPublication";
 
-const CreatePost = ({ closeModal }) => {
+const CreatePost = ({ closeModal, myId, mpAsociated }) => {
   const accountMP = false;
   const token = getCookie("authtoken");
   const router = useRouter();
@@ -121,7 +121,7 @@ const CreatePost = ({ closeModal }) => {
           onChange={handleInputChange}
           maxLength={500}
         />
-        {files.length > 0 && accountMP === true && (
+        {files.length > 0 && mpAsociated === true && (
           <div className={styles.container_price_and_nsfw}>
             <div className={styles.container_price}>
               <span className={styles.price_title}>Precio</span>

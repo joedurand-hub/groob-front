@@ -20,7 +20,7 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
     sendData({
       endpoint: `${ENDPOINT}/preferenceVerification`,
       postData: {
-        userId: dataVerify?._id,
+        verifyId: dataVerify?._id,
         title: "Verificación de cuenta - Groob.",
         price: 35,
         descripcion: "Con la verificación de la cuenta obtenés el check azul en tu perfil. Además, en nuestro algoritmo damos múltiples beneficios a estos perfiles.",
