@@ -1,5 +1,6 @@
 import {useEffect} from "react";
 import { useRouter } from "next/router";
+import Loader from "../../Loader/Loader";
 import useAuthPost from "../../../hooks/useAuthPost";
 import { ENDPOINT } from "../../../helpers/constants";
 import { BsCashCoin } from "react-icons/bs";
@@ -31,7 +32,7 @@ const Buy = ({
     });
   };
 
-
+  console.log(data)
   useEffect(() => {
     data !== undefined && router.push(data.body.init_point)
   }, [data]);
