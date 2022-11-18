@@ -1,4 +1,5 @@
-import React from "react";
+import {useEffect} from "react";
+import { useRouter } from "next/router";
 import useAuthPost from "../../../hooks/useAuthPost";
 import { ENDPOINT } from "../../../helpers/constants";
 import { BsCashCoin } from "react-icons/bs";
@@ -13,12 +14,8 @@ const Buy = ({
   picUrl,
 }) => {
   const { data, pending, error, sendData } = useAuthPost();
-  console.log(creatorId)
-  console.log(userName)
-  console.log(postId)
-  console.log(price)
-  console.log(descripcion)
-  console.log(picUrl)
+  const router = useRouter();
+
   const handlePreference = async () => {
     sendData({
       endpoint: `${ENDPOINT}/preferenceProduct`,
@@ -33,11 +30,21 @@ const Buy = ({
       },
     });
   };
-  console.log(data)
-  console.log(pending)
-  console.log(error)
+
+
+  useEffect(() => {
+    data !== undefined && router.push(data.body.init_point)
+  }, [data]);
+
+
   return (
-    <BsCashCoin onClick={handlePreference}/>
+    <>
+          {pending ? (
+        <Loader />
+      ) : (
+        <BsCashCoin onClick={handlePreference}/>
+      )}
+    </>
   )
 };
 

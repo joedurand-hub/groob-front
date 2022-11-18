@@ -1,4 +1,5 @@
-import React from "react";
+import {useEffect} from "react";
+import { useRouter } from "next/router";
 import useAuthPost from "../../hooks/useAuthPost";
 import Button from "../Button/Button";
 import { ENDPOINT } from "../../helpers/constants";
@@ -14,6 +15,7 @@ const CreatePreference = ({
   picUrl,
 }) => {
   const { data, pending, error, sendData } = useAuthPost();
+  const router = useRouter();
 
   const handlePreference = async () => {
     sendData({
@@ -29,7 +31,11 @@ const CreatePreference = ({
       },
     });
   };
-  console.log(data)
+
+  useEffect(() => {
+    data !== undefined && router.push(data.body.init_point)
+  }, [data]);
+
   return (
     <>
       {pending ? (
