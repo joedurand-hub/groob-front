@@ -15,7 +15,6 @@ const PostFooter = ({
   creatorId,
   userName,
   postId,
-  price,
   descripcion,
   picUrl,
 }) => {
