@@ -13,7 +13,12 @@ const Buy = ({
   picUrl,
 }) => {
   const { data, pending, error, sendData } = useAuthPost();
-
+  console.log(creatorId)
+  console.log(userName)
+  console.log(postId)
+  console.log(price)
+  console.log(descripcion)
+  console.log(picUrl)
   const handlePreference = async () => {
     sendData({
       endpoint: `${ENDPOINT}/preferenceProduct`,
