@@ -137,6 +137,7 @@ const CreatePost = ({ closeModal, myId, mpAsociated }) => {
                 }
                 placeholder="1000"
                 type="number"
+                max={999999}
                 onChange={handleInputPriceChange}
               />
             </div>

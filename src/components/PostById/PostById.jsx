@@ -13,7 +13,6 @@ import GoVerified from "../GoVerified/Verified";
 import Share from "../PostFooter/Share/Share";
 
 const PostById = ({ data }) => {
-  // hacer get del perfil reducido para asignar myUserExplicitContent
   const {
     content,
     price,

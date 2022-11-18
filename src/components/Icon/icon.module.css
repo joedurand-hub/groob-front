@@ -36,6 +36,7 @@
     justify-content: center;
     transition: filter 300ms;
 }
+
 .icon_dark_mode:hover  {
     cursor: pointer;
     color: rgb(29, 29, 29);
@@ -99,3 +100,44 @@
 .secondary:active  {
     color: black;
 }
+
+
+
+.extra_light {
+    display: flex;
+    font-size: 30px;
+    color: #cacaca;
+    cursor: pointer;
+}
+
+.extra_light:hover  {
+    cursor: pointer;
+    color: #858585;
+    background: transparent;
+}
+.extra_light:focus  {
+    color: rgb(29, 29, 29);
+    background: transparent;
+
+}
+
+
+.extra_dark {
+    display: flex;
+    font-size: 30px;
+    color: #b4b4b4;
+    cursor: pointer;
+}
+
+.extra_dark:hover  {
+    cursor: pointer;
+    color: #e6e6e6;
+    background: transparent;
+
+}
+.extra_dark:focus  {
+    color: rgb(29, 29, 29);
+    background: transparent;
+
+}
+

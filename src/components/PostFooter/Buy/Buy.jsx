@@ -16,17 +16,16 @@ const Buy = ({
 }) => {
   const { data, pending, error, sendData } = useAuthPost();
   const router = useRouter();
-
   const handlePreference = async () => {
     sendData({
       endpoint: `${ENDPOINT}/preferenceProduct`,
       postData: {
+        userName: userName,
         postId: postId,
         creatorId: creatorId,
-        title: userName,
         price: price,
         descripcion: descripcion,
-        picURL: picUrl,
+        profilePicture: picUrl,
         quantity: 1,
       },
     });

@@ -15,16 +15,16 @@ import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
 import Followings from "./Followings/Followings";
 import Followers from "./Followers/Followers";
-import Tooltip from "../Tooltip/Tooltip"
+import Tooltip from "../Tooltip/Tooltip";
 import UpdatePicture from "../PutProfile/UpdatePicture";
 import BuyVerify from "../BuyVerify/BuyVerify";
-import axios from "axios"
+import axios from "axios";
 import { ENDPOINT } from "../../helpers/constants";
 import useAuthPost from "../../hooks/useAuthPost";
 import Anchor from "../Anchor/Anchor";
 
 const Profile = ({ data }) => {
-  console.log(data)
+  console.log(data);
   const { datas, sendData } = useAuthPost();
   const { theme } = useContext(ThemeContext);
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
@@ -88,29 +88,30 @@ const Profile = ({ data }) => {
               : styles.empty_user_description
           }
         >
-          <span
-          
-          >{data?.description}</span>
+          <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-          <div className={styles.premium}
-          >
+          <div className={styles.premium}>
             {data.verificationPay === true ? (
-<>
-<Anchor name="Continuar verificación" variant="large" path="/verify-account" />
-</>
+              <>
+                <Anchor
+                  name="Continuar verificación"
+                  variant="large"
+                  path="/verify-account"
+                />
+              </>
             ) : (
               <>
-              <Button
-                name="Verificar cuenta"
-                variant={"login"}
-                onClick={openCardVerify}
+                <Button
+                  name="Verificar cuenta"
+                  variant={"login"}
+                  onClick={openCardVerify}
                 />
-                </>
+              </>
             )}
 
             <LargeCard isOpen={isOpenCardVerify} closeCard={closeCardVerify}>
-              <BuyVerify dataVerify={data} closeCardVerify={closeCardVerify}/>
+              <BuyVerify dataVerify={data} closeCardVerify={closeCardVerify} />
             </LargeCard>
           </div>
           <div className={styles.buttons}>

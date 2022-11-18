@@ -20,7 +20,12 @@ const PostFooter = ({
 }) => {
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
-
+  console.log(creatorId)
+  console.log(userName)
+  console.log(postId)
+  console.log(price)
+  console.log(descripcion)
+  console.log(picUrl)
   const handleComment = (e) => {
     setTextComment(e);
   };
@@ -42,7 +47,7 @@ const PostFooter = ({
             <Icon>
               <Buy
                 creatorId={creatorId}
-                userName={userName}
+                title={userName}
                 postId={postId}
                 descripcion={descripcion}
                 picUrl={picUrl}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
@@ -10,26 +10,32 @@ import Icon from "../../components/Icon/Icon";
 import Modal from "../../components/Modal/Modal";
 import { useModal } from "../../hooks/useModal";
 import CreatePost from "../../components/CreatePost/CreatePost";
-import { IoMenu } from "react-icons/io5";
+import { IoMenu, IoBagCheck } from "react-icons/io5";
 import { BiHome } from "react-icons/bi";
 import { BiSearchAlt, BiChat } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
+import {RiVipDiamondFill} from "react-icons/ri"
+import { BsFileEarmarkPost } from "react-icons/bs";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
+import Purchases from "../../components/Purchases/Purchases";
+import Products from "../../components/Products/Products";
+import Tab from "../../components/Tab/Tab";
 
 const User = ({ data }) => {
   const [open, setOpen] = useState(false);
+  const [tab, setTab] = useState("publications");
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
-  
+
   useEffect(() => {
     window.localStorage.setItem("adultContent", JSON.stringify(false));
   }, []);
-
+  console.log(data.purchases.length);
   return (
     <>
       <Layout
-      username={data?.userName}
-      verified={data?.verified}  
-      menuItem={
+        username={data?.userName}
+        verified={data?.verified}
+        menuItem={
           <>
             <Icon>
               <IoMenu onClick={() => setOpen(!open)} />
@@ -57,14 +63,34 @@ const User = ({ data }) => {
         }
       >
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-          <CreatePost closeModal={closeModalPost} mpAsociated={data?.mpAccountAsociated}/>
+          <CreatePost
+            closeModal={closeModalPost}
+            mpAsociated={data?.mpAccountAsociated}
+          />
         </Modal>
         {open ? (
           <Menu valueSwitch={data?.explicitContent} id={data?._id} />
         ) : (
           <>
             <Profile data={data} />
-            <Publications id={data?._id} />
+            <div style={{ display: "flex", marginTop: "10px" }}>
+              <Tab text="Posts">
+                <BsFileEarmarkPost onClick={() => setTab("publications")} />
+              </Tab>
+              {data.mpAccountAsociated && (
+                <Tab text="Exclusivos">
+                  <RiVipDiamondFill onClick={() => setTab("products")} />
+                </Tab>
+              )}
+              {data.purchases.length > 0 && (
+              <Tab text="Compras">
+                <IoBagCheck onClick={() => setTab("purchases")} />
+              </Tab>
+              )}
+            </div>
+            {tab === "publications" && <Publications id={data?._id} />}
+            {tab === "products" && <Products />}
+            {tab === "purchases" && <Purchases myId={data?._id} />}
           </>
         )}
       </Layout>
