@@ -26,7 +26,7 @@ const Buy = ({
         price: price,
         descripcion: descripcion,
         picURL: picUrl,
-        quantity: 9999,
+        quantity: 1,
       },
     });
   };
