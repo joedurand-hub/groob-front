@@ -31,7 +31,6 @@ const Buy = ({
     });
   };
 
-  console.log(data)
   useEffect(() => {
     data !== undefined && router.push(data.body.init_point)
   }, [data]);

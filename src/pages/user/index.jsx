@@ -29,7 +29,6 @@ const User = ({ data }) => {
   useEffect(() => {
     window.localStorage.setItem("adultContent", JSON.stringify(false));
   }, []);
-  console.log(data.purchases.length);
   return (
     <>
       <Layout
@@ -73,7 +72,7 @@ const User = ({ data }) => {
         ) : (
           <>
             <Profile data={data} />
-            <div style={{ display: "flex", marginTop: "10px" }}>
+            <div style={{ display: "flex", marginTop: "10px"}}>
               <Tab text="Posts">
                 <BsFileEarmarkPost onClick={() => setTab("publications")} />
               </Tab>
@@ -90,7 +89,7 @@ const User = ({ data }) => {
             </div>
             {tab === "publications" && <Publications id={data?._id} />}
             {tab === "products" && <Products />}
-            {tab === "purchases" && <Purchases myId={data?._id} />}
+            {tab === "purchases" && <Purchases myId={data?._id} publicationsPurchases={data?.purchases} myUserExplicitContent={data?.explicitContent}/>}
           </>
         )}
       </Layout>

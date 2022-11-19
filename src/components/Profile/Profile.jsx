@@ -24,7 +24,6 @@ import useAuthPost from "../../hooks/useAuthPost";
 import Anchor from "../Anchor/Anchor";
 
 const Profile = ({ data }) => {
-  console.log(data);
   const { datas, sendData } = useAuthPost();
   const { theme } = useContext(ThemeContext);
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);

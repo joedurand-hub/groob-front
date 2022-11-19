@@ -15,7 +15,8 @@ import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
 import CreatePreference from "../CreatePreference/CreatePreference";
 
-const Posts = ({ data, myId, myUserExplicitContent }) => {
+const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => {
+  console.log(publicationsPurchases)
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -31,6 +32,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
             userVerified,
             explicitContent,
             likes,
+            buyers,
             userName,
             profilePicture,
             user,
@@ -89,8 +91,11 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                 <p className={content ? styles.post_content : styles.empty}>
                   {content ? content : null}
                 </p>
-
+              {/* <SliderToBuyers/> */}
                 <Slider
+                publicationsPurchases={publicationsPurchases}
+                buyers={data}
+                myId={myId}
                   allImages={images}
                   nsfw={explicitContent}
                   price={price}
