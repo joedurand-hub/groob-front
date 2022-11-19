@@ -96,7 +96,7 @@ const Posts = ({ data, myId, myUserExplicitContent }) => {
                   price={price}
                   userExplicitContent={myUserExplicitContent}
                 />
-                {explicitContent && price && (
+                {explicitContent && price > 0 && (
                   <div className={styles.container_buy_button}>
                     <CreatePreference
                       explicitContent={explicitContent}

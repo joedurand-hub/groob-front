@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Discover = ({ data }) => {
+  console.log(data)
   const { theme } = useContext(ThemeContext);
   const [explicitContent, setExplicitContent] = useState("");
 

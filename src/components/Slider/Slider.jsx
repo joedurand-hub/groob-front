@@ -8,7 +8,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { getCookie } from "cookies-next";
 
 const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
-  const token = getCookie("authtoken")
+  const token = getCookie("authtoken");
   const { theme } = useContext(ThemeContext);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -23,14 +23,14 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
     setCurrentIndex(currentIndex === 0 ? -1 : currentIndex - 1);
   };
 
-
-  if (userExplicitContent === false && nsfw === true 
-  || userExplicitContent === true && nsfw === true && price > 0
-  || nsfw === true && price > 0
-  || userExplicitContent === false && nsfw === true && price > 0
-  || !token && nsfw === true && price > 0
-  || !token && nsfw === true
-    ) {
+  if (
+    (userExplicitContent === false && nsfw === true) ||
+    (userExplicitContent === true && nsfw === true && price > 0) ||
+    (nsfw === true && price > 0) ||
+    (userExplicitContent === false && nsfw === true && price > 0) ||
+    (!token && nsfw === true && price > 0) ||
+    (!token && nsfw === true)
+  ) {
     return (
       <div
         className={
@@ -68,15 +68,14 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                     : `${styles.slide}`
                 }
               >
-                <BlurredImage>
-                </BlurredImage>
+                <BlurredImage></BlurredImage>
                 {currentIndex === index && (
                   <Image
                     key={index}
                     src={imageBlurred}
+                    alt="Image"
                     width={500}
                     height={500}
-                    alt="Image"
                   />
                 )}
               </div>
@@ -93,8 +92,7 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
         )}
       </div>
     );
-  } 
-  else {
+  } else {
     return (
       <div
         className={
@@ -127,10 +125,12 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                   <Image
                     key={index}
                     src={image.secure_url}
-                    layout="responsive"
+                    alt="Image"
                     width={500}
                     height={500}
-                    alt="Image"
+                    quality={85}
+                    // layout="fill"
+                    // objectFit="cover"
                   />
                 )}
               </div>
