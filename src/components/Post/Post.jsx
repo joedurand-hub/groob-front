@@ -109,7 +109,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                       postId={_id}
                       price={price}
                       descripcion={content}
-                      picUrl={profilePicture}
+                      picUrl={profilePicture?.secure_url}
                     ></CreatePreference>
                   </div>
                 )}

@@ -22,7 +22,7 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
       postData: {
         verifyId: dataVerify?._id,
         title: "Verificación de cuenta - Groob.",
-        price: 35,
+        price: 2999,
         descripcion: "Con la verificación de la cuenta obtenés el check azul en tu perfil. Además, en nuestro algoritmo damos múltiples beneficios a estos perfiles.",
         picURL: "https://tecnoartes.net/wordpress/wp-content/uploads/2021/02/check-icon-1.jpg",
         nombre: dataVerify?.firstName,
@@ -64,7 +64,7 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
           <FcCheckmark /> Evitar perfiles falsos o duplicados. <br />
           <FcCheckmark /> Aumento de las ventas. <br />
           <FcCheckmark /> Más confianza de los usuarios hacia tí. <br />
-          <FcCheckmark /> Mayor tu status social. <br />
+          <FcCheckmark /> Mayor cantidad de visitas a tu perfil. <br />
           <FcCheckmark /> Destacar tu contenido entre la multitud.
         </h6>
         <p style={{ fontSize: "14px" }}>

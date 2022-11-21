@@ -11,6 +11,7 @@ import Comments from "../Comments/Comments";
 import Slider from "../Slider/Slider";
 import GoVerified from "../GoVerified/Verified";
 import Share from "../PostFooter/Share/Share";
+import CreatePreference from "../CreatePreference/CreatePreference";
 
 const PostById = ({ data }) => {
   const {
@@ -68,6 +69,19 @@ const PostById = ({ data }) => {
             {content}
           </p>
           <Slider allImages={images} nsfw={explicitContent} price={price}/>
+          {explicitContent && price > 0 && (
+                  <div className={styles.container_buy_button}>
+                    <CreatePreference
+                      explicitContent={explicitContent}
+                      creatorId={user}
+                      userName={userName}
+                      postId={_id}
+                      price={price}
+                      descripcion={content}
+                      picUrl={profilePicture?.secure_url}
+                    ></CreatePreference>
+                  </div>
+                )}
         </div>
         <>
           <PostFooter
