@@ -21,7 +21,7 @@ import { useRouter } from "next/router";
 
 const Feed = ({ posts }) => {
   const token = getCookie("authtoken");
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     if (token) {
       router.push("/feed");
@@ -48,89 +48,45 @@ const Feed = ({ posts }) => {
   }, []);
 
   return (
-<>
-      {isOpenModalPost ? (
-        <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-          <CreatePost
-            closeModal={closeModalPost}
-            mpAsociated={posts?.mpAccountAsociated}
+      <Layout>
+        <div
+          style={{
+            margin: "-30px 30px 0 0",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            zIndex: 8,
+            position: "fixed",
+          }}
+        >
+          <Button
+            onClick={() => router.push("/register")}
+            name="Feed"
+            variant="tab"
           />
-        </Modal>
-      ) : (
-        <>
+          <Button
+            onClick={() => setActive(true)}
+            name="Recomendados"
+            variant="tab"
+          />
+        </div>
+        {postsRecomended.length > 0 && active && (
           <div
             style={{
-              margin: "-30px 30px 0 0",
+              marginTop: "20px",
               display: "flex",
-              flexDirection: "row",
+              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
-              zIndex: 8,
-              position: "fixed",
             }}
           >
-            <Button
-              onClick={() => setActive(false)}
-              name="Feed"
-              variant="tab"
-            />
-            <Button
-              onClick={() => setActive(true)}
-              name="Recomendados"
-              variant="tab"
-            />
+            <Post data={postsRecomended} />
           </div>
-          {postsRecomended.length > 0 && active ? (
-            <div
-              style={{
-                marginTop: "20px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-              }}
-            >
-              <Post data={postsRecomended} />
-            </div>
-          ) : (
-            active === false && (
-              <div
-                style={{
-                  marginTop: "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "100%",
-                }}
-              >
-                {token && posts.length === 0 && (
-                  <div
-                    style={{
-                      textAlign: "center",
-                      marginTop: "50%",
-                    }}
-                  >
-                    <h6 className={theme ? "light_mode" : "dark_mode"}>
-                      Aún no hay publicaciones, crea un post, descubre usuarios
-                      en la sección de la lupa e invita a tus amigos!
-                    </h6>
-                  </div>
-                )}
-                <Post
-                  data={posts.data}
-                  myId={posts.myId}
-                  myUserExplicitContent={posts.myUserExplicitContent}
-                  isVerified={posts.verified}
-                />
-              </div>
-            )
-          )}
-        </>
-      )}
-</>
+        )}
+      </Layout>
   );
 };
 
