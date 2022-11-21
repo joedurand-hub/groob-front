@@ -65,12 +65,12 @@ const ProfileById = ({ data }) => {
         <>
           <Profile data={data?.profileData} id={data?.myId} />
            <div style={{ display: "flex", marginTop: "10px", gap: "75px" }}>
-           {data?.profileData.mpAccountAsociated && (
+           {data?.profileData?.mpAccountAsociated && (
             <Tab text="Posts">
               <BsFileEarmarkPost onClick={() => setTab("publications")} />
             </Tab>
            )}
-            {data?.profileData.mpAccountAsociated && (
+            {data?.profileData?.mpAccountAsociated && (
               <Tab text="Exclusivos">
                  <RiVipDiamondFill onClick={() => setTab("products")} />
                </Tab>
