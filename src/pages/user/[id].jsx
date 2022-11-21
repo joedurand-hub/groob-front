@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/ProfileById/ProfileById";
+import Products from "../../components/ProfileById/Products/Products";
 import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
 import Publications from "../../components/Profile/Publications/Publications";
@@ -17,7 +18,6 @@ import { BsFileEarmarkPost } from "react-icons/bs";
 import { BiSearchAlt, BiChat } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import Tab from "../../components/Tab/Tab";
-import Products from "../../components/Products/Products";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 
 const ProfileById = ({ data }) => {
@@ -61,7 +61,7 @@ const ProfileById = ({ data }) => {
         />
       </Modal>
       {open ? (
-        <Menu valueSwitch={data?.profileData.explicitContent} id={data?._id} />
+        <Menu valueSwitch={data?.profileData.explicitContent} id={data?.myId} />
       ) : (
         <>
           <Profile data={data?.profileData} id={data?.myId} />
@@ -82,8 +82,7 @@ const ProfileById = ({ data }) => {
           )}
           {tab === "products" && (
             <Products
-              myId={data?._id}
-              myUserExplicitContent={data?.profileData.explicitContent}
+              myId={data?.profileData._id}
             />
           )}
         </>

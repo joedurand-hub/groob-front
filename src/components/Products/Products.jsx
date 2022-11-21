@@ -5,8 +5,6 @@ import Loader from "../Loader/Loader";
 
 const Products = ({myId, myUserExplicitContent}) => {
   const { data, loading, error } = useRequest(`${ENDPOINT}/productsByUser`);
-  console.log(data)
-  console.log(error)
   if (loading) {
     <Loader />;
   }
