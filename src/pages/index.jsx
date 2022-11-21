@@ -19,7 +19,7 @@ import { ENDPOINT } from "../helpers/constants";
 import Post from "../components/Post/Post";
 import { useRouter } from "next/router";
 
-const Feed = ({ posts }) => {
+const Index = ({data}) => {
   const token = getCookie("authtoken");
   const router = useRouter();
   useEffect(() => {
@@ -31,16 +31,14 @@ const Feed = ({ posts }) => {
 
   const [active, setActive] = useState(true);
   const [postsRecomended, setPostsRecomended] = useState([]);
-  const { theme } = useContext(ThemeContext);
-  const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
 
   useEffect(() => {
     try {
-      const getPosts = async () => {
-        const { data } = await axios.get(`${ENDPOINT}/surfing`);
+      // const getPosts = async () => {
+        // const { data } = await axios.get(`${ENDPOINT}/surfing`);
         setPostsRecomended(data);
-      };
-      getPosts();
+      // }
+      // getPosts();
     } catch (error) {
       console.log("error:", error);
     }
@@ -48,10 +46,37 @@ const Feed = ({ posts }) => {
   }, []);
 
   return (
-      <Layout>
+      <Layout
+      // menuItem={
+      //   <>
+      //     <Icon>
+      //       <MdOutlineNotificationsNone />
+      //     </Icon>
+      //   </>
+      // }
+      // nav={
+      //   <>
+      //     <Nav>
+      //       <NavItem path="/">
+      //         <TiHome />
+      //       </NavItem>
+      //       <NavItem path="/register">
+      //         <BiSearchAlt />
+      //       </NavItem>
+      //       <OpenModalPost onClick={() =>  router.push("/register")} />
+      //       <NavItem path="/register">
+      //         <BiChat />
+      //       </NavItem>
+      //       <NavItem path="/register">
+      //         <BiUser />
+      //       </NavItem>
+      //     </Nav>
+      //   </>
+      // }
+      >
         <div
           style={{
-            margin: "-30px 30px 0 0",
+            margin: "-15px 30px 0 0",
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
@@ -90,32 +115,16 @@ const Feed = ({ posts }) => {
   );
 };
 
-export default Feed;
+export default Index
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const token = getCookie("authtoken", { req, res });
-    deleteCookie("authtoken");
-    setCookie("authtoken", token, {
-      req,
-      res,
-      maxAge: 1815050,
-    });
-
     const response = await fetch(
-      `https://groob-back-production.up.railway.app/posts`,
-      {
-        method: "GET",
-        headers: {
-          authtoken: token,
-        },
-        credentials: "include",
-      }
-    );
-    const posts = await response.json();
+      `https://groob-back-production.up.railway.app/surfing`)
+    const data = await response.json();
     return {
       props: {
-        posts,
+        data,
       },
     };
   } catch (error) {
