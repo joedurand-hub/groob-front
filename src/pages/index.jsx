@@ -48,34 +48,7 @@ const Feed = ({ posts }) => {
   }, []);
 
   return (
-    <Layout
-      menuItem={
-        <>
-          <Icon>
-            <MdOutlineNotificationsNone />
-          </Icon>
-        </>
-      }
-      nav={
-        <>
-          <Nav>
-            <NavItem path="/feed">
-              <TiHome />
-            </NavItem>
-            <NavItem path="/search">
-              <BiSearchAlt />
-            </NavItem>
-            <OpenModalPost openModalPost={openModalPost} />
-            <NavItem path="/messages">
-              <BiChat />
-            </NavItem>
-            <NavItem path="/user">
-              <BiUser />
-            </NavItem>
-          </Nav>
-        </>
-      }
-    >
+<>
       {isOpenModalPost ? (
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
           <CreatePost
@@ -157,7 +130,7 @@ const Feed = ({ posts }) => {
           )}
         </>
       )}
-    </Layout>
+</>
   );
 };
 
