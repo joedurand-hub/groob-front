@@ -10,7 +10,7 @@ export function middleware(request) {
 
 export const config = {
     matcher: ["/feed", "/messages/:path*", "/notifications/:path*", 
-    "/user", "/user/followers/:path*", "/user/followings/:path*", "/user/update", 
+    "/user/:path*", 
     "/payments/:path*", "/search/:path*", "/verify-account/:path*", "/report-errors"]
 }
 // Solo permito el ingreso a:

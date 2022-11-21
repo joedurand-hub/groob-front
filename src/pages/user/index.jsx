@@ -73,9 +73,11 @@ const User = ({ data }) => {
           <>
             <Profile data={data} />
             <div style={{ display: "flex", marginTop: "10px" }}>
+              {data.publications.length > 0 && (
               <Tab text="Posts">
                 <BsFileEarmarkPost onClick={() => setTab("publications")} />
               </Tab>
+              )}
               {data.mpAccountAsociated && (
                 <Tab text="Exclusivos">
                   <RiVipDiamondFill onClick={() => setTab("products")} />
