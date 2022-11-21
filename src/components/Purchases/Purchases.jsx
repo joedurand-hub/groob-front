@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import useRequest from "../../hooks/useRequest";
 import { ENDPOINT } from "../../helpers/constants";
 import Posts from "./Post/Post";

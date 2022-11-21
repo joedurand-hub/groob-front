@@ -69,9 +69,6 @@ const PostById = ({ data }) => {
           </p>
           <Slider allImages={images} nsfw={explicitContent} price={price}/>
         </div>
-        {content && images.length > 0 ? null : (
-          <hr className={styles.hr} />
-        )}
         <>
           <PostFooter
           explicit={explicitContent}

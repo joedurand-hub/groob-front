@@ -14,7 +14,7 @@ import { IoMenu, IoBagCheck } from "react-icons/io5";
 import { BiHome } from "react-icons/bi";
 import { BiSearchAlt, BiChat } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
-import {RiVipDiamondFill} from "react-icons/ri"
+import { RiVipDiamondFill } from "react-icons/ri";
 import { BsFileEarmarkPost } from "react-icons/bs";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 import Purchases from "../../components/Purchases/Purchases";
@@ -72,7 +72,7 @@ const User = ({ data }) => {
         ) : (
           <>
             <Profile data={data} />
-            <div style={{ display: "flex", marginTop: "10px"}}>
+            <div style={{ display: "flex", marginTop: "10px" }}>
               <Tab text="Posts">
                 <BsFileEarmarkPost onClick={() => setTab("publications")} />
               </Tab>
@@ -82,14 +82,25 @@ const User = ({ data }) => {
                 </Tab>
               )}
               {data.purchases.length > 0 && (
-              <Tab text="Compras">
-                <IoBagCheck onClick={() => setTab("purchases")} />
-              </Tab>
+                <Tab text="Compras">
+                  <IoBagCheck onClick={() => setTab("purchases")} />
+                </Tab>
               )}
             </div>
             {tab === "publications" && <Publications id={data?._id} />}
-            {tab === "products" && <Products />}
-            {tab === "purchases" && <Purchases myId={data?._id} publicationsPurchases={data?.purchases} myUserExplicitContent={data?.explicitContent}/>}
+            {tab === "products" && (
+              <Products
+                myId={data?._id}
+                myUserExplicitContent={data?.explicitContent}
+              />
+            )}
+            {tab === "purchases" && (
+              <Purchases
+                myId={data?._id}
+                publicationsPurchases={data?.purchases}
+                myUserExplicitContent={data?.explicitContent}
+              />
+            )}
           </>
         )}
       </Layout>
