@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useRequest from "../../hooks/useRequest";
 import { ENDPOINT } from "../../helpers/constants";
-import Posts from "../Post/Post";
+import Posts from "./Post/Post";
 import Loader from "../Loader/Loader";
 
 const Purchases = ({myId, publicationsPurchases, myUserExplicitContent}) => {

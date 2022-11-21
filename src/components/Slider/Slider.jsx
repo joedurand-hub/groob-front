@@ -7,18 +7,7 @@ import BlurredImage from "../BlurredImage/BlurredImage";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { getCookie } from "cookies-next";
 
-const Slider = ({ allImages, buyers, publicationsPurchases, myId, userExplicitContent, nsfw, price }) => {
-  console.log("todas las imagenes", allImages)
-  console.log("todos los postos", buyers)
-  const compradores = buyers.map(post => post.buyers).flat().filter(comprador => comprador === myId)
-  console.log("compradores", compradores)
-  const todasLasImagenes = buyers.map(post => post.images).flat()
-  console.log("imagenes", todasLasImagenes)
-
-console.log("posts comprados", publicationsPurchases)
-
-
-
+const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
 
   const token = getCookie("authtoken");
   const { theme } = useContext(ThemeContext);
@@ -104,61 +93,7 @@ console.log("posts comprados", publicationsPurchases)
         )}
       </div>
     );
-  } else if(myId) {
-    return (
-      <div
-        className={
-          theme
-            ? `${styles.container_slider} light_mode`
-            : `${styles.container_slider} dark_mode`
-        }
-      >
-        {currentIndex === 0 ? null : (
-          <button
-            onClick={previusImage}
-            className={`${styles.btn_slide} ${styles.prev}`}
-          >
-            <IoIosArrowBack className={styles.icon} />
-          </button>
-        )}
-        {
-          todasLasImagenes.map((image, index) => {
-            return (
-              <div
-                key={index}
-                className={
-                  currentIndex === index
-                    ? `${styles.slide} ${styles.active}`
-                    : `${styles.slide}`
-                }
-              >
-                {currentIndex === index && (
-                  <Image
-                    key={index}
-                    src={image.secure_url}
-                    alt="Image"
-                    width={500}
-                    height={500}
-                    quality={85}
-                    // layout="fill"
-                    // objectFit="cover"
-                  />
-                )}
-              </div>
-            );
-          })}
-
-        {currentIndex === quantity - 1 ? null : (
-          <button
-            onClick={nextImage}
-            className={`${styles.btn_slide} ${styles.next}`}
-          >
-            <IoIosArrowForward className={styles.icon} />
-          </button>
-        )}
-      </div>
-    );
-  } else {
+  }  else {
     return (
       <div
         className={

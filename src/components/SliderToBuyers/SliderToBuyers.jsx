@@ -7,12 +7,7 @@ import BlurredImage from "../BlurredImage/BlurredImage";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { getCookie } from "cookies-next";
 
-const SliderToBuyers = ({ allImages, buyers, myId, userExplicitContent, nsfw, price }) => {
-
-  const compradores = buyers.map(post => post.buyers).flat().filter(comprador => comprador === myId)
-  console.log("compradores", compradores)
-  const todasLasImagenes = buyers.map(post => post.images).flat()
-  console.log("imagenes", todasLasImagenes)
+const Slider = ({ allImages }) => {
 
   const token = getCookie("authtoken");
   const { theme } = useContext(ThemeContext);
@@ -29,7 +24,7 @@ const SliderToBuyers = ({ allImages, buyers, myId, userExplicitContent, nsfw, pr
     setCurrentIndex(currentIndex === 0 ? -1 : currentIndex - 1);
   };
 
- if(compradores) {
+
     return (
       <div
         className={
@@ -46,9 +41,9 @@ const SliderToBuyers = ({ allImages, buyers, myId, userExplicitContent, nsfw, pr
             <IoIosArrowBack className={styles.icon} />
           </button>
         )}
-        {todasLasImagenes &&
-          todasLasImagenes.map((image, index) => {
-            console.log(todasLasImagenes)
+
+        {allImages &&
+          allImages.map((image, index) => {
             return (
               <div
                 key={index}
@@ -84,7 +79,7 @@ const SliderToBuyers = ({ allImages, buyers, myId, userExplicitContent, nsfw, pr
         )}
       </div>
     );
-  } 
-};
+  }
 
-export default SliderToBuyers
+
+export default Slider;
