@@ -16,4 +16,3 @@ export const config = {
 // Solo permito el ingreso a:
 // /index
 // /feed/:id
-// /user/:id
