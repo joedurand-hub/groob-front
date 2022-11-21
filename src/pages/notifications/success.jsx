@@ -42,7 +42,7 @@ const Success = () => {
             <h2>Código de Referencia: {router.query.preference_id}</h2>
             <h2></h2>
             </div>
-            <p>Ya puedes continuar navegando.</p>
+            <p>Ya puedes ver tus compras en tu perfil.</p>
           </div>
         </Link>
         </div>

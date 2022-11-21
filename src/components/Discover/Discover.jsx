@@ -1,10 +1,22 @@
 import { useState, useEffect, useContext } from "react";
 import styles from "./discover.module.css";
 import Image from "next/image";
+import { getCookie } from "cookies-next";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Discover = ({ data }) => {
+  console.log(data)
+  const router = useRouter()
+  const token =  getCookie("authtoken")
+
+  useEffect(() => {
+    if(token === undefined) {
+      return router.push("/register")
+    }
+  }, [])
+
   const { theme } = useContext(ThemeContext);
   const [explicitContent, setExplicitContent] = useState("");
 
@@ -22,7 +34,7 @@ const Discover = ({ data }) => {
       }
     >
       {explicitContent === false
-        ? data?.orderByDate.filter((post) => {
+        ? data?.filter((post) => {
               if (post.explicitContent === false && post.price === 0) {
                 return post;
               }
@@ -49,7 +61,7 @@ const Discover = ({ data }) => {
                 </>
               );
             })
-        : explicitContent === true && data?.orderByDate.filter((post) => {
+        : explicitContent === true && data?.filter((post) => {
           if (post.explicitContent === true && post.price === 0 || post.explicitContent === false && post.price === 0) {
             return post;
           }

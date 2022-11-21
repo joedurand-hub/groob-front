@@ -3,7 +3,7 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import SignUp from "../components/SignUp/SignUp";
 import styles from "../styles/index.module.css";
 
-const Index = () => {
+const Register = () => {
 
   const { theme } = useContext(ThemeContext);
   return (
@@ -19,4 +19,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Register;

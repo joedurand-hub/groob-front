@@ -1,4 +1,5 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useMemo } from "react";
+import dynamic from "next/dynamic";
 import Layout from "../components/Layout/Layout";
 import Icon from "../components/Icon/Icon";
 import Nav from "../components/Nav/Nav";
@@ -14,120 +15,112 @@ import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
 import { ThemeContext } from "../contexts/ThemeContext";
+import SignUp from "../components/SignUp/SignUp";
 import Button from "../components/Button/Button";
 import { ENDPOINT } from "../helpers/constants";
-import Post from "../components/Post/Post";
+import Post from "../components/Post/Post"
 import { useRouter } from "next/router";
+// const Post = dynamic(() => import("../../components/Post/Post"), {
+//   ssr: false,
+// });
 
-const Index = ({data}) => {
+const Index = ({ posts }) => {
   const token = getCookie("authtoken");
-  const router = useRouter();
   useEffect(() => {
-    if (token) {
-      router.push("/feed");
+    if(token) {
+      router.push("/feed")
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  }, [])
   const [active, setActive] = useState(true);
   const [postsRecomended, setPostsRecomended] = useState([]);
-
+  const { theme } = useContext(ThemeContext);
+  const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   useEffect(() => {
     try {
-      // const getPosts = async () => {
-        // const { data } = await axios.get(`${ENDPOINT}/surfing`);
+      const getPosts = async () => {
+        const { data } = await axios.get(`${ENDPOINT}/surfing`);
+
         setPostsRecomended(data);
-      // }
-      // getPosts();
+      };
+      getPosts();
     } catch (error) {
       console.log("error:", error);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
-      <Layout
-      // menuItem={
-      //   <>
-      //     <Icon>
-      //       <MdOutlineNotificationsNone />
-      //     </Icon>
-      //   </>
-      // }
-      // nav={
-      //   <>
-      //     <Nav>
-      //       <NavItem path="/">
-      //         <TiHome />
-      //       </NavItem>
-      //       <NavItem path="/register">
-      //         <BiSearchAlt />
-      //       </NavItem>
-      //       <OpenModalPost onClick={() =>  router.push("/register")} />
-      //       <NavItem path="/register">
-      //         <BiChat />
-      //       </NavItem>
-      //       <NavItem path="/register">
-      //         <BiUser />
-      //       </NavItem>
-      //     </Nav>
-      //   </>
-      // }
-      >
-        <div
-          style={{
-            margin: "-15px 30px 0 0",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-            zIndex: 8,
-            position: "fixed",
-          }}
-        >
-          <Button
-            onClick={() => router.push("/register")}
-            name="Feed"
-            variant="tab"
-          />
-          <Button
-            onClick={() => setActive(true)}
-            name="Recomendados"
-            variant="tab"
-          />
-        </div>
-        {postsRecomended.length > 0 && active && (
+    <Layout
+      menuItem={
+        <>
+          <Icon>
+            <MdOutlineNotificationsNone />
+          </Icon>
+        </>
+      }
+      nav={
+        <>
+          <Nav>
+            <NavItem path="/register">
+              <TiHome />
+            </NavItem>
+            <NavItem path="/register">
+              <BiSearchAlt />
+            </NavItem>
+            <OpenModalPost openModalPost={openModalPost} />
+            <NavItem path="/register">
+              <BiChat />
+            </NavItem>
+            <NavItem path="/register">
+              <BiUser />
+            </NavItem>
+          </Nav>
+        </>
+      }
+    >
+    
+        <>
           <div
             style={{
-              marginTop: "20px",
+              margin: "-30px 30px 0 0",
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
+              zIndex: 8,
+              position: "fixed",
             }}
           >
-            <Post data={postsRecomended} />
+            <Button
+              onClick={() => router.push("/register")}
+              name="Feed"
+              variant="tab"
+            />
+            <Button
+              onClick={() => setActive(true)}
+              name="Recomendados"
+              variant="tab"
+            />
           </div>
-        )}
-      </Layout>
+          {postsRecomended.length > 0 && active && (
+            <div
+              style={{
+                marginTop: "20px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
+              <Post data={postsRecomended} />
+            </div>
+          ) 
+          }
+        </>
+
+    </Layout>
   );
 };
 
-export default Index
-
-export async function getServerSideProps({ req, res }) {
-  try {
-    const response = await fetch(
-      `https://groob-back-production.up.railway.app/surfing`)
-    const data = await response.json();
-    return {
-      props: {
-        data,
-      },
-    };
-  } catch (error) {
-    console.table(error);
-  }
-}
+export default Index;

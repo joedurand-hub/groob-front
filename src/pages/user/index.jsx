@@ -72,9 +72,9 @@ const User = ({ data }) => {
         ) : (
           <>
             <Profile data={data} />
-            <div style={{ display: "flex", marginTop: "10px" }}>
+            <div style={{ display: "flex", marginTop: "10px", gap: "20px" }}>
               {data.publications.length > 0 && (
-              <Tab text="Posts">
+              <Tab text=" Posts ">
                 <BsFileEarmarkPost onClick={() => setTab("publications")} />
               </Tab>
               )}
