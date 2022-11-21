@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/ProfileById/ProfileById";
+import Publications from "../../components/ProfileById/Publications/Publications";
 import Products from "../../components/ProfileById/Products/Products";
 import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
-import Publications from "../../components/Profile/Publications/Publications";
 import Menu from "../../components/MenuDropdown/MenuDropdown";
 import Icon from "../../components/Icon/Icon";
 import Modal from "../../components/Modal/Modal";
@@ -78,7 +78,7 @@ const ProfileById = ({ data }) => {
             )}
           </div>
          {tab === "publications" && (
-            <Publications id={data?.profileData._id} />
+            <Publications userId={data?.profileData._id} myId={data?.myId} />
           )}
           {tab === "products" && (
             <Products

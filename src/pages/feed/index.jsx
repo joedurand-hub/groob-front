@@ -18,10 +18,10 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import SignUp from "../../components/SignUp/SignUp";
 import Button from "../../components/Button/Button";
 import { ENDPOINT } from "../../helpers/constants";
-
-const Post = dynamic(() => import("../../components/Post/Post"), {
-  ssr: false,
-});
+import Post from "../../components/Post/Post"
+// const Post = dynamic(() => import("../../components/Post/Post"), {
+//   ssr: false,
+// });
 
 const Feed = ({ posts }) => {
   console.log(posts)

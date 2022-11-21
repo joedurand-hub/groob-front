@@ -15,7 +15,6 @@ import Loader from "../Loader/Loader";
 import usePostPublication from "../../hooks/usePostPublication";
 
 const CreatePost = ({ closeModal, myId, mpAsociated }) => {
-  const accountMP = false;
   const token = getCookie("authtoken");
   const router = useRouter();
   const { theme } = useContext(ThemeContext);
@@ -209,7 +208,7 @@ const CreatePost = ({ closeModal, myId, mpAsociated }) => {
             )}
           </div>
         </div>
-        {files.length > 0 && (
+        {files.length > 0 && !mpAsociated && (
           <p className={styles.message_MP}>
             *Si deseas realizar una venta primero tenés que asociar tu cuenta de
             Mercado Pago.

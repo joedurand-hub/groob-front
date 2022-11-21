@@ -16,7 +16,6 @@ import Share from "../PostFooter/Share/Share";
 import CreatePreference from "../CreatePreference/CreatePreference";
 
 const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => {
-  console.log(data)
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -83,7 +82,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                     postId={_id}
                     userId={user}
                     myId={myId}
-                    option1={<DeletePost postId={_id} />}
+                    option1={<DeletePost userId={user} myId={myId} postId={_id} />}
                   />
                 </div>
               </div>
