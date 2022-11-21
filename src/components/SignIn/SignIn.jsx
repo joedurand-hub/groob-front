@@ -89,7 +89,7 @@ export const SignIn = () => {
         <p>
           {" "}
           ¿No posees cuenta?{" "}
-          <Anchor variant="intermediate" name="Registrate" path="/" />
+          <Anchor variant="intermediate" name="Registrate" path="/register" />
         </p>
 
         <div

@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const useDelete = () => {
   const token = getCookie("authtoken")
+  const router = useRouter()
+  useEffect(() => {
+    if(token === undefined) {
+      router.push("/register");
+    }
+  }, [token])
+
   const [deleteOnePost, setDeleteOnePost] = useState({
     data: undefined,
     pending: false,

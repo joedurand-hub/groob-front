@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { getCookie } from "cookies-next";
+import { useRouter } from "next/router";
 
 const usePut = () => {
   const token = getCookie("authtoken")
+  const router = useRouter()
+  useEffect(() => {
+    if(token === undefined) {
+      router.push("/register");
+    }
+  }, [token])
+
   const [putData, setPutData] = useState({
     info: undefined,
     pending: false,

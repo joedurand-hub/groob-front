@@ -12,7 +12,6 @@ import styles from "./menuDropdown.module.css";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Menu = ({ valueSwitch, id }) => {
-  console.log(id);
   const { theme } = useContext(ThemeContext);
   const { data, sendData } = useAuthPost();
 

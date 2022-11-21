@@ -13,7 +13,6 @@ import GoVerified from "../GoVerified/Verified";
 import Share from "../PostFooter/Share/Share";
 
 const PostById = ({ data }) => {
-  console.log(data)
   const {
     content,
     price,

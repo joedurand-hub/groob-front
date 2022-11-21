@@ -20,7 +20,6 @@ import Container from "../components/SearchUser/Container/Container";
 import User from "../components/SearchUser/User/User";
 
 const Search = ({ posts }) => {
-  console.log(posts)
   const { theme } = useContext(ThemeContext)
   const token = getCookie("authtoken");
   const [results, setResults] = useState([]);

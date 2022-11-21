@@ -8,7 +8,6 @@ import Loader from "../../Loader/Loader";
 import { Toaster, toast } from "react-hot-toast";
 
 const Publications = ({ userId, myId }) => {
-  console.log("userId", userId)
   const { theme } = useContext(ThemeContext);
   const { data, loading, error } = useRequest(
     `${ENDPOINT}/posts/${userId}`
@@ -37,7 +36,6 @@ const Publications = ({ userId, myId }) => {
     </>
     );
   }
-  console.log(data)
   return (
     <>
       <div

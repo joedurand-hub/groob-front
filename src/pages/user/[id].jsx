@@ -21,7 +21,6 @@ import Tab from "../../components/Tab/Tab";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 
 const ProfileById = ({ data }) => {
-  console.log(data);
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);

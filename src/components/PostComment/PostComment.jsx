@@ -15,11 +15,11 @@ const PostComment = ({ sendText, text, id }) => {
   }
 
   if (error && error !== undefined) {
-    toast.error("¡Ups, algo ha salido mal! No fuiste tu, no te preocupes.", {
+    toast.error("¡Ups, no se pudo realizar.", {
       position: "top-center",
       autoClose: "3000",
     });
-    router.reload(window.location.pathname);
+    router.push("/register");
   }
 
   const handleSubmit = async () => {

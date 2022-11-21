@@ -23,7 +23,6 @@ const UpdateProfile = () => {
     }
         // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [info])
-  console.log(info)
   const initialState = {
     userName: data?.userName,
     description: data?.description,

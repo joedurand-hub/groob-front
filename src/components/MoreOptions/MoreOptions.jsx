@@ -17,8 +17,6 @@ const MoreOptions = ({
   userId,
   myId,
 }) => {
-  console.log("userId", userId);
-  console.log("myId", myId);
   const { theme } = useContext(ThemeContext);
   const [active, setActive] = useState(false);
 

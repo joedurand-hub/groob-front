@@ -8,9 +8,6 @@ import useDelete from "../../hooks/useDelete";
 import Loader from "../Loader/Loader";
 
 const DeletePost = ({ postId, userId, myId }) => {
-  console.log("postId", postId);
-  console.log("userId", userId);
-  console.log("myId", myId);
   const { theme } = useContext(ThemeContext);
   const router = useRouter();
   const { data, pending, error, deletePostById } = useDelete();

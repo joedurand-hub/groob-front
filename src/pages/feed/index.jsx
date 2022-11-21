@@ -24,7 +24,6 @@ import Post from "../../components/Post/Post"
 // });
 
 const Feed = ({ posts }) => {
-  console.log(posts)
   const token = getCookie("authtoken");
   const [active, setActive] = useState(true);
   const [postsRecomended, setPostsRecomended] = useState([]);

@@ -15,7 +15,6 @@ import Share from "../../PostFooter/Share/Share";
 import CreatePreference from "../../CreatePreference/CreatePreference";
 
 const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => {
-  console.log(publicationsPurchases)
   const { theme } = useContext(ThemeContext);
   return (
     <>
