@@ -1,60 +1,61 @@
 @media only screen and (min-width: 260px) and (max-width: 768px) {
-.container {
-    max-width: 550px;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 25px;
-    border-radius: 15px;
-    background: white;
-}
+    .container {
+        max-width: 550px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 25px;
+        border-radius: 15px;
+        background: white;
+    }
 
-.light_mode {
-    background: white;
-    color: black
-}
+    .light_mode {
+        background: white;
+        color: black
+    }
 
-.dark_mode {
-    background: rgb(17, 17, 17);
-    color: white;
-}
+    .dark_mode {
+        background: rgb(17, 17, 17);
+        color: white;
+    }
 
-.container_button {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    .container_button {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.container_upload_image {
-    position: absolute;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    right: 10px;
-    bottom: -7%;
-}
+    .container_upload_image {
+        position: absolute;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        right: 10px;
+        bottom: -7%;
+    }
 
-.input_upload {
-    display: none;
-}
+    .input_upload {
+        display: none;
+    }
 
-.upload {
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    margin-top: -45px;
-    height: 37px;
-    width: 37px;
-    z-index: 6;
-}
-.loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .upload {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        margin-top: -45px;
+        height: 37px;
+        width: 37px;
+        z-index: 6;
+    }
+
+    .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media only screen and (min-width: 769px) {
@@ -69,22 +70,23 @@
         border-radius: 15px;
         background: white;
     }
-    
+
     .light_mode {
         background: white;
         color: black
     }
-    
+
     .dark_mode {
         background: rgb(17, 17, 17);
         color: white;
     }
-    
-    
-    .profile_picture {
-        border-radius: 50%; 
+
+    .container_button {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-    
 
     .container_upload_image {
         position: absolute;
@@ -92,13 +94,13 @@
         align-items: flex-end;
         justify-content: flex-end;
         right: 10px;
-        bottom: -6%;
+        bottom: -7%;
     }
-    
+
     .input_upload {
         display: none;
     }
-    
+
     .upload {
         position: relative;
         cursor: pointer;
@@ -106,12 +108,12 @@
         margin-top: -45px;
         height: 37px;
         width: 37px;
+        z-index: 6;
     }
-    
-    .container_button {
-        margin-top: 15px;
+
+    .loading {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: center;
     }
-    }
+}

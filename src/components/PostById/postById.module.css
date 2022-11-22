@@ -121,18 +121,15 @@
     .container_post {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        width: 99%;
+        width: 100%;
         max-width: 480px;
-        margin: 14px 0;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        width: 100%;
+        padding: 7px 0;
     }
     
     .light_mode {
         background: #fff;
+        color: black;
     }
     .dark_mode {
         background: rgb(29, 29, 29);
@@ -165,15 +162,13 @@
         margin: 0;
         padding: 0;
         border-radius: 50%;
-        cursor: pointer;
     }
 
     .user_name {
         padding-left: 5px;
         font-size: 18px;
         font-weight: 600;
-        cursor: pointer;
-
+        text-decoration: none;
     }
 
     .user_crate_date {
@@ -185,7 +180,26 @@
     }
 
     .moreOptions {
-        margin-top: 11px
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        z-index: 9;
+    }
+    .price {
+        font-size: 19px;
+        margin-bottom: 3px;
+    }
+    .hr {
+        width: 93%;
+        padding-bottom: 0;
+        margin: 0;
+        margin-left: 4%;
+        border-left: none;
+        border-right: none;
+        color: #e6e6e6;
+        background-color: #e6e6e6;
     }
 
     .post {

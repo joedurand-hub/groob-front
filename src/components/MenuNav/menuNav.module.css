@@ -72,7 +72,19 @@
         padding-left: 10px;
         padding-right: 10px;
         top: 0;
-        z-index: 999;
+        z-index: 90;
+    }
+    
+    .hidden {
+        opacity: 0;
+        transition-timing-function: ease-in;
+        transition: 0.3s;
+    }
+    
+    .visible {
+        opacity: 1;
+        transition-timing-function: ease-in;
+        transition: 0.5s;
     }
     
     .menu_list_ul {
@@ -86,9 +98,9 @@
     }
     
     .light_mode {
-        background: rgb(255, 255, 255);
+        background: #ffffff;
         color: rgba(0, 0, 0);
-        border-bottom: 1px solid #e4e4e4;
+        border-bottom: 1px solid #b1b1b1;
     }
     .dark_mode {
         color: rgb(255, 255, 255);
