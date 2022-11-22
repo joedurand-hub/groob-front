@@ -50,16 +50,16 @@ const Feed = ({ posts }) => {
       nav={
         <>
           <Nav>
-            <NavItem path="/feed">
+            <NavItem path="/register">
               <TiHome />
             </NavItem>
-            <NavItem path="/search">
+            <NavItem path="/register">
               <BiSearchAlt />
             </NavItem>
-            <NavItem path="/messages">
+            <NavItem path="/register">
               <BiChat />
             </NavItem>
-            <NavItem path="/user">
+            <NavItem path="/register">
               <BiUser />
             </NavItem>
           </Nav>
