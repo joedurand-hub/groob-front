@@ -1,10 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { getCookie } from "cookies-next";
 import PostById from "../../components/PostById/PostById";
 import GoBack from "../../components/GoBack/Back";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Index = ({ data }) => {
+  const token = getCookie("authtoken")
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -12,7 +13,7 @@ const Index = ({ data }) => {
       className={theme ? "light_mode" : "dark_mode"}
       style={{ "height": "100vh", paddingTop: "5px" }}
     >
-      <GoBack path="/feed" />
+      <GoBack path={token ? "/feed" : "/"} />
       <div
         style={{
           "display": "flex",

@@ -10,7 +10,6 @@ import axios from "axios";
 import { BiSearchAlt } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
-import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
 import Button from "../components/Button/Button";
 import { ENDPOINT } from "../helpers/constants";
 import Post from "../components/Post/Post";
