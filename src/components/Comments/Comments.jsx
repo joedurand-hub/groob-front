@@ -3,14 +3,15 @@ import styles from "./comments.module.css";
 
 const Comments = ({ allComments }) => {
   const [colorComment, setColorComment] = useState("");
+
+  const useGenerateRandomColor = () => {
+    setColorComment(Math.random().toString(16).substr(-6));
+  };
   
   useEffect(() => {
     if (allComments.length === 0) {
       return
     } 
-    const useGenerateRandomColor = () => {
-      setColorComment(Math.random().toString(16).substr(-6));
-    };
     useGenerateRandomColor();
             // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
