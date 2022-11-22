@@ -16,6 +16,7 @@ import Share from "../PostFooter/Share/Share";
 import CreatePreference from "../CreatePreference/CreatePreference";
 
 const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => {
+  console.log(data)
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -27,7 +28,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
             price,
             images,
             createdAt,
-            comments,
+            comments, // array de objetos
             userVerified,
             explicitContent,
             likes,
@@ -138,7 +139,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
               </>
 
               <Comments allComments={comments.slice(0, 3)} />
-              <>
+              {/* <>
                 {comments.length > 3 ? (
                   <Link
                     href={`${URL}/feed/${_id}`}
@@ -150,7 +151,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                     </p>
                   </Link>
                 ) : null}
-              </>
+              </> */}
             </article>
           )
         )}

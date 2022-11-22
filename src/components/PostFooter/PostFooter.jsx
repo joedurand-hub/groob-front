@@ -55,7 +55,7 @@ const PostFooter = ({
 
       {comment && (
         <>
-          <PostComment sendText={handleComment} text={textComment} id={id} />
+          <PostComment sendText={handleComment} text={textComment} id={id}/>
         </>
       )}
     </>

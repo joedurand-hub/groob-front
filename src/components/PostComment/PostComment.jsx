@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import Send from "../Send/Send";
 
 const PostComment = ({ sendText, text, id }) => {
+  console.log(text)
   const router = useRouter();
   const { data, pending, error, sendData } = useAuthPost();
   if (data && data !== undefined) {
