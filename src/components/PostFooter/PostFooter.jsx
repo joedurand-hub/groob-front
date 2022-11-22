@@ -14,6 +14,7 @@ const PostFooter = ({
   price,
   id,
   myId,
+  comments,
   creatorId,
   userName,
   postId,
@@ -32,15 +33,23 @@ const PostFooter = ({
     <>
       <div className={styles.item_footer_post}>
         <div className={styles.container}>
+          <div style={{display: "flex"}}>
+
           <Icon>
             <MdInsertComment
               onClick={() => {
                 setComment(!comment);
               }}
-            />
+              />
           </Icon>
+            <p><strong>{comments > 0 && comments}</strong></p>
+              </div>
           <Icon className={styles.user_post}>{postToShare}</Icon>
+          <div style={{display: "flex"}}>
+
           <Like id={id} likes={likes} liked={liked} myId={myId}/>
+          <p><strong>{likes > 0 && likes}</strong></p>
+          </div>
           {explicit === false && price > 0 && (
             <Icon>
               <Buy

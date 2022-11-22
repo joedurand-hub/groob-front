@@ -5,23 +5,19 @@ import useAuthPost from "../../../hooks/useAuthPost";
 import styles from "./likes.module.css";
 
 const Like = ({ id, myId, liked, likes }) => {
-  console.log(myId)
   const { data, sendData } = useAuthPost();
   const [click, setClick] = useState(false)
   const handleLike = async () => {
     sendData({
-      // endpoint: `https://groob-back-production.up.railway.app/like/${id}`,
-      endpoint: `http://localhost:8080/like/${id}`,
+      endpoint: `https://groob-back-production.up.railway.app/like/${id}`,
     });
   };
 
   const handleDislike = async () => {
     sendData({
-      // endpoint: `https://groob-back-production.up.railway.app/dislike/${id}`,
-      endpoint: `http://localhost:8080/dislike/${id}`,
+      endpoint: `https://groob-back-production.up.railway.app/dislike/${id}`,
     });
   };
-  console.log(liked);
   
   const myIdInTheLikes = liked?.find((id) => {
     console.log(id)
@@ -30,7 +26,6 @@ const Like = ({ id, myId, liked, likes }) => {
     }
   });
   
-  console.log(myIdInTheLikes);
 
   if (myIdInTheLikes || click === true) {
     return (

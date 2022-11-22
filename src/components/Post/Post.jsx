@@ -123,6 +123,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                   descripcion={content}
                   picUrl={profilePicture}
                   explicit={explicitContent}
+                  comments={comments.length}
                   price={price && price}
                   id={_id}
                   myId={myId}
