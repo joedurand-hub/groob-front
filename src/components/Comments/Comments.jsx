@@ -8,9 +8,7 @@ const Comments = ({ allComments }) => {
     setColorComment(Math.random().toString(16).substr(-6));
   };
   
-  useEffect(() => {
-    if (allComments.length > 0) useGenerateRandomColor();
-  }, []);
+  if (allComments.length > 0) useGenerateRandomColor();
 
   return (
     <div className={styles.container}>
