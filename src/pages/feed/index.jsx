@@ -25,7 +25,7 @@ import Post from "../../components/Post/Post";
 
 const Feed = ({ posts }) => {
   const token = getCookie("authtoken");
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState("feed");
   const [postsRecomended, setPostsRecomended] = useState([]);
   const { theme } = useContext(ThemeContext);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
@@ -93,17 +93,17 @@ const Feed = ({ posts }) => {
             }}
           >
             <Button
-              onClick={() => setActive(false)}
+              onClick={() => setActive("feed")}
               name="Feed"
               variant="tab"
             />
             <Button
-              onClick={() => setActive(true)}
+              onClick={() => setActive("recomendaciones")}
               name="Recomendados"
               variant="tab"
             />
           </div>
-          {postsRecomended.length > 0 && active ? (
+          {postsRecomended.length > 0 && active == "recomendaciones" ? (
             <div
               style={{
                 marginTop: "20px",
@@ -121,7 +121,7 @@ const Feed = ({ posts }) => {
               />
             </div>
           ) : (
-            active === false && (
+            active === "feed" && (
               <div
                 style={{
                   marginTop: "20px",
@@ -132,7 +132,7 @@ const Feed = ({ posts }) => {
                   width: "100%",
                 }}
               >
-                {token && posts.length === 0 && (
+                {posts.length === 0 ? (
                   <div
                     style={{
                       textAlign: "center",
@@ -141,16 +141,17 @@ const Feed = ({ posts }) => {
                   >
                     <h6 className={theme ? "light_mode" : "dark_mode"}>
                       Aún no hay publicaciones, crea un post, descubre usuarios
-                      en la sección de la lupa e invita a tus amigos!
+                      en la sección de la lupa e invitá a tus amigos!
                     </h6>
                   </div>
+                ) : (
+                  <Post
+                    data={posts.data}
+                    myId={posts.myId}
+                    myUserExplicitContent={posts.myUserExplicitContent}
+                    isVerified={posts.verified}
+                  />
                 )}
-                <Post
-                  data={posts.data}
-                  myId={posts.myId}
-                  myUserExplicitContent={posts.myUserExplicitContent}
-                  isVerified={posts.verified}
-                />
               </div>
             )
           )}

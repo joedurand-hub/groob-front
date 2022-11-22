@@ -5,7 +5,6 @@ import GoBack from "../../components/GoBack/Back";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Index = ({ data }) => {
-  console.log(data)
   const { theme } = useContext(ThemeContext);
 
   return (

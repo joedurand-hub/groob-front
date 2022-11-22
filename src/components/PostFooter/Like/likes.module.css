@@ -1,16 +1,19 @@
 .like {
     border: 2px;
-    color: black;
     transition: ease all 1s;
 }
 
 .liked {
+    border: 2px;
     color: red;
     transition: ease all 1s;
 }
 
-.dislike {
-    color: black;
-    transition: ease all 1s;
+.light {
+    color: black
 }
 
+
+.dark {
+    color: white;
+}

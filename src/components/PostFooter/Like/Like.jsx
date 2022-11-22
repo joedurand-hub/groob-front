@@ -1,10 +1,12 @@
-import { useState, memo } from "react";
+import { useState, useContext, memo } from "react";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 import { BsHeartFill, BsHeart } from "react-icons/bs";
 import Icon from "../../PostIcons/Icon";
 import useAuthPost from "../../../hooks/useAuthPost";
 import styles from "./likes.module.css";
 
 const Like = ({ id, myId, liked, likes }) => {
+  const {theme} = useContext(ThemeContext)
   const { data, sendData } = useAuthPost();
   const [click, setClick] = useState(false)
   const handleLike = async () => {
@@ -20,7 +22,6 @@ const Like = ({ id, myId, liked, likes }) => {
   };
   
   const myIdInTheLikes = liked?.find((id) => {
-    console.log(id)
     if (myId === id) {
       return id;
     }
@@ -31,7 +32,7 @@ const Like = ({ id, myId, liked, likes }) => {
     return (
       <Icon>
         <BsHeartFill
-          className={styles.liked}
+          className={theme ? `${styles.liked} ` : `${styles.liked} `}
           onClick={() => {
             setClick(false)
             handleDislike();
@@ -42,8 +43,8 @@ const Like = ({ id, myId, liked, likes }) => {
   } else if(click === false) {
     return (
       <Icon>
-        <BsHeart
-          className={styles.like}
+        <BsHeartFill
+          className={theme ? `${styles.like}${styles.light} ` : `${styles.like} ${styles.dark}`}
           onClick={() => {
             setClick(true)
             handleLike();
