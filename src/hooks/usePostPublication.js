@@ -11,11 +11,6 @@ const usePostPublication = () => {
     error: undefined,
   });
   const sendPublication = async ({ endpoint, postData, token }) => {
-    useEffect(() => {
-      if(token === undefined) {
-        router.push("/register");
-      }
-    }, [token])
   
     setPostData({
       data: undefined,

@@ -129,7 +129,7 @@ const Feed = ({ posts }) => {
                   width: "100%",
                 }}
               >
-                {posts.data.length === 0 ? (
+                {posts.data?.length === 0 ? (
                   <div
                     style={{
                       textAlign: "center",
