@@ -17,6 +17,7 @@ import CreatePreference from "../CreatePreference/CreatePreference";
 
 const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => {
   const { theme } = useContext(ThemeContext);
+
   return (
     <>
       {data &&
@@ -27,7 +28,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
             price,
             images,
             createdAt,
-            comments, // array de objetos
+            comments, 
             userVerified,
             explicitContent,
             likes,
@@ -91,7 +92,6 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                 <p className={content ? styles.post_content : styles.empty}>
                   {content ? content : null}
                 </p>
-              {/* <SliderToBuyers/> */}
                 <Slider
                 publicationsPurchases={publicationsPurchases}
                 buyers={data}

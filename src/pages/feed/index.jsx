@@ -19,12 +19,9 @@ import SignUp from "../../components/SignUp/SignUp";
 import Button from "../../components/Button/Button";
 import { ENDPOINT } from "../../helpers/constants";
 import Post from "../../components/Post/Post";
-// const Post = dynamic(() => import("../../components/Post/Post"), {
-//   ssr: false,
-// });
 
 const Feed = ({ posts }) => {
-  const token = getCookie("authtoken");
+  console.log(posts)
   const [active, setActive] = useState("feed");
   const [postsRecomended, setPostsRecomended] = useState([]);
   const { theme } = useContext(ThemeContext);
@@ -132,7 +129,7 @@ const Feed = ({ posts }) => {
                   width: "100%",
                 }}
               >
-                {posts.length === 0 ? (
+                {posts.data.length === 0 ? (
                   <div
                     style={{
                       textAlign: "center",

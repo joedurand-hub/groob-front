@@ -4,8 +4,12 @@ import { BsHeartFill, BsHeart } from "react-icons/bs";
 import Icon from "../../PostIcons/Icon";
 import useAuthPost from "../../../hooks/useAuthPost";
 import styles from "./likes.module.css";
+import { getCookie } from "cookies-next";
+import { useRouter } from "next/router";
 
-const Like = ({ id, myId, liked, likes }) => {
+const Like = ({ id, myId, liked }) => {
+  const token = getCookie("authtoken")
+  const router = useRouter()
   const {theme} = useContext(ThemeContext)
   const { data, sendData } = useAuthPost();
   const [click, setClick] = useState(false)
@@ -46,6 +50,9 @@ const Like = ({ id, myId, liked, likes }) => {
         <BsHeartFill
           className={theme ? `${styles.like}${styles.light} ` : `${styles.like} ${styles.dark}`}
           onClick={() => {
+            if(token === undefined) {
+               router.push("/register")
+            }
             setClick(true)
             handleLike();
           }}

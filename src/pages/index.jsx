@@ -1,19 +1,42 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState, useMemo } from "react";
+import dynamic from "next/dynamic";
 import Layout from "../components/Layout/Layout";
 import Icon from "../components/Icon/Icon";
 import Nav from "../components/Nav/Nav";
 import NavItem from "../components/NavItem/NavItem";
+import { setCookie, getCookie, deleteCookie } from "cookies-next";
+import { TiHome } from "react-icons/ti";
+import axios from "axios";
 import { BiSearchAlt } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
 import Button from "../components/Button/Button";
+import { ENDPOINT } from "../helpers/constants";
 import Post from "../components/Post/Post";
 import { useRouter } from "next/router";
 
-const Index = ({ posts }) => {
+const Feed = ({ posts }) => {
+  const token = getCookie("authtoken")
   const router = useRouter()
   const [active, setActive] = useState("recomendaciones");
+  const [postsRecomended, setPostsRecomended] = useState([]);
+  useEffect(() => {
+    if(token) {
+      router.push("/feed")
+    }
+    try {
+      const getPosts = async () => {
+        const { data } = await axios.get(`${ENDPOINT}/surfing`);
+
+        setPostsRecomended(data);
+      };
+      getPosts();
+    } catch (error) {
+      console.log("error:", error);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Layout
@@ -33,7 +56,7 @@ const Index = ({ posts }) => {
             <NavItem path="/register">
               <BiSearchAlt />
             </NavItem>
-            <OpenModalPost onClick={() => router.push("/register")} />
+            <OpenModalPost />
             <NavItem path="/register">
               <BiChat />
             </NavItem>
@@ -44,8 +67,6 @@ const Index = ({ posts }) => {
         </>
       }
     >
-
-        <>
           <div
             style={{
               margin: "-30px 30px 0 0",
@@ -59,7 +80,7 @@ const Index = ({ posts }) => {
             }}
           >
             <Button
-              onClick={() => router.push("/register")}
+              onClick={() => setActive("feed")}
               name="Feed"
               variant="tab"
             />
@@ -81,29 +102,12 @@ const Index = ({ posts }) => {
               }}
             >
               <Post
-                data={posts}
+                data={postsRecomended}
               />
             </div>
-          )}
-        </>
+          )} 
     </Layout>
   );
 };
 
-export default Index
-
-export async function getServerSideProps({ req, res }) {
-  try {
-
-    const response = await fetch(
-      `https://groob-back-production.up.railway.app/surfing`);
-    const posts = await response.json();
-    return {
-      props: {
-        posts,
-      },
-    };
-  } catch (error) {
-    console.table(error);
-  }
-}
+export default Feed;
