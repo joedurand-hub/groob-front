@@ -8,9 +8,9 @@ const useAuthPost = () => {
   const token = getCookie("authtoken")
 
   useEffect(() => {
-    if(token === undefined) {
-      router.push("/register");
-    }
+  //   if(token === undefined) {
+  //     router.push("/register");
+  //   }
   }, [token])
 
   const [postData, setPostData] = useState({

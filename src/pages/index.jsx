@@ -50,17 +50,16 @@ const Feed = ({ posts }) => {
       nav={
         <>
           <Nav>
-            <NavItem path="/register">
+            <NavItem path="/feed">
               <TiHome />
             </NavItem>
-            <NavItem path="/register">
+            <NavItem path="/search">
               <BiSearchAlt />
             </NavItem>
-            <OpenModalPost />
-            <NavItem path="/register">
+            <NavItem path="/messages">
               <BiChat />
             </NavItem>
-            <NavItem path="/register">
+            <NavItem path="/user">
               <BiUser />
             </NavItem>
           </Nav>
@@ -80,7 +79,7 @@ const Feed = ({ posts }) => {
             }}
           >
             <Button
-              onClick={() => setActive("feed")}
+              onClick={() => router.push("/register")}
               name="Feed"
               variant="tab"
             />
