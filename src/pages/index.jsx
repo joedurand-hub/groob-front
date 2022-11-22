@@ -1,50 +1,20 @@
-import { useContext, useEffect, useState, useMemo } from "react";
-import dynamic from "next/dynamic";
-import Layout from "../components/Layout/Layout";
-import Icon from "../components/Icon/Icon";
-import Nav from "../components/Nav/Nav";
-import NavItem from "../components/NavItem/NavItem";
-import Modal from "../components/Modal/Modal";
-import { useModal } from "../hooks/useModal";
-import CreatePost from "../components/CreatePost/CreatePost";
-import { setCookie, getCookie, deleteCookie } from "cookies-next";
-import { TiHome } from "react-icons/ti";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import Layout from "../../components/Layout/Layout";
+import Icon from "../../components/Icon/Icon";
+import Nav from "../../components/Nav/Nav";
+import NavItem from "../../components/NavItem/NavItem";
 import { BiSearchAlt } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
-import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
-import { ThemeContext } from "../contexts/ThemeContext";
-import Button from "../components/Button/Button";
-import { ENDPOINT } from "../helpers/constants";
-import Post from "../components/Post/Post"
+import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
+import Button from "../../components/Button/Button";
+import Post from "../../components/Post/Post";
 import { useRouter } from "next/router";
 
-const Index = () => {
-  const token = getCookie("authtoken");
+const Index = ({ posts }) => {
   const router = useRouter()
-  useEffect(() => {
-    if(token) {
-      router.push("/feed")
-    }
-  }, [])
-  const [active, setActive] = useState(true);
-  const [postsRecomended, setPostsRecomended] = useState([]);
-  const { theme } = useContext(ThemeContext);
-  const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
-  useEffect(() => {
-    try {
-      const getPosts = async () => {
-        const { data } = await axios.get(`${ENDPOINT}/surfing`);
+  const [active, setActive] = useState("recomendaciones");
 
-        setPostsRecomended(data);
-      };
-      getPosts();
-    } catch (error) {
-      console.log("error:", error);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <Layout
       menuItem={
@@ -63,7 +33,7 @@ const Index = () => {
             <NavItem path="/register">
               <BiSearchAlt />
             </NavItem>
-            <OpenModalPost openModalPost={openModalPost} />
+            <OpenModalPost onClick={() => router.push("/register")} />
             <NavItem path="/register">
               <BiChat />
             </NavItem>
@@ -74,7 +44,7 @@ const Index = () => {
         </>
       }
     >
-    
+
         <>
           <div
             style={{
@@ -94,12 +64,12 @@ const Index = () => {
               variant="tab"
             />
             <Button
-              onClick={() => setActive(true)}
+              onClick={() => setActive("recomendaciones")}
               name="Recomendados"
               variant="tab"
             />
           </div>
-          {postsRecomended.length > 0 && active && (
+          {postsRecomended.length > 0 && active == "recomendaciones" && (
             <div
               style={{
                 marginTop: "20px",
@@ -110,14 +80,30 @@ const Index = () => {
                 width: "100%",
               }}
             >
-              <Post data={postsRecomended} />
+              <Post
+                data={posts}
+              />
             </div>
-          ) 
-          }
+          )}
         </>
-
     </Layout>
   );
 };
 
-export default Index;
+export default Index
+
+export async function getServerSideProps({ req, res }) {
+  try {
+
+    const response = await fetch(
+      `https://groob-back-production.up.railway.app/surfing`);
+    const posts = await response.json();
+    return {
+      props: {
+        posts,
+      },
+    };
+  } catch (error) {
+    console.table(error);
+  }
+}
