@@ -8,7 +8,13 @@ const Comments = ({ allComments }) => {
     setColorComment(Math.random().toString(16).substr(-6));
   };
   
-  if (allComments.length > 0) useGenerateRandomColor();
+  useEffect(() => {
+    if (allComments.length === 0) {
+      return
+    } 
+    useGenerateRandomColor();
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={styles.container}>
