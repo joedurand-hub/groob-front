@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import Layout from "../../components/Layout/Layout";
-import Icon from "../../components/Icon/Icon";
-import Nav from "../../components/Nav/Nav";
-import NavItem from "../../components/NavItem/NavItem";
+import Layout from "../components/Layout/Layout";
+import Icon from "../components/Icon/Icon";
+import Nav from "../components/Nav/Nav";
+import NavItem from "../components/NavItem/NavItem";
 import { BiSearchAlt } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
-import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
-import Button from "../../components/Button/Button";
-import Post from "../../components/Post/Post";
+import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
+import Button from "../components/Button/Button";
+import Post from "../components/Post/Post";
 import { useRouter } from "next/router";
 
 const Index = ({ posts }) => {
