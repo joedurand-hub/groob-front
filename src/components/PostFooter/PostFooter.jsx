@@ -9,15 +9,18 @@ import { MdInsertComment } from "react-icons/md";
 const PostFooter = ({
   postToShare,
   explicit,
-  postLikes,
+  likes,
+  liked,
   price,
   id,
+  myId,
   creatorId,
   userName,
   postId,
   descripcion,
   picUrl,
 }) => {
+
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
 
@@ -37,7 +40,7 @@ const PostFooter = ({
             />
           </Icon>
           <Icon className={styles.user_post}>{postToShare}</Icon>
-          <Like id={id} likes={postLikes} />
+          <Like id={id} likes={likes} liked={liked} myId={myId}/>
           {explicit === false && price > 0 && (
             <Icon>
               <Buy

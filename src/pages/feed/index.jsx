@@ -18,7 +18,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import SignUp from "../../components/SignUp/SignUp";
 import Button from "../../components/Button/Button";
 import { ENDPOINT } from "../../helpers/constants";
-import Post from "../../components/Post/Post"
+import Post from "../../components/Post/Post";
 // const Post = dynamic(() => import("../../components/Post/Post"), {
 //   ssr: false,
 // });
@@ -73,7 +73,10 @@ const Feed = ({ posts }) => {
     >
       {isOpenModalPost ? (
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-          <CreatePost closeModal={closeModalPost} mpAsociated={posts?.mpAccountAsociated} />
+          <CreatePost
+            closeModal={closeModalPost}
+            mpAsociated={posts?.mpAccountAsociated}
+          />
         </Modal>
       ) : (
         <>
@@ -111,7 +114,11 @@ const Feed = ({ posts }) => {
                 width: "100%",
               }}
             >
-              <Post data={postsRecomended} />
+              <Post
+                data={postsRecomended}
+                myId={posts.myId}
+                myUserExplicitContent={posts.myUserExplicitContent}
+              />
             </div>
           ) : (
             active === false && (

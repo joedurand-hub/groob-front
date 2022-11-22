@@ -16,7 +16,6 @@ import Share from "../PostFooter/Share/Share";
 import CreatePreference from "../CreatePreference/CreatePreference";
 
 const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => {
-  console.log(data)
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -32,6 +31,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
             userVerified,
             explicitContent,
             likes,
+            liked,
             buyers,
             userName,
             profilePicture,
@@ -125,7 +125,9 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                   explicit={explicitContent}
                   price={price && price}
                   id={_id}
+                  myId={myId}
                   likes={likes}
+                  liked={liked}
                   postToShare={
                     <Share
                       content={content}
@@ -139,7 +141,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
               </>
 
               <Comments allComments={comments.slice(0, 3)} />
-              {/* <>
+              <>
                 {comments.length > 3 ? (
                   <Link
                     href={`${URL}/feed/${_id}`}
@@ -151,7 +153,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                     </p>
                   </Link>
                 ) : null}
-              </> */}
+              </>
             </article>
           )
         )}

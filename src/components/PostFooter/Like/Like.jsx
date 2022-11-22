@@ -4,69 +4,59 @@ import Icon from "../../PostIcons/Icon";
 import useAuthPost from "../../../hooks/useAuthPost";
 import styles from "./likes.module.css";
 
-const Like = ({ id, likes }) => {
-  const [like, setLike] = useState(true);
-  const [liked, setLiked] = useState(false);
-  const [dislike, setDislike] = useState(false);
-
+const Like = ({ id, myId, liked, likes }) => {
+  console.log(myId)
   const { data, sendData } = useAuthPost();
+  const [click, setClick] = useState(false)
   const handleLike = async () => {
     sendData({
-      endpoint: `https://groob-back-production.up.railway.app/like/${id}`,
-      postData: { idPostLiked: id },
+      // endpoint: `https://groob-back-production.up.railway.app/like/${id}`,
+      endpoint: `http://localhost:8080/like/${id}`,
     });
   };
 
   const handleDislike = async () => {
     sendData({
-      endpoint: `https://groob-back-production.up.railway.app/dislike/${id}`,
-      postData: { idPostLiked: id },
+      // endpoint: `https://groob-back-production.up.railway.app/dislike/${id}`,
+      endpoint: `http://localhost:8080/dislike/${id}`,
     });
   };
+  console.log(liked);
+  
+  const myIdInTheLikes = liked?.find((id) => {
+    console.log(id)
+    if (myId === id) {
+      return id;
+    }
+  });
+  
+  console.log(myIdInTheLikes);
 
-  return (
-    <>
-      {data === undefined && ((liked === false) === dislike) === false && (
-        <Icon>
-          <BsHeart
-            className={styles.like}
-            onClick={() => {
-              handleLike();
-              setLike(false);
-              setLiked(true);
-              setDislike(false);
-            }}
-          />
-        </Icon>
-      )}
-      {data && liked && (
-        <Icon>
-          <BsHeartFill
-            className={styles.liked}
-            onClick={() => {
-              handleDislike();
-              setLike(false);
-              setLiked(false);
-              setDislike(true);
-            }}
-          />
-        </Icon>
-      )}
-      {dislike && (
-        <Icon>
-          <BsHeartFill
-            className={styles.dislike}
-            onClick={() => {
-              handleLike();
-              setLike(false);
-              setLiked(true);
-              setDislike(false);
-            }}
-          />
-        </Icon>
-      )}
-    </>
-  );
+  if (myIdInTheLikes || click === true) {
+    return (
+      <Icon>
+        <BsHeartFill
+          className={styles.liked}
+          onClick={() => {
+            setClick(false)
+            handleDislike();
+          }}
+        />
+      </Icon>
+    );
+  } else if(click === false) {
+    return (
+      <Icon>
+        <BsHeart
+          className={styles.like}
+          onClick={() => {
+            setClick(true)
+            handleLike();
+          }}
+        />
+      </Icon>
+    );
+  }
 };
 
 export default memo(Like);

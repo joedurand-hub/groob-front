@@ -12,7 +12,6 @@ const Comments = ({ allComments }) => {
   };
   useGenerateRandomColor()
   }, [])
-  console.log("color", color)
   return (
     <div className={styles.container}>
       {allComments?.map((comment, index) => (

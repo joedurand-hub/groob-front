@@ -15,17 +15,14 @@ import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
 import { ThemeContext } from "../contexts/ThemeContext";
-import SignUp from "../components/SignUp/SignUp";
 import Button from "../components/Button/Button";
 import { ENDPOINT } from "../helpers/constants";
 import Post from "../components/Post/Post"
 import { useRouter } from "next/router";
-// const Post = dynamic(() => import("../../components/Post/Post"), {
-//   ssr: false,
-// });
 
-const Index = ({ posts }) => {
+const Index = () => {
   const token = getCookie("authtoken");
+  const router = useRouter()
   useEffect(() => {
     if(token) {
       router.push("/feed")

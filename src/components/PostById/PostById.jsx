@@ -25,6 +25,7 @@ const PostById = ({ data }) => {
     _id,
     userVerified,
     likes,
+    liked,
     profilePicture,
     userName,
   } = data;
@@ -89,6 +90,7 @@ const PostById = ({ data }) => {
             price={price && price}
             id={_id}
             likes={likes}
+            liked={liked}
             postToShare={
               <Share
                 content={content}
