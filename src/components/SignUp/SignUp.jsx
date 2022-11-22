@@ -183,7 +183,7 @@ export const SignUp = () => {
               minLength: 6,
               maxLength: 16,
               required: true,
-              pattern: /((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,18}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{6,18}))/,
+              pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/,
             })}
           />
           {errors.password?.type === "required" && (
@@ -196,7 +196,6 @@ export const SignUp = () => {
             <p className={styles.field_text_input_error}>
               {" "}
               La contraseña debe tener 6 caracteres o más.{" "} <br/>
-              Al menos una letra mayúscula, un número y algún caracter especial.
             </p>
           )}
           {errors.password?.type === "maxLength" && (
@@ -207,7 +206,7 @@ export const SignUp = () => {
           )}
           {errors.password?.type === "pattern" && (
             <p className={styles.field_text_input_error}>
-              Al menos una letra mayúscula, un número y algún caracter especial.
+              Al menos una letra mayúscula y un número.
             </p>
           )}
         </div>

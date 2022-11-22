@@ -138,7 +138,7 @@ export const SignIn = () => {
             {...register("password", {
               required: true,
               pattern:
-                /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9 \S]{8,32}$/,
+                /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/,
             })}
           />
           {errors.password?.type === "required" && (
