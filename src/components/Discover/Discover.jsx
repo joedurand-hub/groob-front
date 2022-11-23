@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Discover = ({ data }) => {
+  console.log(data)
   const router = useRouter()
   const token =  getCookie("authtoken")
 
@@ -33,7 +34,7 @@ const Discover = ({ data }) => {
       }
     >
       {explicitContent === false
-        ? data?.filter((post) => {
+        ? data.orderByDate?.filter((post) => {
               if (post.explicitContent === false && post.price === 0) {
                 return post;
               }
@@ -60,7 +61,7 @@ const Discover = ({ data }) => {
                 </>
               );
             })
-        : explicitContent === true && data?.filter((post) => {
+        : explicitContent === true && data.orderByDate?.filter((post) => {
           if (post.explicitContent === true && post.price === 0 || post.explicitContent === false && post.price === 0) {
             return post;
           }
