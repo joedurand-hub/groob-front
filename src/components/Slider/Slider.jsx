@@ -77,6 +77,7 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                     alt="Image"
                     width={500}
                     height={500}
+                    objectFit="cover"
                   />
                 )}
               </div>
@@ -130,8 +131,7 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                     width={500}
                     height={500}
                     quality={85}
-                    // layout="fill"
-                    // objectFit="cover"
+                    objectFit="cover"
                   />
                 )}
               </div>
