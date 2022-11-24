@@ -129,23 +129,26 @@
 
 .tab {
   top: 50%;
-  width: 150px;
-  height: 40px;
-  color: rgb(147, 22, 225);
-  background: transparent;
+  margin: 0;
+  padding: 0;
+  width: 120px;
+  height: 30px;
+  background:transparent;
+  color: white;
+  border-radius: 0;
   z-index: 8;
   transition: all 0.50s linear;
 }
 
 .tab:hover {
-  color: white;
   cursor: pointer;
-  background: rgba(147, 22, 225, 0.696);
+  border-bottom: 2px solid rgba(147, 22, 225, 0.696);
 }
 
 .tab:focus {
-  color: white;
-  background: rgba(147, 22, 225, 0.696);
+  border-radius: none;
+  border-bottom: 2px solid rgba(147, 22, 225, 0.696);
+  transition: all 0.50s linear;
 }
 
 

@@ -91,7 +91,7 @@ const Profile = ({ data }) => {
         </div>
         <div className={styles.container_buttons}>
           <div className={styles.premium}>
-            {data.verificationPay === true ? (
+            {data?.verificationPay === true ? (
               <>
                 <Anchor
                   name="Continuar verificación"

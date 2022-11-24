@@ -22,6 +22,7 @@ import Products from "../../components/Products/Products";
 import Tab from "../../components/Tab/Tab";
 
 const User = ({ data }) => {
+  console.log(data)
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
@@ -73,17 +74,17 @@ const User = ({ data }) => {
           <>
             <Profile data={data} />
             <div style={{ display: "flex", marginTop: "10px", gap: "20px" }}>
-              {data.publications.length > 0 && (
+              {data?.publications.length > 0 && (
               <Tab text=" Posts ">
                 <BsFileEarmarkPost onClick={() => setTab("publications")} />
               </Tab>
               )}
-              {data.mpAccountAsociated && (
+              {data?.mpAccountAsociated && (
                 <Tab text="Exclusivos">
                   <RiVipDiamondFill onClick={() => setTab("products")} />
                 </Tab>
               )}
-              {data.purchases.length > 0 && (
+              {data?.purchases.length > 0 && (
                 <Tab text="Compras">
                   <IoBagCheck onClick={() => setTab("purchases")} />
                 </Tab>

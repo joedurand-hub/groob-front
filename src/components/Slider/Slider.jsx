@@ -75,8 +75,9 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                     key={index}
                     src={imageBlurred}
                     alt="Image"
-                    width={500}
-                    height={500}
+                    // width={500}
+                    // height={500}
+                    layout="fill"
                     objectFit="cover"
                   />
                 )}
