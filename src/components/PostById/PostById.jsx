@@ -12,6 +12,7 @@ import Slider from "../Slider/Slider";
 import GoVerified from "../GoVerified/Verified";
 import Share from "../PostFooter/Share/Share";
 import CreatePreference from "../CreatePreference/CreatePreference";
+import Denounce from "../Denounce/Denounce";
 
 const PostById = ({ data }) => {
   const {
@@ -62,7 +63,9 @@ const PostById = ({ data }) => {
           </div>
           <div className={styles.moreOptions}>
           <h6 className={styles.price}><strong>{price > 0 && `AR$ ${price}`}</strong></h6>
-            <MoreOptions />
+            <MoreOptions option1={<Denounce postId={_id}
+            // userId={} myId={} postId={}
+            />}/>
           </div>
         </div>
         <div className={styles.post}>

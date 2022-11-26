@@ -14,6 +14,7 @@ import GoVerified from "../GoVerified/Verified";
 import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
 import CreatePreference from "../CreatePreference/CreatePreference";
+import Denounce from "../Denounce/Denounce";
 
 const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => {
   const { theme } = useContext(ThemeContext);
@@ -85,6 +86,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                     userId={user}
                     myId={myId}
                     option1={<DeletePost userId={user} myId={myId} postId={_id} />}
+                    option2={<Denounce postId={_id} />}
                   />
                 </div>
               </div>

@@ -126,6 +126,7 @@
         max-width: 480px;
         width: 100%;
         padding: 7px 0;
+        border-radius: 7px;
     }
     
     .light_mode {
