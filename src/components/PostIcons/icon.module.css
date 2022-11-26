@@ -11,16 +11,18 @@
 }
 
 .icon_light_mode:hover  {
-    color: rgb(43, 43, 43);
     cursor: pointer;
+    background: #eeeeee;
 }
 .icon_light_mode:focus  {
-    color: rgb(43, 43, 43);
+    color: black;
     filter: brightness(1.2);
+    background: #eeeeee;
 
 }
 .icon_light_mode:active  {
-    color: rgb(43, 43, 43);
+    color: black;
+    background: #eeeeee;
     filter: brightness(1.2);
 }
 
@@ -38,14 +40,18 @@
 
 .icon_dark_mode:hover  {
     cursor: pointer;
-    color: rgb(194, 194, 194);
+    color: #fff;
+    background: #181818;
 }
 
 .icon_dark_mode:focus  {
-    color: rgb(194, 194, 194);
+    color: black;
     filter: brightness(1.2);
+    background: #181818;
 }
 
 .icon_dark_mode:active  {
-    color: rgb(194, 194, 194);
+    color: black;
+    background: #eeeeee;
+    background: #181818;
 }
