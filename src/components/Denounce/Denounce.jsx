@@ -1,7 +1,6 @@
 import styles from "./denounce.module.css";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { useEffect, useContext } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { useContext } from "react";
 import { useRouter } from "next/router";
 import { ENDPOINT } from "../../helpers/constants";
 import Loader from "../Loader/Loader";

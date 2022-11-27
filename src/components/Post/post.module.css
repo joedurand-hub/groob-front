@@ -139,12 +139,23 @@
     .post_view_more {
         margin: 0;
         padding: 0;
-        margin-left: 15px;
+        margin-left: 20px;
         margin-bottom: 10px;
         color: rgb(159, 29, 240);
-        padding-bottom: 5px;
-        
+        padding-bottom: 5px;   
     }
+
+    
+    .post_view_more:hover {
+        color: rgb(140, 8, 222);
+        cursor: pointer;
+    }
+
+    .post_view_more:active {
+        color: rgb(195, 98, 255);
+    }
+
+    
 
     .post_image {
         margin: 0;

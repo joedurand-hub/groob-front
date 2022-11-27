@@ -16,27 +16,30 @@ import Post from "../components/Post/Post";
 import { useRouter } from "next/router";
 
 const Feed = ({ posts }) => {
+  console.log(posts)
   const token = getCookie("authtoken")
   const router = useRouter()
   const [active, setActive] = useState("recomendaciones");
   const [postsRecomended, setPostsRecomended] = useState([]);
-  useEffect(() => {
-    if(token) {
-      router.push("/feed")
-    }
-    try {
-      const getPosts = async () => {
-        const { data } = await axios.get(`${ENDPOINT}/surfing`);
+  if(token) {
+    router.push("/feed")
+  }
 
-        setPostsRecomended(data);
-      };
-      getPosts();
-    } catch (error) {
-      console.log("error:", error);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  // useEffect(() => {
+  //   try {
+  //     const getPosts = async () => {
+  //       const { data } = await axios.get(`${ENDPOINT}/surfing`);
+  //       console.log(data)
+  //       setPostsRecomended(data);
+  //     };
+  //     getPosts();
+  //   } catch (error) {
+  //     console.log("error:", error);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+  
+  // console.log(`${ENDPOINT}/surfing`)
   return (
     <Layout
       menuItem={
@@ -88,7 +91,7 @@ const Feed = ({ posts }) => {
               variant="tab"
             />
           </div>
-          {postsRecomended.length > 0 && active == "recomendaciones" && (
+          {posts?.length > 0 && active == "recomendaciones" && (
             <div
               style={{
                 marginTop: "20px",
@@ -100,7 +103,7 @@ const Feed = ({ posts }) => {
               }}
             >
               <Post
-                data={postsRecomended}
+                data={posts}
               />
             </div>
           )} 
@@ -109,3 +112,19 @@ const Feed = ({ posts }) => {
 };
 
 export default Feed;
+
+
+export async function getServerSideProps({ req, res }) {
+  try {
+    const response = await fetch(
+      `https://groob-back-production.up.railway.app/surfing`)
+    const posts = await response.json();
+    return {
+      props: {
+        posts,
+      },
+    };
+  } catch (error) {
+    console.table(error);
+  }
+}
