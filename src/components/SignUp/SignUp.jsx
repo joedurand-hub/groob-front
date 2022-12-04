@@ -183,6 +183,7 @@ export const SignUp = () => {
               minLength: 6,
               maxLength: 16,
               required: true,
+              //  /^(?=.[A-Z])(?=.[0-9])[A-Za-z0-9!@#$%^&*)(+=._-]{6,24}$/; DE chatGPT
               pattern: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/,
             })}
           />

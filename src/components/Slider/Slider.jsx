@@ -94,7 +94,7 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
           </button>
         )}
       </div>
-    );
+    )
   }  else {
     return (
       <div
