@@ -15,6 +15,7 @@ import CreatePreference from "../CreatePreference/CreatePreference";
 import Denounce from "../Denounce/Denounce";
 
 const PostById = ({ data }) => {
+  console.log(data)
   const {
     content,
     price,
