@@ -15,15 +15,17 @@ import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import SignUp from "../../components/SignUp/SignUp";
 import Button from "../../components/Button/Button";
 import { ENDPOINT } from "../../helpers/constants";
 import Post from "../../components/Post/Post";
 
 const Feed = ({ posts }) => {
-  console.log(posts)
+  const postsData = [...new Set(posts.data?.map(post => post._id))]
+  .map(id => posts.data?.find(post => post._id === id));
+
   const [active, setActive] = useState("feed");
   const [postsRecomended, setPostsRecomended] = useState([]);
+  console.log(postsRecomended)
   const { theme } = useContext(ThemeContext);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   useEffect(() => {
@@ -113,8 +115,8 @@ const Feed = ({ posts }) => {
             >
               <Post
                 data={postsRecomended}
-                myId={posts.myId}
-                myUserExplicitContent={posts.myUserExplicitContent}
+                myId={posts?.myId}
+                myUserExplicitContent={posts?.myUserExplicitContent}
               />
             </div>
           ) : (
@@ -129,7 +131,7 @@ const Feed = ({ posts }) => {
                   width: "100%",
                 }}
               >
-                {posts.data?.length === 0 ? (
+                {postsData.data?.length === 0 ? (
                   <div
                     style={{
                       textAlign: "center",
@@ -143,10 +145,10 @@ const Feed = ({ posts }) => {
                   </div>
                 ) : (
                   <Post
-                    data={posts.data}
-                    myId={posts.myId}
-                    myUserExplicitContent={posts.myUserExplicitContent}
-                    isVerified={posts.verified}
+                    data={postsData}
+                    myId={posts?.myId}
+                    myUserExplicitContent={posts?.myUserExplicitContent}
+                    isVerified={posts?.verified}
                   />
                 )}
               </div>

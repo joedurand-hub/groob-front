@@ -7,14 +7,14 @@ import Link from "next/link";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Discover = ({ data }) => {
-  const router = useRouter()
-  const token =  getCookie("authtoken")
+  const router = useRouter();
+  const token = getCookie("authtoken");
 
   useEffect(() => {
-    if(token === undefined) {
-      return router.push("/register")
+    if (token === undefined) {
+      return router.push("/register");
     }
-  }, [])
+  }, []);
 
   const { theme } = useContext(ThemeContext);
   const [explicitContent, setExplicitContent] = useState("");
@@ -32,64 +32,30 @@ const Discover = ({ data }) => {
           : `${styles.container_discover} dark_mode`
       }
     >
-      {explicitContent === false
-        ? data.orderByDate?.filter((post) => {
-              if (post.explicitContent === false && post.price === 0) {
-                return post;
-              }
-            }).map((post, index) => {
-              return (
-                <>
-                  <Link href={`/feed/${post._id}`} passHref>
-                    <div key={index} className={styles.discover}>
-                      {post.images?.map((image, index) => (
-                        <div key={index}>
-                          {index === 0 && (
-                            <Image
-                              key={index}
-                              src={image.secure_url}
-                              width={500}
-                              height={600}
-                              alt={`Post de ${post.userName}`}
-                            />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </Link>
-                </>
-              );
-            })
-        : explicitContent === true && data.orderByDate?.filter((post) => {
-          if (post.explicitContent === true && post.price === 0 && post.explicitContent === false && post.price === 0) {
-            return post;
-          }
-        }).map((post, index) => {
-            return (
-              <>
-                <Link href={`/feed/${post._id}`} passHref>
-                  <div key={index} className={styles.discover}>
-                    {post.images?.map((image, index) => (
-                      <div key={index}>
-                        {index === 0 && (
-                          <div>
-
-                          <Image
-                            key={index}
-                            src={image.secure_url}
-                            width={500}
-                            height={600}
-                            alt={`Post de ${post.userName}`}
-                          />
-                          </div>
-                        )}
-                      </div>
-                    ))}
+      {data.orderByDate?.map((post, index) => {
+        return (
+          <>
+            <Link href={`/feed/${post._id}`} passHref>
+              <div key={index} className={styles.discover}>
+                {post.images?.map((image, index) => (
+                  <div key={index}>
+                    {index === 0 && (
+                      <Image
+                        key={index}
+                        src={image.secure_url}
+                        width={300}
+                        height={400}
+                        objectFit="cover"
+                        alt={`Post de ${post.userName}`}
+                      />
+                    )}
                   </div>
-                </Link>
-              </>
-            );
-          })}
+                ))}
+              </div>
+            </Link>
+          </>
+        );
+      })}
     </div>
   );
 };
