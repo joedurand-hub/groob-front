@@ -21,7 +21,7 @@ const Index = ({ data }) => {
           "alignItems": "center",
         }}
       >
-        <PostById data={data} />
+        <PostById data={data.post} />
       </div>
     </div>
   );
@@ -34,7 +34,7 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      `https://groob-back-production.up.railway.app/post/${id}`,
+      `http://localhost:8080/post/${id}`,
       {
         headers: {
           authtoken: token,
