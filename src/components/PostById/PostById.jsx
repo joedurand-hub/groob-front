@@ -1,5 +1,5 @@
 import styles from "./postById.module.css";
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { URL } from "../../helpers/constants";
 import Link from "next/link";
@@ -15,7 +15,6 @@ import CreatePreference from "../CreatePreference/CreatePreference";
 import Denounce from "../Denounce/Denounce";
 
 const PostById = ({ data }) => {
-  console.log(data)
   const {
     content,
     price,
