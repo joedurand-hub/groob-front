@@ -28,7 +28,7 @@ export const inactivityTime = (userId) => {
 
       function resetTimer() {
         clearTimeout(time);
-        time = setTimeout(offline, 300000)
+        time = setTimeout(offline, 180000)
         sendUpdatedData({
           endpoint: url,
           putData: {

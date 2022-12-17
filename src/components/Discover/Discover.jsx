@@ -43,8 +43,8 @@ const Discover = ({ data }) => {
                       <Image
                         key={index}
                         src={image.secure_url}
-                        width={300}
-                        height={400}
+                        width={500}
+                        height={600}
                         objectFit="cover"
                         alt={`Post de ${post.userName}`}
                       />

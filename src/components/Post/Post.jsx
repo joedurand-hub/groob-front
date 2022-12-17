@@ -57,6 +57,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                           src={profilePicture && profilePicture}
                           width={45}
                           height={45}
+                          objectFit="cover"
                           alt={`Post`}
                         />
                       </a>

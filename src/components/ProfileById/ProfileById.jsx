@@ -42,6 +42,7 @@ const ProfileById = ({ data, id }) => {
               src={data && data?.profilePicture.secure_url}
               width={225}
               height={225}
+              objectFit="cover"
               alt="Image"
             />
           </div>

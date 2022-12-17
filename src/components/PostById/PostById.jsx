@@ -51,6 +51,7 @@ const PostById = ({ data }) => {
                     src={profilePicture && profilePicture}
                     width={45}
                     height={45}
+                    objectFit="cover"
                     alt={`Post`}
                   />
                 </a>

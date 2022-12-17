@@ -65,7 +65,7 @@ export default Layout;
 Layout.defaultProps = {
   title: "Groob",
   name: "ninguno",
-  href: "ninguno",
+  href: "https://groob.com.ar",
   description:
-    "Groob es una nueva red social multi feed que permite adaptar la interfaz visual según los gustos de cada usuario.",
+  "Groob es una plataforma con un enfoque en la monetización para creadores de contenido. Se tiene como objetivo ayudar a los pequeños creadores a tener más exposición y generar ingresos a través de la venta de productos digitales como libros electrónicos, podcasts, música y videos. Además hay filtros para detectar y evitar la visualización de contenido explícito.",
 };

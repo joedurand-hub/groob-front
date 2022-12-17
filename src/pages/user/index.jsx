@@ -9,6 +9,7 @@ import Menu from "../../components/MenuDropdown/MenuDropdown";
 import Icon from "../../components/Icon/Icon";
 import Modal from "../../components/Modal/Modal";
 import { useModal } from "../../hooks/useModal";
+import { inactivityTime } from "../../helpers/inactivityTime";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import { IoMenu, IoBagCheck } from "react-icons/io5";
 import { BiHome } from "react-icons/bi";
@@ -22,6 +23,8 @@ import Products from "../../components/Products/Products";
 import Tab from "../../components/Tab/Tab";
 
 const User = ({ data }) => {
+  const res = inactivityTime(data?.myId)
+  console.log(res)
   console.log(data)
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");

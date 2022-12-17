@@ -12,6 +12,7 @@ import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
 const Messages = ({ datas }) => {
   const res = inactivityTime(datas?.myId)
+  console.log(res)
   const token = getCookie("authtoken");
   const [messages, setMessages] = useState([]);
   const [chat, setChat] = useState([]);

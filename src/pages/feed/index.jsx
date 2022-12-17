@@ -10,6 +10,7 @@ import CreatePost from "../../components/CreatePost/CreatePost";
 import { setCookie, getCookie, deleteCookie } from "cookies-next";
 import { TiHome } from "react-icons/ti";
 import axios from "axios";
+import { inactivityTime } from "../../helpers/inactivityTime";
 import { BiSearchAlt } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone } from "react-icons/md";
@@ -18,8 +19,11 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import Button from "../../components/Button/Button";
 import { ENDPOINT } from "../../helpers/constants";
 import Post from "../../components/Post/Post";
+import Video from "../../components/Video/Video";
 
 const Feed = ({ posts }) => {
+  const res = inactivityTime(posts?.myId)
+  console.log(res)
   const postsData = [...new Set(posts.data?.map(post => post._id))]
   .map(id => posts.data?.find(post => post._id === id));
 
@@ -70,6 +74,7 @@ const Feed = ({ posts }) => {
         </>
       }
     >
+      {/* <Video/> */}
       {isOpenModalPost ? (
         <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
           <CreatePost

@@ -14,6 +14,7 @@ const UserConnected = ({ online, profilePicture, verified, width, height }) => {
         src={profilePicture && profilePicture}
         width={width}
         height={height}
+        objectFit="cover"
         alt="Profile picture"
       />
     </div>

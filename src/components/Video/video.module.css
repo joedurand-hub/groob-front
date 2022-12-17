@@ -1,0 +1,9 @@
+@media screen and (max-width: 768px) {   
+    .container_video {
+        position: relative;
+    }
+    .video {
+    width: 100%;
+    height: 100%;
+}
+}
