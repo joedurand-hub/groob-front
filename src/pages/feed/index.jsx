@@ -178,7 +178,7 @@ export async function getServerSideProps({ req, res }) {
     });
 
     const response = await fetch(
-      `https://groob-back-production.up.railway.app/posts`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `${process.env.API_ENDPOINT_DEVELOPMENT}/posts` : `${process.env.API_ENDPOINT_PRODUCTION}/posts`,
       {
         method: "GET",
         headers: {

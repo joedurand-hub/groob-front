@@ -16,7 +16,6 @@ import Post from "../components/Post/Post";
 import { useRouter } from "next/router";
 
 const Feed = ({ posts }) => {
-  console.log(posts)
   const token = getCookie("authtoken")
   const router = useRouter()
   const [active, setActive] = useState("recomendaciones");
@@ -117,7 +116,7 @@ export default Feed;
 export async function getServerSideProps({ req, res }) {
   try {
     const response = await fetch(
-      `https://groob-back-production.up.railway.app/surfing`)
+      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `${process.env.API_ENDPOINT_DEVELOPMENT}/surfing` : `${process.env.API_ENDPOINT_PRODUCTION}/surfing`)
     const posts = await response.json();
     return {
       props: {
