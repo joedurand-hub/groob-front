@@ -22,7 +22,9 @@ export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
-      `https://groob-back-production.up.railway.app/followings`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development"
+        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/followings`
+        : `${process.env.API_ENDPOINT_PRODUCTION}/followings`,
       {
         headers: {
           authtoken: token,

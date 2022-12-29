@@ -1,7 +1,6 @@
 import Layout from "../../../components/Layout/Layout";
 
-const Followers = ({data}) => {
-
+const Followers = ({ data }) => {
   return (
     <Layout>
       {data &&
@@ -18,7 +17,11 @@ export default Followers;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const response = await fetch(`https://groob-back-production.up.railway.app/followers`);
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_REACT_ENV === "development"
+        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/followers`
+        : `${process.env.API_ENDPOINT_PRODUCTION}/followers`
+    );
     const data = await response.json();
     return {
       props: {

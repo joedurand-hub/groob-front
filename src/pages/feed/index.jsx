@@ -22,14 +22,15 @@ import Post from "../../components/Post/Post";
 import Video from "../../components/Video/Video";
 
 const Feed = ({ posts }) => {
-  const res = inactivityTime(posts?.myId)
-  console.log(res)
-  const postsData = [...new Set(posts.data?.map(post => post._id))]
-  .map(id => posts.data?.find(post => post._id === id));
+  const res = inactivityTime(posts?.myId);
+  console.log(res);
+  const postsData = [...new Set(posts.data?.map((post) => post._id))].map(
+    (id) => posts.data?.find((post) => post._id === id)
+  );
 
   const [active, setActive] = useState("feed");
   const [postsRecomended, setPostsRecomended] = useState([]);
-  console.log(postsRecomended)
+  console.log(postsRecomended);
   const { theme } = useContext(ThemeContext);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   useEffect(() => {
@@ -99,12 +100,12 @@ const Feed = ({ posts }) => {
             <Button
               onClick={() => setActive("feed")}
               name="Feed"
-              variant={theme? "tab" : "tab"}
+              variant={theme ? "tab" : "tab"}
             />
             <Button
               onClick={() => setActive("recomendaciones")}
               name="Recomendados"
-              variant={theme? "tab" : "tab"}
+              variant={theme ? "tab" : "tab"}
             />
           </div>
           {postsRecomended.length > 0 && active == "recomendaciones" ? (
@@ -178,7 +179,9 @@ export async function getServerSideProps({ req, res }) {
     });
 
     const response = await fetch(
-      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `${process.env.API_ENDPOINT_DEVELOPMENT}/posts` : `${process.env.API_ENDPOINT_PRODUCTION}/posts`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development"
+        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/posts`
+        : `${process.env.API_ENDPOINT_PRODUCTION}/posts`,
       {
         method: "GET",
         headers: {

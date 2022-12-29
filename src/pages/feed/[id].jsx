@@ -5,20 +5,20 @@ import GoBack from "../../components/GoBack/Back";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Index = ({ data }) => {
-  const token = getCookie("authtoken")
+  const token = getCookie("authtoken");
   const { theme } = useContext(ThemeContext);
 
   return (
     <div
       className={theme ? "light_mode" : "dark_mode"}
-      style={{ "height": "100%", paddingTop: "5px" }}
+      style={{ height: "100%", paddingTop: "5px" }}
     >
       <GoBack path={token ? "/feed" : "/"} />
       <div
         style={{
-          "display": "flex",
-          "flexDirection": "column",
-          "alignItems": "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
         <PostById data={data.post} />
@@ -34,14 +34,16 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `${process.env.API_ENDPOINT_DEVELOPMENT}/post/${id}` : `${process.env.API_ENDPOINT_PRODUCTION}/post/${id}`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development"
+        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/post/${id}`
+        : `${process.env.API_ENDPOINT_PRODUCTION}/post/${id}`,
       {
         headers: {
           authtoken: token,
         },
-      credentials: 'include'
-    }
-  );
+        credentials: "include",
+      }
+    );
     const data = await response.json();
     return {
       props: {

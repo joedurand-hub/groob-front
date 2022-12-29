@@ -129,7 +129,7 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      `https://groob-back-production.up.railway.app/chat/${id}`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `${process.env.API_ENDPOINT_DEVELOPMENT}/chat/${id}` : `${process.env.API_ENDPOINT_PRODUCTION}/chat/${id}`,
       {
         headers: {
           authtoken: token,

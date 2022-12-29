@@ -20,7 +20,7 @@ import Container from "../components/SearchUser/Container/Container";
 import User from "../components/SearchUser/User/User";
 
 const Search = ({ posts }) => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
   const token = getCookie("authtoken");
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
@@ -35,7 +35,7 @@ const Search = ({ posts }) => {
       setResults(data);
     };
     if (query !== "") searchQuery();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   const handleInputChange = (e) => {
@@ -74,20 +74,23 @@ const Search = ({ posts }) => {
       }
     >
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
-        <CreatePost closeModal={closeModalPost} mpAsociated={posts.mpAccountAsociated}/>
+        <CreatePost
+          closeModal={closeModalPost}
+          mpAsociated={posts.mpAccountAsociated}
+        />
       </Modal>
       <div className={theme ? `layout light_mode` : `layout dark_mode`}>
         <SearchUser onChange={handleInputChange} />
 
         {query !== "" && results.length > 0 ? (
-        <Container>
+          <Container>
             {results.slice(0, 15)?.map((user, index) => (
               <User key={index} data={user} index={index} />
-              ))}
+            ))}
           </Container>
         ) : (
           <Discover data={posts} />
-          )}
+        )}
       </div>
     </Layout>
   );
@@ -99,7 +102,9 @@ export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
-      `https://groob-back-production.up.railway.app/discover`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development"
+        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/discover`
+        : `${process.env.API_ENDPOINT_PRODUCTION}/discover`,
       {
         method: "GET",
         headers: {

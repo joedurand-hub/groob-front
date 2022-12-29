@@ -23,9 +23,9 @@ import Products from "../../components/Products/Products";
 import Tab from "../../components/Tab/Tab";
 
 const User = ({ data }) => {
-  const res = inactivityTime(data?.myId)
-  console.log(res)
-  console.log(data)
+  const res = inactivityTime(data?.myId);
+  console.log(res);
+  console.log(data);
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
@@ -78,9 +78,9 @@ const User = ({ data }) => {
             <Profile data={data} />
             <div style={{ display: "flex", marginTop: "10px", gap: "20px" }}>
               {data?.publications.length > 0 && (
-              <Tab text=" Posts ">
-                <BsFileEarmarkPost onClick={() => setTab("publications")} />
-              </Tab>
+                <Tab text=" Posts ">
+                  <BsFileEarmarkPost onClick={() => setTab("publications")} />
+                </Tab>
               )}
               {data?.mpAccountAsociated && (
                 <Tab text="Exclusivos">
@@ -120,7 +120,9 @@ export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
-      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `${process.env.API_ENDPOINT_DEVELOPMENT}/profile` : `${process.env.API_ENDPOINT_PRODUCTION}/profile`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development"
+        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/profile`
+        : `${process.env.API_ENDPOINT_PRODUCTION}/profile`,
       {
         headers: {
           authtoken: token,

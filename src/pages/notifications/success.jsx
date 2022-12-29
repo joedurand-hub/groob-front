@@ -12,7 +12,6 @@ import { useRouter } from 'next/router';
 
 
 const Success = () => {
-    const { theme } = useContext(ThemeContext);
     const router = useRouter();
     console.log("router.query:", router.query)
 
@@ -50,9 +49,3 @@ const Success = () => {
     );
 }
 export default Success;
-
-// Success.getInitialProps = async ({ query }) => {
-//   const {param} = query
-
-//   return {id}
-// }

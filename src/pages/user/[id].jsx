@@ -64,26 +64,22 @@ const ProfileById = ({ data }) => {
       ) : (
         <>
           <Profile data={data?.profileData} id={data?.myId} />
-           <div style={{ display: "flex", marginTop: "10px", gap: "75px" }}>
-           {data?.profileData?.mpAccountAsociated && (
-            <Tab text="Posts">
-              <BsFileEarmarkPost onClick={() => setTab("publications")} />
-            </Tab>
-           )}
+          <div style={{ display: "flex", marginTop: "10px", gap: "75px" }}>
+            {data?.profileData?.mpAccountAsociated && (
+              <Tab text="Posts">
+                <BsFileEarmarkPost onClick={() => setTab("publications")} />
+              </Tab>
+            )}
             {data?.profileData?.mpAccountAsociated && (
               <Tab text="Exclusivos">
-                 <RiVipDiamondFill onClick={() => setTab("products")} />
-               </Tab>
+                <RiVipDiamondFill onClick={() => setTab("products")} />
+              </Tab>
             )}
           </div>
-         {tab === "publications" && (
+          {tab === "publications" && (
             <Publications userId={data?.profileData._id} myId={data?.myId} />
           )}
-          {tab === "products" && (
-            <Products
-              myId={data?.profileData._id}
-            />
-          )}
+          {tab === "products" && <Products myId={data?.profileData._id} />}
         </>
       )}
     </Layout>
@@ -97,7 +93,9 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `${process.env.API_ENDPOINT_DEVELOPMENT}/profile/${id}` : `${process.env.API_ENDPOINT_PRODUCTION}/profile/${id}`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development"
+        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/profile/${id}`
+        : `${process.env.API_ENDPOINT_PRODUCTION}/profile/${id}`,
       {
         headers: {
           authtoken: token,

@@ -74,7 +74,7 @@ export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
-      `https://groob-back-production.up.railway.app/chats`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `${process.env.API_ENDPOINT_DEVELOPMENT}/chats` : `${process.env.API_ENDPOINT_PRODUCTION}/chats`,
       {
         headers: {
           authtoken: token,
