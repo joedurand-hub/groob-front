@@ -100,11 +100,11 @@ const Feed = ({ posts }) => {
               name="Feed"
               variant={theme ? "tab" : "tab"}
             />
-            <Button
+            {/* <Button
               onClick={() => setActive("recomendaciones")}
               name="Recomendados"
               variant={theme ? "tab" : "tab"}
-            />
+            /> */}
           </div>
           {postsRecomended.length > 0 && active == "recomendaciones" ? (
             <div
