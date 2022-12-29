@@ -13,7 +13,8 @@ import { inactivityTime } from "../../helpers/inactivityTime";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import { IoMenu, IoBagCheck } from "react-icons/io5";
 import { BiHome } from "react-icons/bi";
-import { BiSearchAlt, BiChat } from "react-icons/bi";
+import { BiChat } from "react-icons/bi";
+import {MdOutlineExplore} from "react-icons/md"
 import { FaUser } from "react-icons/fa";
 import { RiVipDiamondFill } from "react-icons/ri";
 import { BsFileEarmarkPost } from "react-icons/bs";
@@ -52,7 +53,7 @@ const User = ({ data }) => {
                 <BiHome />
               </NavItem>
               <NavItem path="/search">
-                <BiSearchAlt />
+                <MdOutlineExplore />
               </NavItem>
               <OpenModalPost openModalPost={openModalPost} />
               <NavItem path="/messages">

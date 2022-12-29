@@ -10,10 +10,9 @@ import NavItem from "../components/NavItem/NavItem";
 import Modal from "../components/Modal/Modal";
 import { useModal } from "../hooks/useModal";
 import { BiHome } from "react-icons/bi";
-import { RiSearchEyeFill } from "react-icons/ri";
 import { BiUser, BiChat } from "react-icons/bi";
 import { getCookie } from "cookies-next";
-import { MdOutlineNotificationsNone } from "react-icons/md";
+import { MdOutlineNotificationsNone, MdExplore } from "react-icons/md";
 import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
 import SearchUser from "../components/SearchUser/SearchUser";
 import Container from "../components/SearchUser/Container/Container";
@@ -60,7 +59,7 @@ const Search = ({ posts }) => {
               <BiHome />
             </NavItem>
             <NavItem path="/search">
-              <RiSearchEyeFill />
+              <MdExplore />
             </NavItem>
             <OpenModalPost openModalPost={openModalPost} />
             <NavItem path="/messages">

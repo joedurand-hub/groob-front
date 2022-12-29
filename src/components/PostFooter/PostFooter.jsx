@@ -4,8 +4,7 @@ import Like from "./Like/Like";
 import Icon from "../PostIcons/Icon";
 import Buy from "./Buy/Buy";
 import PostComment from "../PostComment/PostComment";
-import { MdInsertComment } from "react-icons/md";
-
+import { BsChat } from "react-icons/bs"
 const PostFooter = ({
   postToShare,
   explicit,
@@ -21,12 +20,7 @@ const PostFooter = ({
   descripcion,
   picUrl,
 }) => {
-  console.log("postId", postId)
-  console.log("creatorId", creatorId)
-  console.log("userName", userName)
-  console.log("price", price)
-  console.log("descripcion", descripcion)
-  console.log("picUrl", picUrl)
+
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
 
@@ -41,7 +35,7 @@ const PostFooter = ({
           <div style={{display: "flex"}}>
 
           <Icon>
-            <MdInsertComment
+            <BsChat
               onClick={() => {
                 setComment(!comment);
               }}

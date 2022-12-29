@@ -1,6 +1,6 @@
 import { useState, useContext, memo } from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
-import { BsHeartFill, BsHeart } from "react-icons/bs";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import Icon from "../../PostIcons/Icon";
 import useAuthPost from "../../../hooks/useAuthPost";
 import styles from "./likes.module.css";
@@ -36,7 +36,7 @@ const Like = ({ id, myId, liked }) => {
   if (myIdInTheLikes || click === true) {
     return (
       <Icon>
-        <BsHeartFill
+        <FaHeart
           className={theme ? `${styles.liked} ` : `${styles.liked} `}
           onClick={() => {
             setClick(false)
@@ -48,7 +48,7 @@ const Like = ({ id, myId, liked }) => {
   } else if(click === false) {
     return (
       <Icon>
-        <BsHeartFill
+        <FaRegHeart
           className={theme ? `${styles.like}${styles.light} ` : `${styles.like} ${styles.dark}`}
           onClick={() => {
             if(token === undefined) {

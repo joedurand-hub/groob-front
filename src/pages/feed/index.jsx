@@ -11,9 +11,8 @@ import { setCookie, getCookie, deleteCookie } from "cookies-next";
 import { TiHome } from "react-icons/ti";
 import axios from "axios";
 import { inactivityTime } from "../../helpers/inactivityTime";
-import { BiSearchAlt } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";
-import { MdOutlineNotificationsNone } from "react-icons/md";
+import { MdOutlineNotificationsNone, MdOutlineExplore } from "react-icons/md";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Button from "../../components/Button/Button";
@@ -60,7 +59,7 @@ const Feed = ({ posts }) => {
               <TiHome />
             </NavItem>
             <NavItem path="/search">
-              <BiSearchAlt />
+              <MdOutlineExplore />
             </NavItem>
             <OpenModalPost openModalPost={openModalPost} />
             <NavItem path="/messages">
@@ -100,11 +99,11 @@ const Feed = ({ posts }) => {
               name="Feed"
               variant={theme ? "tab" : "tab"}
             />
-            {/* <Button
+            <Button
               onClick={() => setActive("recomendaciones")}
               name="Recomendados"
               variant={theme ? "tab" : "tab"}
-            /> */}
+            />
           </div>
           {postsRecomended.length > 0 && active == "recomendaciones" ? (
             <div

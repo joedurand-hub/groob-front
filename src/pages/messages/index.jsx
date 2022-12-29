@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import { getCookie } from "cookies-next";
 import Chat from "../../components/Chat/Chat";
 import ChatUser from "../../components/Chat/ChatUser/ChatUser";
 import ChatList from "../../components/Chat/ChatList/ChatList";
-import { io } from "socket.io-client";
-import { ENDPOINT } from "../../helpers/constants";
 import GoBack from "../../components/GoBack/Back";
+import { io } from "socket.io-client";
+import { getCookie } from "cookies-next";
+import { ENDPOINT } from "../../helpers/constants";
 import { inactivityTime } from "../../helpers/inactivityTime";
 
 const Index = ({ data }) => {

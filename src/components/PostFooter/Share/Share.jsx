@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { FaShareSquare } from "react-icons/fa";
-import { useEffect } from "react";
+import { FaShare } from "react-icons/fa";
 
 const Share = ({
   content,
@@ -61,7 +59,7 @@ const Share = ({
 
   return (
     <>
-      <FaShareSquare onClick={() => sharePost(postWithOutPriceButWithImage)} />
+      <FaShare onClick={() => sharePost(postWithOutPriceButWithImage)} />
     </>
   );
 };

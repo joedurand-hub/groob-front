@@ -15,7 +15,8 @@ import { BiHome } from "react-icons/bi";
 import { IoMenu } from "react-icons/io5";
 import { RiVipDiamondFill } from "react-icons/ri";
 import { BsFileEarmarkPost } from "react-icons/bs";
-import { BiSearchAlt, BiChat } from "react-icons/bi";
+import { BiChat } from "react-icons/bi";
+import {MdOutlineExplore} from "react-icons/md"
 import { FaUser } from "react-icons/fa";
 import Tab from "../../components/Tab/Tab";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
@@ -40,7 +41,7 @@ const ProfileById = ({ data }) => {
               <BiHome />
             </NavItem>
             <NavItem path="/search">
-              <BiSearchAlt />
+              <MdOutlineExplore />
             </NavItem>
             <OpenModalPost openModalPost={openModalPost} />
             <NavItem path="/messages">
