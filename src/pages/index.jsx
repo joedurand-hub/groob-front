@@ -79,7 +79,7 @@ const Feed = ({ posts }) => {
               position: "fixed",
             }}
           >
-            <Button
+            {/* <Button
               onClick={() => router.push("/register")}
               name="Feed"
               variant="tab"
@@ -88,7 +88,7 @@ const Feed = ({ posts }) => {
               onClick={() => setActive("recomendaciones")}
               name="Recomendados"
               variant="tab"
-            />
+            /> */}
           </div>
           {posts?.length > 0 && active == "recomendaciones" && (
             <div
