@@ -14,9 +14,9 @@ const CreatePreference = ({
   descripcion,
   picUrl,
 }) => {
+  // Mover al componente Buy dentro de PostFooter
   const { data, pending, error, sendData } = useAuthPost();
   const router = useRouter();
-
   const handlePreference = async () => {
     sendData({
       endpoint: `${ENDPOINT}/preferenceProduct`,

@@ -28,7 +28,7 @@ const Search = ({ posts }) => {
   useEffect(() => {
     const searchQuery = async () => {
       const { data } = await axios.get(
-        `https://groob-back-production.up.railway.app/search?input=${query}`,
+        `${ENDPOINT}/search?input=${query}`,
         { headers: { authtoken: token } },
         { withCredentials: true }
       );

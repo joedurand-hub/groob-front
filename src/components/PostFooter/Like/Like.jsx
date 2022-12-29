@@ -6,6 +6,7 @@ import useAuthPost from "../../../hooks/useAuthPost";
 import styles from "./likes.module.css";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
+import { ENDPOINT } from "../../../helpers/constants";
 
 const Like = ({ id, myId, liked }) => {
   const token = getCookie("authtoken")
@@ -15,13 +16,13 @@ const Like = ({ id, myId, liked }) => {
   const [click, setClick] = useState(false)
   const handleLike = async () => {
     sendData({
-      endpoint: `https://groob-back-production.up.railway.app/like/${id}`,
+      endpoint: `${ENDPOINT}}/like/${id}`,
     });
   };
 
   const handleDislike = async () => {
     sendData({
-      endpoint: `https://groob-back-production.up.railway.app/dislike/${id}`,
+      endpoint: `${ENDPOINT}/dislike/${id}`,
     });
   };
   

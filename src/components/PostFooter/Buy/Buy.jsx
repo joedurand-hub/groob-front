@@ -14,6 +14,7 @@ const Buy = ({
   descripcion,
   picUrl,
 }) => {
+  // No están llegando bien las props
   const { data, pending, error, sendData } = useAuthPost();
   const router = useRouter();
   const handlePreference = async () => {

@@ -25,12 +25,10 @@ const Feed = ({ posts }) => {
   const res = inactivityTime(posts?.myId);
   console.log(res);
   const postsData = [...new Set(posts.data?.map((post) => post._id))].map(
-    (id) => posts.data?.find((post) => post._id === id)
+    (id) => posts.data?.find((post) => post._id === id) // elimino posibles duplicados
   );
-
   const [active, setActive] = useState("feed");
   const [postsRecomended, setPostsRecomended] = useState([]);
-  console.log(postsRecomended);
   const { theme } = useContext(ThemeContext);
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   useEffect(() => {

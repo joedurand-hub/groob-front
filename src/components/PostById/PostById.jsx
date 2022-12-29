@@ -77,13 +77,13 @@ const PostById = ({ data }) => {
           {explicitContent && price > 0 && (
                   <div className={styles.container_buy_button}>
                     <CreatePreference
-                      explicitContent={explicitContent}
                       creatorId={user}
-                      userName={userName}
                       postId={_id}
+                      userName={userName}
                       price={price}
                       descripcion={content}
-                      picUrl={profilePicture?.secure_url}
+                      picUrl={profilePicture}
+                      explicitContent={explicitContent}
                     ></CreatePreference>
                   </div>
                 )}

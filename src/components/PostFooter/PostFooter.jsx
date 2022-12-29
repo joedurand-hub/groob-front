@@ -21,7 +21,12 @@ const PostFooter = ({
   descripcion,
   picUrl,
 }) => {
-
+  console.log("postId", postId)
+  console.log("creatorId", creatorId)
+  console.log("userName", userName)
+  console.log("price", price)
+  console.log("descripcion", descripcion)
+  console.log("picUrl", picUrl)
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
 
