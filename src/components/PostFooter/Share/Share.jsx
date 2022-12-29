@@ -1,4 +1,5 @@
-import { FaShare } from "react-icons/fa";
+import { IoArrowRedoOutline } from "react-icons/io5";
+import Icon from "../../Icon/Icon";
 
 const Share = ({
   content,
@@ -58,9 +59,9 @@ const Share = ({
   // };
 
   return (
-    <>
-      <FaShare onClick={() => sharePost(postWithOutPriceButWithImage)} />
-    </>
+    <Icon>
+      <IoArrowRedoOutline onClick={() => sharePost(postWithOutPriceButWithImage)} />
+    </Icon>
   );
 };
 
