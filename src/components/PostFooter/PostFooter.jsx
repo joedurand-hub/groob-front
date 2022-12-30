@@ -20,7 +20,6 @@ const PostFooter = ({
   descripcion,
   picUrl,
 }) => {
-
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
 
@@ -47,7 +46,6 @@ const PostFooter = ({
           <div style={{display: "flex"}}>
 
           <Like id={id} likes={likes} liked={liked} myId={myId}/>
-          <p><strong>{likes > 0 && likes}</strong></p>
           </div>
           {explicit === false && price > 0 && (
             <Icon>

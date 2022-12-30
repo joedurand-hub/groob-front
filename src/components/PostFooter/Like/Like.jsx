@@ -8,57 +8,73 @@ import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { ENDPOINT } from "../../../helpers/constants";
 
-const Like = ({ id, myId, liked }) => {
-  const token = getCookie("authtoken")
-  const router = useRouter()
-  const {theme} = useContext(ThemeContext)
-  const { data, sendData } = useAuthPost();
-  const [click, setClick] = useState(false)
+const Like = ({ id, myId, liked, likes }) => {
+  const [newLike, setNewLike] = useState(likes);
+  const token = getCookie("authtoken");
+  const router = useRouter();
+  const { theme } = useContext(ThemeContext);
+  const { sendData } = useAuthPost();
+
+  const [click, setClick] = useState(false);
   const handleLike = async () => {
     sendData({
-      endpoint: `${ENDPOINT}}/like/${id}`,
+      endpoint: `${ENDPOINT}/like/${id}`,
     });
   };
-
   const handleDislike = async () => {
     sendData({
       endpoint: `${ENDPOINT}/dislike/${id}`,
     });
   };
-  
+
   const myIdInTheLikes = liked?.find((id) => {
     if (myId === id) {
       return id;
     }
   });
-  
 
   if (myIdInTheLikes || click === true) {
     return (
-      <Icon>
-        <FaHeart
-          className={theme ? `${styles.liked} ` : `${styles.liked} `}
-          onClick={() => {
-            setClick(false)
-            handleDislike();
-          }}
-        />
-      </Icon>
+      <>
+        <Icon>
+          <FaHeart
+            className={theme ? `${styles.liked} ` : `${styles.liked} `}
+            onClick={() => {
+              setNewLike(newLike - 1);
+              setClick(false);
+              handleDislike();
+            }}
+          />
+        </Icon>
+        <p>
+          <strong>{newLike > 0 && newLike}</strong>
+        </p>
+      </>
     );
-  } else if(click === false) {
+  } else if (click === false) {
     return (
-      <Icon>
-        <FaRegHeart
-          className={theme ? `${styles.like}${styles.light} ` : `${styles.like} ${styles.dark}`}
-          onClick={() => {
-            if(token === undefined) {
-               router.push("/register")
+      <>
+        <Icon>
+          <FaRegHeart
+            className={
+              theme
+                ? `${styles.like}${styles.light} `
+                : `${styles.like} ${styles.dark}`
             }
-            setClick(true)
-            handleLike();
-          }}
-        />
-      </Icon>
+            onClick={() => {
+              if (token === undefined) {
+                router.push("/register");
+              }
+              setNewLike(newLike + 1);
+              setClick(true);
+              handleLike();
+            }}
+          />
+        </Icon>
+        <p>
+          <strong>{newLike > 0 && newLike}</strong>
+        </p>
+      </>
     );
   }
 };
