@@ -21,8 +21,8 @@ import Post from "../../components/Post/Post";
 import Video from "../../components/Video/Video";
 
 const Feed = ({ posts }) => {
-  const res = inactivityTime(posts?.myId);
-  console.log(res);
+  // const res = inactivityTime(posts?.myId);
+  // console.log(res);
   const postsData = [...new Set(posts.data?.map((post) => post._id))].map(
     (id) => posts.data?.find((post) => post._id === id) // elimino posibles duplicados
   );
