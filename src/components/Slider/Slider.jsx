@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import styles from "./slider.module.css";
-import Image from "next/image";
+import MyImage from "../Image/MyImage"
+// import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { buildUrl } from "cloudinary-build-url";
 import BlurredImage from "../BlurredImage/BlurredImage";
@@ -71,13 +72,11 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
               >
                 <BlurredImage></BlurredImage>
                 {currentIndex === index && (
-                  <Image
+                  <MyImage
                     key={index}
                     src={imageBlurred}
                     alt="Image"
-                    width={500}
-                    height={500}
-                    objectFit="cover"
+                    // objectFit="cover"
                   />
                 )}
               </div>
@@ -124,14 +123,12 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                 }
               >
                 {currentIndex === index && (
-                  <Image
+                  <MyImage
                     key={index}
                     src={image.secure_url}
                     alt="Image"
-                    width={500}
-                    height={500}
-                    quality={85}
-                    objectFit="cover"
+                    // quality={85}
+                    // objectFit="cover"
                   />
                 )}
               </div>

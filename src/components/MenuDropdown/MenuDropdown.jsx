@@ -46,7 +46,7 @@ const Menu = ({ valueSwitch, id }) => {
           <MenuItem>
             <Anchor
               path={`https://auth.mercadopago.com/authorization?client_id=6604225923180824&response_type=code&platform_id=mp&state=${id}&redirect_uri=${process.env.NEXT_PUBLIC_API_ENDPOINT_PRODUCTION}/mp-connect`}
-              name="Activar Mercado Pago"
+              name="Asociar Mercado Pago"
               variant="intermediate"
             />
             <div className={styles.row}>{">"}</div>

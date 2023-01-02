@@ -74,7 +74,7 @@ const StreamingComponent = () => {
     <div className="streaming-container">
       <video src={stream} autoPlay playsInline />
       <div className="controls-container">
-        <button onClick={startStreaming}>Start Streaming</button>
+        <button onClick={liveStreaming}>Start Streaming</button>
         <button onClick={stopStreaming}>Stop Streaming</button>
         <button onClick={uploadStream}>Upload Video</button>
       </div>

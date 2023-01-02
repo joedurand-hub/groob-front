@@ -1,5 +1,3 @@
-import { useContext, useEffect, useState, useMemo } from "react";
-import dynamic from "next/dynamic";
 import Layout from "../components/Layout/Layout";
 import Icon from "../components/Icon/Icon";
 import Nav from "../components/Nav/Nav";

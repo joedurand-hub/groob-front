@@ -211,7 +211,7 @@ const CreatePost = ({ closeModal, myId, mpAsociated }) => {
         {files.length > 0 && !mpAsociated && (
           <p className={styles.message_MP}>
             *Si deseas realizar una venta primero tenés que asociar tu cuenta de
-            Mercado Pago.
+            Mercado Pago en el menú.
           </p>
         )}
       </form>
