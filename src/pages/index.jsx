@@ -66,8 +66,8 @@ export async function getServerSideProps({ req, res }) {
   try {
     const response = await fetch(
       process.env.NEXT_PUBLIC_REACT_ENV === "development"
-        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/surfing`
-        : `${process.env.API_ENDPOINT_PRODUCTION}/surfing`
+        ? `http://localhost:8080/surfing`
+        : `https://groob-back.onrender.com/surfing`
     );
     const posts = await response.json();
     return {

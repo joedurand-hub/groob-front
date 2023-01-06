@@ -102,8 +102,8 @@ export async function getServerSideProps({ req, res }) {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
       process.env.NEXT_PUBLIC_REACT_ENV === "development"
-        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/discover`
-        : `${process.env.API_ENDPOINT_PRODUCTION}/discover`,
+        ? `http://localhost:8080/discover`
+        : `https://groob-back.onrender.com/discover`,
       {
         method: "GET",
         headers: {

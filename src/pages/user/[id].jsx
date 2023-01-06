@@ -95,8 +95,8 @@ export async function getServerSideProps({ req, res, query }) {
     const { id } = query;
     const response = await fetch(
       process.env.NEXT_PUBLIC_REACT_ENV === "development"
-        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/profile/${id}`
-        : `${process.env.API_ENDPOINT_PRODUCTION}/profile/${id}`,
+        ? `http://localhost:8080/profile/${id}`
+        : `https://groob-back.onrender.com/profile/${id}`,
       {
         headers: {
           authtoken: token,

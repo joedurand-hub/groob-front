@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState, useMemo } from "react";
-import dynamic from "next/dynamic";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import Icon from "../../components/Icon/Icon";
 import Nav from "../../components/Nav/Nav";
@@ -172,8 +171,8 @@ export async function getServerSideProps({ req, res }) {
 
     const response = await fetch(
       process.env.NEXT_PUBLIC_REACT_ENV === "development"
-        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/posts`
-        : `${process.env.API_ENDPOINT_PRODUCTION}/posts`,
+        ? `http://localhost:8080/posts`
+        : `https://groob-back.onrender.com/posts`,
       {
         method: "GET",
         headers: {

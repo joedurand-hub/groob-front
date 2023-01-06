@@ -23,8 +23,8 @@ export async function getServerSideProps({ req, res }) {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
       process.env.NEXT_PUBLIC_REACT_ENV === "development"
-        ? `${process.env.API_ENDPOINT_DEVELOPMENT}/followings`
-        : `${process.env.API_ENDPOINT_PRODUCTION}/followings`,
+        ? `/followings`
+        : `https://groob-back.onrender.com/followings`,
       {
         headers: {
           authtoken: token,

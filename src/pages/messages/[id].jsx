@@ -129,7 +129,7 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `${process.env.API_ENDPOINT_DEVELOPMENT}/chat/${id}` : `${process.env.API_ENDPOINT_PRODUCTION}/chat/${id}`,
+      process.env.NEXT_PUBLIC_REACT_ENV === "development" ? `http://localhost:8080/chat/${id}` : `https://groob-back.onrender.com/chat/${id}`,
       {
         headers: {
           authtoken: token,

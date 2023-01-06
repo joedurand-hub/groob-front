@@ -45,7 +45,7 @@ const Menu = ({ valueSwitch, id }) => {
         <Link href="/feed" passHref>
           <MenuItem>
             <Anchor
-              path={`https://auth.mercadopago.com/authorization?client_id=6604225923180824&response_type=code&platform_id=mp&state=${id}&redirect_uri=${process.env.NEXT_PUBLIC_API_ENDPOINT_PRODUCTION}/mp-connect`}
+              path={`https://auth.mercadopago.com/authorization?client_id=6604225923180824&response_type=code&platform_id=mp&state=${id}&redirect_uri=https://groob-back.onrender.com/mp-connect`}
               name="Asociar Mercado Pago"
               variant="intermediate"
             />
