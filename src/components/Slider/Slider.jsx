@@ -72,11 +72,13 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
               >
                 <BlurredImage></BlurredImage>
                 {currentIndex === index && (
-                  <MyImage
+                  <Image
                     key={index}
                     src={imageBlurred}
                     alt="Image"
-                    // objectFit="cover"
+                    width={500}
+                    height={500}
+                    objectFit="cover"
                   />
                 )}
               </div>
@@ -124,11 +126,13 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
               >
                 {currentIndex === index && (
                   <MyImage
-                    key={index}
-                    src={image.secure_url}
-                    alt="Image"
-                    // quality={85}
-                    // objectFit="cover"
+                  key={index}
+                  src={image.secure_url}
+                  alt="Image"
+                  width={500}
+                  height={500}
+                  quality={85}
+                  objectFit="cover"
                   />
                 )}
               </div>
