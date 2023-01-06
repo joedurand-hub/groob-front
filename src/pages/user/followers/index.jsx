@@ -17,11 +17,7 @@ export default Followers;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const response = await fetch(
-      process.env.NEXT_PUBLIC_REACT_ENV === "development"
-        ? `http://localhost:8080/followers`
-        : `https://groob-back.onrender.com/followers`
-    );
+    const response = await fetch(`http://localhost:8080/followers` || `https://groob-back.onrender.com/followers`);
     const data = await response.json();
     return {
       props: {
