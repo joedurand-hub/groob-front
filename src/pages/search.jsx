@@ -1,5 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { useModal } from "../hooks/useModal";
+import { ENDPOINT } from "../helpers/constants";
+import { BiHome } from "react-icons/bi";
+import { BiUser, BiChat } from "react-icons/bi";
+import { MdOutlineNotificationsNone, MdExplore } from "react-icons/md";
+import { getCookie } from "cookies-next";
 import axios from "axios";
 import Layout from "../components/Layout/Layout";
 import Icon from "../components/Icon/Icon";
@@ -8,11 +14,6 @@ import CreatePost from "../components/CreatePost/CreatePost";
 import Discover from "../components/Discover/Discover";
 import NavItem from "../components/NavItem/NavItem";
 import Modal from "../components/Modal/Modal";
-import { useModal } from "../hooks/useModal";
-import { BiHome } from "react-icons/bi";
-import { BiUser, BiChat } from "react-icons/bi";
-import { getCookie } from "cookies-next";
-import { MdOutlineNotificationsNone, MdExplore } from "react-icons/md";
 import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
 import SearchUser from "../components/SearchUser/SearchUser";
 import Container from "../components/SearchUser/Container/Container";
@@ -101,7 +102,7 @@ export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
-       `http://localhost:8080/discover` || `https://groob-back.onrender.com/discover`,
+       `${ENDPOINT}/discover`,
       {
         method: "GET",
         headers: {

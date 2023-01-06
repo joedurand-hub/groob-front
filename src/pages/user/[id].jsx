@@ -1,5 +1,14 @@
 import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
+import { useModal } from "../../hooks/useModal";
+import { BiHome } from "react-icons/bi";
+import { IoMenu } from "react-icons/io5";
+import { RiVipDiamondFill } from "react-icons/ri";
+import { BsFileEarmarkPost } from "react-icons/bs";
+import { BiChat } from "react-icons/bi";
+import { MdOutlineExplore } from "react-icons/md"
+import { FaUser } from "react-icons/fa";
+import { ENDPOINT } from "../../helpers/constants";
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/ProfileById/ProfileById";
 import Publications from "../../components/ProfileById/Publications/Publications";
@@ -10,14 +19,6 @@ import Menu from "../../components/MenuDropdown/MenuDropdown";
 import Icon from "../../components/Icon/Icon";
 import Modal from "../../components/Modal/Modal";
 import CreatePost from "../../components/CreatePost/CreatePost";
-import { useModal } from "../../hooks/useModal";
-import { BiHome } from "react-icons/bi";
-import { IoMenu } from "react-icons/io5";
-import { RiVipDiamondFill } from "react-icons/ri";
-import { BsFileEarmarkPost } from "react-icons/bs";
-import { BiChat } from "react-icons/bi";
-import {MdOutlineExplore} from "react-icons/md"
-import { FaUser } from "react-icons/fa";
 import Tab from "../../components/Tab/Tab";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 
@@ -94,7 +95,7 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      `http://localhost:8080/profile/${id}` || `https://groob-back.onrender.com/profile/${id}`,
+      `${ENDPOINT}/profile/${id}`,
       {
         headers: {
           authtoken: token,

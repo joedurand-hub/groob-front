@@ -1,5 +1,15 @@
 import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
+import { ENDPOINT } from "../../helpers/constants";
+import { useModal } from "../../hooks/useModal";
+import { inactivityTime } from "../../helpers/inactivityTime";
+import { IoMenu, IoBagCheck } from "react-icons/io5";
+import { BiHome } from "react-icons/bi";
+import { BiChat } from "react-icons/bi";
+import { MdOutlineExplore } from "react-icons/md"
+import { FaUser } from "react-icons/fa";
+import { RiVipDiamondFill } from "react-icons/ri";
+import { BsFileEarmarkPost } from "react-icons/bs";
 import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/Profile/Profile";
 import Nav from "../../components/Nav/Nav";
@@ -8,16 +18,7 @@ import Publications from "../../components/Profile/Publications/Publications";
 import Menu from "../../components/MenuDropdown/MenuDropdown";
 import Icon from "../../components/Icon/Icon";
 import Modal from "../../components/Modal/Modal";
-import { useModal } from "../../hooks/useModal";
-import { inactivityTime } from "../../helpers/inactivityTime";
 import CreatePost from "../../components/CreatePost/CreatePost";
-import { IoMenu, IoBagCheck } from "react-icons/io5";
-import { BiHome } from "react-icons/bi";
-import { BiChat } from "react-icons/bi";
-import {MdOutlineExplore} from "react-icons/md"
-import { FaUser } from "react-icons/fa";
-import { RiVipDiamondFill } from "react-icons/ri";
-import { BsFileEarmarkPost } from "react-icons/bs";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 import Purchases from "../../components/Purchases/Purchases";
 import Products from "../../components/Products/Products";
@@ -121,7 +122,7 @@ export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const response = await fetch(
-       `http://localhost:8080/profile` || `https://groob-back.onrender.com/profile`,
+      `${ENDPOINT}/profile`,
       {
         headers: {
           authtoken: token,
@@ -136,6 +137,9 @@ export async function getServerSideProps({ req, res }) {
       },
     };
   } catch (error) {
-    console.table(error);
+    console.error(error);
+    return {
+      props: {},
+    };
   }
 }

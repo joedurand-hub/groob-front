@@ -8,6 +8,7 @@ import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone, MdOutlineExplore } from "react-icons/md";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
+import { ENDPOINT } from "../helpers/constants";
 
 const Feed = ({ posts }) => {
   const token = getCookie("authtoken");
@@ -64,8 +65,7 @@ export default Feed;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const response = await fetch(
-       `http://localhost:8080/surfing` || `https://groob-back.onrender.com/surfing`
+    const response = await fetch(`${ENDPOINT}/surfing`,
     );
     const posts = await response.json();
     return {

@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { getCookie } from "cookies-next";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { ENDPOINT } from "../../helpers/constants";
 import PostById from "../../components/PostById/PostById";
 import GoBack from "../../components/GoBack/Back";
-import { ThemeContext } from "../../contexts/ThemeContext";
 
 const Index = ({ data }) => {
   const token = getCookie("authtoken");
@@ -33,8 +34,7 @@ export async function getServerSideProps({ req, res, query }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
-    const response = await fetch(
-      `http://localhost:8080/post/${id}` || `https://groob-back.onrender.com/post/${id}`,
+    const response = await fetch(`${ENDPOINT}/post/${id}`,
       {
         headers: {
           authtoken: token,

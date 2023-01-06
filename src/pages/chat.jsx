@@ -10,8 +10,8 @@ import GoBack from "../../components/GoBack/Back";
 import Conversation from "../../components/Conversation/Conversation";
 import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
-const Messages = ({ datas }) => {
-  console.log(datas)
+const Chat = ({ datas }) => {
+    console.log(datas)
   const res = inactivityTime(datas?.myId)
   console.log(res)
   const token = getCookie("authtoken");
@@ -113,29 +113,23 @@ const Messages = ({ datas }) => {
             />
           </div>
         ))}
-      {datas.myRole === "user" && (
-        <h6 style={{position: "fixed", bottom: "0", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "5px"}}>Solo los admin pueden escribir en este chat</h6>
-        )}
       </Conversation>
-      {datas.myRole === "admin" && (
       <CreateMessage
-        role={datas.myRole}
         newMessage={newMessage}
         handleSendMessage={handleSendMessage}
         handleMessage={handleMessage}
         placeholder="Escribe un mensaje"
       />
-        )}
     </>
   );
 };
-export default Messages;
+export default Chat;
 
 export async function getServerSideProps({ req, res, query }) {
   try {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
-    const response = await fetch(`${ENDPOINT}/chat/${id}`,
+    const response = await fetch(`http://localhost:8080/chat/${id}` || `https://groob-back.onrender.com/chat/${id}`,
       {
         headers: {
           authtoken: token,
