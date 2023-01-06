@@ -124,7 +124,7 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                 }
               >
                 {currentIndex === index && (
-                  <MyImage
+                  <Image
                   key={index}
                   src={image.secure_url}
                   alt="Image"
