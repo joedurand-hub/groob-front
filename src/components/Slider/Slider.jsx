@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import styles from "./slider.module.css";
-import MyImage from "../Image/MyImage"
-// import Image from "next/image";
+import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { buildUrl } from "cloudinary-build-url";
 import BlurredImage from "../BlurredImage/BlurredImage";
