@@ -170,9 +170,7 @@ export async function getServerSideProps({ req, res }) {
     });
 
     const response = await fetch(
-      process.env.NEXT_PUBLIC_REACT_ENV === "development"
-        ? `http://localhost:8080/posts`
-        : `https://groob-back.onrender.com/posts`,
+         `http://localhost:8080/posts` || `https://groob-back.onrender.com/posts`,
       {
         method: "GET",
         headers: {
