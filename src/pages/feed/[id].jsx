@@ -34,9 +34,7 @@ export async function getServerSideProps({ req, res, query }) {
     const token = getCookie("authtoken", { req, res });
     const { id } = query;
     const response = await fetch(
-      process.env.NEXT_PUBLIC_REACT_ENV === "development"
-        ? `http://localhost:8080/post/${id}`
-        : `https://groob-back.onrender.com/post/${id}`,
+      `http://localhost:8080/post/${id}` || `https://groob-back.onrender.com/post/${id}`,
       {
         headers: {
           authtoken: token,
