@@ -24,7 +24,7 @@ function Terms() {
       </ul>
       <p>Si viola estas garantías y declaraciones, Groob puede cancelar su acceso al sitio web y tomar cualquier otra medida que considere necesaria.</p>
       <h2>Exclusión de garantías</h2>
-      <p>Este sitio web se proporciona "tal cual" sin ninguna garantía de ningún tipo. Groob no garantiza que el sitio web esté disponible en todo momento o que esté libre de errores. Groob no será responsable de cualquier daño o pérdida causada por el uso de este sitio web, incluyendo daños indirectos o consecuentes.</p>
+      <p>Este sitio web se proporciona tal cual sin ninguna garantía de ningún tipo. Groob no garantiza que el sitio web esté disponible en todo momento o que esté libre de errores. Groob no será responsable de cualquier daño o pérdida causada por el uso de este sitio web, incluyendo daños indirectos o consecuentes.</p>
       <h2>Limitación de responsabilidad</h2>
       <p>En la medida máxima permitida por la ley, Groob no será responsable de ningún daño o pérdida causado por el uso de este sitio web, incluyendo daños indirectos o consecuentes.</p>
       <h2>Cambios a los términos y condiciones</h2>
