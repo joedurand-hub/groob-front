@@ -217,8 +217,12 @@ export const SignUp = () => {
             Al registrarte aceptas nuestros{" "}
             <Anchor
               variant="small"
-              name="Términos y Condiciones."
+              name="Términos y Condiciones"
               path="/terms"
+            /> y <Anchor 
+            variant="small"
+            name="Política de Privacidad."
+            path="/policy"
             />
           </p>
         </section>

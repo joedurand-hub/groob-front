@@ -5,12 +5,12 @@ import { useRouter } from "next/router";
 
 const usePut = () => {
   const token = getCookie("authtoken")
-  const router = useRouter()
-  useEffect(() => {
-    if(token === undefined) {
-      router.push("/register");
-    }
-  }, [token])
+  // const router = useRouter()
+  // useEffect(() => {
+  //   if (token === undefined) {
+  //     router.push("/register");
+  //   }
+  // }, [token])
 
   const [putData, setPutData] = useState({
     info: undefined,
@@ -18,27 +18,31 @@ const usePut = () => {
     error: undefined,
   });
 
-  const sendUpdatedData = async ({endpoint, putData}) => {  
+  const sendUpdatedData = async ({ endpoint, putData, query }) => {
+    console.log(query)
     setPutData({
       info: undefined,
       pending: true,
       error: undefined,
     });
     return axios.put(`${endpoint}`, putData, {
-      headers: { 
-        "authToken": token 
-      }})
-    .then((response) => {
-        setPutData({ 
-          info: response.data, 
-          pending: false, 
-          error: undefined });
+      headers: {
+        "authtoken": query ? query : token
+      }
+    })
+      .then((response) => {
+        setPutData({
+          info: response.data,
+          pending: false,
+          error: undefined
+        });
       })
       .catch((error) => {
-        setPutData({ 
-          info: undefined, 
-          pending: false, 
-          error: error.message });
+        setPutData({
+          info: undefined,
+          pending: false,
+          error: error.message
+        });
       });
   };
 

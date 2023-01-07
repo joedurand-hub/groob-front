@@ -42,15 +42,19 @@ const ForgotPassword = () => {
                         </p>
                     )}
                     {pending ? (
-                        <Loader />
+                        <div className={styles.container_send_email}>
+                            <Loader/>
+                        </div>
+
                     ) : (
                         <div className={styles.container_send_email}>
-                            <Button name="Enviar" type="submit" variant="primary" onClick={handleForgotPassword}/>
+                            <Button name="Enviar" type="submit" variant="primary" onClick={handleForgotPassword} />
                         </div>
                     )}
                 </form>
-            )}
-        </div>
+            )
+            }
+        </div >
     )
 }
 
