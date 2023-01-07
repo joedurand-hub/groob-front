@@ -13,15 +13,14 @@ import Loader from "../Loader/Loader";
 import { ENDPOINT } from "../../helpers/constants";
 import { useRouter } from "next/router";
 import { setCookie, getCookie } from "cookies-next";
+import ForgotPassword from "../ForgotPassword/ForgotPassword";
 
 export const SignIn = () => {
-  
+
   const URL = `${ENDPOINT}/login`;
-  const [handlePassword, setHandlePassword] = useState(false);
   const { theme } = useContext(ThemeContext);
   const { data, pending, error, sendData } = usePost();
   const router = useRouter();
-  const token = getCookie("authtoken");
   const {
     register,
     handleSubmit,
@@ -48,20 +47,10 @@ export const SignIn = () => {
     }
   };
 
-  const handleNewPassword = () => {
-    setHandlePassword(!handlePassword);
-  };
-
   useEffect(() => {
     if (data && data.message === "Success") {
       const token = data.token;
       setCookie("authtoken", token);
-      router.push("/feed");
-    }
-    if (token) {
-      toast("Hola de nuevo!", {
-        duration: 1200,
-      });
       router.push("/feed");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -177,15 +166,7 @@ export const SignIn = () => {
           })}
         <Toaster />
       </form>
-      <div className={styles.container_reset_password}>
-        <button className={styles.button_reset_password} onClick={handleNewPassword}>¿Olvidaste tu contraseña?</button>
-        {handlePassword && (
-        <form>
-          <input type="text" placeholder="Escriba su email" />
-          <button >Enviar</button>
-        </form>
-        )}
-      </div>
+      <ForgotPassword />
     </div>
   );
 };

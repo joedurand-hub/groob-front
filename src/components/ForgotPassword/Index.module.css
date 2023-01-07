@@ -1,0 +1,53 @@
+.container_reset_password {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+    gap: 20px;
+}
+
+.container_send_email {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.button_reset_password {
+    background: transparent;
+    border: none;
+    color: rgb(159, 29, 240)
+}
+
+.button_reset_password:hover {
+    cursor: pointer;
+}
+
+.button_reset_password:focus {
+    color: rgb(141, 11, 222)
+
+}
+
+.form_text_input_error {
+    transition: all 0.5s linear;
+    text-align: left;
+    word-wrap: break-word;
+    padding-right: 5px;
+    max-width: 250px;
+    width: 100%;
+    font-size: 13px;
+    margin: 5px;
+    color: #e92121e1;
+    display: block;
+}
+
+.form_text_input_success {
+    transition: all 0.5s linear;
+    text-align: left;
+    word-wrap: break-word;
+    padding-right: 5px;
+    max-width: 250px;
+    width: 100%;
+    font-size: 13px;
+    margin: 5px;
+    color: #0ed92ce1;
+    display: block;
+}
