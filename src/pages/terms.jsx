@@ -37,12 +37,10 @@ function Terms() {
       <p>Groob se reserva el derecho de implementar dinero propio dentro de la plataforma, incluyendo dinero fiat electrónico y/o criptomonedas, juntos o de manera independiente, en cualquier momento y en cualquier sección. Todas las transacciones deben realizarse a través de Mercado Pago o del otro procesador de pagos utilizado y aceptado en nuestro sitio web.</p>
       <h2>Contacto</h2>
       <p>Si tiene alguna pregunta o comentario sobre estos términos y condiciones, no dude en ponerse en contacto con nosotros a través de nuestro formulario de contacto en el sitio web o a través de nuestro correo electrónico.</p>
-
       <footer style={{ display: "flex", margin: "10px", alignItems: "center", justifyContent: "center" }}>
-
         <Button
-          variant="login"
-          name="Aceptar"
+          variant={"login"}
+          name={"Aceptar"}
           onClick={() => {
             router.push("/");
           }}
