@@ -4,15 +4,9 @@ import { ThemeContext } from "../../../contexts/ThemeContext";
 import { URL } from "../../../helpers/constants";
 import Link from "next/link";
 import Image from "next/image";
-import MoreOptions from "../../MoreOptions/MoreOptions";
 import timeago from "../../../helpers/timeago";
-import Comments from "../../Comments/Comments";
-import DeletePost from "../../DeletePost/DeletePost";
 import SliderToBuyers from "../../SliderToBuyers/SliderToBuyers";
 import GoVerified from "../../GoVerified/Verified";
-import PostFooter from "../../PostFooter/PostFooter";
-import Share from "../../PostFooter/Share/Share";
-import CreatePreference from "../../CreatePreference/CreatePreference";
 
 const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => {
   const { theme } = useContext(ThemeContext);
@@ -26,10 +20,8 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
             price,
             images,
             createdAt,
-            comments,
             userVerified,
             explicitContent,
-            likes,
             buyers,
             userName,
             profilePicture,

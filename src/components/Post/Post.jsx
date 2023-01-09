@@ -34,7 +34,6 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
             explicitContent,
             likes,
             liked,
-            buyers,
             userName,
             profilePicture,
             user,

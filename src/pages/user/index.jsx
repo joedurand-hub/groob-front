@@ -2,10 +2,8 @@ import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import { ENDPOINT } from "../../helpers/constants";
 import { useModal } from "../../hooks/useModal";
-import { inactivityTime } from "../../helpers/inactivityTime";
 import { IoMenu, IoBagCheck } from "react-icons/io5";
-import { BiHome } from "react-icons/bi";
-import { BiChat } from "react-icons/bi";
+import { BiHome, BiChat, BiHeart } from "react-icons/bi";
 import { MdOutlineExplore } from "react-icons/md"
 import { FaUser } from "react-icons/fa";
 import { RiVipDiamondFill } from "react-icons/ri";
@@ -18,6 +16,7 @@ import Publications from "../../components/Profile/Publications/Publications";
 import Menu from "../../components/MenuDropdown/MenuDropdown";
 import Icon from "../../components/Icon/Icon";
 import Modal from "../../components/Modal/Modal";
+import Favourites from "../../components/Favourites/Favourites";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 import Purchases from "../../components/Purchases/Purchases";
@@ -25,9 +24,6 @@ import Products from "../../components/Products/Products";
 import Tab from "../../components/Tab/Tab";
 
 const User = ({ data }) => {
-  const res = inactivityTime(data?.myId);
-  console.log(res);
-  console.log(data);
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
@@ -79,36 +75,49 @@ const User = ({ data }) => {
           <>
             <Profile data={data} />
             <div style={{ display: "flex", marginTop: "10px", gap: "20px" }}>
-              {data?.publications.length > 0 && (
+              {(
                 <Tab text=" Posts ">
                   <BsFileEarmarkPost onClick={() => setTab("publications")} />
                 </Tab>
               )}
-              {data?.mpAccountAsociated && (
+              { (
                 <Tab text="Exclusivos">
                   <RiVipDiamondFill onClick={() => setTab("products")} />
                 </Tab>
               )}
-              {data?.purchases.length > 0 && (
+              {(
                 <Tab text="Compras">
                   <IoBagCheck onClick={() => setTab("purchases")} />
                 </Tab>
               )}
+                            {(
+                <Tab text="Favoritos">
+                  <BiHeart onClick={() => setTab("favourites")} />
+                </Tab>
+              )}
             </div>
-            {tab === "publications" && <Publications id={data?._id} />}
-            {tab === "products" && (
-              <Products
-                myId={data?._id}
-                myUserExplicitContent={data?.explicitContent}
-              />
-            )}
-            {tab === "purchases" && (
-              <Purchases
-                myId={data?._id}
-                publicationsPurchases={data?.purchases}
-                myUserExplicitContent={data?.explicitContent}
-              />
-            )}
+            <>
+              {tab === "publications" && (
+                <Publications id={data?._id} />
+              )}
+
+              {tab === "products" && (
+                <Products
+                  myId={data?._id}
+                  myUserExplicitContent={data?.explicitContent}
+                />
+              )}
+              {tab === "purchases" && (
+                <Purchases
+                  myId={data?._id}
+                  publicationsPurchases={data?.purchases}
+                  myUserExplicitContent={data?.explicitContent}
+                />
+              )}
+              {tab === "favourites" && (
+                <Favourites/>
+                )}
+            </>
           </>
         )}
       </Layout>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import { useModal } from "../../hooks/useModal";
-import { BiHome } from "react-icons/bi";
+import { BiHeart, BiHome } from "react-icons/bi";
 import { IoMenu } from "react-icons/io5";
 import { RiVipDiamondFill } from "react-icons/ri";
 import { BsFileEarmarkPost } from "react-icons/bs";
@@ -13,6 +13,7 @@ import Layout from "../../components/Layout/Layout";
 import Profile from "../../components/ProfileById/ProfileById";
 import Publications from "../../components/ProfileById/Publications/Publications";
 import Products from "../../components/ProfileById/Products/Products";
+import Favourites from "../../components/Favourites/Favourites";
 import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
 import Menu from "../../components/MenuDropdown/MenuDropdown";
@@ -66,22 +67,28 @@ const ProfileById = ({ data }) => {
       ) : (
         <>
           <Profile data={data?.profileData} id={data?.myId} />
-          <div style={{ display: "flex", marginTop: "10px", gap: "75px" }}>
-            {data?.profileData?.mpAccountAsociated && (
+          <div style={{ display: "flex", marginTop: "10px", gap: "20px" }}>
+            {(
+              <>
               <Tab text="Posts">
                 <BsFileEarmarkPost onClick={() => setTab("publications")} />
               </Tab>
-            )}
-            {data?.profileData?.mpAccountAsociated && (
+         
               <Tab text="Exclusivos">
                 <RiVipDiamondFill onClick={() => setTab("products")} />
               </Tab>
+           
+              <Tab text="Favoritos">
+                <BiHeart onClick={() => setTab("favourites")} />
+              </Tab>
+              </>
             )}
           </div>
           {tab === "publications" && (
             <Publications userId={data?.profileData._id} myId={data?.myId} />
           )}
           {tab === "products" && <Products myId={data?.profileData._id} />}
+          {tab === "favourites" && <Favourites/>}
         </>
       )}
     </Layout>
