@@ -18,13 +18,3 @@ export const useWebNotifications = (title, options) => {
     }
   }, [title, options]);
 }
-
-// import { useWebNotifications } from './useWebNotifications';
-
-// function MyComponent() {
-//   useWebNotifications('Nueva notificación', {
-//     body: 'Hola, hay una nueva notificación para ti',
-//   });
-
-//   return <div>Notificaciones habilitadas</div>;
-// }
