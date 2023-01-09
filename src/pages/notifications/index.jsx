@@ -16,7 +16,6 @@ const Index = () => {
   useWebNotifications('Nueva notificación', {
     body: 'Hola, probando noti jeje',
   });
-  console.log(notis)
   return (
     <div>
       Notificaciones habilitadas
