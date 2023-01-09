@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import { useState, useEffect, useContext } from "react"
 import { ThemeContext, ThemeProvider } from "../contexts/ThemeContext";
 import { useRouter } from "next/router"
+import TagManager from "react-gtm-module"
 import Loader from "../components/Loader/Loader";
 
 function Loading() {
@@ -32,7 +33,10 @@ function Loading() {
 }
 
 function MyApp({ Component, pageProps }) {
-  
+    useEffect(() => {
+      TagManager.initialize({ gtmId: 'GTM-NQP87NX' })
+  }, []);
+
   return (
     <ThemeProvider>
       <Loading/>
