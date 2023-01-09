@@ -110,6 +110,9 @@ export async function getServerSideProps({ req, res, query }) {
       },
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    return {
+      props: {},
+    };
   }
 }

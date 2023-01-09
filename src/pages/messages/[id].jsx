@@ -152,6 +152,9 @@ export async function getServerSideProps({ req, res, query }) {
       },
     };
   } catch (error) {
-    console.table(error);
+    console.error(error);
+    return {
+      props: {},
+    };
   }
 }

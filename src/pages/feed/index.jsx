@@ -187,5 +187,8 @@ export async function getServerSideProps({ req, res }) {
     };
   } catch (error) {
     console.error(error);
+    return {
+      props: {},
+    };
   }
 }
