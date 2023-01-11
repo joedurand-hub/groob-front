@@ -19,6 +19,21 @@
   background: rgb(159, 29, 240)
 }
 
+.primary:hover {
+  cursor: pointer;
+  background: rgb(147, 22, 225)
+}
+
+.primary:focus {
+  border: 1px solid rgb(255, 255, 255);
+  background: rgb(147, 22, 225)
+}
+
+.primary:active {
+  border: 1px solid rgb(255, 255, 255);
+  background: rgb(147, 22, 225)
+}
+
 .rounded {
   color: #ffff;
   background: rgb(159, 29, 240);
@@ -46,20 +61,6 @@
   background: rgb(147, 22, 225)
 }
 
-.primary:hover {
-  cursor: pointer;
-  background: rgb(147, 22, 225)
-}
-
-.primary:focus {
-  border: 1px solid rgb(255, 255, 255);
-  background: rgb(147, 22, 225)
-}
-
-.primary:active {
-  border: 1px solid rgb(255, 255, 255);
-  background: rgb(147, 22, 225)
-}
 
 .secondary_light {
   color: rgb(52, 52, 52);

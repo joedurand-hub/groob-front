@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { BsChat } from "react-icons/bs"
 import styles from "./postFooter.module.css";
 import Like from "./Like/Like";
 import Icon from "../PostIcons/Icon";
 import Buy from "./Buy/Buy";
 import PostComment from "../PostComment/PostComment";
-import { BsChat } from "react-icons/bs"
+
 const PostFooter = ({
   postToShare,
   explicit,

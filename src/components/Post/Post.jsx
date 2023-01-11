@@ -70,7 +70,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                       passHref
                     >
                       <div>
-                        <a className={styles.user_name}>{userName}</a>{" "}
+                        <a className={styles.user_name} rel="noopener noreferrer">{userName}</a>{" "}
                         {userVerified && <GoVerified />}
                         <p className={styles.user_crate_date}>
                           {timeago(createdAt)}

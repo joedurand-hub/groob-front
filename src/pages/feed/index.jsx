@@ -1,23 +1,26 @@
 import { useContext, useEffect, useState } from "react";
+import { setCookie, getCookie, deleteCookie } from "cookies-next";
+import { useModal } from "../../hooks/useModal";
+import { TiHome } from "react-icons/ti";
+import { BiUser, BiChat } from "react-icons/bi";
+import { MdOutlineExplore } from "react-icons/md";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { ENDPOINT } from "../../helpers/constants";
+import { useRouter } from "next/router";
 import Layout from "../../components/Layout/Layout";
 import Icon from "../../components/Icon/Icon";
 import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
 import Modal from "../../components/Modal/Modal";
-import { useModal } from "../../hooks/useModal";
 import CreatePost from "../../components/CreatePost/CreatePost";
-import { setCookie, getCookie, deleteCookie } from "cookies-next";
-import { TiHome } from "react-icons/ti";
 import axios from "axios";
-import { BiUser, BiChat } from "react-icons/bi";
-import { MdOutlineNotificationsNone, MdOutlineExplore } from "react-icons/md";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
-import { ThemeContext } from "../../contexts/ThemeContext";
 import Button from "../../components/Button/Button";
-import { ENDPOINT } from "../../helpers/constants";
 import Post from "../../components/Post/Post";
+import NotificationBubble from "../../components/NotificationBubble/NotificationBubble";
 
 const Feed = ({ posts }) => {
+  const router = useRouter()
   const postsData = [...new Set(posts.data?.map((post) => post._id))].map(
     (id) => posts.data?.find((post) => post._id === id) // elimino posibles duplicados
   );
@@ -40,11 +43,11 @@ const Feed = ({ posts }) => {
   return (
     <Layout
       menuItem={
-        <>
+        <div onClick={() => router.push("/notifications")}>
           <Icon>
-            <MdOutlineNotificationsNone />
+            <NotificationBubble />
           </Icon>
-        </>
+        </div>
       }
       nav={
         <>

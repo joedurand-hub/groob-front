@@ -1,14 +1,14 @@
-import Layout from "../components/Layout/Layout";
-import Icon from "../components/Icon/Icon";
-import Nav from "../components/Nav/Nav";
-import NavItem from "../components/NavItem/NavItem";
-import Post from "../components/Post/Post";
 import { TiHome } from "react-icons/ti";
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone, MdOutlineExplore } from "react-icons/md";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { ENDPOINT } from "../helpers/constants";
+import Layout from "../components/Layout/Layout";
+import Icon from "../components/Icon/Icon";
+import Nav from "../components/Nav/Nav";
+import NavItem from "../components/NavItem/NavItem";
+import Post from "../components/Post/Post";
 
 const Feed = ({ posts }) => {
   const token = getCookie("authtoken");
