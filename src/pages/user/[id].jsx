@@ -24,6 +24,13 @@ import Tab from "../../components/Tab/Tab";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 
 const ProfileById = ({ data }) => {
+  const token = getCookie("authtoken")
+  useEffect(() => {
+    if (token === undefined) {
+      return router.push("/register");
+    }
+  }, []);
+  
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);

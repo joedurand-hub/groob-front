@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { ENDPOINT } from "../../helpers/constants";
@@ -7,7 +7,7 @@ import GoBack from "../../components/GoBack/Back";
 
 const Index = ({ data }) => {
   const token = getCookie("authtoken");
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext)
 
   return (
     <div

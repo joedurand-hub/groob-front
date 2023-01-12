@@ -24,6 +24,13 @@ import Products from "../../components/Products/Products";
 import Tab from "../../components/Tab/Tab";
 
 const User = ({ data }) => {
+  const token = getCookie("authtoken")
+  useEffect(() => {
+    if (token === undefined) {
+      return router.push("/login");
+    }
+  }, []);
+
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);

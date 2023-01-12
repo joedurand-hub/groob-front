@@ -31,6 +31,13 @@ const Search = ({ posts }) => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
+    if (!token) {
+      return router.push("/login");
+    }
+  }, []);
+
+  useEffect(() => {
+    
     const searchQuery = async () => {
       const { data } = await axios.get(
         `${ENDPOINT}/search?input=${query}`,
