@@ -3,44 +3,40 @@ import { io } from 'socket.io-client';
 import { ENDPOINT } from '../helpers/constants';
 
 export const useNotifications = () => {
-    const [notifications, setNotifications] = useState([]);
-
+    const [notifications, setNotifications] = useState("");
     useEffect(() => {
         const socket = io(`${ENDPOINT}`);
-
         // Escuchamos los eventos de notificación enviados por el servidor
-        socket.on('new follower', (user) => {
+        socket.on('newFollow', (event) => {
+            console.log(event)
+            setNotifications(event);
+        });
+
+        socket.on('newMessage', (event) => {
             setNotifications((prevNotifications) => [
                 ...prevNotifications,
-                { type: 'new follower', user },
+                { type: 'new message', event },
             ]);
         });
 
-        socket.on('new message', (user) => {
+        socket.on('postCommented', (event) => {
             setNotifications((prevNotifications) => [
                 ...prevNotifications,
-                { type: 'new message', user },
+                { type: 'commented on my post', event },
             ]);
         });
 
-        socket.on('commented on my post', (user) => {
+        socket.on('postLiked', (event) => {
             setNotifications((prevNotifications) => [
                 ...prevNotifications,
-                { type: 'commented on my post', user },
+                { type: 'liked my post', event },
             ]);
         });
 
-        socket.on('liked my post', (user) => {
+        socket.on('profileVisited', (event) => {
             setNotifications((prevNotifications) => [
                 ...prevNotifications,
-                { type: 'liked my post', user },
-            ]);
-        });
-        
-        socket.on('visited my profile', (user) => {
-            setNotifications((prevNotifications) => [
-                ...prevNotifications,
-                { type: 'visited my profile', user },
+                { type: 'visited my profile', event },
             ]);
         });
 
@@ -48,7 +44,7 @@ export const useNotifications = () => {
         return () => socket.disconnect();
     }, []);
 
-    return notifications;
+    return { notifications} ;
 }
 
 
@@ -62,7 +58,7 @@ export const useNotifications = () => {
 //   return (
 //     <div>
 //       {notifications.map((notification) => (
-//         <p key={notification.type}>{notification.type}: {notification.user}</p>
+//         <p key={notification.type}>{notification.type}: {notification.event}</p>
 //       ))}
 //     </div>
 //   );

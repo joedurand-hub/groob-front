@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Icon from "../Icon/Icon"
 import { MdOutlineNotificationsNone } from "react-icons/md";
+import Icon from "../Icon/Icon"
 
 function NotificationBubble({ notifications }) {
   const [bubble, setBubble] = useState(false)
@@ -9,7 +9,7 @@ function NotificationBubble({ notifications }) {
     if (notifications > 0) {
       setBubble(true)
     }
-  }, [])
+  }, [notifications])
 
   return (
     <div style={{ display: 'inline-block', position: 'relative' }}>

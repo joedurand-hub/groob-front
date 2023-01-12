@@ -8,6 +8,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { ENDPOINT } from "../../helpers/constants";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout/Layout";
+import useRequest from "../../hooks/useRequest";
 import Icon from "../../components/Icon/Icon";
 import Nav from "../../components/Nav/Nav";
 import NavItem from "../../components/NavItem/NavItem";
@@ -20,10 +21,18 @@ import Post from "../../components/Post/Post";
 import NotificationBubble from "../../components/NotificationBubble/NotificationBubble";
 
 const Feed = ({ posts }) => {
+  const { data } = useRequest(`${ENDPOINT}/notification/length`)
+  
   const router = useRouter()
-  const postsData = [...new Set(posts.data?.map((post) => post._id))].map(
-    (id) => posts.data?.find((post) => post._id === id) // elimino posibles duplicados
-  );
+  const postIds = new Set();
+  const uniquePosts = [];
+  posts.data?.forEach((post) => {
+    if (!postIds.has(post._id)) {
+      postIds.add(post._id);
+      uniquePosts.push(post);
+    }
+  });
+  const postsData = uniquePosts;
   const [active, setActive] = useState("feed");
   const [postsRecomended, setPostsRecomended] = useState([]);
   const { theme } = useContext(ThemeContext);
@@ -32,7 +41,7 @@ const Feed = ({ posts }) => {
     try {
       const getPosts = async () => {
         const { data } = await axios.get(`${ENDPOINT}/surfing`);
-        setPostsRecomended(data); 
+        setPostsRecomended(data);
       };
       getPosts();
     } catch (error) {
@@ -45,7 +54,7 @@ const Feed = ({ posts }) => {
       menuItem={
         <div onClick={() => router.push("/notifications")}>
           <Icon>
-            <NotificationBubble />
+            <NotificationBubble notifications={data}/>
           </Icon>
         </div>
       }
@@ -173,7 +182,7 @@ export async function getServerSideProps({ req, res }) {
     });
 
     const response = await fetch(
-         `${ENDPOINT}/posts`,
+      `${ENDPOINT}/posts`,
       {
         method: "GET",
         headers: {

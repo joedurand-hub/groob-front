@@ -1,18 +1,18 @@
 import { useContext, useEffect } from "react";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { useForm } from "react-hook-form";
+import { Toaster, toast } from "react-hot-toast";
 import { useRouter } from "next/router";
+import { setCookie, getCookie } from "cookies-next";
+import { ENDPOINT } from "../../helpers/constants";
 import usePost from "../../hooks/usePost";
 import Button from "../Button/Button";
 import Anchor from "../Anchor/Anchor";
 import Loader from "../Loader/Loader";
-import { ThemeContext } from "../../contexts/ThemeContext";
-import { useForm } from "react-hook-form";
-import { Toaster, toast } from "react-hot-toast";
 import styles from "./signup.module.css";
 import inputField from "../Input/input.module.css";
 import logo from "../../../public/Logo.png";
 import Image from "next/image";
-import { setCookie, getCookie } from "cookies-next";
-import { ENDPOINT } from "../../helpers/constants";
 
 export const SignUp = () => {
   const router = useRouter();

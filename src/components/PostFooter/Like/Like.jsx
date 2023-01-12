@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { ENDPOINT } from "../../../helpers/constants";
 
 const Like = ({ id, myId, liked, likes }) => {
+  console.log("postId:", id)
   const [newLike, setNewLike] = useState(likes);
   const token = getCookie("authtoken");
   const router = useRouter();
@@ -17,6 +18,12 @@ const Like = ({ id, myId, liked, likes }) => {
 
   const [click, setClick] = useState(false);
   const handleLike = async () => {
+    sendData({
+      endpoint: `${ENDPOINT}/notification`,
+      postData: {
+        postLikedId: id
+      }
+    })
     sendData({
       endpoint: `${ENDPOINT}/like/${id}`,
     });

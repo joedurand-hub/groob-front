@@ -4,6 +4,7 @@ import { MdOutlineNotificationsNone, MdOutlineExplore } from "react-icons/md";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { ENDPOINT } from "../helpers/constants";
+import { Toaster, toast } from "react-hot-toast";
 import Layout from "../components/Layout/Layout";
 import Icon from "../components/Icon/Icon";
 import Nav from "../components/Nav/Nav";
@@ -14,6 +15,9 @@ const Feed = ({ posts }) => {
   const token = getCookie("authtoken");
   const router = useRouter();
   if (token) {
+    toast("Hola de nuevo!", {
+      duration: 1200,
+    })
     router.push("/feed");
   }
 
@@ -57,6 +61,7 @@ const Feed = ({ posts }) => {
         >
           <Post data={posts} />
         </div>
+        <Toaster/>
     </Layout>
   );
 };
