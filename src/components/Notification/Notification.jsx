@@ -19,9 +19,9 @@ const Notification = ({ notifications }) => {
     return (
         <>
             {
-                notifications?.map((notification) => (
+                notifications?.map((index, notification) => (
                     <Link href={`/feed/${notification.link}`} passHref>
-                        <div className={theme ? `${styles.container_notifications} light_mode`
+                        <div key={index} className={theme ? `${styles.container_notifications} light_mode`
                             : `${styles.container_notifications} dark_mode`}
                         >
                             <Image src={notification.profilePic} width={30} height={30}
