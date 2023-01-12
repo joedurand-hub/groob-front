@@ -24,12 +24,6 @@ import Products from "../../components/Products/Products";
 import Tab from "../../components/Tab/Tab";
 
 const User = ({ data }) => {
-  const token = getCookie("authtoken")
-  useEffect(() => {
-    if (token === undefined) {
-      return router.push("/login");
-    }
-  }, []);
 
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");
@@ -137,6 +131,10 @@ export default User;
 export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
+    if (!token) {
+      res.writeHead(302, { Location: '/login' });
+      res.end();
+    }
     const response = await fetch(
       `${ENDPOINT}/profile`,
       {

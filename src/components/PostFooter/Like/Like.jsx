@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import { ENDPOINT } from "../../../helpers/constants";
 
 const Like = ({ id, myId, liked, likes }) => {
-  console.log("postId:", id)
   const [newLike, setNewLike] = useState(likes);
   const token = getCookie("authtoken");
   const router = useRouter();

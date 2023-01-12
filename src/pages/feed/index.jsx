@@ -22,7 +22,7 @@ import NotificationBubble from "../../components/NotificationBubble/Notification
 
 const Feed = ({ posts }) => {
   const { data } = useRequest(`${ENDPOINT}/notification/length`)
-  
+
   const router = useRouter()
   const postIds = new Set();
   const uniquePosts = [];
@@ -54,7 +54,7 @@ const Feed = ({ posts }) => {
       menuItem={
         <div onClick={() => router.push("/notifications")}>
           <Icon>
-            <NotificationBubble notifications={data}/>
+            <NotificationBubble notifications={data} />
           </Icon>
         </div>
       }
@@ -174,17 +174,14 @@ export default Feed;
 export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
+    if (!token) {
+      res.writeHead(302, { Location: '/login' });
+      res.end();
+    }
     deleteCookie("authtoken");
-    setCookie("authtoken", token, {
-      req,
-      res,
-      maxAge: 1815050,
-    });
+    setCookie("authtoken", token, { req, res, maxAge: 1815050 });
 
-    const response = await fetch(
-      `${ENDPOINT}/posts`,
-      {
-        method: "GET",
+    const response = await fetch(`${ENDPOINT}/posts`, { method: "GET",
         headers: {
           authtoken: token,
         },

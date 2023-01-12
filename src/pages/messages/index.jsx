@@ -72,7 +72,11 @@ export default Index;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const token = getCookie("authtoken", { req, res });
+    const token = getCookie("authtoken", { req, res })
+    if (!token) {
+      res.writeHead(302, { Location: '/login' });
+      res.end();
+    }
     const response = await fetch(
        `${ENDPOINT}/chats`,
       {

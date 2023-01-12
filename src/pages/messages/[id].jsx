@@ -131,7 +131,11 @@ export default Messages;
 
 export async function getServerSideProps({ req, res, query }) {
   try {
-    const token = getCookie("authtoken", { req, res });
+    const token = getCookie("authtoken", { req, res })
+    if (!token) {
+      res.writeHead(302, { Location: '/login' });
+      res.end();
+    }
     const { id } = query;
     const response = await fetch(`${ENDPOINT}/chat/${id}`,
       {

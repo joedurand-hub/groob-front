@@ -31,12 +31,6 @@ const Search = ({ posts }) => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    if (!token) {
-      return router.push("/login");
-    }
-  }, []);
-
-  useEffect(() => {
     
     const searchQuery = async () => {
       const { data } = await axios.get(
@@ -113,6 +107,10 @@ export default Search;
 export async function getServerSideProps({ req, res }) {
   try {
     const token = getCookie("authtoken", { req, res });
+    if (!token) {
+      res.writeHead(302, { Location: '/login' });
+      res.end();
+    }
     const response = await fetch(
        `${ENDPOINT}/discover`,
       {
