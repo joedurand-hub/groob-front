@@ -24,6 +24,12 @@ const PostComment = ({ sendText, text, id }) => {
 
   const handleSubmit = async () => {
     sendData({
+      endpoint: `${ENDPOINT}/notification`,
+      postData: {
+        postCommentedId: id
+      }
+    })
+    sendData({
       endpoint: `${ENDPOINT}/post/${id}`,
       postData: { value: text },
     });

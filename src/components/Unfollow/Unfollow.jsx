@@ -4,7 +4,6 @@ import useAuthPost from "../../hooks/useAuthPost"
 import Follow from "../Follow/Follow";
 import styles from "./unfollow.module.css"
 import { ENDPOINT, UNFOLLOW } from "../../helpers/constants";
-const url = `${ENDPOINT}${UNFOLLOW}`;
 
 const Unfollow = ({id}) => {
   const { data, sendData } = useAuthPost();
@@ -13,7 +12,13 @@ const Unfollow = ({id}) => {
   
   const handleSubmit = async () => {
     sendData({
-      endpoint: url,
+      endpoint: `${ENDPOINT}/notification`,
+      postData: {
+        userUnfollowId: id,
+      },
+    });
+    sendData({
+      endpoint: `${ENDPOINT}${UNFOLLOW}`,
       postData: {
         idOfTheUserToUnfollow: id,
       },

@@ -68,7 +68,8 @@ const ProfileById = ({ data, id }) => {
                   </strong>
                 </span>
                 { data?.publications.length === 1 && <span className={styles.data}>Publicación</span>}
-                { data?.publications.length === 0 || data?.publications.length > 1 && <span className={styles.data}>Publicaciones</span>}
+                { data?.publications.length === 0 || data?.publications.length > 1 && (
+                <span className={styles.data}>Publicac...</span>)}
               </div>
 
               <Followings followings={data?.followings} />
