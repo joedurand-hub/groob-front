@@ -4,8 +4,9 @@ import { useModal } from "../hooks/useModal";
 import { ENDPOINT } from "../helpers/constants";
 import { BiHome } from "react-icons/bi";
 import { BiUser, BiChat } from "react-icons/bi";
-import { MdOutlineNotificationsNone, MdExplore } from "react-icons/md";
+import { MdExplore } from "react-icons/md";
 import { getCookie } from "cookies-next";
+import { useRouter } from "next/router";
 import axios from "axios";
 import Layout from "../components/Layout/Layout";
 import Icon from "../components/Icon/Icon";
@@ -18,8 +19,12 @@ import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost"
 import SearchUser from "../components/SearchUser/SearchUser";
 import Container from "../components/SearchUser/Container/Container";
 import User from "../components/SearchUser/User/User";
+import useRequest from "../hooks/useRequest";
+import NotificationBubble from "../components/NotificationBubble/NotificationBubble";
 
 const Search = ({ posts }) => {
+  const router = useRouter()
+  const { data } = useRequest(`${ENDPOINT}/notification/length`)
   const { theme } = useContext(ThemeContext);
   const token = getCookie("authtoken");
   const [results, setResults] = useState([]);
@@ -47,11 +52,11 @@ const Search = ({ posts }) => {
   return (
     <Layout
       menuItem={
-        <>
+        <div onClick={() => router.push("/notifications")}>
           <Icon>
-            <MdOutlineNotificationsNone />
+            <NotificationBubble notifications={data} />
           </Icon>
-        </>
+        </div>
       }
       nav={
         <>
