@@ -2,7 +2,9 @@ import { ENDPOINT, UPDATE_PROFILE } from "./constants";
 import usePut from "../hooks/usePut";
 
 export const inactivityTime = (userId) => {
-  const { sendUpdatedData } = usePut();
+  const { info, pending, error, sendUpdatedData } = usePut();
+  console.log("info", info)
+
   const url = `${ENDPOINT}${UPDATE_PROFILE}/${userId}`;
   const register = () => {
     var time;
@@ -21,22 +23,22 @@ export const inactivityTime = (userId) => {
         sendUpdatedData({
           endpoint: url,
           putData: {
-            online: false,
+            online: true,
           },
         });
       }
 
       function resetTimer() {
         clearTimeout(time);
-        time = setTimeout(offline, 180000)
+        time = setTimeout(offline, 35000)
         sendUpdatedData({
           endpoint: url,
           putData: {
-            online: true,
+            online: false,
           },
         });
       }
     }
-    register()
   }
+  register()
 }

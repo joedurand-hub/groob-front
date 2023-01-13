@@ -1,15 +1,15 @@
 // ENDPOINTS IN THE BACKEND API
 let ENDPOINT;
 let URL;
-if (process.env.REACT_ENV === 'development') {
-    ENDPOINT = "http://localhost:8080";
-} else {
+if (process.env.REACT_ENV === 'production') {
     ENDPOINT = "https://groob-back.onrender.com";
-}
-if (process.env.REACT_ENV === 'development') {
-    URL = "http://localhost:3000";
 } else {
+    ENDPOINT = "http://localhost:8080";
+}
+if (process.env.REACT_ENV === 'production') {
     URL = "https://groob.com.ar";
+} else {
+    URL = "http://localhost:3000";
 }
 export { ENDPOINT };
 export { URL };

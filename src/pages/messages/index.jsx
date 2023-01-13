@@ -7,15 +7,11 @@ import GoBack from "../../components/GoBack/Back";
 import { io } from "socket.io-client";
 import { getCookie } from "cookies-next";
 import { ENDPOINT } from "../../helpers/constants";
-import { inactivityTime } from "../../helpers/inactivityTime";
 
 const Index = ({ data }) => {
-  const res = inactivityTime(data?.myId)
-  console.log(res)
   const [allChats, setAllChats] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const socket = useRef();
-  console.log(data)
   const usersData = data?.usersDataInTheChat?.map((obj) => obj);
   const chatsId = data?.chatIdAndUserId?.map((obj) => obj.id);
 
@@ -72,7 +68,7 @@ export default Index;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const token = getCookie("authtoken", { req, res })
+    const token = getCookie("authtoken", { req, res });
     if (!token) {
       res.writeHead(302, { Location: '/login' });
       res.end();

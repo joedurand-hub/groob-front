@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { getCookie } from "cookies-next";
 import { io } from "socket.io-client";
-import { inactivityTime } from "../../helpers/inactivityTime";
 import { ENDPOINT } from "../../helpers/constants";
 import axios from "axios";
 import ChatUser from "../../components/Chat/ChatUser/ChatUser";
@@ -11,7 +10,6 @@ import Conversation from "../../components/Conversation/Conversation";
 import CreateMessage from "../../components/CreateMessage/CreateMessage";
 
 const Messages = ({ datas }) => {
-  const res = inactivityTime(datas?.myId)
   const token = getCookie("authtoken");
   const [messages, setMessages] = useState([]);
   const [chat, setChat] = useState([]);
@@ -111,19 +109,14 @@ const Messages = ({ datas }) => {
             />
           </div>
         ))}
-      {datas.myRole === "user" && (
-        <h6 style={{position: "fixed", bottom: "0", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "5px"}}>Solo los admin pueden escribir en este chat</h6>
-        )}
       </Conversation>
-      {datas.myRole === "admin" && (
       <CreateMessage
-        role={datas.myRole}
+        role={datas?.myRole}
         newMessage={newMessage}
         handleSendMessage={handleSendMessage}
         handleMessage={handleMessage}
         placeholder="Escribe un mensaje"
       />
-        )}
     </>
   );
 };
@@ -131,7 +124,7 @@ export default Messages;
 
 export async function getServerSideProps({ req, res, query }) {
   try {
-    const token = getCookie("authtoken", { req, res })
+    const token = getCookie("authtoken", { req, res });
     if (!token) {
       res.writeHead(302, { Location: '/login' });
       res.end();
