@@ -35,7 +35,14 @@
     border-bottom: 1px solid #ccc;
 }
 
-.text {
+.notification_text {
     font-size: 17px;
     margin-left: 5px;
+    margin-right: 5px;
+}
+
+.notification_date {
+    margin-left: 15px;
+    font-size: 12px;
+    font-weight: 600;
 }

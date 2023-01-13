@@ -3,10 +3,11 @@ import { MdOutlineNotificationsNone } from "react-icons/md";
 import Icon from "../Icon/Icon"
 
 function NotificationBubble({ notifications }) {
+  console.log("Notifications", notifications)
   const [bubble, setBubble] = useState(false)
-  
+  console.log(bubble)
   useEffect(() => {
-    if (notifications > 0) {
+    if (notifications !== undefined && notifications > 0) {
       setBubble(true)
     }
   }, [notifications])
