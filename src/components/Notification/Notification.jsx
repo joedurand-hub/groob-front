@@ -63,7 +63,7 @@ const Notification = ({ notifications }) => {
                                         <p className={theme ? `${styles.notification_text} light_mode` : `${styles.notification_text} dark_mode`}>
                                             <strong>{notification.userName}</strong>
                                         </p>
-                                        <p>
+                                        <p className={theme ? `${styles.notification_text} light_mode` : `${styles.notification_text} dark_mode`}>
                                             {notification.event}
                                         </p>
                                         <span className={theme ? `${styles.notification_date} light_mode` : `${styles.notification_date} dark_mode`}>
