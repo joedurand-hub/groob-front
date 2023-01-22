@@ -5,7 +5,7 @@
 
 .liked {
     border: 2px;
-    color: red;
+    color: rgb(159, 29, 240);
     transition: ease all 1s;
 }
 
