@@ -11,6 +11,7 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
 
   const token = getCookie("authtoken");
   const { theme } = useContext(ThemeContext);
+  const [viewImage, setViewImage] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const quantity = allImages?.length;
@@ -125,9 +126,10 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                     : `${styles.slide}`
                 }
               >
-                {currentIndex === index && (
+                {currentIndex === index && !viewImage ? (
                   <Image
-                  className={styles.slide_image}
+                    onClick={() => setViewImage(!viewImage)}
+                    className={styles.slide_image}
                     key={index}
                     src={image.secure_url}
                     alt="Image"
@@ -136,11 +138,21 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                     quality={85}
                     objectFit="cover"
                   />
+                ) : (
+                  <Image
+                    onClick={() => setViewImage(!viewImage)}
+                    className={styles.slide_image}
+                    src={image.secure_url}
+                    key={index}
+                    alt="Image"
+                    width={500}
+                    height={700}
+                    quality={100}
+                  />
                 )}
               </div>
             );
           })}
-
         {currentIndex === quantity - 1 ? null : (
           <button
             onClick={nextImage}
