@@ -5,9 +5,12 @@ import { Toaster, toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { ENDPOINT } from "../../helpers/constants";
 import useDelete from "../../hooks/useDelete";
+import useRequest from "../../hooks/useRequest";
 import Loader from "../Loader/Loader";
 
 const DeletePost = ({ postId, userId, myId }) => {
+  console.log(userId)
+  console.log(myId)
   const { theme } = useContext(ThemeContext);
   const router = useRouter();
   const { data, pending, error, deletePostById } = useDelete();
@@ -24,7 +27,6 @@ const DeletePost = ({ postId, userId, myId }) => {
   return (
     <div>
       <Toaster />
-      {userId === myId && (
         <button
           className={
             theme
@@ -35,7 +37,6 @@ const DeletePost = ({ postId, userId, myId }) => {
         >
           {pending ? <Loader /> : "Eliminar"}
         </button>
-      )}
     </div>
   );
 };

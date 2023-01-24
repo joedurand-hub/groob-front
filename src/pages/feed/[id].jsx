@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { getCookie } from "cookies-next";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { ENDPOINT } from "../../helpers/constants";
@@ -22,7 +22,7 @@ const Index = ({ data }) => {
           alignItems: "center",
         }}
       >
-        <PostById data={data.post} />
+        <PostById data={data.post} myId={data.userId}/>
       </div>
     </div>
   );

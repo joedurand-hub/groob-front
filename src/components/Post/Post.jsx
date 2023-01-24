@@ -15,6 +15,7 @@ import PostFooter from "../PostFooter/PostFooter";
 import Share from "../PostFooter/Share/Share";
 import CreatePreference from "../CreatePreference/CreatePreference";
 import Denounce from "../Denounce/Denounce";
+import Buy from "../PostFooter/Buy/Buy";
 
 const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => {
   const { theme } = useContext(ThemeContext);
@@ -29,7 +30,7 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
             price,
             images,
             createdAt,
-            comments, 
+            comments,
             userVerified,
             explicitContent,
             likes,
@@ -63,14 +64,15 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                         </a>
                       </Link>
                     </div>
-  
+
                     <Link
                       href={`${URL}/feed/${_id}`}
                       style={{ textDecoration: "none" }}
                       passHref
                     >
                       <div>
-                        <a className={styles.user_name} rel="noopener noreferrer">{userName}</a>{" "}
+                        <a className={styles.user_name} rel="noopener noreferrer">{userName}</a>
+
                         {userVerified && <GoVerified />}
                         <p className={styles.user_crate_date}>
                           {timeago(createdAt)}
@@ -79,8 +81,12 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                     </Link>
                   </div>
                   <div className={styles.moreOptions}>
-                    <h6 className={styles.price}>
-                      <strong>{price > 0 && `AR$ ${price}`}</strong>
+                    <h6>
+                      {price > 0 && (
+                        <strong className={styles.price}>
+                          ${price}
+                        </strong>
+                      )}
                     </h6>
                     <MoreOptions
                       postId={_id}
@@ -96,27 +102,14 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                     {content ? content : null}
                   </p>
                   <Slider
-                  publicationsPurchases={publicationsPurchases}
-                  buyers={data}
-                  myId={myId}
+                    publicationsPurchases={publicationsPurchases}
+                    buyers={data}
+                    myId={myId}
                     allImages={images}
                     nsfw={explicitContent}
                     price={price}
                     userExplicitContent={myUserExplicitContent}
                   />
-                  {explicitContent && price > 0 && (
-                    <div className={styles.container_buy_button}>
-                      <CreatePreference
-                        explicitContent={explicitContent}
-                        creatorId={user}
-                        userName={userName}
-                        postId={_id}
-                        price={price}
-                        descripcion={content}
-                        picUrl={profilePicture?.secure_url}
-                      ></CreatePreference>
-                    </div>
-                  )}
                 </div>
                 <>
                   <PostFooter
@@ -141,9 +134,19 @@ const Posts = ({ data, myId, publicationsPurchases, myUserExplicitContent }) => 
                         username={userName}
                       />
                     }
-                  />
+                  >
+                    <Buy
+                      postId={_id}
+                      creatorId={user}
+                      userName={userName}
+                      price={price}
+                      descripcion={content}
+                      picUrl={profilePicture}
+                    />
+
+                  </PostFooter>
                 </>
-  
+
                 <Comments allComments={comments.slice(0, 3)} />
                 <>
                   {comments.length > 3 ? (

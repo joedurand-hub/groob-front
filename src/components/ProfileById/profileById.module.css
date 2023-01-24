@@ -30,7 +30,11 @@
   .user_profile_picture {
     border-radius: 50%;
   }
-  
+  .open_user_profile_picture {
+    position: absolute;
+    border-radius: 5px;
+    transition: ease-in-out 100ms;
+  }
   .container_header_data {
     display: flex;
     flex-direction: column;

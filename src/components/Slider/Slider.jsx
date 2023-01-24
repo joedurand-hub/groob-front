@@ -6,7 +6,7 @@ import { buildUrl } from "cloudinary-build-url";
 import BlurredImage from "../BlurredImage/BlurredImage";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { getCookie } from "cookies-next";
-
+import MyImage from "../Image/MyImage";
 const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
 
   const token = getCookie("authtoken");
@@ -126,7 +126,7 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                     : `${styles.slide}`
                 }
               >
-                {currentIndex === index && !viewImage ? (
+                {currentIndex === index && (
                   <Image
                     onClick={() => setViewImage(!viewImage)}
                     className={styles.slide_image}
@@ -138,20 +138,9 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
                     quality={85}
                     objectFit="cover"
                   />
-                ) : (
-                  <Image
-                    onClick={() => setViewImage(!viewImage)}
-                    className={styles.slide_image}
-                    src={image.secure_url}
-                    key={index}
-                    alt="Image"
-                    width={500}
-                    height={700}
-                    quality={100}
-                  />
                 )}
               </div>
-            );
+            )
           })}
         {currentIndex === quantity - 1 ? null : (
           <button

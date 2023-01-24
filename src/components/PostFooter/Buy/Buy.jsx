@@ -21,14 +21,14 @@ const Buy = ({
     sendData({
       endpoint: `${ENDPOINT}/preferenceProduct`,
       postData: {
-        userName: userName,
         postId: postId,
         creatorId: creatorId,
+        userName: userName,
         price: price,
         descripcion: descripcion,
-        profilePicture: picUrl,
+        picURL: picUrl,
         quantity: 1,
-      },
+      }
     });
   };
 

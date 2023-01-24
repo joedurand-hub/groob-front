@@ -20,6 +20,7 @@ const PostFooter = ({
   postId,
   descripcion,
   picUrl,
+  children
 }) => {
   const [comment, setComment] = useState(false);
   const [textComment, setTextComment] = useState("");
@@ -48,16 +49,9 @@ const PostFooter = ({
 
           <Like id={id} likes={likes} liked={liked} myId={myId}/>
           </div>
-          {explicit === false && price > 0 && (
+          {price > 0 && (
             <Icon>
-              <Buy
-                creatorId={creatorId}
-                title={userName}
-                postId={postId}
-                descripcion={descripcion}
-                picUrl={picUrl}
-                price={price}
-              />
+              {children}
             </Icon>
           )}
         </div>

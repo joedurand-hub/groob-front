@@ -11,10 +11,11 @@ import Comments from "../Comments/Comments";
 import Slider from "../Slider/Slider";
 import GoVerified from "../GoVerified/Verified";
 import Share from "../PostFooter/Share/Share";
-import CreatePreference from "../CreatePreference/CreatePreference";
+import DeletePost from "../DeletePost/DeletePost";
 import Denounce from "../Denounce/Denounce";
+import Buy from "../PostFooter/Buy/Buy";
 
-const PostById = ({ data }) => {
+const PostById = ({ data, myId }) => {
   const {
     content,
     price,
@@ -58,41 +59,34 @@ const PostById = ({ data }) => {
               </Link>
             </div>
             <div>
-              <a className={styles.user_name}>{userName}</a> {userVerified && <GoVerified/>}
+              <a className={styles.user_name}>{userName}</a> 
+                {userVerified && <GoVerified />}
               <p className={styles.user_crate_date}>{timeago(createdAt)}</p>
             </div>
           </div>
           <div className={styles.moreOptions}>
-          <h6 className={styles.price}><strong>{price > 0 && `AR$ ${price}`}</strong></h6>
-            <MoreOptions option1={<Denounce postId={_id}
-            // userId={} myId={} postId={}
-            />}/>
+            <h6 className={styles.price}><strong>{price > 0 && `AR$ ${price}`}</strong></h6>
+            <MoreOptions
+              postId={_id}
+              userId={user}
+              myId={myId}
+              option1={<DeletePost postId={_id} userId={user} myId={myId} />}
+              option2={<Denounce postId={_id} />}
+            />
           </div>
         </div>
         <div className={styles.post}>
           <p className={content ? styles.post_content : styles.empty}>
             {content}
           </p>
-          <Slider allImages={images} nsfw={explicitContent} price={price}/>
-          {explicitContent && price > 0 && (
-                  <div className={styles.container_buy_button}>
-                    <CreatePreference
-                      creatorId={user}
-                      postId={_id}
-                      userName={userName}
-                      price={price}
-                      descripcion={content}
-                      picUrl={profilePicture}
-                      explicitContent={explicitContent}
-                    ></CreatePreference>
-                  </div>
-                )}
+          <Slider allImages={images} nsfw={explicitContent} price={price} />
         </div>
         <>
           <PostFooter
-          explicit={explicitContent}
+            explicit={explicitContent}
             price={price && price}
             id={_id}
+            picUrl={profilePicture}
             likes={likes}
             liked={liked}
             postToShare={
@@ -104,9 +98,19 @@ const PostById = ({ data }) => {
                 username={userName}
               />
             }
-          />
+          >
+            <Buy
+              postId={_id}
+              creatorId={user}
+              userName={userName}
+              price={price}
+              descripcion={content}
+              picUrl={profilePicture}
+            />
+
+          </PostFooter>
         </>
-        { content && comments.length > 0 && images.length > 0 && <hr className={styles.hr} />}
+        {content && comments.length > 0 && images.length > 0 && <hr className={styles.hr} />}
         <Comments allComments={comments} />
       </article>
     </>
