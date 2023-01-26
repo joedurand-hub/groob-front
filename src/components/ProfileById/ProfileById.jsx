@@ -66,8 +66,8 @@ const ProfileById = ({ data, id }) => {
           <div className={styles.container_user_data}>
             <div className={styles.container_username}>
               <h3>{data?.userName[0].toUpperCase() + data?.userName.substring(1)}</h3>
-              {data && data?.verified ? (
-                <GoVerified />
+              {data?.verified ? (
+                <GoVerified fontSize={19} marginTop={11} marginLeft={5} />
               ) : null}
             </div>
 

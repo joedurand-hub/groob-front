@@ -9,9 +9,11 @@ const Tab = ({children, text}) => {
   return (
     <div className={styles.tab}>
       <p className={theme ? `${styles.text} light_mode` : `${styles.text} dark_mode`}>{text}</p>
+      {children && (
       <Icon variant={theme ? "extra_light" : "extra_dark"}>
         {children}
       </Icon>
+      )}
     </div>
   )
 }

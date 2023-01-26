@@ -60,7 +60,7 @@ const PostById = ({ data, myId }) => {
             </div>
             <div>
               <a className={styles.user_name}>{userName}</a> 
-                {userVerified && <GoVerified />}
+                {userVerified && <GoVerified fontSize={18} marginTop={0} marginLeft={5} />}
               <p className={styles.user_crate_date}>{timeago(createdAt)}</p>
             </div>
           </div>

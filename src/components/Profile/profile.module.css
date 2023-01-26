@@ -56,7 +56,7 @@
     align-items: center;
   }
 
-  /* .container_username {
+  .container_username {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -68,12 +68,6 @@
     color: rgb(255, 255, 255);
     background: transparent;
     box-shadow: inset 0px -20px 20px 0px #00000038;
-  } */
-
-  .verify {
-    margin-top: -12px;
-    font-size: 30px;
-    color: rgb(46, 135, 244);
   }
 
   .user_data {
@@ -219,7 +213,7 @@
     align-items: center;
   }
 
-  /* .container_username {
+  .container_username {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -231,13 +225,7 @@
     color: rgb(255, 255, 255);
     background: transparent;
     box-shadow: inset 0px -20px 20px 0px #00000038;
-  } */
-
-  .verify {
-    margin-top: -12px;
-    font-size: 30px;
-    color: rgb(46, 135, 244);
-  }
+  } 
 
   .user_data {
     display: flex;

@@ -1,9 +1,9 @@
 import { GoVerified } from "react-icons/go";
 
-const Verified = () => {
+const Verified = ({fontSize, marginTop, marginLeft}) => {
   return (
     <>
-      <GoVerified style={{ fontSize: "20px", color: "rgb(46, 135, 244)", marginTop: "7px", marginLeft: "5px" }} />
+      <GoVerified style={{ fontSize: `${fontSize}px`, color: "rgb(46, 135, 244)", marginTop: `${marginTop}px`, marginLeft: `${marginLeft}px` }} />
     </>
   );
 };

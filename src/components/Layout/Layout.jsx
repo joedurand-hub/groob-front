@@ -33,14 +33,14 @@ const Layout = ({ title, description, username, verified, menuItem, nav, childre
               />
             </Anchor>
           </li>
-          <div className={styles.container_username_and_verify}>
+          {/* <div className={styles.container_username_and_verify}>
           <li>
             <h3 className={styles.username}><strong>{username && username[0].toUpperCase() + username?.substring(1)}</strong></h3>
           </li>
             {verified && (
-              <GoVerified/>
+              <GoVerified fontSize={22} marginTop={2} marginLeft={5}/>
               )}
-              </div>
+              </div> */}
           <div className={styles.layout_container_links}>
             {menuItem}
             </div>
