@@ -5,7 +5,7 @@ export const useWebSpeech = () => {
 
   useEffect(() => {
     if (!('SpeechRecognition' in window)) {
-      console.log('Este navegador no soporta el reconocimiento de voz');
+      console.error('Este navegador no soporta el reconocimiento de voz');
       return;
     }
 

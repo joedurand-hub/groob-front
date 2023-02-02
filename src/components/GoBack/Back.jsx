@@ -4,10 +4,15 @@ import Link from "next/link"
 import Icon from "../Icon/Icon"
 import { BiArrowBack } from "react-icons/bi"
 
-const GoBack = ({path}) => {
+const GoBack = ({ path, text }) => {
   return (
     <Link href={path} passHref>
-        <BiArrowBack className={styles.back}/>
+      <div className={styles.container_back}>
+        <BiArrowBack className={styles.back} />
+        {text && (
+          <h2 className={styles.back_text}  style={text.length >= 20 ? {fontSize: "20px"} : {fontSize: "24px"}}>{text}</h2>
+        )}
+      </div>
     </Link>
   );
 };

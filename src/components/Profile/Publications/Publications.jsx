@@ -31,9 +31,9 @@ const Publications = ({ id }) => {
       autoClose: "3000",
     });
     return (
-    <>
-      <Toaster />
-    </>
+      <>
+        <Toaster />
+      </>
     );
   }
   return (
@@ -46,17 +46,18 @@ const Publications = ({ id }) => {
         }
       >
         {(data && data.length === 0) || data === undefined || data === null ? (
-          <h6
+          <div
             className={
               theme
                 ? `${styles.container_publications} ${styles.light}`
                 : `${styles.container_publications} ${styles.dark}`
             }
           >
-            Aún no hay publicaciones
-          </h6>
+            <Empty
+              text={"Aún no hay publicaciones"} />
+          </div>
         ) : (
-          <Posts data={data} myId={id}/>
+          <Posts data={data} myId={id} />
         )}
       </div>
     </>

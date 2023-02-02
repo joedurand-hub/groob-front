@@ -6,6 +6,7 @@ import { ThemeContext } from "../../../contexts/ThemeContext";
 import useRequest from "../../../hooks/useRequest";
 import Loader from "../../Loader/Loader";
 import { Toaster, toast } from "react-hot-toast";
+import Empty from "../../Empty/Empty";
 
 const Publications = ({ userId, myId }) => {
   const { theme } = useContext(ThemeContext);
@@ -46,15 +47,15 @@ const Publications = ({ userId, myId }) => {
         }
       >
         {(data && data.length === 0) || data === undefined || data === null ? (
-          <h6
+          <div
             className={
               theme
                 ? `${styles.container_publications} ${styles.light}`
                 : `${styles.container_publications} ${styles.dark}`
             }
           >
-            Aún no hay publicaciones
-          </h6>
+            <Empty text={"Aún no hay publicaciones."}/>
+          </div>
         ) : (
           <Posts data={data} myId={myId}/>
         )}

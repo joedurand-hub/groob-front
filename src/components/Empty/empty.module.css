@@ -1,0 +1,26 @@
+.empty {
+    width: calc(100% - margin);
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.light {
+    background: white;
+    color: black;
+    box-shadow: 2px 1px 18px 3px rgba(0,0,0,0.64);
+}
+
+.dark {
+    background: #1b1b1b;
+    color: white;
+    box-shadow: 2px 1px 18px 3px rgba(255, 255, 255, 0.308);
+}
+
+.empty_text {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 18px;
+}

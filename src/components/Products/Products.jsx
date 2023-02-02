@@ -2,6 +2,7 @@ import useRequest from "../../hooks/useRequest";
 import { ENDPOINT } from "../../helpers/constants";
 import Posts from "../Post/Post";
 import Loader from "../Loader/Loader";
+import Empty from "../Empty/Empty";
 
 const Products = ({ myId, myUserExplicitContent }) => {
   const { data, loading, error } = useRequest(`${ENDPOINT}/productsByUser`);
@@ -14,7 +15,7 @@ const Products = ({ myId, myUserExplicitContent }) => {
   if (data && data.length === 0) {
     return (
       <>
-        <p>Aún no has publicado exclusivos</p>
+       <Empty text={"No has creado exclusivos"}/>
       </>
     )
   }

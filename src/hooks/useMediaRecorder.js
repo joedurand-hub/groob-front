@@ -7,7 +7,7 @@ export const useMediaRecorder = (stream, options) => {
 
   useEffect(() => {
     if (!('MediaRecorder' in window)) {
-      console.log('Este navegador no soporta la grabación de medios');
+      console.error('Este navegador no soporta la grabación de medios');
       return;
     }
 

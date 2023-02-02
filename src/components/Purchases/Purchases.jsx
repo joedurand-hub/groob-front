@@ -2,6 +2,7 @@ import useRequest from "../../hooks/useRequest";
 import { ENDPOINT } from "../../helpers/constants";
 import Posts from "./Post/Post";
 import Loader from "../Loader/Loader";
+import Empty from "../Empty/Empty";
 
 const Purchases = ({ myId, publicationsPurchases, myUserExplicitContent }) => {
   const { data, loading, error } = useRequest(`${ENDPOINT}/purchasesByUser`);
@@ -12,8 +13,7 @@ const Purchases = ({ myId, publicationsPurchases, myUserExplicitContent }) => {
   if (data && data.length === 0) {
     return (
       <>
-        <p>Esta sección es privada, nadie más puede verla.</p>
-        <p>Aún no has realizado compras</p>
+      <Empty text={"Tus compras se verán aquí. Esta sección es privada, nadie más puede verla."}/>
       </>
     )
   }
@@ -30,7 +30,6 @@ const Purchases = ({ myId, publicationsPurchases, myUserExplicitContent }) => {
     return (
       <div>
         <p>Se produjo un error. Volvé a intentarlo.</p>
-
       </div>
     )
   }

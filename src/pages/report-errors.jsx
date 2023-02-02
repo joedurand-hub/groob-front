@@ -8,7 +8,7 @@ const Report = () => {
 
   return (
     <div>
-      <GoBack path="/feed" />
+      <GoBack path="/feed" text="Reportar errores"/>
       <Link href="/feed">
         <div
           style={{

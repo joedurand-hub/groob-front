@@ -9,12 +9,12 @@ import useRequest from "../../hooks/useRequest";
 import Loader from "../Loader/Loader";
 
 const DeletePost = ({ postId, userId, myId }) => {
-  console.log(userId)
-  console.log(myId)
   const { theme } = useContext(ThemeContext);
   const router = useRouter();
   const { data, pending, error, deletePostById } = useDelete();
-
+  if (error) {
+    console.error(error)
+  }
   useEffect(() => {
     if (data !== undefined) router.reload(window.location.pathname);
   }, [data]);
@@ -27,16 +27,16 @@ const DeletePost = ({ postId, userId, myId }) => {
   return (
     <div>
       <Toaster />
-        <button
-          className={
-            theme
-              ? `${styles.option} ${styles.light}`
-              : `${styles.option} ${styles.dark}`
-          }
-          onClick={handleDeletePost}
-        >
-          {pending ? <Loader /> : "Eliminar"}
-        </button>
+      <button
+        className={
+          theme
+            ? `${styles.option} ${styles.light}`
+            : `${styles.option} ${styles.dark}`
+        }
+        onClick={handleDeletePost}
+      >
+        {pending ? <Loader /> : "Eliminar"}
+      </button>
     </div>
   );
 };

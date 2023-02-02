@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export const useWebPayments = (total, displayItems) => {
   useEffect(() => {
     if (!('PaymentRequest' in window)) {
-      console.log('Este navegador no soporta pagos web');
+      console.error('Este navegador no soporta pagos web');
       return;
     }
 

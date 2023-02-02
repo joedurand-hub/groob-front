@@ -16,9 +16,10 @@ import Modal from "../../components/Modal/Modal";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import axios from "axios";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
-import Button from "../../components/Button/Button";
 import Post from "../../components/Post/Post";
 import NotificationBubble from "../../components/NotificationBubble/NotificationBubble";
+import Tab from "../../components/Tab/Tab";
+import Empty from "../../components/Empty/Empty";
 
 const Feed = ({ posts }) => {
   const { data } = useRequest(`${ENDPOINT}/notification/length`)
@@ -26,7 +27,7 @@ const Feed = ({ posts }) => {
   const router = useRouter()
   const postIds = new Set();
   const uniquePosts = [];
-  posts.data?.forEach((post) => {
+  posts?.data?.forEach((post) => {
     if (!postIds.has(post._id)) {
       postIds.add(post._id);
       uniquePosts.push(post);
@@ -45,7 +46,7 @@ const Feed = ({ posts }) => {
       };
       getPosts();
     } catch (error) {
-      console.log("error:", error);
+      console.error("error:", error);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -90,25 +91,27 @@ const Feed = ({ posts }) => {
         <>
           <div
             style={{
-              margin: "-30px 30px 0 0",
+              margin: "-30px 0 0 0",
               display: "flex",
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
               zIndex: 8,
-              position: "fixed",
+              position: "sticky",
+              top: 0,
+              gap: "15px",
             }}
           >
-            <Button
+            <Tab
               onClick={() => setActive("feed")}
-              name="Feed"
-              variant={theme ? "tab" : "tab"}
+              text="Tu feed"
+              variant="tab_nav"
             />
-            <Button
+            <Tab
               onClick={() => setActive("recomendaciones")}
-              name="Recomendados"
-              variant={theme ? "tab" : "tab"}
+              text="Tendencias"
+              variant="tab_nav"
             />
           </div>
           {postsRecomended.length > 0 && active == "recomendaciones" ? (
@@ -140,17 +143,16 @@ const Feed = ({ posts }) => {
                   width: "100%",
                 }}
               >
-                {postsData.data?.length === 0 ? (
+                {postsData.length === 0 ? (
                   <div
                     style={{
                       textAlign: "center",
-                      marginTop: "50%",
+                      marginTop: "25%",
                     }}
                   >
-                    <h6 className={theme ? "light_mode" : "dark_mode"}>
-                      Aún no hay publicaciones, crea un post, descubre usuarios
-                      en la sección de la lupa e invitá a tus amigos!
-                    </h6>
+                    <Empty 
+                      text="Este es tu feed, aún no sigues a nadie. Crea un post, o explora usuarios y publicaciones en la aplicación!"
+                    />
                   </div>
                 ) : (
                   <Post

@@ -1,10 +1,22 @@
+.container_back {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding-top: 5px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
 .back {
-    margin-left: 5px;
-    margin-bottom: 5px;
+    margin: 5px 5px 0 5px;
     display: flex; 
     flex-direction: row;
     align-items: center;
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 600;
     color: #7d7d7d;
     
@@ -14,4 +26,9 @@
     color: #2f2f2f;
     cursor: pointer;
     border-radius: 50%;
+}
+
+.back_text {
+    margin-top: -5px;
+    font-weight: 600;
 }

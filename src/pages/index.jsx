@@ -2,9 +2,7 @@ import { TiHome } from "react-icons/ti";
 import { BiUser, BiChat } from "react-icons/bi";
 import { MdOutlineNotificationsNone, MdOutlineExplore } from "react-icons/md";
 import { getCookie } from "cookies-next";
-import { useRouter } from "next/router";
 import { ENDPOINT } from "../helpers/constants";
-import { Toaster, toast } from "react-hot-toast";
 import Layout from "../components/Layout/Layout";
 import Icon from "../components/Icon/Icon";
 import Nav from "../components/Nav/Nav";
@@ -12,15 +10,6 @@ import NavItem from "../components/NavItem/NavItem";
 import Post from "../components/Post/Post";
 
 const Feed = ({ posts }) => {
-  const token = getCookie("authtoken");
-  const router = useRouter();
-  if (token) {
-    toast("Hola de nuevo!", {
-      duration: 1200,
-    })
-    router.push("/feed");
-  }
-
   return (
     <Layout
       menuItem={
@@ -61,7 +50,6 @@ const Feed = ({ posts }) => {
         >
           <Post data={posts} />
         </div>
-        <Toaster/>
     </Layout>
   );
 };
@@ -70,6 +58,11 @@ export default Feed;
 
 export async function getServerSideProps({ req, res }) {
   try {
+    const token = getCookie("authtoken", { req, res });
+    if (token) {
+      res.writeHead(200, { Location: '/feed' });
+      res.end();
+    }
     const response = await fetch(`${ENDPOINT}/surfing`,
     );
     const posts = await response.json();

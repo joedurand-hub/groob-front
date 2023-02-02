@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
-import styles from "./discover.module.css";
-import Image from "next/image";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
+import { ThemeContext } from "../../../contexts/ThemeContext";
+import styles from "./discoverStreaming.module.css";
+import Image from "next/image";
 import Link from "next/link";
-import { ThemeContext } from "../../contexts/ThemeContext";
 
-const Discover = ({ data }) => {
+const DiscoverStreamings = ({ data }) => {
   const router = useRouter();
   const token = getCookie("authtoken");
 
@@ -32,7 +32,7 @@ const Discover = ({ data }) => {
           : `${styles.container_discover} dark_mode`
       }
     >
-      {data.orderByDate?.map((post, index) => {
+      {data?.orderByDate?.map((post, index) => {
         return (
           <>
             <Link href={`/feed/${post._id}`} passHref>
@@ -60,4 +60,4 @@ const Discover = ({ data }) => {
   );
 };
 
-export default Discover;
+export default DiscoverStreamings;

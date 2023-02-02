@@ -3,7 +3,6 @@ import usePut from "../hooks/usePut";
 
 export const inactivityTime = (userId) => {
   const { info, pending, error, sendUpdatedData } = usePut();
-  console.log("info", info)
 
   const url = `${ENDPOINT}${UPDATE_PROFILE}/${userId}`;
   const register = () => {

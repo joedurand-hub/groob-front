@@ -1,0 +1,23 @@
+.notification_bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 2px;
+}
+
+.notification_number {
+    font-size: 16px;
+    color: white;
+    z-index: 10;
+    position: relative;
+    font-weight: 600
+}

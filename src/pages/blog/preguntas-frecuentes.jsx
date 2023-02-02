@@ -1,27 +1,27 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import GoBack from "../../components/GoBack/Back";
-import Link from "next/link";
+import Tab from "../../components/Tab/Tab";
 
 const Faqs = () => {
   const { theme } = useContext(ThemeContext);
   return (
-    <div>
-      <GoBack path="/feed" />
+    <div className={theme ? "light_mode" : "dark_mode"}>
+      <GoBack path="/blog" text="Blog / Preguntas-Frecuentes"/>
         <div
           style={{
-            marginTop: "50%",
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              padding: "10px"
           }}
         >
           <h1 className={theme ? "light_mode" : "dark_mode"}>
             Preguntas Frecuentes
           </h1>
 
+          <Tab text="Feed" variant="tab_nav"/>
+          <Tab text="Recomendados" variant="tab_nav"/>
           <div className={theme ? "light_mode" : "dark_mode"}>
             ¿Puedo publicar cualquier tipo de contenido en Groob?
             No, Groob permite la publicación de contenido relacionado con el entretenimiento, como libros electrónicos, podcasts, música y videos. La plataforma también tiene filtros disponibles para detectar y evitar la visualización de contenido explícito y proteger a los usuarios de este tipo de contenido.

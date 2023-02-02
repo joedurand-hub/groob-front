@@ -12,7 +12,6 @@ import Layout from "../components/Layout/Layout";
 import Icon from "../components/Icon/Icon";
 import Nav from "../components/Nav/Nav";
 import CreatePost from "../components/CreatePost/CreatePost";
-import Discover from "../components/Discover/Discover";
 import NavItem from "../components/NavItem/NavItem";
 import Modal from "../components/Modal/Modal";
 import OpenModalPost from "../components/CreatePost/OpenModalPost/OpenModalPost";
@@ -21,9 +20,15 @@ import Container from "../components/SearchUser/Container/Container";
 import User from "../components/SearchUser/User/User";
 import useRequest from "../hooks/useRequest";
 import NotificationBubble from "../components/NotificationBubble/NotificationBubble";
+import Tab from "../components/Tab/Tab";
+import DiscoverTexts from "../components/Discover/Texts/DiscoverTexts";
+import DiscoverImages from "../components/Discover/Images/DiscoverImages";
+import DiscoverVideos from "../components/Discover/Videos/DiscoverVideos";
+import DiscoverStreamings from "../components/Discover/Streamings/DiscoverStreamings";
 
 const Search = ({ posts }) => {
   const router = useRouter()
+  const [active, setActive] = useState("Imagenes")
   const { data } = useRequest(`${ENDPOINT}/notification/length`)
   const { theme } = useContext(ThemeContext);
   const token = getCookie("authtoken");
@@ -31,7 +36,7 @@ const Search = ({ posts }) => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    
+
     const searchQuery = async () => {
       const { data } = await axios.get(
         `${ENDPOINT}/search?input=${query}`,
@@ -82,7 +87,7 @@ const Search = ({ posts }) => {
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
         <CreatePost
           closeModal={closeModalPost}
-          mpAsociated={posts.mpAccountAsociated}
+          mpAsociated={posts?.mpAccountAsociated}
         />
       </Modal>
       <div className={theme ? `layout light_mode` : `layout dark_mode`}>
@@ -94,8 +99,31 @@ const Search = ({ posts }) => {
               <User key={index} data={user} index={index} />
             ))}
           </Container>
-        ) : (
-          <Discover data={posts} />
+        ) : results.length === 0 && (
+          <>
+            <div style={{ display: "flex", marginLeft: "5px", overflowY: "scroll" }}>
+              <Tab onClick={() => setActive("Textos")} text="Texto" variant="tab_nav" />
+              <Tab onClick={() => setActive("Imagenes")} text="Imágenes" variant="tab_nav" />
+              <Tab onClick={() => setActive("Videos")} text="Videos" variant="tab_nav" />
+              <Tab onClick={() => setActive("Streamings")} text="Streaming" variant="tab_nav" />
+              {/* <Tab onClick={() => setActive("NSFW")} text="NSFW" variant="tab_nav" /> */}
+            </div>
+            {active === "Textos" && (
+              <DiscoverTexts data={posts} />
+            )}
+            {active === "Imagenes" && (
+              <DiscoverImages data={posts} />
+            )}
+            {active === "Videos" && (
+              <DiscoverVideos data={posts} />
+            )}
+            {active === "Streamings" && (
+              <DiscoverStreamings data={posts} />
+            )}
+            {/* {active === "NSFW" && (
+              <DiscoverNSFW data={posts} />
+            )} */}
+          </>
         )}
       </div>
     </Layout>
@@ -112,7 +140,7 @@ export async function getServerSideProps({ req, res }) {
       res.end();
     }
     const response = await fetch(
-       `${ENDPOINT}/discover`,
+      `${ENDPOINT}/discover`,
       {
         method: "GET",
         headers: {

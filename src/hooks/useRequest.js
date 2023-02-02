@@ -27,7 +27,7 @@ const useRequest = (url) => {
                 setError(true)
                 setData(false)
                 setLoading(false)
-                console.log(error)
+                console.error(error)
             })
             .finally(() => {
                 setLoading(false)

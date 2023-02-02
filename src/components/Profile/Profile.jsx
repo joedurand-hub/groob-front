@@ -143,7 +143,7 @@ const Profile = ({ data }) => {
               <Button variant="login" onClick={closeCardFiat} name="Close" />
             }
           >
-            <Wallet />
+            <Wallet userName={data?.userName}/>
           </Card>
         </div>
       </section>

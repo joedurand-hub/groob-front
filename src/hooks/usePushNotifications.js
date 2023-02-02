@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export const usePushNotifications = (title, options) => {
   useEffect(() => {
     if (!('Notification' in window)) {
-      console.log('Este navegador no soporta notificaciones web');
+      console.error('Este navegador no soporta notificaciones web');
       return;
     }
 

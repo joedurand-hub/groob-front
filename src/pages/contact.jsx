@@ -7,7 +7,7 @@ const Contact = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <div>
-      <GoBack path="/feed" />
+      <GoBack path="/feed" text="Contacto"/>
       <Link href="/feed">
         <div
           style={{

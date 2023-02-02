@@ -9,7 +9,7 @@ export const useServiceWorker = (src) => {
           console.log('El servicio worker se ha registrado correctamente:', registration);
         })
         .catch((error) => {
-          console.log('Error al registrar el servicio worker:', error);
+          console.error('Error al registrar el servicio worker:', error);
         });
     }
   }, [src]);
