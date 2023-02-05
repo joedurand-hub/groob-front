@@ -46,7 +46,7 @@ const ResetPassword = () => {
             setTruePass("")
             setDiferent("")
         }
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newPassword, comparePassword])
 
 

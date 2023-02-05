@@ -11,6 +11,7 @@ const CreateChat = ({ myId, userId }) => {
 
   useEffect(() => {
     data !== undefined && router.push(`/messages/${userId}`)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
   const handleNewChat = async () => {

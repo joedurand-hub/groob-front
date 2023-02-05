@@ -14,6 +14,7 @@ const BuyVerify = ({ closeCardVerify, dataVerify }) => {
 
   useEffect(() => {
     data !== undefined && router.push(data.body.init_point)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const handlePreferenceToVerifyCccount = async () => {

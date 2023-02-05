@@ -14,6 +14,7 @@ const DiscoverTexts = ({ data }) => {
     if (token === undefined) {
       return router.push("/register");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { theme } = useContext(ThemeContext);
@@ -22,6 +23,7 @@ const DiscoverTexts = ({ data }) => {
   useEffect(() => {
     let valueAdultContent = window.localStorage.getItem("adultContent");
     if (valueAdultContent) setExplicitContent(JSON.parse(valueAdultContent));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -17,6 +17,7 @@ const DeletePost = ({ postId, userId, myId }) => {
   }
   useEffect(() => {
     if (data !== undefined) router.reload(window.location.pathname);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const handleDeletePost = () => {

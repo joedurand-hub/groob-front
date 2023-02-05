@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import Image from "next/image"
 import axios from 'axios';
 
 function CommentInput() {
@@ -45,7 +46,7 @@ function CommentInput() {
         <ul>
           {mentionSuggestions.map((user) => (
             <li key={user.username}>
-              <img src={user.profilePicture} alt={user.username} />
+              <Image src={user.profilePicture} alt={user.username} />
               {user.username}
             </li>
           ))}

@@ -1,4 +1,5 @@
 import Input from "../Input/Input"
+import Button from "../Button/Button"
 import styles from './editWallets.module.css'
 
 const EditWallets = ({entidad, CBU, CVU, alias}) => {
