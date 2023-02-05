@@ -12,8 +12,8 @@ import { GiTwoCoins } from "react-icons/gi";
 import { useCard } from "../../hooks/useCard";
 import CreateChat from "../CreateChat/CreateChat";
 import Card from "../Card/Card";
-import Wallet from "../Wallet/Wallet";
-import CryptoWallet from "../WalletCrypto/WalletCrypto";
+import Wallet from "../Wallets/WalletFiat/WalletFiat";
+import CryptoWallet from "../Wallets/WalletCrypto/WalletCrypto";
 import Followers from "./Followers/Followers";
 import Followings from "./Followings/Followings";
 
