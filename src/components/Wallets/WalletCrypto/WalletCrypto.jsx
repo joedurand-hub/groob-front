@@ -1,5 +1,5 @@
 import styles from "./walletCrypto.module.css";
-import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
+// import CopyToClipboard from "../../CopyToClipboard/CopyToClipboard";
 
 // El componente Wallet renderiza una interfaz de usuario que muestra información 
 // sobre el usuario, la moneda criptográfica, la red, 
