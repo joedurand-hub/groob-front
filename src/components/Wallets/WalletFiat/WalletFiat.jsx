@@ -6,7 +6,7 @@ const Wallet = ({ userName, entidad, CBU, CVU, alias }) => {
       {/* Agregar copy to clipboard */}
       <br />
       <h5>Cuentas bancarias y billeteras de {userName}</h5> <br />
-      <strong contenteditable>Entidad:</strong> {entidad} <br />
+      <strong>Entidad:</strong> {entidad} <br />
       {CBU ? (
         <div>
           <strong>CBU:</strong> <p>{CBU}</p>
