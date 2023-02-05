@@ -20,7 +20,7 @@ const Wallet = ({ userName, coin, red, address }) => {
         </p>
       </>
       <div>
-        <CopyToClipboard value={address} />
+        {/* <CopyToClipboard value={address} /> */}
       </div>
     </div>
   );
