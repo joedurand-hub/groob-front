@@ -30,6 +30,7 @@ const User = ({ data }) => {
 
   useEffect(() => {
     window.localStorage.setItem("adultContent", JSON.stringify(false));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
