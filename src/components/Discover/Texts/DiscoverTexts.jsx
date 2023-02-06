@@ -2,13 +2,16 @@ import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import { getCookie } from "cookies-next";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import { ENDPOINT } from "../../../helpers/constants";
 import Image from "next/image";
+import axios from "axios"
 import Link from "next/link";
 import styles from "./discoverTexts.module.css";
 
-const DiscoverTexts = ({ data }) => {
+const DiscoverTexts = () => {
   const router = useRouter();
   const token = getCookie("authtoken");
+  const [data, setData] = useState("")
 
   useEffect(() => {
     if (token === undefined) {
@@ -25,6 +28,19 @@ const DiscoverTexts = ({ data }) => {
     if (valueAdultContent) setExplicitContent(JSON.parse(valueAdultContent));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const discoverTexts = async () => {
+      const { data } = await axios.get(
+        `${ENDPOINT}/discover-texts`,
+        { headers: { authtoken: token } },
+        { withCredentials: true }
+      );
+      setData(data);
+    };
+     discoverTexts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div

@@ -20,6 +20,7 @@ import Post from "../../components/Post/Post";
 import NotificationBubble from "../../components/NotificationBubble/NotificationBubble";
 import Tab from "../../components/Tab/Tab";
 import Empty from "../../components/Empty/Empty";
+import Button from "../../components/Button/Button";
 
 const Feed = ({ posts }) => {
   const { data } = useRequest(`${ENDPOINT}/notification/length`)
@@ -36,12 +37,14 @@ const Feed = ({ posts }) => {
   const postsData = uniquePosts;
   const [active, setActive] = useState("feed");
   const [postsRecomended, setPostsRecomended] = useState([]);
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext)
+  console.log(active)
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
   useEffect(() => {
     try {
       const getPosts = async () => {
         const { data } = await axios.get(`${ENDPOINT}/surfing`);
+        console.log(data)
         setPostsRecomended(data);
       };
       getPosts();
@@ -103,18 +106,20 @@ const Feed = ({ posts }) => {
               gap: "15px",
             }}
           >
-            <Tab
-              onClick={() => setActive("feed")}
-              text="Tu feed"
-              variant="tab_nav"
-            />
-            <Tab
-              onClick={() => setActive("recomendaciones")}
-              text="Tendencias"
-              variant="tab_nav"
-            />
+            <div style={{width: "100%", height: "50px", background: theme ? "white" : "black", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", position: "absolute", top: 0 }}>
+              <Tab
+                onClick={() => setActive("feed")}
+                text="Tu feed"
+                variant="tab_nav"
+              />
+              <Tab
+                onClick={() => setActive("recomendaciones")}
+                text="Tendencias"
+                variant="tab_nav"
+              />
+            </div>
           </div>
-          {postsRecomended.length > 0 && active == "recomendaciones" ? (
+          {postsRecomended.length > 0 && active === "recomendaciones" ? (
             <div
               style={{
                 marginTop: "20px",
@@ -135,7 +140,7 @@ const Feed = ({ posts }) => {
             active === "feed" && (
               <div
                 style={{
-                  marginTop: "20px",
+                  marginTop: "35px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
@@ -150,7 +155,7 @@ const Feed = ({ posts }) => {
                       marginTop: "25%",
                     }}
                   >
-                    <Empty 
+                    <Empty
                       text="Este es tu feed, aún no sigues a nadie. Crea un post, o explora usuarios y publicaciones en la aplicación!"
                     />
                   </div>
@@ -183,12 +188,13 @@ export async function getServerSideProps({ req, res }) {
     deleteCookie("authtoken");
     setCookie("authtoken", token, { req, res, maxAge: 1815050 });
 
-    const response = await fetch(`${ENDPOINT}/posts`, { method: "GET",
-        headers: {
-          authtoken: token,
-        },
-        credentials: "include",
-      }
+    const response = await fetch(`${ENDPOINT}/posts`, {
+      method: "GET",
+      headers: {
+        authtoken: token,
+      },
+      credentials: "include",
+    }
     );
     const posts = await response.json();
     return {

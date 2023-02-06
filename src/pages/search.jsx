@@ -27,14 +27,17 @@ import DiscoverVideos from "../components/Discover/Videos/DiscoverVideos";
 import DiscoverStreamings from "../components/Discover/Streamings/DiscoverStreamings";
 
 const Search = ({ posts }) => {
-  const router = useRouter()
-  const [active, setActive] = useState("Imagenes")
-  const { data } = useRequest(`${ENDPOINT}/notification/length`)
   const { theme } = useContext(ThemeContext);
   const token = getCookie("authtoken");
+  const router = useRouter()
+  const [active, setActive] = useState("Imagenes")
+
+  const { data } = useRequest(`${ENDPOINT}/notification/length`)
+  
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
 
+  const [texts, setTexts] = useState([]);
   useEffect(() => {
 
     const searchQuery = async () => {
@@ -115,10 +118,10 @@ const Search = ({ posts }) => {
               <DiscoverImages data={posts} />
             )}
             {active === "Videos" && (
-              <DiscoverVideos data={posts} />
+              <DiscoverVideos />
             )}
             {active === "Streamings" && (
-              <DiscoverStreamings data={posts} />
+              <DiscoverStreamings />
             )}
             {/* {active === "NSFW" && (
               <DiscoverNSFW data={posts} />
@@ -140,7 +143,7 @@ export async function getServerSideProps({ req, res }) {
       res.end();
     }
     const response = await fetch(
-      `${ENDPOINT}/discover`,
+      `${ENDPOINT}/discover-images`,
       {
         method: "GET",
         headers: {

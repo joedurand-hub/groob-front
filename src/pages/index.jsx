@@ -38,16 +38,7 @@ const Feed = ({ posts }) => {
         </>
       }
     >
-        <div
-          style={{
-            marginTop: "20px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
+        <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%", }}>
           <Post data={posts} />
         </div>
     </Layout>

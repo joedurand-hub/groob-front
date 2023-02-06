@@ -4,15 +4,15 @@ import Icon from '../Icon/Icon'
 import { variantToStyles } from "../../helpers/variants"
 import { ThemeContext } from "../../contexts/ThemeContext"
 
-const Tab = ({ children, text, variant }) => {
+const Tab = ({ children, text, variant, onClick }) => {
   const { theme } = useContext(ThemeContext)
 
   return (
-    <div className={theme ? variantToStyles(styles.tab, styles[variant])
+    <div onClick={onClick} className={theme ? variantToStyles(styles.tab, styles[variant])
       : variantToStyles(styles.icon_dark_mode, styles[variant])
     }>
-      <p className={theme ? `${styles.text} light_mode`
-        : `${styles.text} dark_mode`}>
+      <p className={theme ? `${styles.text} ${styles.light}`
+        : `${styles.text} ${styles.dark}`}>
         {text}
       </p>
       {children && (

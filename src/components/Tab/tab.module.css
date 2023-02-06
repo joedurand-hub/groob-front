@@ -3,8 +3,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0;
     margin: 3px;
     height: 32px;
+    max-height: 32px;
+}
+
+.tab:hover p {
+    color: white;
 }
 
 .text {
@@ -14,7 +20,28 @@
     background: transparent;
 }
 
+.light {
+    color: black;
+}
+
+.light:hover {
+    color: white
+}
+
+.light:focus {
+    color: white
+}
+
+.light:active {
+    color: white
+}
+
+.dark {
+    color: white
+}
+
 .tab_nav {
+    color: white !important;
     border: 1px solid rgb(135, 16, 209);
     position: sticky;
     top: 0;
@@ -31,6 +58,16 @@
     background: rgb(135, 16, 209);
 }
 
-.tab_nav:hover p {
-    color: white;
+.tab_nav:focus {
+    border-radius: 25px;
+    cursor: pointer;
+    transition: ease-in-out 150ms;
+    background: rgb(135, 16, 209);
+}
+
+.tab_nav:active {
+    border-radius: 25px;
+    cursor: pointer;
+    transition: ease-in-out 150ms;
+    background: rgb(135, 16, 209);
 }

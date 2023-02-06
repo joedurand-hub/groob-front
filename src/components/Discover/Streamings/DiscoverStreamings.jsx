@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { ThemeContext } from "../../../contexts/ThemeContext";
+import Empty from "../../Empty/Empty";
 import styles from "./discoverStreaming.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +26,13 @@ const DiscoverStreamings = ({ data }) => {
     if (valueAdultContent) setExplicitContent(JSON.parse(valueAdultContent));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  if(data === undefined || data === null) {
+    return (
+      <div style={{top: "25%"}}>
+        <Empty text={"Sección en desarrollo. Próximamente disponible."}/>
+      </div>
+    )
+  }
   return (
     <div
       className={

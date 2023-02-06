@@ -10,7 +10,7 @@
 .light {
     background: white;
     color: black;
-    box-shadow: 2px 1px 18px 3px rgba(0,0,0,0.64);
+    box-shadow: 2px 1px 18px 3px rgba(0,0,0,0.15);
 }
 
 .dark {
@@ -23,4 +23,5 @@
     padding: 15px;
     font-weight: bold;
     font-size: 18px;
+    text-align: center;
 }

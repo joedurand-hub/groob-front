@@ -33,12 +33,13 @@ export default Index;
 export async function getServerSideProps({ req, res, query }) {
   try {
     const token = getCookie("authtoken", { req, res });
+    if (!token) {
+      res.writeHead(302, { Location: '/login' });
+      res.end();
+    }
     const { id } = query;
-    const response = await fetch(`${ENDPOINT}/post/${id}`,
-      {
-        headers: {
-          authtoken: token,
-        },
+    const response = await fetch(`${ENDPOINT}/post/${id}`, {
+        headers: { authtoken: token },
         credentials: "include",
       }
     );

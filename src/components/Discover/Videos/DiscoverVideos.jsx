@@ -5,6 +5,7 @@ import { ThemeContext } from "../../../contexts/ThemeContext";
 import styles from "./discoverVideos.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import Empty from "../../Empty/Empty";
 
 const DiscoverVideos = ({ data }) => {
   const router = useRouter();
@@ -25,6 +26,14 @@ const DiscoverVideos = ({ data }) => {
     if (valueAdultContent) setExplicitContent(JSON.parse(valueAdultContent));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+if(data === undefined || data === null) {
+  return (
+    <div style={{top: "25%"}}>
+      <Empty text={"Sección en desarrollo. Próximamente disponible."}/>
+    </div>
+  )
+}
 
   return (
     <div
