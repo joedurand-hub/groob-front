@@ -4,7 +4,6 @@ import Image from "next/image";
 import styles from "./profileById.module.css";
 import Button from "../Button/Button";
 import Follow from "../Follow/Follow";
-import Unfollow from "../Unfollow/Unfollow";
 import Icon from "../Icon/Icon";
 import { BsCashCoin } from "react-icons/bs";
 import GoVerified from "../GoVerified/Verified";
