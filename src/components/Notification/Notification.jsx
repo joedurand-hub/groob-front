@@ -16,26 +16,31 @@ const Notification = ({ notifications }) => {
     }
     return (
         <article className={styles.notifications}>
-            {
-                notifications?.map((notification, index) => {
-
+            {notifications?.map((notification, index) => {
                     if (notification.event === "le ha gustado tu post") {
                         return (
                             <div key={index}>
-                                <Link href={`/feed/${notification.link}`}
-                                    passHref
-                                >
+                                <Link href={`/feed/${notification.link}`} passHref >
                                     <div className={theme ? `${styles.container_notifications} light_mode`
                                         : `${styles.container_notifications} dark_mode`}>
-                                        <Image style={{ borderRadius: "50%" }} src={notification.profilePic} width={35} height={35}
-                                            alt={`Foto de perfil de ${notification.userName}`} />
-                                        <p className={theme ? `${styles.notification_text} light_mode` : `${styles.notification_text} dark_mode`}>
+                                        <Image style={{ borderRadius: "50%" }} 
+                                            src={notification.profilePic} 
+                                            width={35} height={35}
+                                            alt={`Foto de perfil de ${notification.userName}`} 
+                                            />
+                                        <p className={theme 
+                                            ? `${styles.notification_text} light_mode` 
+                                            : `${styles.notification_text} dark_mode`}>
                                             A <strong>{notification.userName}</strong>
                                         </p>
-                                        <p className={theme ? `${styles.notification_text} light_mode` : `${styles.notification_text} dark_mode`}>
+                                        <p className={theme 
+                                        ? `${styles.notification_text} light_mode` 
+                                        : `${styles.notification_text} dark_mode`}>
                                             {notification.event}
                                         </p>
-                                        <span className={theme ? `${styles.notification_date} light_mode` : `${styles.notification_date} dark_mode`}>
+                                        <span className={theme 
+                                        ? `${styles.notification_date} light_mode` 
+                                        : `${styles.notification_date} dark_mode`}>
                                             <strong>
                                                 {timeago(notification.date)}
                                             </strong>

@@ -20,7 +20,6 @@ import Post from "../../components/Post/Post";
 import NotificationBubble from "../../components/NotificationBubble/NotificationBubble";
 import Tab from "../../components/Tab/Tab";
 import Empty from "../../components/Empty/Empty";
-import Button from "../../components/Button/Button";
 
 const Feed = ({ posts }) => {
   const { data } = useRequest(`${ENDPOINT}/notification/length`)
@@ -38,8 +37,8 @@ const Feed = ({ posts }) => {
   const [active, setActive] = useState("feed");
   const [postsRecomended, setPostsRecomended] = useState([]);
   const { theme } = useContext(ThemeContext)
-  console.log(active)
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
+  
   useEffect(() => {
     try {
       const getPosts = async () => {
@@ -53,6 +52,7 @@ const Feed = ({ posts }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <Layout
       menuItem={
@@ -121,14 +121,7 @@ const Feed = ({ posts }) => {
           </div>
           {postsRecomended.length > 0 && active === "recomendaciones" ? (
             <div
-              style={{
-                marginTop: "20px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-              }}
+              style={{ marginTop: "20px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%", }}
             >
               <Post
                 data={postsRecomended}
@@ -187,12 +180,9 @@ export async function getServerSideProps({ req, res }) {
     }
     deleteCookie("authtoken");
     setCookie("authtoken", token, { req, res, maxAge: 1815050 });
-
     const response = await fetch(`${ENDPOINT}/posts`, {
       method: "GET",
-      headers: {
-        authtoken: token,
-      },
+      headers: { authtoken: token },
       credentials: "include",
     }
     );

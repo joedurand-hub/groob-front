@@ -12,6 +12,7 @@ import Post from "../components/Post/Post";
 const Feed = ({ posts }) => {
   return (
     <Layout
+      title={"Inicio | Groob"}
       menuItem={
         <>
           <Icon>
@@ -54,7 +55,7 @@ export async function getServerSideProps({ req, res }) {
       res.writeHead(200, { Location: '/feed' });
       res.end();
     }
-    const response = await fetch(`${ENDPOINT}/surfing`,
+    const response = await fetch(`${ENDPOINT}/posts-recomended`,
     );
     const posts = await response.json();
     return {

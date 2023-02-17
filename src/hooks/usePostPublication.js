@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
 
 const usePostPublication = () => {
-  const router = useRouter()
 
   const [postData, setPostData] = useState({
     data: undefined,

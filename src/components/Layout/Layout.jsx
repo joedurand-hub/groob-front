@@ -6,9 +6,8 @@ import MenuNav from "../MenuNav/MenuNav";
 import Anchor from "../Anchor/Anchor";
 import Image from "next/image";
 import styles from "./layout.module.css";
-import GoVerified from "../GoVerified/Verified";
 
-const Layout = ({ title, description, username, verified, menuItem, nav, children }) => {
+const Layout = ({ title, description, menuItem, nav, children }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
@@ -20,6 +19,7 @@ const Layout = ({ title, description, username, verified, menuItem, nav, childre
           href="/favicon.ico"
         />
         <meta name="description" content={description} />
+        
       </Head>
       <header>
         <MenuNav>
@@ -33,14 +33,6 @@ const Layout = ({ title, description, username, verified, menuItem, nav, childre
               />
             </Anchor>
           </li>
-          {/* <div className={styles.container_username_and_verify}>
-          <li>
-            <h3 className={styles.username}><strong>{username && username[0].toUpperCase() + username?.substring(1)}</strong></h3>
-          </li>
-            {verified && (
-              <GoVerified fontSize={22} marginTop={2} marginLeft={5}/>
-              )}
-              </div> */}
           <div className={styles.layout_container_links}>
             {menuItem}
             </div>
