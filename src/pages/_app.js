@@ -9,7 +9,6 @@ function Loading() {
   const { theme } = useContext(ThemeContext)
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
       const handleStart = (url) => (url !== router.asPath) && setLoading(true);
       const handleComplete = () => setLoading(false);

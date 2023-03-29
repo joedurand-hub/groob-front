@@ -1,13 +1,6 @@
 import { variantToStyles } from "../../helpers/variants";
 import styles from "./button.module.css";
-const Button = ({
-  name,
-  onSubmit,
-  onClick,
-  type,
-  variant = "primary",
-  disabled,
-}) => {
+const Button = ({ name, onSubmit, onClick, type, variant = "primary", disabled, }) => {
   return (
     <button
       type={type}
