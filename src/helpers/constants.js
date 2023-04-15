@@ -5,7 +5,7 @@ let URL;
 
 // if (DEPLOY === false) {
     if (process.env.REACT_ENV === 'production') {
-        ENDPOINT = "https://groob-back.onrender.com";
+        ENDPOINT = "https://groob-back-production.up.railway.app";
     } else {
         ENDPOINT = "http://localhost:8080";
     }
