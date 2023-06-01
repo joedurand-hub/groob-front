@@ -44,6 +44,8 @@ const ProfileById = ({ data, id }) => {
             width={500}
             height={700}
             quality={100}
+            onLoadingComplete={(img) => console.log(img.naturalWidth)}
+            priority
             objectFit="cover"
             alt="Image"
           />

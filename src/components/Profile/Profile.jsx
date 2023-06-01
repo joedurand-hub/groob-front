@@ -45,6 +45,8 @@ const Profile = ({ data }) => {
               src={data && data.profilePicture.secure_url}
               width={480}
               height={480}
+              priority
+              onLoadingComplete={(img) => console.log(img.naturalWidth)}
               objectFit="cover"
               alt={`Foto de perfil de ${data && data.userName}`}
             />

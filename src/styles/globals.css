@@ -90,8 +90,8 @@ input[type="checkbox"] {
 
 .light_mode {
   transition: all 0.50s linear;
-  background: #eeeeee;
-  color: #000;
+  background: #f5f5f5;
+  color: #050505;
 }
 
 .container_loader_light {

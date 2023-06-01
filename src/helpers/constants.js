@@ -9,14 +9,14 @@ let URL;
     } else {
         ENDPOINT = "http://localhost:8080";
     }
-    // DEPLOY = !DEPLOY
+    DEPLOY = !DEPLOY
 // }
 // if (DEPLOY === TRUE) {
-//     if (process.env.REACT_ENV === 'production') {
-//         ENDPOINT = "https://groob-back.onrender.com";
-//     } else {
-//         ENDPOINT = "http://localhost:8080";
-//     }
+    // if (process.env.REACT_ENV === 'production') {
+    //     ENDPOINT = "https://groob-back.onrender.com";
+    // } else {
+    //     ENDPOINT = "http://localhost:8080";
+    // }
 //     DEPLOY = !DEPLOY
 // }
 
@@ -26,8 +26,11 @@ if (process.env.REACT_ENV === 'production') {
 } else {
     URL = "http://localhost:3000";
 }
+
 export { ENDPOINT };
 export { URL };
+
+// ENDPOINTS IN THE FRONTEND ROUTES
 export const GET_PROFILE = "/profile"
 export const GET_PROFILE_BY_ID = "/profile/:id"
 export const UPDATE_PROFILE = "/profile"
@@ -36,5 +39,3 @@ export const UNFOLLOW = "/unfollow"
 export const GET_FOLLOWERS = "/followers"
 export const GET_FOLLOWINGS = "/followings"
 export const POST_PUBLICATION = "/post"
-
-// ENDPOINTS IN THE FRONTEND ROUTES

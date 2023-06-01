@@ -9,7 +9,7 @@ const Followings = ({follows}) => {
           follows === null ||
           follows === undefined
             ? 0
-            : follows?.length || (error && 0)}
+            : follows?.length}
         </strong>
       </span>
       {follows?.length === 1 ? (

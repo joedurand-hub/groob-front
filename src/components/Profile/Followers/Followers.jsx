@@ -8,7 +8,7 @@ const Followers = ({followers}) => {
         <strong className={styles.data_number}>
           {followers?.length === 0
             ? 0
-            : followers?.length || (error && 0)}
+            : followers?.length}
         </strong>
       </span>
       {followers?.length === 1 ? (
