@@ -9,7 +9,7 @@ let URL;
     } else {
         ENDPOINT = "http://localhost:8080";
     }
-    DEPLOY = !DEPLOY
+    // DEPLOY = !DEPLOY
 // }
 // if (DEPLOY === TRUE) {
     // if (process.env.REACT_ENV === 'production') {
