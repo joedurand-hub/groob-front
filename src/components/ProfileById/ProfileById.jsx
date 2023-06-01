@@ -36,7 +36,7 @@ const ProfileById = ({ data, id }) => {
             : `${styles.container} ${styles.dark_mode}`
         }
       >
-        {viewImage && (
+        {/* {viewImage && (
           <Image
             className={styles.open_user_profile_picture}
             onClick={() => setViewImage(!viewImage)}
@@ -49,9 +49,9 @@ const ProfileById = ({ data, id }) => {
             objectFit="cover"
             alt="Image"
           />
-        )}
+        )} */}
         <header className={styles.user_header}>
-          {!viewImage && (
+          {/* {!viewImage && (
             <div className={styles.container_profile_picture}>
               <Image
                 onClick={() => setViewImage(!viewImage)}
@@ -64,7 +64,7 @@ const ProfileById = ({ data, id }) => {
                 alt="Image"
               />
             </div>
-          )}
+          )} */}
           <div className={styles.container_user_data}>
             <div className={styles.container_username}>
               <h3>{data?.userName[0].toUpperCase() + data?.userName.substring(1)}</h3>
