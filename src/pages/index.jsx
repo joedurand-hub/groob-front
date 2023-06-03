@@ -9,7 +9,8 @@ import Nav from "../components/Nav/Nav";
 import NavItem from "../components/NavItem/NavItem";
 import Post from "../components/Post/Post";
 
-const Feed = ({ posts }) => {
+const Index = ({ posts }) => {
+  console.log(posts)
   return (
     <Layout
       title={"Inicio | Groob"}
@@ -39,6 +40,7 @@ const Feed = ({ posts }) => {
         </>
       }
     >
+      {/* <h1>HOLAA</h1> */}
         <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%", }}>
           <Post data={posts} />
         </div>
@@ -46,15 +48,10 @@ const Feed = ({ posts }) => {
   );
 };
 
-export default Feed;
+export default Index;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const token = getCookie("authtoken", { req, res });
-    if (token) {
-      res.writeHead(200, { Location: '/feed' });
-      res.end();
-    }
     const response = await fetch(`${ENDPOINT}/posts-recomended`,
     );
     const posts = await response.json();
