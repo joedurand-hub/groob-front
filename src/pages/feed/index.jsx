@@ -42,7 +42,7 @@ const Feed = ({ posts }) => {
   useEffect(() => {
     try {
       const getPosts = async () => {
-        const { data } = await axios.get(`${ENDPOINT}/surfing`);
+        const { data } = await axios.get(`${ENDPOINT}/posts-recomended`);
         console.log(data)
         setPostsRecomended(data);
       };
