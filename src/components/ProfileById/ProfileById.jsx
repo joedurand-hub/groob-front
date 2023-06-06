@@ -18,6 +18,9 @@ import Followers from "./Followers/Followers";
 import Followings from "./Followings/Followings";
 
 const ProfileById = ({ data, id }) => {
+  console.log(data)
+  console.log(id)
+
   const [viewImage, setViewImage] = useState(false)
   const [follow, setFollow] = useState(false)
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
@@ -36,7 +39,7 @@ const ProfileById = ({ data, id }) => {
             : `${styles.container} ${styles.dark_mode}`
         }
       >
-        {/* {viewImage && (
+        {viewImage && (
           <Image
             className={styles.open_user_profile_picture}
             onClick={() => setViewImage(!viewImage)}
@@ -49,9 +52,9 @@ const ProfileById = ({ data, id }) => {
             objectFit="cover"
             alt="Image"
           />
-        )} */}
+        )}
         <header className={styles.user_header}>
-          {/* {!viewImage && (
+          {!viewImage && (
             <div className={styles.container_profile_picture}>
               <Image
                 onClick={() => setViewImage(!viewImage)}
@@ -64,7 +67,7 @@ const ProfileById = ({ data, id }) => {
                 alt="Image"
               />
             </div>
-          )} */}
+          )}
           <div className={styles.container_user_data}>
             <div className={styles.container_username}>
               <h3>{data?.userName[0].toUpperCase() + data?.userName.substring(1)}</h3>
@@ -100,7 +103,13 @@ const ProfileById = ({ data, id }) => {
           <span>{data?.description}</span>
         </div>
         <div className={styles.container_buttons}>
-          {data?.followers?.includes(id) ? (<Unfollow id={data?._id} onClick={() => setFollow(!follow)} />) : (<Follow id={data?._id} onClick={() => setFollow(!follow)} />)}
+          {data?.followers?.includes(id) ? (
+          <Unfollow id={data?._id} onClick={() => setFollow(!follow)} />
+            ) 
+          : (
+          <Follow id={data?._id} onClick={() => setFollow(!follow)} />
+            )
+          }
           <CreateChat myId={id} userId={data?._id} />
           <Icon>
             <BsCashCoin onClick={openCardFiat} />

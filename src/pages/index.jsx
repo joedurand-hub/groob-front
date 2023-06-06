@@ -52,6 +52,11 @@ export default Index;
 
 export async function getServerSideProps({ req, res }) {
   try {
+    const token = getCookie("authtoken")
+    if (token) {
+      res.writeHead(302, { Location: '/feed' });
+      res.end();
+    }
     const response = await fetch(`${ENDPOINT}/posts-recomended`,
     );
     const posts = await response.json();
