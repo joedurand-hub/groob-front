@@ -18,9 +18,6 @@ import Followers from "./Followers/Followers";
 import Followings from "./Followings/Followings";
 
 const ProfileById = ({ data, id }) => {
-  console.log(data)
-  console.log(id)
-
   const [viewImage, setViewImage] = useState(false)
   const [follow, setFollow] = useState(false)
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);

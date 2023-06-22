@@ -22,7 +22,7 @@ let URL;
 
 
 if (process.env.REACT_ENV === 'production') {
-    URL = "https://groob.com.ar";
+    URL = "https://groob.app";
 } else {
     URL = "http://localhost:3000";
 }

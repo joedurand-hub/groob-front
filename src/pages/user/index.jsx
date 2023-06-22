@@ -65,7 +65,7 @@ const User = ({ data }) => {
           </>
         }
       >
-        {/* <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
+        <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
           <CreatePost
             closeModal={closeModalPost}
             mpAsociated={data?.mpAccountAsociated}
@@ -121,7 +121,7 @@ const User = ({ data }) => {
                 )}
             </>
           </>
-        )} */}
+        )}
       </Layout>
     </>
   );

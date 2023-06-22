@@ -40,7 +40,6 @@ const Index = ({ posts }) => {
         </>
       }
     >
-      {/* <h1>HOLAA</h1> */}
         <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%", }}>
           <Post data={posts} />
         </div>
@@ -52,7 +51,7 @@ export default Index;
 
 export async function getServerSideProps({ req, res }) {
   try {
-    const token = getCookie("authtoken")
+    const token = getCookie("authtoken", { req, res });
     if (token) {
       res.writeHead(302, { Location: '/feed' });
       res.end();
