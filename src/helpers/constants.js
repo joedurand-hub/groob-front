@@ -6,7 +6,7 @@ let URL;
 // if (DEPLOY === false) {
     if (process.env.REACT_ENV === 'production') {
         ENDPOINT = "https://groob-back-production.up.railway.app";
-    } else {
+    } else if(process.env.REACT_ENV === 'development') {
         ENDPOINT = "http://localhost:8080";
     }
     // DEPLOY = !DEPLOY
