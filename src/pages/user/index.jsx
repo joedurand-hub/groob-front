@@ -82,7 +82,7 @@ const User = ({ data }) => {
                   <BsFileEarmarkPost onClick={() => setTab("publications")} />
                 </Tab>
               )}
-              { (
+              {data?.mpAccountAsociated && (
                 <Tab text="Exclusivos">
                   <RiVipDiamondFill onClick={() => setTab("products")} />
                 </Tab>

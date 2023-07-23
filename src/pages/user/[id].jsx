@@ -24,6 +24,7 @@ import Tab from "../../components/Tab/Tab";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 
 const ProfileById = ({ data }) => {
+  console.log("data en ID", data)
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
@@ -59,36 +60,38 @@ const ProfileById = ({ data }) => {
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
         <CreatePost
           closeModal={closeModalPost}
-          mpAsociated={data?.profileData.mpAccountAsociated}
+          mpAsociated={data?.mpAccountAsociated}
         />
       </Modal>
       {open ? (
-        <Menu valueSwitch={data?.profileData.explicitContent} id={data?.myId} />
+        <Menu valueSwitch={data?.explicitContent} id={data?.myId} />
       ) : (
         <>
-          <Profile data={data?.profileData} id={data?.myId} />
+          <Profile data={data} id={data?.myId} />
           <div style={{ display: "flex", marginTop: "10px", gap: "20px" }}>
             {(
-              <>
-              <Tab text="Posts">
-                <BsFileEarmarkPost onClick={() => setTab("publications")} />
-              </Tab>
-         
-              <Tab text="Exclusivos">
-                <RiVipDiamondFill onClick={() => setTab("products")} />
-              </Tab>
-           
-              <Tab text="Favoritos">
-                <BiHeart onClick={() => setTab("favourites")} />
-              </Tab>
-              </>
+            <Tab text="Posts">
+              <BsFileEarmarkPost onClick={() => setTab("publications")} />
+            </Tab>
+            )}
+
+            {data?.mpAccountAsociated && (
+            <Tab text="Exclusivos">
+              <RiVipDiamondFill onClick={() => setTab("products")} />
+            </Tab>
+            )}
+
+            {(
+            <Tab text="Favoritos">
+              <BiHeart onClick={() => setTab("favourites")} />
+            </Tab>
             )}
           </div>
           {tab === "publications" && (
-            <Publications userId={data?.profileData._id} myId={data?.myId} />
+            <Publications userId={data?._id} myId={data?.myId} />
           )}
-          {tab === "products" && <Products myId={data?.profileData._id} />}
-          {tab === "favourites" && <Favourites/>}
+          {tab === "products" && <Products myId={data?._id} />}
+          {tab === "favourites" && <Favourites />}
         </>
       )}
     </Layout>
