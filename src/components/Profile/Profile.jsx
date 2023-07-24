@@ -42,13 +42,13 @@ const Profile = ({ data }) => {
           <div className={styles.container_profile_picture}>
             <Image
               className={styles.user_profile_picture}
-              src={data && data.profilePicture.secure_url}
+              src={data ? data.profilePicture.secure_url : "https://res.cloudinary.com/groob/image/upload/v1661108370/istoremovebg-preview_hzebg1.png"}
               width={480}
               height={480}
               priority
               onLoadingComplete={(img) => console.log(img.naturalWidth)}
               objectFit="cover"
-              alt={`Foto de perfil de ${data && data.userName}`}
+              alt={`Foto de perfil de ${data?.userName}`}
             />
 
             <UpdatePicture id={data?._id} />

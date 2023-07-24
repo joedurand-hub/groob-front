@@ -43,7 +43,6 @@ const Feed = ({ posts }) => {
     try {
       const getPosts = async () => {
         const { data } = await axios.get(`${ENDPOINT}/posts-recomended`);
-        console.log(data)
         setPostsRecomended(data);
       };
       getPosts();
@@ -157,7 +156,6 @@ const Feed = ({ posts }) => {
                     data={postsData}
                     myId={posts?.myId}
                     myUserExplicitContent={posts?.myUserExplicitContent}
-                    isVerified={posts?.verified}
                   />
                 )}
               </div>
