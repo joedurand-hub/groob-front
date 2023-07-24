@@ -7,18 +7,20 @@ import Image from "next/image";
 import axios from "axios"
 import Link from "next/link";
 import styles from "./discoverTexts.module.css";
+import Posts from "../../Post/Post";
 
 const DiscoverTexts = () => {
   const router = useRouter();
   const token = getCookie("authtoken");
   const [data, setData] = useState("")
+  console.log(data)
 
   useEffect(() => {
     if (token === undefined) {
       return router.push("/register");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [data]);
 
   const { theme } = useContext(ThemeContext);
   const [explicitContent, setExplicitContent] = useState("");
@@ -50,30 +52,7 @@ const DiscoverTexts = () => {
           : `${styles.container_discover} dark_mode`
       }
     >
-      {data?.orderByDate?.map((post, index) => {
-        return (
-          <>
-            <Link href={`/feed/${post._id}`} passHref>
-              <div key={index} className={styles.discover}>
-                {post.images?.map((image, index) => (
-                  <div key={index}>
-                    {index === 0 && (
-                      <Image
-                        key={index}
-                        src={image.secure_url}
-                        width={500}
-                        height={600}
-                        objectFit="cover"
-                        alt={`Post de ${post.userName}`}
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </Link>
-          </>
-        );
-      })}
+       <Posts data={data}/>
     </div>
   );
 };

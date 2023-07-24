@@ -18,6 +18,8 @@ import Followers from "./Followers/Followers";
 import Followings from "./Followings/Followings";
 
 const ProfileById = ({ data, id }) => {
+  console.log("el id", id)
+  console.log("data en profile component", data)
   const [viewImage, setViewImage] = useState(false)
   const [follow, setFollow] = useState(false)
   const [isOpenCardFiat, openCardFiat, closeCardFiat] = useCard(false);
@@ -40,7 +42,7 @@ const ProfileById = ({ data, id }) => {
           <Image
             className={styles.open_user_profile_picture}
             onClick={() => setViewImage(!viewImage)}
-            src={data?.profilePicture.secure_url}
+            src={data ? data.profilePicture.secure_url : "https://res.cloudinary.com/groob/image/upload/v1661108370/istoremovebg-preview_hzebg1.png"}
             width={500}
             height={700}
             quality={100}
@@ -56,7 +58,7 @@ const ProfileById = ({ data, id }) => {
               <Image
                 onClick={() => setViewImage(!viewImage)}
                 className={styles.user_profile_picture}
-                src={data?.profilePicture.secure_url}
+                src={data ? data.profilePicture.secure_url : "https://res.cloudinary.com/groob/image/upload/v1661108370/istoremovebg-preview_hzebg1.png"}
                 width={225}
                 height={225}
                 quality={80}
@@ -82,13 +84,14 @@ const ProfileById = ({ data, id }) => {
                     {(data && data?.publications.length === 0) ||
                       data?.publications === null ||
                       data?.publications === undefined
-                      ? 0
+                      ? "0"
                       : data.publications?.length}
                   </strong>
                 </span>
-                {data?.publications.length === 1 && <span className={styles.data}>Publicación</span>}
-                {data?.publications.length === 0 || data?.publications.length > 1 && (
-                  <span className={styles.data}>Publicac...</span>)}
+                <span className={styles.data}>Pubica...</span>
+                {/* {data.publications.length === 1 && <span className={styles.data}>Publicación</span>} */}
+                {/* {data.publications.length < 1 || data?.publications.length > 1 && (
+                  <span className={styles.data}>Publicac...</span>)} */}
               </div>
 
               <Followings followings={data?.followings} />

@@ -24,6 +24,7 @@ import Tab from "../../components/Tab/Tab";
 import OpenModalPost from "../../components/CreatePost/OpenModalPost/OpenModalPost";
 
 const ProfileById = ({ data }) => {
+  console.log("data en ruta", data)
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("publications");
   const [isOpenModalPost, openModalPost, closeModalPost] = useModal(false);
@@ -59,14 +60,14 @@ const ProfileById = ({ data }) => {
       <Modal isOpen={isOpenModalPost} closeModal={closeModalPost}>
         <CreatePost
           closeModal={closeModalPost}
-          mpAsociated={data?.mpAccountAsociated}
+          mpAsociated={data?.profileData.mpAccountAsociated}
         />
       </Modal>
       {open ? (
-        <Menu valueSwitch={data?.explicitContent} id={data?.myId} />
+        <Menu valueSwitch={data?.profileData.explicitContent} id={data?.profileData.myId} />
       ) : (
         <>
-          <Profile data={data} id={data?.myId} />
+          <Profile data={data?.profileData} id={data?.profileData.myId} />
           <div style={{ display: "flex", marginTop: "10px", gap: "20px" }}>
             {(
             <Tab text="Posts">
@@ -74,7 +75,7 @@ const ProfileById = ({ data }) => {
             </Tab>
             )}
 
-            {data?.mpAccountAsociated && (
+            {data?.profileData.mpAccountAsociated && (
             <Tab text="Exclusivos">
               <RiVipDiamondFill onClick={() => setTab("products")} />
             </Tab>
@@ -87,9 +88,9 @@ const ProfileById = ({ data }) => {
             )}
           </div>
           {tab === "publications" && (
-            <Publications userId={data?._id} myId={data?.myId} />
+            <Publications userId={data?.profileData._id} myId={data?.myId} />
           )}
-          {tab === "products" && <Products myId={data?._id} />}
+          {tab === "products" && <Products myId={data?.profileData._id} />}
           {tab === "favourites" && <Favourites />}
         </>
       )}
@@ -111,7 +112,7 @@ export async function getServerSideProps({ req, res, query }) {
       `${ENDPOINT}/profile/${id}`,
       {
         headers: {
-          authtoken: token,
+          authtoken: token, 
         },
         credentials: "include",
       }

@@ -112,7 +112,7 @@ const Search = ({ posts }) => {
               {/* <Tab onClick={() => setActive("NSFW")} text="NSFW" variant="tab_nav" /> */}
             </div>
             {active === "Textos" && (
-              <DiscoverTexts data={posts} />
+              <DiscoverTexts />
             )}
             {active === "Imagenes" && (
               <DiscoverImages data={posts} />

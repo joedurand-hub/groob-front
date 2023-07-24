@@ -9,6 +9,8 @@ import { Toaster, toast } from "react-hot-toast";
 import Empty from "../../Empty/Empty";
 
 const Publications = ({ userId, myId }) => {
+  console.log("userId", userId)
+  console.log("myId", myId)
   const { theme } = useContext(ThemeContext);
   const { data, loading, error } = useRequest(
     `${ENDPOINT}/posts/${userId}`
