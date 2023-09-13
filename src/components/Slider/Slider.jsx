@@ -30,7 +30,8 @@ const Slider = ({ allImages, userExplicitContent, nsfw, price }) => {
     (userExplicitContent === true && nsfw === true && price > 0) ||
     (nsfw === true && price > 0) ||
     (userExplicitContent === false && nsfw === true && price > 0) ||
-    (!token && nsfw === true && price > 0)
+    (!token && nsfw === true && price > 0) ||
+    (!token && nsfw === true)
   ) {
     return (
       <div
