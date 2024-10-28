@@ -5,26 +5,26 @@ let URL;
 
 // if (DEPLOY === false) {
 // if (process.env.REACT_ENV === 'production') {
-//     ENDPOINT = "https://groob-back-production.up.railway.app";
+//     ENDPOINT = process.env.URL_PRODUCTION;
 // } else if(process.env.REACT_ENV === 'development') {
-//     ENDPOINT = "http://localhost:8080";
+//     ENDPOINT = URL_DEVELOPMENT;
 // }
 // DEPLOY = !DEPLOY
 // }
 // if (DEPLOY === TRUE) {
 if (process.env.REACT_ENV === 'production') {
-    ENDPOINT = "https://groob.onrender.com";
+    ENDPOINT = process.env.BASE_URL_PRODUCTION;
 } else {
-    ENDPOINT = "http://localhost:8080";
+    ENDPOINT = process.env.BASE_URL_DEVELOPMENT;
 }
 //     DEPLOY = !DEPLOY
 // }
 
 
 if (process.env.REACT_ENV === 'production') {
-    URL = "https://groob.app";
+    URL = process.env.BASE_URL_PRODUCTION;
 } else {
-    URL = "http://localhost:3000";
+    URL = process.env.BASE_URL_DEVELOPMENT;
 }
 
 export { ENDPOINT };
